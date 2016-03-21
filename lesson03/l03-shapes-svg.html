@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<!--	
+<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/solarized-dark.css">
+<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
+<link rel="stylesheet" href="css/solarized-dark.css">
+<link rel="stylesheet" href="css/course.css">
+<style>
+    .rectangle {
+   fill:darkred;
+  stroke:black;
+  stroke-width:5;
+  opacity:0.5;
+}
+    </style>
+</head>
+<body>
+<div id="main" class="splash">
+<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+<div id="header"><img src="images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Shapes with SVG</h1>
+                        
+			<hr />
+			<div class="callout">
+			<h3>What is SVG?</h3>
+    <p>SVG stands for <b>Scalable Vector Graphics</b>. It is actually an XML format where the image is described through a series of vectors (If you remember from Algebra, a vector is just a line with direction) Most other image formats are bitmap: a collection of colored dots.  Since SVG is just a bunch of lines, and lines can easily be lengthened and shortened, SVG images have the advantage of being <b>resolution independent</b>. They scale up and down with no degradation in quality.</p>
+    <p>The other really cool thing about SVG graphics is that they can be modified with CSS!</p>
+    <p>If you have not yet done so...take some time right now and do the reading this week on SVG: <a href="https://www.sitepoint.com/premium/books/jump-start-html5/online/ch17.html" target="_blank">Jump Start HTML: Ch17-18</a> and then look through the <a href="http://www.w3schools.com/svg/svg_inhtml.asp" target="_blank"> W3Schools SVG tutorial</a></p>
+    </div>
+			<h2>Activity</h2>
+			<p>SVG is a large topic that we don't have time in this class to fully explore.  My goal is to help you learn enough to be comfortable using an SVG graphic in a webpage. With that in mind lets start with some review from the reading.</p>
+			
+			<h3>Adding an SVG image to your page</h3>
+			<p>The reading mentioned several ways to get an svg added.  You can add them as an <kbd>&lt;object&gt;</kbd>, an <kbd>&lt;embed&gt;</kbd>, an <kbd>&lt;img&gt;</kbd>, as a background image in css, or inline using the <kbd>&lt;svg&gt;</kbd> element</p>
+			<p>To keep things simple I am going to focus on the inline method using <kbd>&lt;svg&gt;</kbd></p>
+    <p>The W3Schools <a href="http://www.w3schools.com/svg/svg_inhtml.asp" target="_blank">SVG tutorial</a> gives this as it's first example:</p>
+			<pre><code class="html">
+            &lt;svg width="100" height="100"&gt;
+              &lt;circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /&gt;
+            &lt;/svg&gt;
+			</code></pre>
+			<p class="callout">This introduces us to the <kbd>&lt;svg&gt;</kbd> element.  I would recommend that you copy the code snippet above into Codepen and follow along and experiment with me. It will be really important that you try this...don't just read the activity...do it!</p>
+			
+			<p>Notice the width and height set on it.  Width and height with svg takes a bit of explanation.  You will get part of that now and part later.  Change the width to 120.  Did the result match what you expected?  Probably not. The width and height set on the <kbd>&lt;svg&gt;</kbd> element sets the size of the container that our image will be drawn in.  If we set a border on it you can see this more clearly.  Lets do that.</p>
+			<p>We mentioned that one of the advantages of SVG is that you can modify them with CSS.  Lets try it.  Modify your html to look like this:</p>
+			<pre><code class="html">
+            &lt;svg class="svgcontainer"&gt;
+              &lt;circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /&gt;
+            &lt;/svg&gt;
+			</code></pre>
+			<p>And add this to your CSS in Codepen:</p>
+			<pre><code class="css">
+            .svgcontainer {
+                width: 100px;
+                height: 100px;
+                border: 1px solid;
+            }
+			</code></pre>
+			
+			<p>Try changing the values on the circle now.  Change r to 60 for example.  Now what happened? Your circle is bigger than the box now.</p>
+			<h3>Combining shapes (circle, line, rect, path)</h3>
+			<p>You should have noticed from your reading that circle is not the only shape SVG provides us with.  There are many others I encourage you to play around with including rectangle, polygon, line, and path.  Their shapes can be combined as well.  For example add the following to your html in Codepen.</p>
+			<pre><code class="html">
+            &lt;svg width="400" height="180"&gt;
+              &lt;rect x="50" y="20" rx="20" ry="20" width="150" height="150" class="rectangle"/&gt;
+              &lt;circle cx="125" cy="95" r="30" stroke="darkred" stroke-width="4" fill="white" /&gt;
+            &lt;/svg&gt;
+            </code></pre>
+            <p>We will need the following css added as well.</p>
+            <pre><code class="css">
+            .rectangle {
+                  fill:darkred;
+                  stroke:black;
+                  stroke-width:5;
+                  opacity:0.5;
+            }
+			</code></pre>
+			
+			<div class="callout">
+            <p>You should see something like this:</p>
+			    <figure><svg width="200" height="180">
+  <rect x="20" y="20" rx="20" ry="20" width="150" height="150" class="rectangle"/>
+  <circle cx="95" cy="95" r="30" stroke="darkred" stroke-width="4" fill="white" />
+                    </svg></figure>
+                    
+        <p>With the polygon shape we could also do something like this:</p>
+        <figure>
+        <svg height="210" width="200">
+  <polygon points="100,10 40,198 190,78 10,78 160,198"
+  style="fill:yellow;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+            </svg></figure>
+			</div>
+			<h3>Grouping</h3>
+			<p>As we start getting more SVG objects making up our shapes it would be nice to be able to organize and group them. Luckily there are a few ways to do this in svg.</p>
+			<p>The first way is to use the <kbd>&lt;g&gt;</kbd> element.   Try adding the following code to codepen</p>
+			<pre><code class="html">
+&lt;svg class="birdcontainer" viewBox="0 0 200 200"&gt;
+    &lt;style&gt;
+        svg{background-color:white;}
+        #wing{fill:#81CCAA;}
+        #body{fill:#B8E4C2;}
+        #pupil{fill:#1F2600;}
+        #beak{fill:#F69C0D;}
+        .eye-ball{fill:#F6FDC4;}
+        
+    &lt;/style&gt;
+    &lt;g id="bird"&gt;
+        &lt;g id="body"&gt;
+            &lt;path d="M48.42,78.11c0-17.45,14.14-31.58,31.59-31.58s31.59,14.14,31.59,31.58c0,17.44-14.14,31.59-31.59,31.59
+            S48.42,95.56,48.42,78.11"/&gt;
+            &lt;path d="M109.19,69.88c0,0-8.5-27.33-42.51-18.53c-34.02,8.81-20.65,91.11,45.25,84.73
+            c40.39-3.65,48.59-24.6,48.59-24.6S124.68,106.02,109.19,69.88"/&gt;
+            &lt;path id="wing" d="M105.78,75.09c4.56,0,8.84,1.13,12.62,3.11c0,0,0.01-0.01,0.01-0.01l36.23,12.38c0,0-13.78,30.81-41.96,38.09
+            c-1.51,0.39-2.82,0.59-3.99,0.62c-0.96,0.1-1.92,0.16-2.9,0.16c-15.01,0-27.17-12.17-27.17-27.17
+            C78.61,87.26,90.78,75.09,105.78,75.09"/&gt;
+        &lt;/g&gt;
+        &lt;g id="head"&gt;
+            &lt;path id="beak" d="M50.43,68.52c0,0-8.81,2.58-10.93,4.86l9.12,9.87C48.61,83.24,48.76,74.28,50.43,68.52"/&gt;
+            &lt;path class="eye-ball" d="M60.53,71.68c0-6.33,5.13-11.46,11.46-11.46c6.33,0,11.46,5.13,11.46,11.46c0,6.33-5.13,11.46-11.46,11.46
+                C65.66,83.14,60.53,78.01,60.53,71.68"/&gt;
+            &lt;path id="pupil" d="M64.45,71.68c0-4.16,3.38-7.53,7.54-7.53c4.16,0,7.53,3.37,7.53,7.53c0,4.16-3.37,7.53-7.53,7.53
+                C67.82,79.22,64.45,75.84,64.45,71.68"/&gt;
+            &lt;path class="eye-ball" d="M72.39,74.39c0-2.73,2.22-4.95,4.95-4.95c2.73,0,4.95,2.21,4.95,4.95c0,2.74-2.22,4.95-4.95,4.95
+                C74.6,79.34,72.39,77.13,72.39,74.39"/&gt;
+        &lt;/g&gt;
+    &lt;/g&gt;
+&lt;/svg&gt;
+			</code></pre>
+			<div class="callout">
+			    <p>This will make a shape like this:</p>
+			    <figure>
+			    <svg class="birdcontainer" width="200" viewBox="0 0 200 200">
+    <style>
+        svg{background-color:white;}
+        #wing{fill:#81CCAA;}
+        #body{fill:#B8E4C2;}
+        #pupil{fill:#1F2600;}
+        #beak{fill:#F69C0D;}
+        .eye-ball{fill:#F6FDC4;}
+        
+    </style>
+    <g id="bird">
+        <g id="body">
+            <path d="M48.42,78.11c0-17.45,14.14-31.58,31.59-31.58s31.59,14.14,31.59,31.58c0,17.44-14.14,31.59-31.59,31.59
+            S48.42,95.56,48.42,78.11"/>
+            <path d="M109.19,69.88c0,0-8.5-27.33-42.51-18.53c-34.02,8.81-20.65,91.11,45.25,84.73
+            c40.39-3.65,48.59-24.6,48.59-24.6S124.68,106.02,109.19,69.88"/>
+            <path id="wing" d="M105.78,75.09c4.56,0,8.84,1.13,12.62,3.11c0,0,0.01-0.01,0.01-0.01l36.23,12.38c0,0-13.78,30.81-41.96,38.09
+            c-1.51,0.39-2.82,0.59-3.99,0.62c-0.96,0.1-1.92,0.16-2.9,0.16c-15.01,0-27.17-12.17-27.17-27.17
+            C78.61,87.26,90.78,75.09,105.78,75.09"/>
+        </g>
+        <g id="head">
+            <path id="beak" d="M50.43,68.52c0,0-8.81,2.58-10.93,4.86l9.12,9.87C48.61,83.24,48.76,74.28,50.43,68.52"/>
+            <path class="eye-ball" d="M60.53,71.68c0-6.33,5.13-11.46,11.46-11.46c6.33,0,11.46,5.13,11.46,11.46c0,6.33-5.13,11.46-11.46,11.46
+                C65.66,83.14,60.53,78.01,60.53,71.68"/>
+            <path id="pupil" d="M64.45,71.68c0-4.16,3.38-7.53,7.54-7.53c4.16,0,7.53,3.37,7.53,7.53c0,4.16-3.37,7.53-7.53,7.53
+                C67.82,79.22,64.45,75.84,64.45,71.68"/>
+            <path class="eye-ball" d="M72.39,74.39c0-2.73,2.22-4.95,4.95-4.95c2.73,0,4.95,2.21,4.95,4.95c0,2.74-2.22,4.95-4.95,4.95
+                C74.6,79.34,72.39,77.13,72.39,74.39"/>
+        </g>
+    </g>
+                    </svg>
+                    <figcaption>Image from https://sarasoueidan.com/blog/structuring-grouping-referencing-in-svg/</figcaption></figure>
+        <p>Notice how the parts of the bird are grouped together into units that can then be styled.  Try changing adding a css rule for #bird and add a stroke...what happened?</p>
+			</div>
+			
+			<h4>Patterns</h4>
+			<p>Patterns are another way to group svg objects.  they have a specific purpose as well.  To create background patterns to use in other SVG objects.  Lets take a look at an example.  We will use the square shape we made earlier and change it to a pattern.  In order to use patterns we need to add a new section to our svg...the <kbd>&lt;def&gt;</kbd>.</p>
+			<pre><code>
+ &lt;svg width="200" height="200"&gt; 
+    &lt;!-- define pattern --&gt;
+    &lt;defs&gt;
+      &lt;pattern id="mypattern" patternUnits="userSpaceOnUse" x="0" y="0" width="50" height="50"&gt;
+        &lt;rect x="0" y="0" width="50" rx="10" ry="10" height="50" class="rectangle" /&gt; 
+        &lt;circle cx="25" cy="25" r="8" fill="white" stroke="darkred" stroke-width="2" /&gt;
+
+      &lt;/pattern&gt;
+    &lt;/defs&gt;
+
+    &lt;!-- use pattern in a circle --&gt;
+    &lt;circle cx="100" cy="100" r="100" fill="url(#mypattern)" stroke-width="1" stroke="black" /&gt;
+&lt;/svg&gt;
+			</code></pre>
+			<div class="callout">
+			    <p>This would produce:</p>
+			    <figure>
+			        <svg width="200" height="200"> 
+<!-- define pattern -->
+<defs>
+  <pattern id="mypattern" patternUnits="userSpaceOnUse" x="0" y="0" width="50" height="50">
+    <rect x="0" y="0" width="50" rx="10" ry="10" height="50" class="rectangle" /> 
+    <circle cx="25" cy="25" r="8" fill="white" stroke="darkred" stroke-width="2" />
+    
+  </pattern>
+</defs>
+
+<!-- use pattern in a circle -->
+<circle cx="100" cy="100" r="100" fill="url(#mypattern)" stroke-width="1" stroke="black" />
+    </svg>
+			    </figure>
+			    <p>Try changing the pattern up.  See what you can come up with.</p>
+			</div>
+			<h3>Complex SVG</h3>
+    <div class="callout">
+     <p>SVG can be used for very complex images.  Most of those are not made by building them by hand however.  They are made with an editor.  The most popular SVG editor is Adobe Illustrator.  Another good but free option is called <a href="https://inkscape.org/en/" target="_blank">Inkscape</a>.  Drawing with vectors to create complex SVG images is not for the faint of heart however! There is a pretty big learning curve (If you are interested look into Comm 305: Vector Graphics). Luckily there is a lot of SVG available out in the internet that is free to use.  Lets look at what it might take to get it onto our page.</p>
+    </div>
+    <p>For this I am going to use resources available at <a href="https://icomoon.io/app/#/select" target="_blank">icomoon.io</a>. This site offers a lot of good free icons you can use.  Go ahead and select a few you like then click on the "Generate SVG &amp; More" button.  After that hit the Download button and browse to your downloads folder to find the svg you requested.</p>
+    <div class="callout">
+        <figure><img src="images/icomoon-dl.png" alt="Example of icomoon dowload file structure"><figcaption>Downloaded folder from Icomoon</figcaption></figure>
+    </div>
+    <p>In the folder that downloaded you actually have 3 options for how to include the downloaded svg icons.  The first is inline, just like I have done above, almost.  If you look at the <kbd>demo.html</kbd> file you can see examples of how to do that.</p>
+    <div class="callout"><p>Notice that all the icons are defined together using the <kbd>&lt;symbol&gt;</kbd> tag.  Here is an example of one of them.</p>
+    <pre><code class="html">
+&lt;symbol id="icon-plane" viewBox="0 0 1024 1024"&gt;
+&lt;title&gt;plane&lt;/title&gt;
+&lt;path class="path1" d="M496.672 125.12c26.496 0 48 21.504 48 48v248l320 200v86.016l-320-108v168l65.248 64.928-0.032 66.688-113.216-37.632-111.584 37.76 0.48-70.048 61.12-59.68 0.544-169.984-319.904 109.952 0.672-88 320.224-202.016 0.512-246.016c-0.064-26.464 21.44-47.968 47.936-47.968z"&gt;&lt;/path&gt;
+&lt;/symbol&gt;        
+    </code></pre>
+    <p>To use the svg later in the document you would take advantage of the <kdb>&lt;use&gt;</kdb> element.  Here is another example.</p>
+    <pre><code class="html">
+        &lt;svg class="icon icon-plane"&gt;
+          &lt;use xlink:href="#icon-plane"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    </code></pre>
+    <p>This is great for reusability.  The svg only has to be defined once, but can be used as many times as needed with this method.</p>
+    </div>
+    <p>The second way would be to take advantage of the <kbd>.svg</kbd> files in the <kdb>SVG</kdb> folder.  Those can be used just like any other image. Added as the src in an <kbd>&lt;img&gt;</kbd> tag or as a background image in css. The biggest disadvantage of adding SVG as an image is that you cannot style them with css.  You can style background images however.</p>
+    <div class="callout">
+        <pre><code class="html">
+            &lt;img src="svg/plane.svg" alt="SVG image of a plane">
+        </code></pre>
+        <p>...or...</p>
+        <pre><code class="css">
+            background: url("svg/plane.svg");
+        </code></pre>
+    </div>
+    <p>The third way can be seen in the <kbd>demo-external.html</kbd> file.  All the SVG is in an external SVG file called <kbd>symbol-defs.svg</kbd>.  You can see how they are loaded in the .html file.  This method has several advantages such as separation of the images from the html and enabling caching of the svgs.</p>
+    <h2>Compatibility</h2>
+    <p>The basic functionality of SVG has very broad support in all the major browsers.  There are a few things to watch out for however.</p>
+    <p>External SVG with the <kbd>&lt;use&gt;</kbd> element is not supported in Internet Explorer.  You would have to use a polyfill if you wanted to take advantage of those methods of including svg.  One was actually included with the bundle we downloaded from Icomoon...<kbd>svgxuse.js</kbd></p>
+    <h2>Conclusion</h2>
+    <p>A lot of concepts were just introduced...and we have only scratched the surface of SVG.  It is a very powerful and deep topic, and as mentioned at the beginning of this activity this was only intended to be an introduction.  In the responsive world we currently live in where a website will be viewed on screens of anywhere from 100px to 5000px across, the features SVG brings are fantastic.  I encourage you to practice with what was pretented here and then dig a bit deeper.</p>
+			
+			
+			
+		</div><!-- end #article -->
+	</div>
+<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>
+<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/highlight.pack.js"></script>
+-->
+<script src="js/course.js"></script>
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

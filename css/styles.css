@@ -1,0 +1,10 @@
+/********************************************************
+    The purpose of styles.css is to house only the code
+    specific to an individual course. The superstyles.css
+    houses all the default template formatting.
+********************************************************/
+/* DO NOT DELETE OR MODIFY THIS IMPORT */
+@import url('superstyle.css');
+
+/* Add your course specific css below */
+

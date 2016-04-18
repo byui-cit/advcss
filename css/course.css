@@ -102,6 +102,9 @@ a:visited {
 	background-color: #15303c;
 }
 
+.splash .highlight {
+    color: #50c1e6;
+}
 /********************************************
     FEATURES STYLING
 *********************************************/
@@ -146,7 +149,7 @@ a:visited {
 }
 
 .highlight {
-    color: #50c1e6;
+    color: #2c5f6f;
     font-weight: bold;
 }
 figure {

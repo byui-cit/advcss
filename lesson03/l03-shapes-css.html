@@ -43,7 +43,7 @@
             }
             </code></pre>
 			<p> You should now see a red rectangle in the view pane.</p>
-			<p><span class="highlight">Step 4</span>: &nbsp; Lets try playing with the border radius. Add the <kbd>border-radius:</kbd> property to your css and try several differnet values.</p>
+			<p><span class="highlight">Step 4</span>: &nbsp; Lets try playing with the border radius. Add the <kbd>border-radius:</kbd> property to your css and try several different values.</p>
 			<p>If you start with a low value (5px for example) and work your way up to 50px you should see the border becoming more and more rounded...after 50px however it will stop changing.  Because the width is of the rectangle is 50px, it is as rounded as it can be.</p>
 			
 			<p class="callout">This is actually how you make a circle.  Start with a square, then set the border-radius to be the same or greater than the width of the square. You could also just set it to 100%. Try changing the border radius of our rectangle to 100% though...what happened?</p>
@@ -80,7 +80,7 @@
                 transform-origin :0 100%;
             }
             </code></pre>
-            <p class="callout">When you made that change you might have been surprised to find your shape disappeared! Turns out that content inserted with ::before ro ::after is treated as inline.  Inline elements remember ignore height and width.  Add <kbd>display:block;</kbd> to your css and you shapes will come back.</p>
+            <p class="callout">When you made that change you might have been surprised to find your shape disappeared! Turns out that content inserted with ::before or ::after is treated as inline.  Inline elements remember ignore height and width.  Add <kbd>display:block;</kbd> to your css and you shapes will come back.</p>
             <p><span class="highlight">Step 8</span>: &nbsp; After adding the <kbd>display:block;</kbd> you should now see 2 shapes.  They are both exactly the same right now...we will need to rotate one of them the opposite direction.  We can do that with the folllowing css: </p>
             <pre><code class="css">
             #heart:after {
@@ -94,7 +94,7 @@
             </div>
             
             <p><span class="highlight">Step 9</span>: &nbsp; We are getting close, the last step is to get the 2 parts to overlap in just the right way.  We will do this with <kbd>position: absolute</kbd> Add that line to the <kbd>.heart::before, .heart::after</kbd> rule. </p>
-            <p>You should now see why we wanted to change the rotation point for each half. All we need to do to finish up now is to slide the halfs a bit horizontally. If we add the appropriate left, and top lines your code should end up looking something like this:</p>
+            <p>You should now see why we wanted to change the rotation point for each half. All we need to do to finish up now is to slide the halves a bit horizontally. If we add the appropriate left, and top lines your code should end up looking something like this:</p>
             <pre><code>
                 .heart:before,
                 .heart:after {

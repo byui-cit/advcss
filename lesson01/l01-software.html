@@ -29,6 +29,7 @@
                 <li><strong>Install Sass.</strong>&nbsp;Ruby uses Gems to manage its various packages of code like Sass. In your open terminal window type: <code>gem install sass</code></li>
                 <li>
                     <p>This will install Sass and any dependencies for you. It's pretty magical. If you get an error message then it's likely you will need to use the&nbsp;<code>sudo</code>&nbsp;command to install the Sass gem. It would look like: <code>sudo gem install sass</code></p>
+                    <p class="callout">On Windows the Ruby installer does not always add the Ruby executable to the Path so you may get an error saying that 'gem' not found.  If you do then go back to Search and enter 'Ruby'. You should see an option for "Start Command Prompt with Ruby" Choose that then run the <kbd>gem install sass</kbd> again.  You will only want to use this special CMD window to do this step.  For the next step go back to the normal CMD.</p>
                 </li>
                 <li>
                     <p><strong>Double-check.</strong>&nbsp;You should now have Sass installed, but it never hurts to double-check. In your terminal application you can type: sass -v</p>
@@ -51,7 +52,7 @@
             </p>
             <ol>
                 <li><strong>XCode.</strong>&nbsp;Apple&rsquo;s XCode development software is used to build Mac and iOS apps, but it also includes the tools you need to compile software for use on your Mac. XCode is free and you can find it in the&nbsp;<a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://itunes.apple.com/us/app/xcode/id497799835?mt=12', 'Apple App Store');">Apple App Store</a>. &nbsp;After you install it, open it at least once to accept the Terms. &nbsp;The next step won't work unless you do.</li>
-                <li><strong>Homebrew</strong>.&nbsp;Homebrew is a package manager for the Mac &mdash; it makes installing most open source sofware (like Node) as simple as writing&nbsp;<code>brew install node</code>. You can learn more about Homebrew at the&nbsp;<a href="http://brew.sh/" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://brew.sh/', 'Homebrew website');">Homebrew website</a>. To install Homebrew just open Terminal and type:&nbsp;
+                <li><strong>Homebrew</strong>.&nbsp;Homebrew is a package manager for the Mac &mdash; it makes installing most open source software (like Node) as simple as writing&nbsp;<code>brew install node</code>. You can learn more about Homebrew at the&nbsp;<a href="http://brew.sh/" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://brew.sh/', 'Homebrew website');">Homebrew website</a>. To install Homebrew just open Terminal and type:&nbsp;
                     <br /> <code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
                     <br /> You&rsquo;ll see messages in the Terminal explaining what you need to do to complete the installation process.</li>
             </ol>

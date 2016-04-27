@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8">
-	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<!--	<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
-<link rel="stylesheet" href="../css/solarized-dark.css">
-<link rel="stylesheet" href="../css/course.css">
+
+    <!--	<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
+    <link rel="stylesheet" href="../css/solarized-dark.css">
+    <link rel="stylesheet" href="../css/course.css">
 
 </head>
+
 <body>
-<div id="main" >
-<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
-<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
-<div id="article">
-			<h1>Getting started with Sass</h1>
-          
-			<hr />
-			
-			<h2>Verify Setup</h2>
-			
-			<p class="callout">During the first week of the semester you were asked to install several things (Software setup).  You will have a really hard time completing this activity if you did not get that done.  The first thing that we need to do is verify that your Sass is working correctly.</p>
-    <p>Open up a command prompt on your computer (Mac: open the Terminal app, PC: Start->Run->CMD) and type the following to make sure that SASS is installed and running correctly: <kbd>sass -v</kbd>.  You should see something like: <kbd>Sass 3.4.21 (Selective Steve)</kbd>.  Your version might be different than this...that is fine. You should just not get an error. If you see an error go revisit the <a href="../lesson01/l01-software.html" target="_blank">Software setup page</a></p>
-         <h2>SCSS syntax</h2>
-           <h3>Variables</h3>
-    <div class="callout"> <p>The first past of Sass we will discuss is actually one of my favorite parts.  Even if we gained nothing else from Sass than variables it would still be awesome. A variable is really nothing more than a way to store a <em>value</em> with an <em>identifier</em> (variable name) that we can re-use over and over in our code.</p>
-        <p>Here is a pretty common scenario.  You are nearing the end of a large project and have over a thousand lines of CSS to show for it. In a meeting with the client they suddenly declare that the color they were so in love with and that you used <em>everywhere</em> as a result, they don't like so much anymore.  Of course it can't be as simple as replacing the color everywhere that it is used with something else...they just want <em>less</em> of it. :) With variables this becomes really simple, without, it could be hours of work.</p>
-        </div>
-        <p>To create or use a variable in SCSS we need to use a special character: the '$'.  This lets the Sass compiler know that what follows is going to be a variable name. Here is an example: </p>
-        <pre><code class="scss">
+    <div id="main">
+        <!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+        <div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+        <div id="article">
+            <h1>Getting started with Sass</h1>
+
+            <hr />
+
+            <h2>Verify Setup</h2>
+
+            <p class="callout">During the first week of the semester you were asked to install several things (Software setup). You will have a really hard time completing this activity if you did not get that done. The first thing that we need to do is verify that your Sass is working correctly.</p>
+            <p>Open up a command prompt on your computer (Mac: open the Terminal app, PC: Start->Run->CMD) and type the following to make sure that SASS is installed and running correctly: <kbd>sass -v</kbd>. You should see something like: <kbd>Sass 3.4.21 (Selective Steve)</kbd>. Your version might be different than this...that is fine. You should just not get an error. If you see an error go revisit the <a href="../lesson01/l01-software.html" target="_blank">Software setup page</a></p>
+            <h2>SCSS syntax</h2>
+            <h3>Variables</h3>
+            <div class="callout">
+                <p>The first past of Sass we will discuss is actually one of my favorite parts. Even if we gained nothing else from Sass than variables it would still be awesome. A variable is really nothing more than a way to store a <em>value</em> with an <em>identifier</em> (variable name) that we can re-use over and over in our code.</p>
+                <p>Here is a pretty common scenario. You are nearing the end of a large project and have over a thousand lines of CSS to show for it. In a meeting with the client they suddenly declare that the color they were so in love with and that you used <em>everywhere</em> as a result, they don't like so much anymore. Of course it can't be as simple as replacing the color everywhere that it is used with something else...they just want <em>less</em> of it. :) With variables this becomes really simple, without, it could be hours of work.</p>
+            </div>
+            <p>To create or use a variable in SCSS we need to use a special character: the '$'. This lets the Sass compiler know that what follows is going to be a variable name. Here is an example: </p>
+            <pre><code class="scss">
  // Variable assignment
  $my-variable: 42px;
 
@@ -38,44 +41,45 @@
       width: $my-variable;
  }
         </code></pre>
-        
-        <p><span class="highlight">Step 1</span>: &nbsp; For this exercise we will use SCSS to style a simple contact form. Begin by creating a file called <kbd>scss-demo.html</kbd> in your editor and copy the following code into it.</p>
-        <pre><code class="html">
+
+            <p><span class="highlight">Step 1</span>: &nbsp; For this exercise we will use SCSS to style a simple contact form. Begin by creating a file called <kbd>scss-demo.html</kbd> in your editor and copy the following code into it.</p>
+            <pre><code class="html">
             
         </code> </pre>
-    <p><span class="highlight">Step 2</span>: &nbsp; Create a file called <kbd>styles.scss</kbd> in your editor. Add a comment at the top to indicate that variables will follow. </p>
-    <p class="callout">Remember that for SCSS you can either use the traditional CSS commenting syntax: <kbd>/* comment */</kbd> or the SCSS syntax: <kbd>// comment </kbd>.  The SCSS comments however will <strong>not</strong> be included in the final .css that is generated.</p>
-         <p>Lets start by defining some variables to hold the colors that we would like to use to style our form. Create 4 variables that will contain the body background color, form background color, headline color, and input box color. Below is an example of what mine looks like:</p>
-         <pre><code class="scss">
+            <p><span class="highlight">Step 2</span>: &nbsp; Create a file called <kbd>styles.scss</kbd> in your editor. Add a comment at the top to indicate that variables will follow. </p>
+            <p class="callout">Remember that for SCSS you can either use the traditional CSS commenting syntax: <kbd>/* comment */</kbd> or the SCSS syntax: <kbd>// comment </kbd>. The SCSS comments however will <strong>not</strong> be included in the final .css that is generated.</p>
+            <p>Lets start by defining some variables to hold the colors that we would like to use to style our form. Create 4 variables that will contain the body background color, form background color, headline color, and input box color. Below is an example of what mine looks like:</p>
+            <pre><code class="scss">
 //colors
 $body-background-color: darkred;
 $form-background-color: white;
 $input-color: white;
 $headlines-color : white;
          </code></pre>
-         <p class="callout">Be aware that Sass treats dashes '-' and underscores '_' the same in variable names.  So <kbd>$body-background-color</kbd> and <kbd>$body_background_color</kbd> would refer to the same variable.</p>
-         <p><span class="highlight">Step 3</span>: &nbsp; Lets now use the body background color variable to change the background of the page. We use a variable just like we defined it.  Everywhere that we would have use "darkred" we can now use <kbd>$body-background-color</kbd>. </p>
-         <p class="callout">You probably noticed that when we added the rule to change the body background color with our variable nothing happened.  We are writing SCSS which the browser does not understand.  Our SCSS has to be converted back to plain CSS for it to actually work.  This is why we had to install the SASS program onto our computers.</p>
-         <p><span class="highlight">Step 4</span>: &nbsp; Go back to your command prompt and change the working directory to the directory that contains your files for this exercise. </p>
-         <div class="callout">
-            <p>If you are unsure how to change directories on you computer check out one of these resources: <a href="../resources/cmd-line-mac.html" target="_blank">Command Line on the Mac</a> or <a href="../resources/cmd-line-pc.html" target="_blank">Command Line on the PC</a> </p>
+            <p class="callout">Be aware that Sass treats dashes '-' and underscores '_' the same in variable names. So <kbd>$body-background-color</kbd> and <kbd>$body_background_color</kbd> would refer to the same variable.</p>
+            <p><span class="highlight">Step 3</span>: &nbsp; Lets now use the body background color variable to change the background of the page. We use a variable just like we defined it. Everywhere that we would have use "darkred" we can now use <kbd>$body-background-color</kbd>. </p>
+            <p class="callout">You probably noticed that when we added the rule to change the body background color with our variable nothing happened. We are writing SCSS which the browser does not understand. Our SCSS has to be converted back to plain CSS for it to actually work. This is why we had to install the SASS program onto our computers.</p>
+            <p><span class="highlight">Step 4</span>: &nbsp; Go back to your command prompt and change the working directory to the directory that contains your files for this exercise. </p>
+            <div class="callout">
+                <p>If you are unsure how to change directories on you computer check out one of these resources: <a href="../resources/cmd-line-mac.html" target="_blank">Command Line on the Mac</a> or <a href="../resources/cmd-line-pc.html" target="_blank">Command Line on the PC</a> </p>
             </div>
-             <p>Once there we need to give Sass the command to convert our .scss file to a .css file.  Type the following:</p>
-             <pre><code class="bash">
-                 sass styles.scss styles.css
+            <p>Once there we need to give Sass the command to convert our .scss file to a .css file. Type the following:</p>
+            <pre><code class="bash">
+        sass styles.scss styles.css
              </code> </pre>
-             <p>the first part (sass) is the command.  It takes 2 parameters.  The first is the file to convert, the second is the name we want for the converted file. If you do not see any errors then open your page in the browser and you should now see your background color taking effect.  You will also see a styles.css file that was created with the converted SCSS.  Notice that everything in there now is plain CSS.  Your variable is gone. It is important that you never edit the styles.css directly.  It will get entirely overwritten each time you convert your .scss file.</p>
-<p>If you did see errors then goto the line indicated and fix them.  Then run the sass command again.</p>
-                 <div class="callout">
-                     <p>There are some great functions to manipulate color in Sass.  Try using <kbd>lighten()</kbd>, <kbd>darken()</kbd>, or <kbd>mix()</kbd> for example. In fact there is a webcast on sitepoint that talks about <a href="https://www.sitepoint.com/premium/tutorials/constructing-and-using-color-palettes-in-sass" target="_blank">creating a color scheme with Sass color functions</a>.</p>
-                 </div>
-                  <h3>Functions</h3>
-                  <p>Functions can be used anywhere variables can; return a single value</p>
-         <h3>Nesting</h3>
-         
-         <h3>Mixins</h3>
-         <p>there tends to be a lot of duplication in css.  We tend to solve the same problems over and over from project to project, and even within the same project! Then you add in prefixing and developers end up writing a lot of the same css over and over. Enter Sass Mixins.  These allow us to define collections of reusable css snippets. The best way to wrap your mind around this would be with an example. </p>
-         <pre><code class="css">
+            <p>The first part (sass) is the command. It takes 2 parameters. The first is the file to convert, the second is the name we want for the converted file. If you do not see any errors then open your page in the browser and you should now see your background color taking effect. You will also see a styles.css file that was created with the converted SCSS. Notice that everything in there now is plain CSS. Your variable is gone. It is important that you never edit the styles.css directly. It will get entirely overwritten each time you convert your .scss file.</p>
+            <p>If you did see errors then goto the line indicated and fix them. Then run the sass command again.</p>
+            <div class="callout">
+                <p>There are some great functions to manipulate color in Sass. Try using <kbd>lighten()</kbd>, <kbd>darken()</kbd>, or <kbd>mix()</kbd> for example. In fact there is a webcast on sitepoint that talks about <a href="https://www.sitepoint.com/premium/tutorials/constructing-and-using-color-palettes-in-sass" target="_blank">creating a color scheme with Sass color functions</a>.</p>
+            </div>
+
+            <h3>Functions</h3>
+            <p>Sometimes we need some logic applied before we determine which value to use with our variables. This is where Sass functions come in. Functions can be used anywhere variables can, they return a single value,</p>
+            <h3>Nesting</h3>
+
+            <h3>Mixins</h3>
+            <p>There tends to be a lot of duplication in css. We tend to solve the same problems over and over from project to project, and even within the same project! Then you add in prefixing and developers end up writing a lot of the same css over and over. Enter Sass Mixins. These allow us to define collections of reusable css snippets. The best way to wrap your mind around this would be with an example. </p>
+            <pre><code class="css">
 .center {
   width: 90%;
   max-width: 960px;
@@ -83,8 +87,8 @@ $headlines-color : white;
   margin-right: auto;
 }
          </code> </pre>
-         <p>This code would center a block element on a page.  We might use this, or something very similar many times on a typical page. Lets see how it would look as a mixin.</p>
-         <pre><code class="scss">
+            <p>This code would center a block element on a page. We might use this, or something very similar many times on a typical page. Lets see how it would look as a mixin.</p>
+            <pre><code class="scss">
 @mixin center {
   width: 90%;
   max-width: 960px;
@@ -95,28 +99,90 @@ $headlines-color : white;
     @include center;
 }
          </code> </pre>
-         <p>This is helpful, but can still only be used when we want a box that will fill most of the screen.  Lets use parameters to make it more reusable and useful in a wider variety of cases.</p>
-         <p><span class="highlight">Step 5</span>: &nbsp; Modify the center mixin to take 2 parameters that will be used to specify width and max-width.  Max-width should be an optional parameter (It should have a default value of 960px). Then show an example of using the mixin.</p>
-         <div class="callout">
-             <h3>Interpolation</h3>
-             <p>Here is an article explaining more about <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">Interpolation</a>. </p>
-         </div>
-          <h3>@import</h3>
-          <h3>@extend</h3>
-           
-           
-           sass input.scss output.css
-           sass --watch input.scss output.css
+            <p>This is helpful, but can still only be used when we want a box that will fill most of the screen. Lets use parameters to make it more reusable and useful in a wider variety of cases.</p>
+            <p><span class="highlight">Step 5</span>: &nbsp; Modify the center mixin to take 2 parameters that will be used to specify width and max-width. Max-width should be an optional parameter (It should have a default value of 960px). Then show an example of using the mixin.</p>
+            <div class="callout">
+                <h3>Interpolation</h3>
+                <p>Here is an article explaining more about <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">Interpolation</a>. </p>
+            </div>
 
-sass --watch sass/:stylesheet/.
+            <h3>Mixins and @media (@content)</h3>
+            <p>Media queries are powerful tools for building responsive websites, but they can really cause problems with the organization and readability of your css. We tend to make large blocks of changes for each query far from the original declaration of the rule. Often it can be helpful to have the default rules and all of the breakpoints next to each other. Mixins can help with this. Take the following code for example:</p>
+
+            <pre><code class="scss">
+//set breakpoint sizes
+$break-small: 20em;
+$break-medium: 31em;
+$break-large: 60em;
+
+@mixin breakpoint($break) {
+@if $break == large {
+@media (max-width: $break-large) { @content; }
+}
+@else if $break == medium {
+@media (max-width: $break-medium) { @content; }
+}
+@else if $break == small {
+@media (max-width: $break-small) { @content; }
+} @else {
+@media ($break) { @content; }
+}
+}               
+           </code></pre>
+            <p>you should be able to recognize the start of the mixin, but there a couple of new things there as well. First notice the <kbd>@if $break == large</kbd>. This is a conditional statement. Basically it reads like this: if the value in the variable $break is equal to "large" then do the following.</p>
+            <p>The other new concept is the <kbd>@content</kbd> statement. @content is a powerful feature of Sass, it allows us to pass css into our mixins! This in important with this example in particular since a breakpoint mixin would not be very helpful if all the breakpoints did the same thing.</p>
+            <p>The best way to understand this is with and example of how the breakpoint mixin would be used.</p>
+            <pre><code class="scss">
+body {
+background: white;
+@include breakpoint(large) { background: red; }
+@include breakpoint(medium) { background: cyan; }
+@include breakpoint(small) { background: green; }
+@include breakpoint(“max-width: 480px”) { background: yellow; }
+}               
+           </code></pre>
+            <p>the output of this once compiled to css would be the following:</p>
+            <pre><code class="css">
+body {
+    background: white;
+}
+
+@media (max-width: 60em) {
+     body {
+        background: red;
+    }
+}
+
+@media (max-width: 31em) {
+    body {
+        background: cyan;
+    }
+}
+
+@media (max-width: 20em) {
+    body {
+        background: green;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background: yellow;
+    }
+}
+           </code></pre> sass input.scss output.css sass --watch input.scss output.css sass --watch sass/:stylesheet/.
 
 
-          
-		</div><!-- end #article -->
-	</div>
-<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
-<script src="../js/course.js"></script>
-<script src="../js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+
+        </div>
+        <!-- end #article -->
+    </div>
+    <!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
+    <script src="../js/course.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,55 @@
+/* Global styles */
+/* line 15, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+/* line 43, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+body {
+  background-color: darkred; }
+
+/* line 47, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+#contactform {
+  background-color: burlywood; }
+  /* line 49, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+  #contactform input, #contactform textarea {
+    background-color: antiquewhite;
+    flex: 2; }
+  @media (min-width: 31em) {
+    /* line 47, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+    #contactform {
+      width: 90%;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto; } }
+  @media (min-width: 60em) {
+    /* line 47, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+    #contactform {
+      width: 70%;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto; } }
+
+/* line 57, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+#contactform fieldset > div {
+  display: flex;
+  flex-flow: column nowrap; }
+  /* line 60, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+  #contactform fieldset > div label {
+    flex: 1;
+    text-align: left; }
+  @media (min-width: 31em) {
+    /* line 57, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+    #contactform fieldset > div {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      margin-bottom: 1em; }
+      /* line 68, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+      #contactform fieldset > div label {
+        text-align: right;
+        margin-right: 1em; } }
+
+/* line 77, /Users/matkat/Desktop/cit301b/scss-demo/styles.scss */
+h1, h2, h3, h4, h5, h6 {
+  color: white; }
+
+/*# sourceMappingURL=styles.css.map */

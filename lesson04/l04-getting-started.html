@@ -44,7 +44,43 @@
 
             <p><span class="highlight">Step 1</span>: &nbsp; For this exercise we will use SCSS to style a simple contact form. Begin by creating a file called <kbd>scss-demo.html</kbd> in your editor and copy the following code into it.</p>
             <pre><code class="html">
-            
+&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Scss Demo&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="styles.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h1&gt;Contact Form&lt;/h1&gt;
+    &lt;form method="post" action="#" id="contactform"&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;Contact me&lt;/legend&gt;
+            &lt;div&gt;
+                &lt;label for="name"&gt;Name:&lt;/label&gt;
+                &lt;input type="text" name="name" id="name" size="50"&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label for="email"&gt;Email:&lt;/label&gt;
+                &lt;input type="email" name="email" id="email" size="50"&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label for="subject"&gt;Subject:&lt;/label&gt;
+                &lt;input type="text" name="subject" id="subject" size="50"&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label for="message"&gt; Message:&lt;/label&gt;
+                &lt;textarea name="message" id="message" cols="50" rows="5"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;input type="submit" value="Submit"&gt;
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;            
         </code> </pre>
             <p><span class="highlight">Step 2</span>: &nbsp; Create a file called <kbd>styles.scss</kbd> in your editor. Add a comment at the top to indicate that variables will follow. </p>
             <p class="callout">Remember that for SCSS you can either use the traditional CSS commenting syntax: <kbd>/* comment */</kbd> or the SCSS syntax: <kbd>// comment </kbd>. The SCSS comments however will <strong>not</strong> be included in the final .css that is generated.</p>
@@ -57,8 +93,12 @@ $input-color: white;
 $headlines-color : white;
          </code></pre>
             <p class="callout">Be aware that Sass treats dashes '-' and underscores '_' the same in variable names. So <kbd>$body-background-color</kbd> and <kbd>$body_background_color</kbd> would refer to the same variable.</p>
+            <div class="callout">
+                <h3>Interpolation</h3>
+                <p>Variables can be used for values, properties, or even to build selectors.  In some cases however we need to have the variable evaluated and replaced with it's value before it's used.  This is called interpolation.  Here is an article explaining more: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>. </p>
+            </div>
             <p><span class="highlight">Step 3</span>: &nbsp; Lets now use the body background color variable to change the background of the page. We use a variable just like we defined it. Everywhere that we would have use "darkred" we can now use <kbd>$body-background-color</kbd>. </p>
-            <p class="callout">You probably noticed that when we added the rule to change the body background color with our variable nothing happened. We are writing SCSS which the browser does not understand. Our SCSS has to be converted back to plain CSS for it to actually work. This is why we had to install the SASS program onto our computers.</p>
+            <p class="callout">You probably noticed that when we added the rule to change the body background color with our variable nothing happened. We are writing SCSS (in the <kbd>styles.scss</kbd> file) which the browser does not understand. Notice as well that the html we started with above is looking for a <kbd>styles.css</kbd> file. Our SCSS has to be converted back to plain CSS for it to actually work. This is why we had to install the SASS program onto our computers.</p>
             <p><span class="highlight">Step 4</span>: &nbsp; Go back to your command prompt and change the working directory to the directory that contains your files for this exercise. </p>
             <div class="callout">
                 <p>If you are unsure how to change directories on you computer check out one of these resources: <a href="../resources/cmd-line-mac.html" target="_blank">Command Line on the Mac</a> or <a href="../resources/cmd-line-pc.html" target="_blank">Command Line on the PC</a> </p>
@@ -73,10 +113,50 @@ $headlines-color : white;
                 <p>There are some great functions to manipulate color in Sass. Try using <kbd>lighten()</kbd>, <kbd>darken()</kbd>, or <kbd>mix()</kbd> for example. In fact there is a webcast on sitepoint that talks about <a href="https://www.sitepoint.com/premium/tutorials/constructing-and-using-color-palettes-in-sass" target="_blank">creating a color scheme with Sass color functions</a>.</p>
             </div>
 
+<!--
             <h3>Functions</h3>
             <p>Sometimes we need some logic applied before we determine which value to use with our variables. This is where Sass functions come in. Functions can be used anywhere variables can, they return a single value,</p>
+-->
             <h3>Nesting</h3>
-
+            <p>If we wanted to make changes to the <kbd>&lt;input&gt;</kbd>s in our form we might write something like the following in CSS:</p>
+            <pre><code class="css">
+#contactform {
+    background-color: $form-background-color;
+}
+#contactform input, #contactform textarea {
+    background-color: $input-color;
+}              
+            </code></pre>
+            <p>This works fine, but over time as we add more and more rules to our css, related rules tend to get separated, and this can be hard to maintain.  This is where nesting comes in.  Nesting is a feature of preprocessors that allows us to write rule sets inside of other rule sets.  Lets look at an example. Using nesting the CSS above could be re-written as follows:</p>
+            <pre><code class="scss">
+#contactform {
+    background-color: $form-background-color;
+    input, textarea {
+        background-color: $input-color;
+        flex: 2;
+    }
+}                
+            </code></pre>
+            <p class="callout">The major advantage of nesting is really in helping to organize your code. With that in mind a caution: <strong>Don't go crazy with nesting!</strong>  Nesting too many levels deep can actually make code harder to follow and read.</p>
+            <p>Nesting can be done with either selectors or contexts like <kbd>@media</kbd> or <kbd>@supports</kbd>.  This in my opinion is where nesting really shines. Lets say for example that we want to have our form fill 100% of the width of the screen at small sizes, but only take up 90% on medium with a max-width of 700px.  Perfect job for a media query.  Lets look and see what that would look like with nesting.</p>
+            <pre><code class="scss">
+#contactform {
+    background-color: $form-background-color;
+    input, textarea {
+        background-color: $input-color;
+        flex: 2;
+    }
+    @media (min-width: $break-small) {
+       #contactform {
+          width: 90%;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto; 
+        } 
+    }
+}
+            </code></pre>
+            <p><span class="highlight">Step 5</span>: &nbsp;Having all of the css for an element in one place can be very helpful. Add the code above to your scss file.  Make sure to define variables for your breakpoints as well.  Also add a large screen breakpoint as well that will make width: 70% and max-width: 900px</p>
             <h3>Mixins</h3>
             <p>There tends to be a lot of duplication in css. We tend to solve the same problems over and over from project to project, and even within the same project! Then you add in prefixing and developers end up writing a lot of the same css over and over. Enter Sass Mixins. These allow us to define collections of reusable css snippets. The best way to wrap your mind around this would be with an example. </p>
             <pre><code class="css">
@@ -100,12 +180,19 @@ $headlines-color : white;
 }
          </code> </pre>
             <p>This is helpful, but can still only be used when we want a box that will fill most of the screen. Lets use parameters to make it more reusable and useful in a wider variety of cases.</p>
-            <p><span class="highlight">Step 5</span>: &nbsp; Modify the center mixin to take 2 parameters that will be used to specify width and max-width. Max-width should be an optional parameter (It should have a default value of 960px). Then show an example of using the mixin.</p>
-            <div class="callout">
-                <h3>Interpolation</h3>
-                <p>Here is an article explaining more about <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">Interpolation</a>. </p>
-            </div>
-
+            <p><span class="highlight">Step 6</span>: &nbsp; Modify the center mixin to take 2 parameters that will be used to specify width and max-width. Max-width should be an optional parameter (It should have a default value of 960px). Then replace the code that we added earlier to center the form on medium and large screens with the mixin.</p>
+            
+<div class="callout">
+    <p>So are you tired of typing out </p>
+    <pre><code class="bash">
+sass styles.scss styles.css
+  </code> </pre>
+  <p>Everytime you make a change to your scss? One shortcut that you may have discovered is you can hit the up arrow on your keyboard to go back and see commands you have previously run.  This can be very helpful.   Another option would be to learn another SASS command.  We can tell it to watch for changes in a file, and when it sees any to automatically convert the file to css.  The command to do this would look like the following:</p>
+  <pre><code class="bash">
+sass --watch styles.scss styles.css
+             </code> </pre>
+    <p>When you are done working you should tell it to stop watching as well.  You do this by hitting <kbd>ctrl+c</kbd> on your keyboard while in the command/terminal window.</p>
+</div>
             <h3>Mixins and @media (@content)</h3>
             <p>Media queries are powerful tools for building responsive websites, but they can really cause problems with the organization and readability of your css. We tend to make large blocks of changes for each query far from the original declaration of the rule. Often it can be helpful to have the default rules and all of the breakpoints next to each other. Mixins can help with this. Take the following code for example:</p>
 
@@ -166,10 +253,12 @@ body {
         background: yellow;
     }
 }
-           </code></pre> sass input.scss output.css sass --watch input.scss output.css sass --watch sass/:stylesheet/.
+           </code></pre>
+            <p><span class="highlight">Step 7</span>: &nbsp; Our last task with this activity is to add a breakpoint mixin to your scss.  Then use it to replace the nested @media commands we added earlier.  Lets also use it to do the following:  One small screens we want the input boxes to take 100% width, and the labels should be above the input.  One medium and large screens the label should be to the left side of the input. Here is a screenshot of the <a href="../images/scss-form-sm.png" target="_blank">small</a> and <a href="../images/scss-form-lg.png" target="_blank">large</a> versions of the form.</p>
+            
+            <p class="callout">After you have worked out your solution, if you want to see what mine turned out like you can download <a href="scss-demo/styles.scss">my scss file</a>.</p>
 
-
-
+       
         </div>
         <!-- end #article -->
     </div>

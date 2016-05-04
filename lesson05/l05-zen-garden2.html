@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<!--	<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>CSS Zen Garden Style Guide</h1>
+			<hr>
+    <div class="callout">
+    <p>Two weeks ago you formed groups and picked a theme that you will use for your version of the CSS Zen Garden.  You should have reviewed the content and prepared a couple of wireframes as well, making sure to include everything.  This week we will continue our work on this project by preparing a styleguide.</p>
+    <p>Remember the purpose of a styleguide is to decribe the color schemes, typography, branding, and styling for html elements for a site.  If built correctly the css from the styleguide can be integrated directly into the css for the actual page when the time comes to build it.</p>
+    <p>I am actually going to provide you with a template to use for your styleguide.  It is a slightly modified version of the <a href="https://codyhouse.co/gem/css-style-guide-template/" target="_blank">Codyhouse Styleguide Template</a>. </p>
+    </div>
+<h2>Activity</h2>
+<p><span class="highlight">Step 1</span>: &nbsp;
+    Download the <a href="../resources/style-guide-template.zip">template</a> and unzip it. Take a few minutes to look at the directory structure that it uses. </p>
+    <dl class="callout">
+        <dt>assets</dt>
+        <dd>This is where any images you need for the styleguide will go.</dd>
+        <dt>css</dt>
+        <dd>Directory for the final css files.  Contains a reset.css and an initial styles.css that will be replaced.</dd>
+        <dt>js</dt>
+        <dd>We won't spend any time in here, but it contains some javascript that will generate parts of the style guide based on our styles.  Check out main.js if you want to see what it does.</dd>
+        <dt>scss</dt>
+        <dd>This is where we will spend most of our time.  It contains the .scss files we will use to define the styles for our styleguide.</dd>
+        </dl>
+    
+    <p>This template uses SCSS which we learned about last week. If you open up the styles.scss file and look at the first few lines you will see something that hopefully you will remember from your reading, but that we have not discussed yet: @import</p>
+    <div class="callout">
+        <p>In CSS @import gives us the ability to reference things in one css file from another.  This is great, except for the fact that the files remain separate and so now what would have taken one http request to get now takes multiple.  Not great. </p>
+        <p>Sass @imports work similar to CSS imports: they allow us to break up our css into more managable parts, but they get compiled back into one file when we are done.  We gain the organizational advantages without an increased load time. </p>
+        <p>Breaking apart SCSS files into parts for organization happens so frequently in fact that there is a special type of SCSS file called a 'partial'.  These files are never compiled on their own, but only included in other files.  We indicate a partial with a leading underscore (_) on the file name.</p>
+    </div>
+       <p>There are three partial files that are imported into the styles.scss.  Two at the top and one at the bottom.  You can find the actual files inside of scss/partials/. If you compile styles.scss into css you will see that the contents of those files do indeed get inserted in at the point where the @import command is.</p>
+    <p>Notice that the @import statements do not include the file extention as well.  If one is not specified it will look for .scss <em>or</em> .sass</p>
+       <p class="callout">The other thing you might notice after compiling that scss into css is that the final styles.css file has almost 1000 lines!  You might be thinking: "Isn't 1000 lines of css a bit overkill for a style guide template?" and the answer is "probably"...but not only is this a template, it is also a good example of one way to organize a project ...something that many beginning developers struggle with.</p>
+       
+    <p><span class="highlight">Step 2</span>: &nbsp; Complete the styleguide by changing images, adding in the colors for your color scheme, the fonts you will use, and as many of the other styles that you have determined at this point. Feel free to remove any sections that you do not need (you won't have any forms or icons for example). </p>
+    <p>Some of the styles you will be changing will be in the styles.scss file. As you define your styles lets take advantage of Sass partials to further organize things.  Add a partial for each section that you complete in the style guide.  Move any styles from styles.scss into the partial and add an @import.  Any new styles that need to be defined should also be done in partials.</p>
+<p><span class="highlight">Step 3</span>: &nbsp; Compress/Archive your style guide directory and upload it to ILearn to turn it in.</p>
+    
+    <h2>Grading</h2>
+    <ul>
+        <li>SCSS partials created for each section of the styleguide (except for section 1: Purpose/theme and the last section: wireframes).  10pts</li>
+        <li>SCSS compiles without errors. 4pts</li>
+        <li>A minimum of the following sections completed: purpose, colors, typography, navigation, and wireframes.  10pts</li>
+    </ul>
+		</div><!-- end #article -->
+	</div>
+<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
+<script src="../js/course.js"></script>
+</body>
+</html>

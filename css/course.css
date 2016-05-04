@@ -158,3 +158,13 @@ figure {
 figcaption {
     font-size: .5em;
 }
+
+
+dt {
+    font-weight: bold;
+    
+}
+dd {
+    margin-left: 2em;
+   
+}

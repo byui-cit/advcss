@@ -95,7 +95,7 @@ $headlines-color : white;
             <p class="callout">Be aware that Sass treats dashes '-' and underscores '_' the same in variable names. So <kbd>$body-background-color</kbd> and <kbd>$body_background_color</kbd> would refer to the same variable.</p>
             <div class="callout">
                 <h3>Interpolation</h3>
-                <p>Variables can be used for values, properties, or even to build selectors.  In some cases however we need to have the variable evaluated and replaced with it's value before it's used.  This is called interpolation.  Here is an article explaining more: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>. </p>
+                <p>Variables can be used for values, properties, or even to build selectors.  In some cases however we need to have the variable evaluated and replaced with it's value before it's used (Like if you wanted to use a variable to build a selector for example).  This is called interpolation.  Here is an article explaining more: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>. </p>
             </div>
             <p><span class="highlight">Step 3</span>: &nbsp; Lets now use the body background color variable to change the background of the page. We use a variable just like we defined it. Everywhere that we would have use "darkred" we can now use <kbd>$body-background-color</kbd>. </p>
             <p class="callout">You probably noticed that when we added the rule to change the body background color with our variable nothing happened. We are writing SCSS (in the <kbd>styles.scss</kbd> file) which the browser does not understand. Notice as well that the html we started with above is looking for a <kbd>styles.css</kbd> file. Our SCSS has to be converted back to plain CSS for it to actually work. This is why we had to install the SASS program onto our computers.</p>
@@ -105,9 +105,9 @@ $headlines-color : white;
             </div>
             <p>Once there we need to give Sass the command to convert our .scss file to a .css file. Type the following:</p>
             <pre><code class="bash">
-        sass styles.scss styles.css
+    sass styles.scss styles.css
              </code> </pre>
-            <p>The first part (sass) is the command. It takes 2 parameters. The first is the file to convert, the second is the name we want for the converted file. If you do not see any errors then open your page in the browser and you should now see your background color taking effect. You will also see a styles.css file that was created with the converted SCSS. Notice that everything in there now is plain CSS. Your variable is gone. It is important that you never edit the styles.css directly. It will get entirely overwritten each time you convert your .scss file.</p>
+            <p>The first part (sass) is the command. It takes 2 parameters. The first is the file to convert, the second is the name we want for the converted file. If you do not see any errors then open (or refresh) your page in the browser and you should now see your background color taking effect. You will also see a styles.css file that was created with the converted SCSS. Notice that everything in there now is plain CSS. Your variable is gone. It is important that you never edit the styles.css directly. It will get entirely overwritten each time you convert your .scss file.</p>
             <p>If you did see errors then goto the line indicated and fix them. Then run the sass command again.</p>
             <div class="callout">
                 <p>There are some great functions to manipulate color in Sass. Try using <kbd>lighten()</kbd>, <kbd>darken()</kbd>, or <kbd>mix()</kbd> for example. In fact there is a webcast on sitepoint that talks about <a href="https://www.sitepoint.com/premium/tutorials/constructing-and-using-color-palettes-in-sass" target="_blank">creating a color scheme with Sass color functions</a>.</p>
@@ -147,7 +147,7 @@ $headlines-color : white;
         flex: 2;
     }
     @media (min-width: $break-small) {
-       #contactform {
+       & {
           width: 90%;
           max-width: 700px;
           margin-left: auto;
@@ -156,6 +156,9 @@ $headlines-color : white;
     }
 }
             </code></pre>
+            <div class="callout">
+                <p>Notice the '&' above.  This is the ampersand selector (or parent selector reference). This always refers to the parent selector as the name implies.  In our case <kbd>& = #contactform</kbd>.</p>
+            </div>
             <p><span class="highlight">Step 5</span>: &nbsp;Having all of the css for an element in one place can be very helpful. Add the code above to your scss file.  Make sure to define variables for your breakpoints as well.  Also add a large screen breakpoint as well that will make width: 70% and max-width: 900px</p>
             <h3>Mixins</h3>
             <p>There tends to be a lot of duplication in css. We tend to solve the same problems over and over from project to project, and even within the same project! Then you add in prefixing and developers end up writing a lot of the same css over and over. Enter Sass Mixins. These allow us to define collections of reusable css snippets. The best way to wrap your mind around this would be with an example. </p>

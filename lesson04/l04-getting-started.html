@@ -97,7 +97,12 @@ $headlines-color : white;
                 <h3>Interpolation</h3>
                 <p>Variables can be used for values, properties, or even to build selectors.  In some cases however we need to have the variable evaluated and replaced with it's value before it's used (Like if you wanted to use a variable to build a selector for example).  This is called interpolation.  Here is an article explaining more: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>. </p>
             </div>
-            <p><span class="highlight">Step 3</span>: &nbsp; Lets now use the body background color variable to change the background of the page. We use a variable just like we defined it. Everywhere that we would have use "darkred" we can now use <kbd>$body-background-color</kbd>. </p>
+            <p><span class="highlight">Step 3</span>: &nbsp; Lets now use the body background color variable to change the background of the page. We use a variable just like we defined it. Everywhere that we would have use "darkred" we can now use <kbd>$body-background-color</kbd>. An example of this might look like:</p>
+            <pre><code class="scss">
+body {
+     background-color: $body-background-color;          
+}
+            </code> </pre>
             <p class="callout">You probably noticed that when we added the rule to change the body background color with our variable nothing happened. We are writing SCSS (in the <kbd>styles.scss</kbd> file) which the browser does not understand. Notice as well that the html we started with above is looking for a <kbd>styles.css</kbd> file. Our SCSS has to be converted back to plain CSS for it to actually work. This is why we had to install the SASS program onto our computers.</p>
             <p><span class="highlight">Step 4</span>: &nbsp; Go back to your command prompt and change the working directory to the directory that contains your files for this exercise. </p>
             <div class="callout">
@@ -107,6 +112,7 @@ $headlines-color : white;
             <pre><code class="bash">
     sass styles.scss styles.css
              </code> </pre>
+             <p class="callout">If you are on Windows and you get an error when you try the sass command you may need to run the Ruby version of CMD.  Do Start->Run->Ruby and choose the Ruby version of cmd and it should work.</p>
             <p>The first part (sass) is the command. It takes 2 parameters. The first is the file to convert, the second is the name we want for the converted file. If you do not see any errors then open (or refresh) your page in the browser and you should now see your background color taking effect. You will also see a styles.css file that was created with the converted SCSS. Notice that everything in there now is plain CSS. Your variable is gone. It is important that you never edit the styles.css directly. It will get entirely overwritten each time you convert your .scss file.</p>
             <p>If you did see errors then goto the line indicated and fix them. Then run the sass command again.</p>
             <div class="callout">
@@ -156,8 +162,10 @@ $headlines-color : white;
     }
 }
             </code></pre>
+            <p>If the above code is not making sense make sure to compile it to css.  Review the css generated and compare it to the SCSS to help you understand what is going on.</p>
             <div class="callout">
                 <p>Notice the '&' above.  This is the ampersand selector (or parent selector reference). This always refers to the parent selector as the name implies.  In our case <kbd>& = #contactform</kbd>.</p>
+                
             </div>
             <p><span class="highlight">Step 5</span>: &nbsp;Having all of the css for an element in one place can be very helpful. Add the code above to your scss file.  Make sure to define variables for your breakpoints as well.  Also add a large screen breakpoint as well that will make width: 70% and max-width: 900px</p>
             <h3>Mixins</h3>
@@ -192,7 +200,7 @@ sass styles.scss styles.css
   </code> </pre>
   <p>Everytime you make a change to your scss? One shortcut that you may have discovered is you can hit the up arrow on your keyboard to go back and see commands you have previously run.  This can be very helpful.   Another option would be to learn another SASS command.  We can tell it to watch for changes in a file, and when it sees any to automatically convert the file to css.  The command to do this would look like the following:</p>
   <pre><code class="bash">
-sass --watch styles.scss styles.css
+sass --watch styles.scss:styles.css
              </code> </pre>
     <p>When you are done working you should tell it to stop watching as well.  You do this by hitting <kbd>ctrl+c</kbd> on your keyboard while in the command/terminal window.</p>
 </div>

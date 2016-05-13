@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<!--	
+<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/solarized-dark.css">
+<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Create your own grid</h1>
+                        
+			<hr />
+			<div class="callout">
+			
+    <p>As you should have noticed in the reading for this week designing to a grid has become very popular.  As a result there are a lot of css libraries created to help you build the web pages that you have designed with your grid.  We will look at some of those later in the semester, but for this week I would like you to have the experience of building your own specialized grid framework. </p>
+    </div>
+			<h2>Activity</h2>
+			<p>This activity will have you create a css grid library. To keep the scope reasonable we are going to build a specialized library that will be used for a specific purpose: to layout and build playing card fronts.</p>
+			<p class="callout">In other assignments I have provided html for you to style that you were not allowed to change.  In this case I should be able to take your .scss and using only the classes you provide in your library I should be able to write the html to build any card from A-10 <em>without changing any css</em>!</p>
+			<h3>Tips and Guidelines</h3>
+			<ul>
+			    <li>A typical playing card has a height that is 1.4 times it's width.</li>
+			    <li>Your library should use flexbox for positioning.</li>
+			    <li>One of the first (and arguably most important) decisions you will need to make is how many columns should you have in your grid.</li>
+			    <li>You will probably need to create a class to create a row in your grid, and then classes to create 1 column, 2columns, etc.</li>
+			    <li>Classes to create offsets (skipping columns) would probably also be helpful.</li>
+			    <li>For the suits you can use images, css border shapes, or svg.  If you want to use svg I have an example file with the <a href="../resources/svg-card-suits.html" target="_blank">svg suit shapes</a> in it to start with.</li>
+			    <li>If you get stuck try poking around in an existing grid framework to see how they solved certain problems.  Make sure the one you look at uses flexbox and not floats or inline-block however.</li>
+			    <li>If you are having a hard time getting flexbox to work for you make sure to spend some time with both CSS Tricks excellent <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Guide to Flexbox</a> and <a href="http://flexboxfroggy.com" target="_blank">Flexbox Froggy</a>.  It really will help you get all the properties and how they work together down.</li>
+			</ul>
+			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use the same classes you created last week for the card backs to create the general shape of the card. Choose a card to start with (I recommend 5, 7, or 10) and add all the elements you will need.</p>
+			<div class="callout">
+			    <p>For example if I were making the 5 of clubs which looks something like this: </p>
+			    <div class="fig-block">
+			        <figure>
+			            <img src="../images/5-clubs.png" alt="image of a 5 of clubs playing card">
+			         </figure>
+			    </div>
+			    <p>I would need a number and small suit, then 5 regular sized suits, then another 5 and small suit. Notice that some of those icons are upside down! Try this class to make that happen: </p>
+			    <pre><code class="css">
+.rotate {
+    transform: rotate(180deg);
+}			        
+			    </code></pre>
+			</div>
+			
+			<p><span class="highlight">Step 02:</span>&nbsp; Create the rest of the classes you will need to make your card look right. Then create a second different card to test your library.  Hopefully you won't need to make any changes to your css to get it to work.  Make adjustments as necessary. Once the first and second card are correct try as many others as you need to feel comfortable that your library will work for <strong>any</strong> card A-10.  (Don't forget to try the Ace ;) )</p>
+			
+			<p><span class="highlight">Step 03:</span>&nbsp; Submit the URL to your codepen to Ilearn.</p>
+			
+    <h2>Grading</h2>
+    <ul>
+        <li>Grid library can be used to create any playing card A-10 by changing the html markup but <strong>without</strong> changing the css. 10pts</li>
+        <li>SCSS has been used where appropriate. (variables for colors or sizes would be a good start) 4pts</li>
+        <li>Grid is Flexbox based. 6pts</li>
+        
+    </ul>
+			
+			
+			
+		</div><!-- end #article -->
+	</div>
+<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>
+<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/highlight.pack.js"></script>
+-->
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

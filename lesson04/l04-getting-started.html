@@ -171,6 +171,81 @@ body {
             
             <h3>Mixins</h3>
             <p>There tends to be a lot of duplication in css. We tend to solve the same problems over and over from project to project, and even within the same project! Then you add in prefixing and developers end up writing a lot of the same css over and over. Enter Sass Mixins. These allow us to define collections of reusable css snippets. The best way to wrap your mind around this would be with an example. </p>
+            <p>Lets say we wanted to use flexbox on a page.  To create a flex parent or container we might add the following css</p>
+            <pre><code class="css">
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+         </code> </pre>
+           <p>But...since older versions of most browsers don't recognize display: flex, in order to get the highest percentage of compatibility we should add all the prefixed flex declarations.  that would make our code look more like this:</p>
+           <pre><code class="css">
+.flex-container {
+ display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+         </code> </pre>
+           <p>That adds quite a bit of additional markup each time we need a flex container.  Lets create a mixin to save us some typing.</p>
+           <pre><code class="scss">
+@mixin flex-container() {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+         </code> </pre>
+           <p>Now whenever we need to create flex-container we can simply do something like this:</p>
+           <pre><code class="scss">
+fieldset > div {
+    @include flex-container;        
+}
+         </code> </pre>
+           <p>and it will generate the following css:</p>
+           <pre><code class="scss">
+fieldset > div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+         </code> </pre>
+           <p>This is a nice time saver, but what if we need a column layout instead of row?  This mixin would not work for that as it is.  We need to modify it to take a <em>parameter</em> or two.  Parameters can let us decide things such as whether we want row or column, wrap or nowrap when we use the mixin.  Modified it would look like this:</p>
+           <pre><code class="scss">
+@mixin flex-container($axis, $wrap: nowrap) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: $axis $wrap;
+    -ms-flex-flow: $axis $wrap;
+    flex-flow: $axis $wrap;
+}
+         </code> </pre>
+           <p>This mixin now accepts 1 or 2 parameters.  Notice that we have provided a value on the second: nowrap.  If we do not send 2 parameters then it will default to nowrap for the second. To use this we would do the following (assuming we want column nowrap as our flex-flow):</p>
+             <pre><code class="scss">
+fieldset > div {
+    @include flex-container(column);        
+}
+         </code> </pre>
+           <p>The parameter gets entered in ( ) after the mixin name.  If we wanted row wrap as our options instead we would do this:</p>
+            <pre><code class="scss">
+fieldset > div {
+    @include flex-container(row, wrap);        
+}
+         </code> </pre>
+          
+            <p>Lets take a look at another example as well.</p>
             <pre><code class="css">
 .center {
   width: 90%;
@@ -180,6 +255,7 @@ body {
 }
          </code> </pre>
             <p>This code would center a block element on a page. We might use this, or something very similar many times on a typical page. Lets see how it would look as a mixin.</p>
+            
             <pre><code class="scss">
 @mixin center {
   width: 90%;
@@ -193,6 +269,7 @@ body {
          </code> </pre>
             <p>This is helpful, but can still only be used when we want a box that will fill most of the screen. Lets use parameters to make it more reusable and useful in a wider variety of cases.</p>
             <p><span class="highlight">Step 6</span>: &nbsp; Modify the center mixin to take 2 parameters that will be used to specify width and max-width. Max-width should be an optional parameter (It should have a default value of 960px). Then replace the code that we added earlier to center the form on medium and large screens with the mixin.</p>
+            
             
 <div class="callout">
     <p>So are you tired of typing out </p>
@@ -269,6 +346,7 @@ body {
     }
 }
            </code></pre>
+           <p class="callout">Notice that the css that was inside the { } after the @include for the mixin got inserted where the @content placeholder was.  Whenever you use @content you will be expected to have those braces with some css.  If you do not have the @content placeholder in your mixin you will not use braces when you use (@include) it.</p>
             <p><span class="highlight">Step 7</span>: &nbsp; Our last task with this activity is to add a breakpoint mixin to your scss.  Then use it to replace the nested @media commands we added earlier.  Lets also use it to do the following:  One small screens we want the input boxes to take 100% width, and the labels should be above the input.  One medium and large screens the label should be to the left side of the input. Here is a screenshot of the <a href="../images/scss-form-sm.png" target="_blank">small</a> and <a href="../images/scss-form-lg.png" target="_blank">large</a> versions of the form.</p>
             
             <p class="callout">After you have worked out your solution, if you want to see what mine turned out like you can download <a href="scss-demo/styles.scss">my scss file</a>.</p>

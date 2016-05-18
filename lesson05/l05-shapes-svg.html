@@ -41,52 +41,52 @@
 			<p>To keep things simple I am going to focus on the inline method using <kbd>&lt;svg&gt;</kbd></p>
     <p>The W3Schools <a href="http://www.w3schools.com/svg/svg_inhtml.asp" target="_blank">SVG tutorial</a> gives this as it's first example:</p>
 			<pre><code class="html">
-            &lt;svg width="100" height="100"&gt;
-              &lt;circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /&gt;
-            &lt;/svg&gt;
+&lt;svg width="100" height="100"&gt;
+  &lt;circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /&gt;
+&lt;/svg&gt;
 			</code></pre>
 			<p class="callout">This introduces us to the <kbd>&lt;svg&gt;</kbd> element.  I would recommend that you copy the code snippet above into Codepen and follow along and experiment with me. It will be really important that you try this...don't just read the activity...do it!</p>
 			
 			<p>Notice the width and height set on it.  Width and height with svg takes a bit of explanation.  You will get part of that now and part later.  Change the width to 120.  Did the result match what you expected?  Probably not. The width and height set on the <kbd>&lt;svg&gt;</kbd> element sets the size of the container that our image will be drawn in.  If we set a border on it you can see this more clearly.  Lets do that.</p>
 			<p>We mentioned that one of the advantages of SVG is that you can modify them with CSS.  Lets try it.  Modify your html to look like this:</p>
 			<pre><code class="html">
-            &lt;svg class="svgcontainer"&gt;
-              &lt;circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /&gt;
-            &lt;/svg&gt;
+&lt;svg class="svgcontainer"&gt;
+  &lt;circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /&gt;
+&lt;/svg&gt;
 			</code></pre>
 			<p>And add this to your CSS in Codepen:</p>
 			<pre><code class="css">
-            .svgcontainer {
-                width: 100px;
-                height: 100px;
-                border: 1px solid;
-            }
+.svgcontainer {
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+}
 			</code></pre>
 			
 			<p>Try changing the values on the circle now.  Change r to 60 for example.  Now what happened? Your circle is bigger than the box now.</p>
 			<h3>Combining shapes (circle, line, rect, path)</h3>
 			<p>You should have noticed from your reading that circle is not the only shape SVG provides us with.  There are many others I encourage you to play around with including rectangle, polygon, line, and path.  Their shapes can be combined as well.  For example add the following to your html in Codepen.</p>
 			<pre><code class="html">
-            &lt;svg width="400" height="180"&gt;
-              &lt;rect x="50" y="20" rx="20" ry="20" width="150" height="150" class="rectangle"/&gt;
-              &lt;circle cx="125" cy="95" r="30" stroke="darkred" stroke-width="4" fill="white" /&gt;
-            &lt;/svg&gt;
+&lt;svg width="180" height="180"&gt;
+  &lt;rect x="15" y="25" rx="20" ry="20" width="150" height="150" class="rectangle"/&gt;
+  &lt;circle cx="90" cy="90" r="30" stroke="darkred" stroke-width="4" fill="white" /&gt;
+&lt;/svg&gt;
             </code></pre>
             <p>We will need the following css added as well.</p>
             <pre><code class="css">
-            .rectangle {
-                  fill:darkred;
-                  stroke:black;
-                  stroke-width:5;
-                  opacity:0.5;
-            }
+    .rectangle {
+          fill:darkred;
+          stroke:black;
+          stroke-width:5;
+          opacity:0.5;
+    }
 			</code></pre>
 			
 			<div class="callout">
             <p>You should see something like this:</p>
-			    <figure><svg width="200" height="180">
-  <rect x="20" y="20" rx="20" ry="20" width="150" height="150" class="rectangle"/>
-  <circle cx="95" cy="95" r="30" stroke="darkred" stroke-width="4" fill="white" />
+			    <figure><svg width="180" height="180">
+  <rect x="15" y="15" rx="20" ry="20" width="150" height="150" class="rectangle"/>
+  <circle cx="90" cy="90" r="30" stroke="darkred" stroke-width="4" fill="white" />
                     </svg></figure>
                     
         <p>With the polygon shape we could also do something like this:</p>
@@ -179,7 +179,6 @@
       &lt;pattern id="mypattern" patternUnits="userSpaceOnUse" x="0" y="0" width="50" height="50"&gt;
         &lt;rect x="0" y="0" width="50" rx="10" ry="10" height="50" class="rectangle" /&gt; 
         &lt;circle cx="25" cy="25" r="8" fill="white" stroke="darkred" stroke-width="2" /&gt;
-
       &lt;/pattern&gt;
     &lt;/defs&gt;
 
@@ -204,7 +203,7 @@
 <circle cx="100" cy="100" r="100" fill="url(#mypattern)" stroke-width="1" stroke="black" />
     </svg>
 			    </figure>
-			    <p>Try changing the pattern up.  See what you can come up with.</p>
+			    <p>Notice I had to reduce the dimensions of the object to get it to look right as a pattern. Try changing the pattern up.  See what you can come up with.</p>
 			</div>
 			<h3>Complex SVG</h3>
     <div class="callout">

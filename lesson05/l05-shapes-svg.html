@@ -64,6 +64,10 @@
 			</code></pre>
 			
 			<p>Try changing the values on the circle now.  Change r to 60 for example.  Now what happened? Your circle is bigger than the box now.</p>
+			<div class="callout">
+                <p>Did you notice the / at the end of the circle tag?  This indicates a self closing or void element...an element without a closing tag.  Before html5 if you had a div with no content you could do this: <kbd>&lt;div /&gt;</kbd> and save a few keystrokes, but you were required to have the / on all void elements (br, img, meta, etc).</p>
+                <p> In html5 it became taboo to use the self closing syntax on anything but void elements, and even that became optional and so sometimes now you see them and sometimes you don't.  SVG is not HTML however, it is XML (a cousin of html), and XML is <em>very</em> particular about syntax.  XML elements must always be closed. You can do that by adding a <kbd>&lt;/circle&gt;</kbd> or by using the self closing syntax like in my example: /&gt; If you forget to close one of the elements in xml things <strong>will</strong> break.</p>
+			</div>
 			<h3>Combining shapes (circle, line, rect, path)</h3>
 			<p>You should have noticed from your reading that circle is not the only shape SVG provides us with.  There are many others I encourage you to play around with including rectangle, polygon, line, and path.  Their shapes can be combined as well.  For example add the following to your html in Codepen.</p>
 			<pre><code class="html">
@@ -168,10 +172,56 @@
                     </svg>
                     <figcaption>Image from https://sarasoueidan.com/blog/structuring-grouping-referencing-in-svg/</figcaption></figure>
         <p>Notice how the parts of the bird are grouped together into units that can then be styled.  Try changing adding a css rule for #bird and add a stroke...what happened?</p>
+        <p>Notice as well that it is using a new element: path.  Paths are used to make more complex shapes in svg, and while there are resources out there teaching the syntax of building paths by hand...most people use programs to generate them.  We'll talk about that a bit more in the section on complex shapes below. </p>
+			</div>
+			<h4>Symbols</h4>
+			<p>SVG shapes can be defined and grouped as a symbol as well. The advantage of this comes with reusability.  A symbol can be defined once, then used as many times as needed.  Here is an example of the shape from above as a symbol. In order to use symbols we need to add a new section to our svg...the <kbd>&lt;defs&gt;</kbd>.</p>
+						<pre><code>
+ &lt;svg width="150" height="150"&gt; 
+    &lt;!-- define symbol --&gt;
+    &lt;defs&gt;
+      &lt;symbol id="mySymbol" viewBox="0 0 150 150"&gt;
+        &lt;rect x="0" y="0" width="150" rx="10" ry="10" height="150" class="rectangle" /&gt; 
+        &lt;circle cx="90" cy="90" r="30" fill="white" stroke="darkred" stroke-width="2" /&gt;
+      &lt;/symbol&gt;
+    &lt;/defs&gt;
+
+    &lt;!-- use symbol --&gt;
+    &lt;use xlink:href="#mySymbol" &gt;&lt;/use&gt;
+&lt;/svg&gt;
+ &lt;svg width="200" height="200"&gt; 
+    &lt;!-- use symbol --&gt;
+    &lt;use xlink:href="#mySymbol" &gt;&lt;/use&gt;
+&lt;/svg&gt;
+			</code></pre>
+			<div class="callout">
+			    <p>This would give us something like this:</p>
+			    <figure>
+			        <svg width="150" height="150"> 
+                    <!-- define symbol -->
+                    <defs>
+                      <symbol id="mySymbol" viewBox="0 0 150 150">
+                        <rect x="0" y="0" width="150" rx="20" ry="20" height="150" class="rectangle" /> 
+                        <circle cx="75" cy="75" r="30" fill="white" stroke="darkred" stroke-width="4"/>
+
+                      </symbol>
+                    </defs>
+                    <!-- use symbol -->
+
+                  <use xlink:href="#mySymbol" ></use>
+                    </svg>
+                    <svg width="200" height="200">
+                    <!-- use symbol again-->
+                      <use xlink:href="#mySymbol" ></use>
+                    </svg>
+           </figure>
+           <p>There are several things to notice here. First, to get the first symbol we had to make sure it was defined, then we added it using the <kbd>&lt;use&gt;</kbd> tag. To add it again all we just had to add another <kbd>&lt;svg&gt;</kbd> and <kbd>&lt;use&gt;</kbd>. </p>
+           <p>The other thing I hope you noticed is that they are different sizes! When I changed the size of the SVG container, the symbol automatically scaled to fit the new space. This is different behavior than we saw earlier. The <kbd>viewBox</kbd> attribute is responsible for this.</p>
+           <p>viewBox takes 4 parameters: min-x, min-y, width, and height.  Min-x and min-y would be used if we want to translate or offset the svg (Have it begin drawing somewhere other than the top left corner of the box it is in). The width and height in my example are the same as those of the shapes that make up the symbol, but they don't have to be. Changing those can cause the symbol to scale up or down. A really good explanation of viewBox can be found here: <a href="https://sarasoueidan.com/blog/svg-coordinate-systems/" target="_blank">Understanding SVG Coordinate Systems</a>, along with the <a href="https://sarasoueidan.com/demos/interactive-svg-coordinate-system/index.html" target="_blank">playground</a> that goes along with the article. </p>
 			</div>
 			
 			<h4>Patterns</h4>
-			<p>Patterns are another way to group svg objects.  they have a specific purpose as well.  To create background patterns to use in other SVG objects.  Lets take a look at an example.  We will use the square shape we made earlier and change it to a pattern.  In order to use patterns we need to add a new section to our svg...the <kbd>&lt;def&gt;</kbd>.</p>
+			<p>Patterns are another way to group svg objects.  they have a specific purpose as well: to create background patterns to use in other SVG objects.  Lets take a look at an example.  We will use the square shape we made earlier and change it to a pattern. Again we will need a <kbd>&lt;defs&gt;</kbd> block to define our pattern in. </p>
 			<pre><code>
  &lt;svg width="200" height="200"&gt; 
     &lt;!-- define pattern --&gt;
@@ -223,20 +273,20 @@
     </code></pre>
     <p>To use the svg later in the document you would take advantage of the <kdb>&lt;use&gt;</kdb> element.  Here is another example.</p>
     <pre><code class="html">
-        &lt;svg class="icon icon-plane"&gt;
-          &lt;use xlink:href="#icon-plane"&gt;&lt;/use&gt;
-        &lt;/svg&gt;
+&lt;svg class="icon icon-plane"&gt;
+  &lt;use xlink:href="#icon-plane"&gt;&lt;/use&gt;
+&lt;/svg&gt;
     </code></pre>
     <p>This is great for reusability.  The svg only has to be defined once, but can be used as many times as needed with this method.</p>
     </div>
     <p>The second way would be to take advantage of the <kbd>.svg</kbd> files in the <kdb>SVG</kdb> folder.  Those can be used just like any other image. Added as the src in an <kbd>&lt;img&gt;</kbd> tag or as a background image in css. The biggest disadvantage of adding SVG as an image is that you cannot style them with css.  You can style background images however.</p>
     <div class="callout">
         <pre><code class="html">
-            &lt;img src="svg/plane.svg" alt="SVG image of a plane">
+&lt;img src="svg/plane.svg" alt="SVG image of a plane">
         </code></pre>
         <p>...or...</p>
         <pre><code class="css">
-            background: url("svg/plane.svg");
+background: url("svg/plane.svg");
         </code></pre>
     </div>
     <p>The third way can be seen in the <kbd>demo-external.html</kbd> file.  All the SVG is in an external SVG file called <kbd>symbol-defs.svg</kbd>.  You can see how they are loaded in the .html file.  This method has several advantages such as separation of the images from the html and enabling caching of the svgs.</p>
@@ -244,7 +294,7 @@
     <p>The basic functionality of SVG has very broad support in all the major browsers.  There are a few things to watch out for however.</p>
     <p>External SVG with the <kbd>&lt;use&gt;</kbd> element is not supported in Internet Explorer.  You would have to use a polyfill if you wanted to take advantage of those methods of including svg.  One was actually included with the bundle we downloaded from Icomoon...<kbd>svgxuse.js</kbd></p>
     <h2>Conclusion</h2>
-    <p>A lot of concepts were just introduced...and we have only scratched the surface of SVG.  It is a very powerful and deep topic, and as mentioned at the beginning of this activity this was only intended to be an introduction.  In the responsive world we currently live in where a website will be viewed on screens of anywhere from 100px to 5000px across, the features SVG brings are fantastic.  I encourage you to practice with what was presented here and then dig a bit deeper.</p>
+    <p>A lot of concepts were just introduced...and we have only scratched the surface of SVG.  It is a very powerful and deep topic, and as mentioned at the beginning of this activity this was only intended to be an introduction.  In the responsive world we currently live in where a website will be viewed on screens of anywhere from 100px to 5000px across, the features SVG bring are fantastic.  I encourage you to practice with what was presented here and then dig a bit deeper.</p>
 			
 			
 			

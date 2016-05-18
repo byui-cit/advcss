@@ -26,35 +26,191 @@
     </div>
 			<h2>Activity</h2>
 			<p class="callout">This activity will have you continue working with the css grid library you created last week. For my examples I will be using the code that I came up with...it's ok if your code is different from mine.  As the old saying goes...there is more than one way to skin a cat :)</p>
-			
-			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use the same classes you created last week for the card backs to create the general shape of the card. Choose a card to start with (I recommend 5, 7, or 10) and add all the elements you will need.</p>
 			<div class="callout">
-			    <p>For example if I were making the 5 of clubs which looks something like this: </p>
-			    <div class="fig-block">
-			        <figure>
-			            <img src="../images/5-clubs.png" alt="image of a 5 of clubs playing card">
-			         </figure>
-			    </div>
-			    <p>Move @media mixin from week 4 getting started to here.  Create a different mixin to illustrate concepts in week 4? </p>
-			    <pre><code class="css">
-.rotate {
-    transform: rotate(180deg);
-}			        
-			    </code></pre>
+			    <p>Let's start by looking at what I came up with:</p>
+			    <pre>
+			        <code class="scss">
+//8 col grid 
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: space-between;
+    height: 100%;
+}
+
+.cell {
+    flex: 1;
+    text-align: center;
+}
+
+.col-1 {
+    flex: 0 0 12.5%;
+}
+
+...
+
+.col-8 {
+    flex: 0 0 100%;
+}
+
+.offset-1 {
+    @include offset(1);
+}
+...
+			        </code>
+			    </pre>
+			<p>I started by creating a row that would also be my flexbox container. For my implementation it worked better to put all the symbols into one row and let the magic of flexbox vertical alignment work while they wrap. So the height is 100%.  Then I made a generic cell class that had any properties I wanted applied to all columns.</p>
+			<p>After that I created 8 classes (I chose 8 columns for my grid) that were almost identical. Then I created 8 more classes for column offsets that again were almost identical. When we first learned about SCSS we studied mixins.  Mixins we learned are useful whenever we have code that is duplicated.  This seems like a perfect place for a mixin.</p>
 			</div>
 			
-			<p><span class="highlight">Step 02:</span>&nbsp; Create the rest of the classes you will need to make your card look right. Then create a second different card to test your library.  Hopefully you won't need to make any changes to your css to get it to work, but make adjustments as necessary. Once the first and second card are correct try as many others as you need to feel comfortable that your library will work for <strong>any</strong> card A-10.  (Don't forget to try the Ace ;) )</p>
+			<p><span class="highlight">Step 01:</span>&nbsp; In your .scss file from the grid assignment create 2 mixins.  One that will be used for columns and one for offsets.  Make sure to take in a parameter for which column you need. In my case the mixins would look like this: </p>
+			<pre><code class="scss">
+@mixin col($span-num) {
+    flex: 0 0 12.5% * $span-num;
+}
+
+@mixin offset($offset-num) {
+    margin-left: 12.5% * $offset-num;
+}
+			</code></pre>
+			<p>and to use them I would do this:</p>
+			<pre><code class="scss">
+.col-1 {
+    @include col(1);
+}
+			</code></pre>
+			<div class="callout">
+                <p>This is a good start.  Now if we need to adjust the css that makes our cells we can do it in one spot instead of 8.  I think we can do more.  As I look at the scss above I'm noticing that more than the contents of my column classes are the same...the classes themselves follow a pattern: col-[column span number].  This looks like an excellent place to take advantage of another feature of Sass: loops.</p>
+                <p>Loops in Sass work very similarly to other programming languages and in Sass you have either for loops, for-each loops, or while loops.  For more information check out <a href="https://www.sitepoint.com/premium/books/jump-start-sass/online/ch05.html" target="_blank">Jump Start Sass Ch5</a>.  In this case I think the for loop is the right choice.</p>
+			   	   
+			</div>
 			
-			<p><span class="highlight">Step 03:</span>&nbsp; Submit the URL to your codepen to Ilearn.</p>
-			
-    <h2>Grading</h2>
+			<p><span class="highlight">Step 02:</span>&nbsp; Lets save ourselves some typing, and make our grid more flexible by re-factoring our SCSS to use a for loop to generate the column and offest classes.</p>
+			<div class="callout">
+			    <p>Again I'll give an example of what this would look like using my code.</p>
+			    <pre><code class="scss">
+//make column classes 
+@for $index from 1 to 9 {
+    .col-#{$index} {
+        @include col($index);
+    }
+}
+
+//make offset classes
+@for $index from 1 to 9 {
+    .offset-#{$index} {
+        @include offset($index);
+    }
+}
+			    </code></pre>
+			    <p>We start with the @for keyword, then we indicate the variable we want the loop to use while it is counting.  Then we tell it where to start and stop counting. In this case we will start with 1 and end with 9.  Why 9 you may be asking? The loop uses a less than (&lt;) to check when it is done, and not a less than or equal to (&lt;=) so it will stop before it does the 9th loop.  If we left it at 8 we would be one short.</p>
+			    <p>The next thing you may have noticed is the funny syntax around the class names: <kbd>.col-#{$index}</kbd>.  You probably recognize out $index variable, but why is it wrapped in #{ }?</p>
+			    <p> The short answer is because it won't work if we don't :)  The better answer can be found here: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>.</p>
+			    <p>At this point we have dramatically shortened our SCSS, and made it a bit more maintainable. We're still not finished however, it would be nice if we could use our grids for any number of columns instead of just one set.  We have actually laid most of the groundwork to make this happen.  Lets finish.</p>
+			</div>
+			<p><span class="highlight">Step 03:</span>&nbsp; Add the appropriate variables to allow the grid to be used for any number of columns.</p>
+			<div class="callout">
+			    <p>If we look back at the mixins we made earlier you will see a hard coded number: 12.5%. Lets make it a variable. </p>
+			    <pre><code class="scss">
+$one-column: 12.5%;
+   @mixin col($span-num) {
+    flex: 0 0 $one-column * $span-num;
+}
+
+@mixin offset($offset-num) {
+    margin-left: $one-column * $offset-num;
+}
+			    </code></pre>
+			    <p>That is a good start, but we can do more. The 12.5% value in my mixins comes from my 8 columns (100% / 8). Lets modify our variable to reflect the formula used to determine it.</p>
+			    <pre><code class="scss">
+//variables
+$num-columns : 8;
+$one-column : 100% / $num_columns;
+			    </code></pre>
+			    <p>With that one change we are actually almost done.  We can now indicate how many columns we want, and the appropriate size of one column will be calculated. the last thing to fix is the start and stop points for the loops.  More variables!</p>
+			    		    <pre><code class="scss">
+//variables
+$num-columns : 8;
+$one-column : 100% / $num_columns;
+$loop-start: 1;
+$loop-end: $num-columns +1;
+			    </code></pre>
+			    <p>...and then the loops would need to change as well:</p>
+			    			    		    <pre><code class="scss">
+//make column classes 
+@for $index from $loop-start to $loop-end {
+    .col-#{$index} {
+        @include col($index);
+    }
+}
+
+//make offset classes
+@for $index from $loop-start to $loop-end {
+    .offset-#{$index} {
+        @include offset($index);
+    }
+}
+			    </code></pre>
+			</div>
+			<p><span class="highlight">Step 04:</span> And there we are.  Our grid might not be complete enough to work in all situations, but we have made a lot of progress on making it more efficient and reusable.  There is one last step we should do.  Take the classes, loops, and mixins needed for your grid and create a Sass partial with them. That way it will be easy to incorporate into another project should the need arise.</p>
+			<p><span class="highlight">Step 05:</span> Upload your converted grid partial file to iLearn.</p>
+			<h2>Grading</h2>
     <ul>
-        <li>Grid library can be used to create any playing card A-10 by changing the html markup but <strong>without</strong> changing the css. 10pts</li>
-        <li>SCSS has been used where appropriate. (variables for colors or sizes would be a good start) 4pts</li>
-        <li>Grid is Flexbox based. 6pts</li>
+        <li>Grid library converted to a partial. 4pts</li>
+        <li>SCSS mixins created for column and offset classes 5pts</li>
+        <li>SCSS loops used to be able to generate the classes for a grid of any specified number of columns. 6pts</li>
         
     </ul>
-			
+			<p>Here are the contents of the partial I ended up with.</p>
+	<pre><code class="scss">
+//_grid.scss
+
+//variables
+$num-columns : 8;
+$loop-start: 1;
+$loop-end: $num-columns +1;
+$one-column : 100% / $num_columns;
+
+//grid mixins 
+@mixin col($span-num) {
+    flex: 0 0 $one-column * $span-num;
+}
+
+@mixin offset($offset-num) {
+    margin-left: $one-column * $offset-num;
+}
+
+.row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: space-between;
+    height: 100%;
+}
+
+.cell {
+    flex: 1;
+    text-align: center;
+}
+
+//make column classes 
+@for $index from $loop-start to $loop-end {
+    .col-#{$index} {
+        @include col($index);
+    }
+}
+
+//make offset classes
+@for $index from $loop-start to $loop-end {
+    .offset-#{$index} {
+        @include offset($index);
+    }
+}
+	</code></pre>		
+    
 			
 			
 		</div><!-- end #article -->

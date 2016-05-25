@@ -39,6 +39,52 @@
 			    <li>Work together!  Don't do each others work, but take advantage of your classmates to bounce ideas around and talk through the problem.</li>
 			    <li>If you are having a hard time getting flexbox to work for you make sure to spend some time with both CSS Tricks excellent <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Guide to Flexbox</a> and <a href="http://flexboxfroggy.com" target="_blank">Flexbox Froggy</a>.  It really will help you get all the properties and how they work together down.</li>
 			</ul>
+			<div class="callout">
+			    <p>Because most of you have probably not had the experience of building something with a grid I will provide a bit of html to use to get you started.  Your final HTML does <strong>not</strong> have to look just like this.  It is merely an example of a direction you could take to get you started</p>
+			    <p>For my example you can see that I chose to use SVG symbols.</p>
+			    <pre><code class="html">
+&lt;!-- Example of html structure for a card--&gt;
+&lt;div class="card card-front"&gt;
+    &lt;div&gt;
+        &lt;div class="number "&gt;5
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;svg class="icon rotate"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;svg class="icon rotate"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class="number rotate"&gt;5
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+			    </code></pre>
+			</div>
 			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use the same classes you created last week for the card backs to create the general shape of the card. Choose a card to start with (I recommend 5, 7, or 10) and add all the elements you will need.</p>
 			<div class="callout">
 			    <p>For example if I were making the 5 of clubs which looks something like this: </p>

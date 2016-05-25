@@ -31,7 +31,8 @@
 			
 			<p><span class="highlight">Step 02:</span>&nbsp; Create your cards, when completed submit the url to your pen in ILearn.</p>
 			<div class="callout">
-    <p >If you have issues with scaling your svg objects take a look at the article: <a href="https://sarasoueidan.com/blog/svg-coordinate-systems/" target="_blank">Understanding SVG Coordinate Systems</a> along with the <a href="https://sarasoueidan.com/demos/interactive-svg-coordinate-system/index.html" target="_blank">playground</a> that goes along with the article. </p>
+    <p >If you have issues with scaling your svg objects take another look at the article: <a href="https://sarasoueidan.com/blog/svg-coordinate-systems/" target="_blank">Understanding SVG Coordinate Systems</a> along with the <a href="https://sarasoueidan.com/demos/interactive-svg-coordinate-system/index.html" target="_blank">playground</a> that goes along with the article.</p>
+                <p>You may run into some strange scaling issues if you use symbols with patterns.  When you create a viewBox you essentially redefine the coordinate system the svg uses.  If the viewBox is smaller than the viewPort (the size of the SVG element) then scaling will occur.  Here is a <a href="http://codepen.io/matkat/pen/qZzMJz" target="_blank">codepen</a> with some examples of some of the behaviors you might see because of this.  Make sure to read the comments.</p>
     <p>This assignment will also ask you to group some of your svg objects.  There are some examples of this in the <a href="l05-shapes-svg.html" target="_blank">SVG Shapes</a> activity you should have completed, but here is another article that goes into more depth to review: <a href="https://sarasoueidan.com/blog/structuring-grouping-referencing-in-svg/" target="_blank">Structuring, Grouping, and Referencing in SVG</a> </p>
     </div>
     <h2>Grading</h2>

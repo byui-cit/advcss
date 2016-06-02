@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<!--	
+<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/solarized-dark.css">
+<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Choose your own Adventure!</h1>
+                        
+			<hr />
+			<div class="callout">
+			<p>I was about 13 when I received a book all about card tricks and how to perform them.  It was pretty exciting and I immediately dove in to start learning them.  I made it through about 3 tricks before I realized card tricks could be really <em>hard</em> and took <em>a lot</em> of practice! Well unfortunately, I let that dampen my enthusiasm and I stopped practicing, that's why to this day I can only do about 2 tricks...but they are pretty cool :)</p>
+    <p>Most of life is like this actually.  New and exciting until we realize that meaningful things usually take a lot of work!  We are about at the point in the semester where the shine is wearing off.  Hopefully we can keep our enthusiasm up and <a href="https://www.lds.org/scriptures/nt/matt/24.13?lang=eng#12" target="_blank">endure unto the end</a>. </p>
+    
+    </div>
+			<h2>Activity</h2>
+			<p>For this activity you will build your own card trick with CSS transitions and animations.  You should pick 2 cards (A-10) and upon the hovering or clicking of one it will transform (magically) into the other. </p>
+			<p><span class="highlight">Step 01:</span>&nbsp; Begin this activity by choosing 2 cards...one you will start with and one you will end with.  Using your card grid system from last week build the starting card in html.</p>
+			<p><span class="highlight">Step 02:</span>&nbsp; Using CSS transitions and animations (and maybe a little bit of transforms) magically convert the beginning card to the ending card in any way you would like.</p>
+			<h3>Tips</h3>
+			<ul>
+			    <li>Start by just getting the hang of making things transition or animate.  Make things move around and appear/disappear.</li>
+			    <li>If you need inspiration remember to check out <a href="http://leaverou.github.io/animatable/" target="_blank">Animatable</a></li>
+                <li>CSS Transforms can be really helpful for this...but that is next weeks topic!  Because we haven't studied them yet I put together a few mixins to make it easy to use some of the more common transforms.
+                <pre><code class="scss">
+//rotates an element $angle degrees  example of usage: @include rotate(180deg);
+@mixin rotate($angle) {
+    -webkit-transform: rotate($angle);
+    transform: rotate($angle);
+}
+//grows or shrinks an element.  If you only pass in one arg it will scale x and y evenly, if you pass 2 it will scale accordingly.  Example: @include scale(1.5); (Would make it 1.5 times larger)
+@mixin scale($x, $y:$x) {
+    -webkit-transform: scale($x,$y);
+    transform: scale($x, $y);
+}
+//Moves something horizontally by $x and vertically by $y. One arg will move it equally in both directions. Example @include translate(10px, 15px); (move 10px to the left and 15px down)
+@mixin translate($x, $y: $x) {
+    transform: translate($x, $y);
+}
+                </code> </pre></li>
+                <li>As you build out your css watch for places where SCSS can make things easier through variable, nesting, mixins, or maybe even loops. </li>
+                <li>If you want to make your trick trigger from a click you will need a bit of Javascript...</li>
+                
+			</ul>
+			
+			<h2>Grading</h2>
+    <ul>
+        <li>Card transforms from one layout to another upon hover or click. 5pts</li>
+        <li>Both Transitions and animations have been used 5pts</li>
+        <li>SCSS used where appropriate. 5pts</li>
+        
+        
+    </ul>
+    
+	
+		</div><!-- end #article -->
+	</div>
+<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>
+<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/highlight.pack.js"></script>
+-->
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

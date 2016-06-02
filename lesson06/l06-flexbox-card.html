@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Creating a card layout with Flexbox</h1>
+                        
+			<hr />
+			<div class="callout">
+                <p>We have seen many layout methods come and go for CSS.  All of them have had their shortcomings.  Picking a layout method has often felt like picking the lesser of many evils with CSS!  The good news is that things are improving.  Two upcoming additions to CSS are Flexbox and CSS Grids.  CSS grids is unfortunately <a href="http://caniuse.com/#search=grid" target="_blank">still not ready for widespread use</a>, but <a href="http://caniuse.com/#search=flexbox" target="_blank">flexbox is</a> and it solves many long standing problems with other layout methods.</p>
+   <p>Flexbox is ideally suited for layouts that flow either horizontally or vertically (which happens a lot with the current trends) and can simplify responsive design with the ease at which it can switch between those two flows.</p>	
+                <p>Last week we created a custom playing card back, continuing along that theme this week we will be creating the front using flexbox.  We are going to start with the 7 of Clubs. (Actually...you could make a 7 of anything if you wanted.  I once even made a <a href="../images/7-foxes.png" target="_blank">Seven of foxes</a> :) )</p>
+    </div>
+			<h2>Activity</h2>
+			
+			<h3>Tips and Guidelines</h3>
+			<ul>
+			    <li>You should be able to reuse some of the classes from the card back assignment last week. For example the classes that form the card outline could stay the same.</li>
+			    <li>Many versions of the 7 of clubs (and other cards) will have a kind of half row where the center pip is wedged in between 2 other rows.  Do't worry about re-creating that.  Go ahead and give each row of pips on the card a full row in your layout.</li>
+                
+			    <li>Along those lines...don't stress about making your html card look <em>exactly</em> like whatever 7 of clubs you are looking at.  As long as it looks good, is balanced, and has all the elements you will get credit. </li>
+			    <li>You can use either a css shape or svg for your suits. If you want to use svg I have an example file with the <a href="../resources/svg-card-suits.html" target="_blank">svg suit shapes</a> in it to start with. </li>
+			    <li>Make sure to review the resources in the overview on flexbox.
+			    <ul>
+			        <li><a href="https://www.sitepoint.com/premium/screencasts/what-is-flexbox" target="_blank">What is Flexbox</a> </li>
+                           <li><a href="https://www.sitepoint.com/premium/screencasts/learning-about-flexbox-layouts-with-flex-containers" target="_blank">Learning about Flexbox Layouts</a> </li>
+                           <li><a href="https://www.sitepoint.com/premium/screencasts/flex-items-how-to-use-them-and-why" target="_blank">Flexbox Items</a> </li>
+                    <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks: Guide to Flexbox</a></li>
+			    </ul>
+			    </li>
+			    
+			    <li>Finally do not underestimate the power of <a href="http://flexboxfroggy.com" target="_blank">Flexbox Froggy</a>!</li>
+			    
+			</ul>
+			
+			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use some of the classes you created for the Card Back assignment to create the general shape of the card. Continue by adding all the elements you will need next.</p>
+			<div class="callout">
+			    <p>For example we are making the 7 of clubs which looks something like this: </p>
+			    <div class="fig-block">
+			        <figure>
+			            <img src="../images/7-clubs.png" alt="image of a 7 of clubs playing card">
+			         </figure>
+			    </div>
+			    <p>I would need a number 7 and small suit, then 7 regular sized suits, then another 7 and small suit. Notice that some of those icons are upside down! Try this class to make that happen: </p>
+			    <pre><code class="css">
+.rotate {
+    transform: rotate(180deg);
+}			        
+			    </code></pre>
+			</div>
+			
+			
+			<p><span class="highlight">Step 02:</span>&nbsp; Style the elements so they are in the correct positions.  Remember you should use flexbox for the major layout, but padding and margin are still great ways to make small adjustments when necessary. Do <strong>not</strong> use any floats or inline-blocks.</p>
+			
+			<p><span class="highlight">Step 03:</span>&nbsp; Submit the URL to your codepen to Ilearn.</p>
+			
+    <h2>Grading</h2>
+    <ul>
+        <li>Card looks like a 7 of Clubs (or like a 7 of something). 10pts</li>
+        <li>Majority of the layout is accomplished with flexbox. 5pts</li>
+        
+        
+    </ul>
+			
+			
+			
+		</div><!-- end #article -->
+	</div>
+
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

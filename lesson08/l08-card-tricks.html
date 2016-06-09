@@ -17,7 +17,7 @@
 <!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
 <div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
 <div id="article">
-			<h1>Choose your own Adventure!</h1>
+			<h1>Card Tricks</h1>
                         
 			<hr />
 			<div class="callout">
@@ -47,6 +47,7 @@
 }
 //Moves something horizontally by $x and vertically by $y. One arg will move it equally in both directions. Example @include translate(10px, 15px); (move 10px to the left and 15px down)
 @mixin translate($x, $y: $x) {
+    -webkit-transform: translate($x, $y);
     transform: translate($x, $y);
 }
                 </code> </pre></li>

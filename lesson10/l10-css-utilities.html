@@ -17,16 +17,53 @@
                         
 			<hr />
 			<div class="callout">
-			<p>As our websites and the code that creates them becomes more and more complex, it becomes more and more difficult to spot and fix problems that might arise. Developers combat this with a combination of organizational best practices that are designed to reduce error, and tools and utilities that can help locate and fix problems when they occur. </p>
-			<div>At the beginning of the semester you were asked to install several utilities in fact, many of which we haven't discussed yet.  You have been learning about organization through your readings, lets take a few minutes and explore those tools.</div>
+			<p>At the beginning of the semester you were asked to install several utilities in fact, many of which we haven't discussed yet. Lets do that now.  You have been learning about organization and debugging this week through your readings, lets take a few minutes and explore those tools to see how they might help with those goals.</p>
+			<p>This will put us back at the command line typing in commands...you may need to review the <a href="../resources/cmd-line-mac.html" target="_blank">command line mac</a> or <a href="../resources/cmd-line-pc.html" target="_blank">command line pc</a> resources.  You will need to be comfortable changing directories to succeed with this activity. </p>
+			
     
     
     </div>
 			<h2>Activity</h2>
-			<p>The first activity for this week had you use transforms to flip a card.  This activity has us continue by thinking about what else we can do with a card, and how those might be used in a web interface. </p>
-			<p><span class="highlight">Step 01:</span>&nbsp; Find a piece of paper, an index card would work especially well.  Holding it think about all of the different things you can do with it.  Make a list. Spend several minutes on this.  Review your list and think about how those actions might translate into a web interface and what you might use them for.  </p>
-			<p><span class="highlight">Step 02:</span>&nbsp; Choose two actions from your list that you thought of good use cases for (and that you think you can actually implement) and using transitions, animations, and transforms implement them as a codepen. </p>
-			<p><span class="highlight">Step 03:</span>&nbsp; Submit the url to your codepen to Ilearn. Add your list of actions as well as a comment. </p>
+			<p>Make sure to have <a href="https://www.sitepoint.com/premium/books/css-master/online/ch05.html" target="_blank">CSS Master: Ch3. Debugging and Optimization</a> open to refer to during this activity. It has usage instructions for the 3 utilities we will be looking at here. </p>
+			<p><span class="highlight">Step 01:</span>&nbsp; Open up the command line on your computer (Run->cmd on the pc and Terminal on the Mac).  Change to a directory where you have a css file you have written and follow the directions in CSS Mastery to run the CSSLint utility on the file. How many errors did you have? Try outputting the errors to a file using this syntax:</p> 
+			<pre><code  class="bash">csslint stylesheet.css > csslintoutput.txt</code> </pre>
+			<p>Practice interpreting the error messages by fixing them until the test comes back clean.  </p>
+			<div>
+                <p>Linters have become quite popular not just with CSS, but also HTML and Javascript.  One thing to understand however is that they are <strong>not</strong> validators.  They will find some errors, but they are more concerned with helping you write clean optimized, readable code.  They tend to be very opinionated as a result.They don't just encourage you to write valid code, but <em>correct</em> code...according to whomver setup the rules of the Linter.</p>
+                <p>You may or may not agree with all these opinions however, and so most Linting packages are configurable...you can use your own opinions instead of someone else's. Instructions on how to modify CSSLints defaults can be found at <a href="http://csslint.net" target="_blank">CSSLint.net</a>. </p>
+			</div>
+			<p><span class="highlight">Step 02:</span>&nbsp; The next tool we will use is Analyze-Css. With the same CSS file as the last step run the analyze-css utility according to the instructions in CSS Master Ch3. </p>
+			<div class="callout">
+			    <p>Try running each of these utilites without any arguments...just type the command.  You should see some hints on how to use the command.  This is pretty typical for these type of utilities and learning how to read this type of concise help is a good skill to develop.</p>
+			    <p>if you run it for analyze-css for example you will see something like this:</p>
+			    <pre><code class="bash">
+analyze-css --url &lt;url&gt; [options]
+
+Options:
+  --url                Set URL of CSS to analyze                                            
+  --file               Set local CSS file to analyze                                        
+  --ignore-ssl-errors  Ignores SSL errors, such as expired or self-signed certificate errors
+  --pretty, -p         Causes JSON with the results to be pretty-printed                    
+  --no-offenders, -N   Show only the metrics without the offenders part                     
+  --auth-user          Sets the user name used for HTTP authentication                      
+  --auth-pass          Sets the password used for HTTP authentication                       
+  --version, -V        Show version number and quit                                         
+  --help, -h           This help text           
+			    </code> </pre>
+                <p>There are certain conventions that are almost always followed with these helps. Here are a few of te common conventions:</p>
+                <ul>
+                   <li>Things written in ALLCAPS or in <strong>bold</strong> often means type it <em>exactly</em> as it appears,</li>
+                   <li>and lowercase, <em>italics</em>, or surrounded with &lt; &gt; can mean you are supposed to change it to something specific.</li>
+                    <li>Something surrounded in [ ] is going to be an optional part of the command. It will work with our without that part.</li>
+                    <li>A | (pipe) between two parameters means that you can use one or the other, but not both.</li>
+                </ul>  
+			    <p>The instructions from the book say to type something like this:</p>
+			    <pre><code class="bash">analyze-css --file filename.css</code> </pre>
+			    <p>The results are not very readable however.  How would you modify the command to give better output?</p>
+			</div>
+			<p>Most of what Analyze-css gives back is informational. It tells you how many selectors you are using, how specific they are (less specific is usually better), if you are using any prefixed css that you don't need to anymore, and then it will point out offenders and duplicates...selectors that you really should look at and optimize.  </p>
+			<p><span class="highlight">Step 03:</span>&nbsp; Finally run the uncss utility on your file. You might not get much.  Try running it instead on a major site. Something like Apple.com or Facebook.com.  It might be surprising. </p>
+                    <p>Think about all the extra css Apple.com is loading for example...How could they optimize that. This week we will also take a first look at a css framework</p>
 						
 			<h2>Grading</h2>
     <ul>

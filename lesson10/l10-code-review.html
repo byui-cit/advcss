@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>CSS Code Review</h1>
+                        
+			<hr />
+			<div class="callout">
+			<p>We've been reading and talking a lot this week about css organization and architecture.  We've only scratched the surface.  This is an issue that every developer faces, and there are about as many opinions on the correct way to do it as there are developers...or projects...maybe even developers X projects.  That's how many opinions there are ;)</p>
+			<div>You will eventually develop your own opinions as well. This activity will hopefully help you begin to do that by reviewing the css for a popular project...Foundation.</div>
+    
+    
+    </div>
+			<h2>Activity</h2>
+			<p>Based on the reading and discussions of this week about organization and architecture we will review the source code (css) for the Foundation framework and discuss what they have done to organize their code. </p>
+			 
+    <p><span class="highlight">Step 01:</span>&nbsp; There are 2 ways you can look at the code for the Foundation framework (you should look at the SCSS version and not the compiled CSS version).  You look at the <a href="https://github.com/zurb/foundation-sites/tree/develop/scss" target="_blank">SCSS version</a> on github, or if you are feeling adventurous you can follow the instructions for <a href="http://foundation.zurb.com/sites/docs/installation.html" target="_blank">Foundation Installation</a> to pull a copy down to your computer. If you choose the install I would follow the manual:basic setup instructions. Choose one and look at the code.  </p>
+			<p><span class="highlight">Step 02:</span>&nbsp; Review Foundation and write-up your thoughts considering the following as you review:  </p>
+			<ul>
+			    <li>Is the styling is de-coupled from the html structure? Try using a few components in a page like <a href="http://foundation.zurb.com/sites/docs/button.html" target="_blank">button</a>, <a href="http://foundation.zurb.com/sites/docs/top-bar.html" target="_blank">topbar</a>, or <a href="http://foundation.zurb.com/sites/docs/progress-bar.html" target="_blank">progress bar</a>. (If you visit Css settings in codepen you can quickly add Foundation as an External CSS resource…see the Quick-add box)  Can you use them by just using classes or do they require very specific markup to work?</li>
+			    <li>Which if any of the philosophies we discussed this week they might be using (BEM, Atomic, OOCSS, etc)?</li>
+			   <li>Are the folders they use well named?</li>
+             <li>Check out the settings partial.  Imagine trying to customize Foundation without that settings file! Consider the advantages Sass gives to both the organization and customization of Foundation.</li>
+             <li>If you were a developer working on this code and you were asked to work on on something specific...like headline styles...how hard would it be to locate the code and modify it? Would you worry about your changes having unintended consequences after reviewing the class anmes and architecture of that portion of css?</li>
+			     <li>Do you like how it is organized?  Would you change anything?</li>
+			   
+			</ul>   
+			<p><span class="highlight">Step 03:</span>&nbsp; Submit your notes to Ilearn.</p>
+						
+			<h2>Grading</h2>
+    <ul>
+        <li>Thoughtful review of the code given. 5pts</li>
+        <li>At least 250 words. 5pts</li>
+        
+        
+        
+    </ul>
+    
+	
+		</div><!-- end #article -->
+	</div>
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

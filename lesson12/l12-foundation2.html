@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Next Steps with Foundation</h1>
+                        
+			<hr />
+			<div >
+                <p>This week I would like you to complete <a href="https://www.sitepoint.com/premium/courses/next-steps-in-foundation-2883" target="_blank">Next Steps in Foundation</a> course from Sitepoint.  The course is quite well done (I especially like the prototyping sections), but it was made for Foundation v5 and a few things changed.</p>
+                
+                <p>Watch for these things:</p>
+                <ul>
+                    <li>Foundation 5 used a directory called <code>stylesheets</code> for it's final css.  In Foundation 6 this is simply <code>css</code></li>
+                    <li>I would probably just skip lesson 2.  It walks through the basics of Sass, then installing the Sass version of Foundation. The installation instructions have changed. If you completed the <a href="../lesson11/l11-foundation.html" target="_blank">Foundation</a> activity from last week you should already have it running.</li>
+                    <li>You may find a few mentions of Compass.  that was part of the old installation...if you see <code>compass watch</code> translate it to <code>npm start</code></li>
+                    <li>The last major thing is in the lesson on Optimization.  That has changed as well. Before if you wanted everything you uncommented the <code>@import 'foundation'</code> line and left everything else commented. To get just specific parts you commented out <code>@import 'foundation'</code> and then uncommented the parts you need.  Now you must leave the <code>@import 'foundation'</code> uncommented always and just adjust the <code>@includes</code> below. </li>
+                </ul>
+    
+    </div>
+			
+    
+	
+		</div><!-- end #article -->
+	</div>
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

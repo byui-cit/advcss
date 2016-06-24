@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Prototyping 101</h1>
+                        
+			<hr />
+			<div class="callout">
+               <p>One of the best applications for comprehensive css frameworks like Bootstrap or Foundation is prototyping.  A prototype is a semi-working example of what the finished version of a page might look like.  They are extremely valuable while working with clients when finalizing designs.  If a picture is worth a thousand words a prototype is probably worth a million!</p>
+               
+    <p>For this activity we are going to do a bit of role-playing and build a prototype. This assignment can be done in pairs, and notice that the due date is not this Saturday, but the next.</p>
+    
+    </div>
+			<h2>Activity</h2>
+    <p>Imagine yourself as a new web designer/developer.  Your visionary if somewhat erratic childhood friend sends you the following email:</p>
+    <div class="callout">
+    <p>It's actually going to happen!  That dream we've been talking about for years of my Bed and Breakfast in the mountains is almost a reality! I need some help though.  I found the perfect location...a beautiful place right off the beaten track in the mountains and am in the final steps of securing funding to buy it and do the remodelling and furnishing that it needs.  My investors are looking over my business plan and have asked about marketing...specifically a website.  I know nothing about making websites! </p>
+        <p>I need a huge favor. One I will even pay you for (if my funding gets approved).  I need a website...by next week. Now before you panic, it doesn't have to be fully functional...it just has to look good and be <em>somewhat</em> functional :).</p>
+    <p>I have some ideas to get you started.  I'm thinking a single page affair...something like <a href="https://codyhouse.co/demo/alternate-fixed-scroll-background/index.html" target="_blank">this</a>. I love that affect with the full screen pictures that stay put when you scroll. As far as initial information I think we need a section on the location.  The place I am buying is in Wilson, Wyoming...a great location close to both Jackson Hole and Teton Valley.  We should really play that up.  I'm also going to have a really good breakfast menu...gourmet stuff.  We should also have a gallery of pictures of the surrounding area (mountains, forests, cabin, etc).  Oh and a big button that they can use to book a stay. (The booking part is one of those things that does not have to work).  Information on how to contact us with questions would be great as well.</p>
+    <p>Unfortunately I don't <em>actually</em> have pictures or the menu yet.  You can find something right?</p>
+    <p>This is going to be awesome! You are the best, I really owe you one :)</p>
+    
+    </div>
+    <p>Build a prototype for your 'friend'.</p>
+   
+			<p><span class="highlight">Step 01:</span>&nbsp; Review the example at <a href="https://codyhouse.co/demo/alternate-fixed-scroll-background/index.html" target="_blank">codyhouse</a> to get an idea of the basic layout of the page, then review the <a href="https://codyhouse.co/gem/alternate-fixed-scroll-backgrounds/" target="_blank">accompanying article</a> to get an idea of how to pull it off.  </p>
+			<div class="callout">
+			    
+                <p>The effect your friend mentioned is called parallax.  Parallax is when you have foregrounds and backgrounds moving at different speeds relative to each other.  It creates a feeling of depth in a web page and is a very popular technique currently. Most parallax implementations are done with a combination of Javascript and css, though a <a href="http://keithclark.co.uk/articles/pure-css-parallax-websites/" target="_blank">pure css parallax</a> is possible as well.</p>
+			<p>It is possible to achieve a parallax like effect quite simply however.  This is what the articles above demonstrate.</p>
+			</div>
+			<p><span class="highlight">Step 02:</span>&nbsp; Find images you can use for both the backgrounds and any foregrounds you think you might need. Try to find things that will invoke the outdoors-y, mountain-y, cabin-y, breakfast-y feel your friend is going for.  You can look either at stock photo sites or somewhere like <a href="https://unsplash.com/" target="_blank">Unsplash</a> for those images.  You will want to come up with some headlines for the major sections but all other text can be placeholder.</p>
+			<p><span class="highlight">Step 03:</span>&nbsp; Begin building the prototype.  Use the Foundation library for as much of the layout and for as many of the components (menu, panels, buttons, typography, gallery thumbnails, etc) as you can.  Most of the css you write should be for the parallax effect.</p>
+			
+				<p><span class="highlight">Step 04:</span>&nbsp; Archive your site and submit it to ILearn.  Make sure to optimize your Foundation.  Only include the parts you need.</p>	
+				
+					<h2>Tips</h2>
+					<ul>
+					    <li>Remember that prototypes demonstrate the general look and feel of a site, they focus on major layout and sacrifice some detail and functionality for speed. Links should do something...but it does not need to be what the final action will be. If you use any modals, menus, accordians, etc they should again do something.
+					    <p class="callout">Let me give you an example.  A modal would provide a nice effect with the image gallery.  When the thumbnail is clicked on a larger version of the image is shown. On a full version of the site you would probably expect prev/next buttons as well...but this is a prototype so just showing that it will get bigger is much faster to implement and is enough to get the feeling across.</p>
+					    </li>
+					    
+					    <li>From the email you should glean that you need to make a single page site with at least 4 sections:
+					    <ol>
+					        <li>Location: Show off the scenic cabin in the woods right off the main road that you can stay at and get a gourmet breakfast.</li>
+					        <li>Food: show off the fantastic (at least your friend assures you it will be fantastic) menu.</li>
+					        <li>Gallery</li>
+					        <li>Contact</li>
+					        <li>Pricing/Availability: Optional...this wasn't mentioned...but it wouldn't be a bad idea.</li>
+					        
+					    </ol>
+					    </li>
+					    <li>You can model the main layout after the example site given in the email.  Menu at the top, alternating images and solid sections with the information.  Notice the behavior difference of large and small screens.</li>
+					    <li>Images should be chosen that reflect what the final feel of the site should be.  They do not have to be from cabins in Wilson however.  Text can be lorem ipsem.</li>
+					    <li>Remember you can work as pairs for this assignment as well. </li>
+					    <li>This assignment spans 2 weeks instead of the usual one.  Next week you will be completing a foundation course that talks specifically about using it to prototype.  You may want to spend this week gathering resources and figuring out the parallax effect, and leave the rest for next week.</li>
+					    <li>Use the example to figure out how to accomplish what you need.  Do <strong>not</strong> just grab the html and css from the example and use it however.</li>
+					</ul>	
+			<h2>Grading</h2>
+    <ul>
+        <li>Functional prototype built that is similar to the example given. 20pts</li>
+        
+        <li>Foundation used where appropriate. 5pts</li>
+        <li>Foundation optimized (only the parts we need are included). 5pts</li>
+        
+    </ul>
+    
+	
+		</div><!-- end #article -->
+	</div>
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

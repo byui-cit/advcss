@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Foundation</h1>
+                        
+			<hr />
+			<div class="callout">
+                <p><a href="http://foundation.zurb.com" target="_blank">Foundation</a> advertises itself as the "most advanced responsive front-end framework in the world".  I can't speak to the veracity of that statement, but I do know it <em>is</em> pretty cool.</p>
+                <p>A framework is really just a collection of code (in this case html, css, and javascript) and design patterns that solve common design problems.  Foundation is no exception.  It was started by a design company called Zurb. Just like Bootstrap (another front-end framework) it began as a styleguide which was tested and refined and then finally released as an open source project in 2011. </p>
+                <p>Most projects have the same core set of issues that have to be addressed. One huge advantage of css frameworks (or any framework for that matter) is that they have solutions pre-built and more importantly very well tested to those core problems.  Thus they can save developers a lot of time. </p>
+                
+    </div>
+			<h2>Activity</h2>
+			<p>Foundation gives several options for use.  the simplest would be to simply download the full compiled CSS file, and link it into your html normally.  This is a great option to get up and going quickly, but is not really great for production.  Most sites will not use all of what Foundation offers and so downloading the full CSS is overkill.</p>
+    <p>The next option would be to take advantage of Foundation's <a href="http://foundation.zurb.com/sites/download/" target="_blank">custom download</a>.  Using the custom download you can pick and choose which options you want included, and even specify some defaults like colors and fonts.</p>
+    <p>Foundation can also be quickly integrated into a codepen.  If you click on the CSS setting (gear icon next to CSS) then scroll down to the "Add External CSS section" you will see a drop down labeled "Quick-add".  Foundation is one of the options there. This can let you quickly try something out. </p>
+    <p>The best option however is to take advantage of Foundation's Sass version. If you follow the links on the Foundation site for the <a href="http://foundation.zurb.com/sites/docs/installation.html" target="_blank">Sass installation</a> you will eventually end up at a page that gives you several <em>more</em> options just for Sass! </p>
+    <p>Of the options listed I would recommend either the command line tool (since we have NPM installed) or you could follow the Manual setup: basic template instructions. Both will give you the same result at the end.</p>
+    <div class="callout">
+    <p>Once you have it installed you may notice that there are quite a few things in the directory.  You may also notice that there is not much in the SCSS directory. Lets talk about the structure that Zurb has given you along with the Foundation Scss files.</p>
+    <p>Zurb gave you much more than just the scss files you were expecting. The boilerplate that you received is setup similar to what you might find with any medium to large scale modern web project. Modern development projects end up with a lot of moving parts.  There are dependencies...other utilities or libraries that are being used to speed up things. Some of those have special requirements as well.  Sass would be one example...it needs to be complied before it can be used.</p>
+    <p>You should notice the first directory is called <code>bower_components</code> and the next file is <code>bower.json</code>.  <a href="https://bower.io" target="_blank">Bower</a> is a package manager.  Developers can write reusable modules of code to accomplish specific tasks and then package them up and share them through package managers such as Bower. Those modules are stored in the bower_components directory, and the bower.json contains the configuration.  If you look at the contents of the .json file you will see the packages that Zurb needed to work...notice that one of them is the foundation files themselves! You will also see versions.  This is one of the greatest strengths of a package manager..they greatly simplify installing and keeping things up to date. </p>
+    <p>If you did the manual installation you ran a command <code>bower install</code>. It looked at the <code>bower.json</code> file and went and installed all the packages listed. If we needed one of those packages updated to a new version we could simply update the config file then run <code>bower update</code>.  Pretty slick huh?</p>
+    <p>There are also tools that we might need to make everything work. Again the Sass compiler would be a good example.  That is governed by another folder and config file: <code>node_modules</code> and <code>package.json</code>.  If you open up the .json file again you will see a list of dependencies...the two important ones are gulp and gulp-sass.  It determined what happened when you ran <code>npm install</code></p>
+    <p><a href="http://gulpjs.com" target="_blank">Gulp</a> is a task automator. There can be a lot of steps these days to get your development code ready for production.  Compiling Sass to css, running tests, concatinating and minifying dependancies just to name a few. This has made task managers <em>very</em> popular. This one is setup very simply...the only thing it is managing is to run the Sass compiler everytime a change is made (remember the <code>npm start</code> command you were asked to run after the installation?)  </p>
+    </div>
+   
+    
+    
+			<p><span class="highlight">Step 01:</span>&nbsp; To test your installation do the following: Open the <code>app.scss</code> file and take a look.  It has a few <code>@import</code>s at the top, then a bunch of <code>@include</code>s. By default almost all of Foundation is included. Lets pretend that we had a project where we only wanted to use the Typography styles from Foundation. Start by commenting out all the <code>@include</code>s.  After you save if you check <code>css/app.css</code> you should have a mostly empty file.</p>
+			<p class="callout">Remember that the boilerplate from Zurb comes with a Sass compiler. Make sure you have it running. (open a command line prompt, change directories to your Foundation basic template directory and type <code>npm start</code>)</p>
+			<p>Uncomment just the lines you think you need to get the Typographic styles.</p>
+			<p><span class="highlight">Step 02:</span>&nbsp; We can take advantage of the <code>_settings.scss</code> partial to customize our font styles.  Lets change the Headline defaults. For our headline font lets use <code>"Palatino Linotype", "Book Antiqua", Palatino, serif</code>.  And lets make all headlines <code>Coral</code> in color. </p>
+			<p><span class="highlight">Step 03:</span>&nbsp; Submit your customized and compiled <code>app.css</code> file to show that your installation is working and that you understand how to customize it.</p>
+						
+			<h2>Grading</h2>
+    <ul>
+        <li>app.css only has styles for typography. 5pts</li>
+        <li>Headline font family and color has been changed. 5pts</li>
+        
+        
+        
+    </ul>
+    
+	
+		</div><!-- end #article -->
+	</div>
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

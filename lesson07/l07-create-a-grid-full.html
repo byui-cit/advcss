@@ -22,13 +22,13 @@
 			<hr />
 			<div class="callout">
 			
-    <p>Last week we looked at 2 different ways to build the layout for a playing card.  Once from scratch, and once using a grid system library.  While building the card layout you probably noticed that the library we were using was not ideally suited for the task we had.</p>
+    <p>We've now looked at 2 different ways to build the layout for a playing card.  Once from scratch, and once using a grid system library.  While building the card layout you probably noticed that the library we were using was not ideally suited for the task we had.</p>
     <p>  Funny enough this is often the case, even when we are not building something as specific as a seven of clubs.  The reason there are so many grid systems out there is that they are <em>never</em> perfect for <em>every</em> task.  It is not uncommon to have to crack open the hood, so to speak, and tinker. This week I would like to build on what you learned in the 2 activities from last week to create our own specialized grid library.</p>
     </div>
 			<h2>Activity</h2>
-			<p>This activity will have you create a css grid library. To keep the scope reasonable we are going to build a specialized library that will be used for a specific purpose: to layout and build playing card fronts.</p>
+			<p>This activity will have you create a css grid library. To keep the scope reasonable we are going to build a specialized library that will be used for a specific purpose: to layout and build playing card fronts. I want to state right here that this is not the only way to solve this problem.  You will probably see places where this could be improved...and you are welcome to do so. My goal is to give you an introduction to some important concepts in Sass, css, grids, and responsiveness.</p>
 			<p class="callout">In other assignments I have provided html for you to style that you were not allowed to change.  In this case I should be able to take your .scss and using only the classes you provide in your library I should be able to write the html to build any card from A-10 <em>without changing any css</em>!</p>
-			<h3>Based on what we learned last week here are a few guidlines and tips we will follow:</h3>
+			<h3>Based on what we have learned here are a few guidlines and tips we will follow:</h3>
 			<ul>
 			    <li>A typical playing card has a height that is 1.4 times it's width.</li>
 			    <li>Our library should use flexbox for positioning.</li>
@@ -40,23 +40,72 @@
 			    
 			</ul>
 	
-			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use the same classes you created last week for the card backs to create the general shape of the card. Choose a card to start with (I recommend 5, 7, or 10) and add all the elements you will need.</p>
+			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use the same classes you created last week for the card backs to create the general shape of the card. by the end of this activity we should easily be able to create any card, but lets start with the 7 like we did last week.  Add all the elements in HTML you will need for a 7 of clubs. (You may just be able to use the html from last week)</p>
 			<div class="callout">
-			    <p>For example if I were making the 5 of clubs which looks something like this: </p>
-			    <div class="fig-block">
-			        <figure>
-			            <img src="../images/5-clubs.png" alt="image of a 5 of clubs playing card">
-			         </figure>
-			    </div>
-			    <p>I would need a number and small suit, then 5 regular sized suits, then another 5 and small suit. Notice that some of those icons are upside down! Try this class to make that happen: </p>
-			    <pre><code class="css">
-.rotate {
-    transform: rotate(180deg);
-}			        
+			    <p>The way you write your html can make a big difference in how your css turns out.  Because I will be making a few assumptions during this walkthrough lets take a look at how I chose to write my html.</p>
+			    <pre><code class="html">
+&lt;div class="card card-front"&gt;
+    &lt;div &gt;
+        &lt;div &gt;7
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div &gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div &gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+
+        &lt;div &gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div &gt;
+            &lt;svg class="icon rotate"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div &gt;
+            &lt;svg class="icon rotate"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div &gt;
+            &lt;svg class="icon rotate"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div &gt;
+            &lt;svg class="icon rotate"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class="rotate"&gt;7
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#icon-clubs"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;     
 			    </code></pre>
+			    <p>Notice that I have a div that will form the border of the card, then I have another just inside that. One of the decisions we will have to make is whether to put all our pips inside one flex parent, or create flex parents for each row of pips.  Both work, and each has it's advantages and disadvantages. For this demo I chose to put all the pips into one flex parent.  That inner div will become that parent.</p>
 			</div>
 			
-			<p><span class="highlight">Step 02:</span>&nbsp; Create the rest of the classes you will need to make your card look right. Then create a second different card to test your library.  Hopefully you won't need to make any changes to your css to get it to work, but make adjustments as necessary. Once the first and second card are correct try as many others as you need to feel comfortable that your library will work for <strong>any</strong> card A-10.  (Don't forget to try the Ace ;) )</p>
+			<p><span class="highlight">Step 02:</span>&nbsp; Create a class called <code>row</code> and add the css to make it a flex container. Should look something like this: </p>
+                <pre><code class="css">
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+                </code></pre>
+                <p>the rest of the classes you will need to make your card look right. Then create a second different card to test your library.  Hopefully you won't need to make any changes to your css to get it to work, but make adjustments as necessary. Once the first and second card are correct try as many others as you need to feel comfortable that your library will work for <strong>any</strong> card A-10.  (Don't forget to try the Ace ;) )</p>
 					<div class="callout">
 			    <p>Because most of you have probably not had the experience of building something with a grid I will provide a bit of html to use to get you started.  Your final HTML does <strong>not</strong> have to look just like this.  It is merely an example of a direction you could take to get you started</p>
 			    <p>For my example you can see that I chose to use SVG symbols.</p>

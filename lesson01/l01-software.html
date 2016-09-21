@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>BYU-Idaho</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/solarized-dark.css">
     <link rel="stylesheet" href="../css/course.css" />
 </head>
 
@@ -52,9 +53,9 @@
             </p>
             <ol>
                 <li><strong>XCode.</strong>&nbsp;Apple&rsquo;s XCode development software is used to build Mac and iOS apps, but it also includes the tools you need to compile software for use on your Mac. XCode is free and you can find it in the&nbsp;<a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12" onclick="__gaTracker('send', 'event', 'outbound-article', 'https://itunes.apple.com/us/app/xcode/id497799835?mt=12', 'Apple App Store');">Apple App Store</a>. &nbsp;After you install it, open it at least once to accept the Terms. &nbsp;The next step won't work unless you do.</li>
-                <li><strong>Homebrew</strong>.&nbsp;Homebrew is a package manager for the Mac &mdash; it makes installing most open source software (like Node) as simple as writing&nbsp;<code>brew install node</code>. You can learn more about Homebrew at the&nbsp;<a href="http://brew.sh/" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://brew.sh/', 'Homebrew website');">Homebrew website</a>. To install Homebrew just open Terminal and type:&nbsp;
-                    <br /> <code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code>
-                    <br /> You&rsquo;ll see messages in the Terminal explaining what you need to do to complete the installation process.</li>
+                <li><strong>Homebrew</strong>.&nbsp;Homebrew is a package manager for the Mac &mdash; it makes installing most open source software (like Node) as simple as writing&nbsp;<code>brew install node</code>. You can learn more about Homebrew at the&nbsp;<a href="http://brew.sh/" onclick="__gaTracker('send', 'event', 'outbound-article', 'http://brew.sh/', 'Homebrew website');">Homebrew website</a>. To install Homebrew just open Terminal and type:
+                    <pre><code class="bash">ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+                    You&rsquo;ll see messages in the Terminal explaining what you need to do to complete the installation process.</li>
             </ol>
             <p>Installing Node.js and NPM is pretty straightforward using Homebrew. Homebrew handles downloading, unpacking and installing Node and NPM on your system. The whole process (after you have XCode and Homebrew installed) should only take you a few minutes.</p>
             <ol>
@@ -69,19 +70,19 @@
             </div>
             <ul>
                 <li>Open your command line (Terminal on the mac, Run-&gt;cmd on Windows)</li>
-                <li>Enter the following: &nbsp;<code>npm install -g csslint</code></li>
+                <li>Enter the following: <pre><code class="bash">npm install -g csslint</code></pre></li>
             </ul>
             <h2>Analyze-css</h2>
             <p><span>Like CSS Lint, analyze-css inspects your CSS for complexity and performance.&nbsp;</span></p>
             <ul>
                 <li>Open your command line (Terminal on the mac, Run-&gt;cmd on Windows)</li>
-                <li>Enter the following: <code>npm install -g analyze-css</code></li>
+                <li>Enter the following: <pre><code class="bash">npm install -g analyze-css</code></pre></li>
             </ul>
             <h2>UnCSS</h2>
             <p><span>UnCSS looks at your HTML and CSS files and removes unused CSS! This is great especially if you choose to use 3rd party&nbsp;libraries like Bootstrap.</span></p>
             <ul>
                 <li>Open your command line (Terminal on the mac, Run-&gt;cmd on Windows).</li>
-                <li>Enter the following:&nbsp; <code>npm install -g uncss</code></li>
+                <li>Enter the following: <pre><code class="bash">npm install -g uncss</code></pre></li>
             </ul>
             <h2>SitePoint</h2>
             <p>We will be using materials from SitePoint.com (http://sitepoint.com). You will need access to their premier resources. The University has set up a special pricing for students of $10/semester. You will automatically be charged this fee after the add/drop date has passed for the semester. Here are <a href="https://byui-cit.github.io/advcss/resources/SitePoint-Premium-Join.pdf" target="_blank" >instructions on setting up your account</a>. <strong>You must register for this with your BYUI.EDU email address!</strong></p>
@@ -104,6 +105,8 @@
         <!-- end #article -->
     </div>
     <script src="../js/course.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 
 </html>

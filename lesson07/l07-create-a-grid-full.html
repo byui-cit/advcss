@@ -40,7 +40,7 @@
 			    
 			</ul>
 	
-			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use the same classes you created last week for the card backs to create the general shape of the card. by the end of this activity we should easily be able to create any card, but lets start with the 7 like we did last week.  Add all the elements in HTML you will need for a 7 of clubs. (You may just be able to use the html from last week)</p>
+			<p><span class="highlight">Step 01:</span>&nbsp; Create new .html and .scss files in your editor.  You should be able to use the same classes you created last week for the card backs to create the general shape of the card, or you can use my code from below. By the end of this activity we should easily be able to create any card, but lets start with the 7 like we did last week.  Add all the elements in HTML you will need for a 7 of clubs. (You may just be able to use the html from last week)</p>
 			<div class="callout">
 			    <p>The way you write your html can make a big difference in how your css turns out.  Because I will be making a few assumptions during this walkthrough lets take a look at how I chose to write my html.</p>
 			    <p data-height="365" data-theme-id="25722" data-slug-hash="bwqgGz" data-default-tab="html" data-user="matkat" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/matkat/pen/bwqgGz/">starter card</a> by Shane T (<a href="http://codepen.io/matkat">@matkat</a>) on <a href="http://codepen.io">CodePen</a>.</p>
@@ -51,7 +51,7 @@
 			    <p>Feel free to copy/paste the html and SCSS from the pen into files in your editor to use as a starting point for this activity.</p>
 			</div>
 			
-			<p><span class="highlight">Step 02:</span>&nbsp; Create a class called <code>row</code> and add the css to make it a flex container. Should look something like this: </p>
+			<p><span class="highlight">Step 02:</span>&nbsp; Create a class called <code>row</code> in your SCSS file, and add the css to make it a flex container. Should look something like this: </p>
                 <pre><code class="css">
 .row {
   display: flex;
@@ -90,7 +90,7 @@
 }
                 </code></pre>
                 <div class="callout">
-                <p>Remember with the flex property the first 0 means don't let this flex object grow, the second 0 means don't let it shrink.  You won't get the results you want without those.</p>
+                <p>Remember with the flex property the first 0 means don't let this flex object grow, the second 0 means don't let it shrink.  You won't get the results you want without those values.</p>
     </div>
 			<p><span class="highlight">Step 04:</span>&nbsp; Once you have those classes built apply them to the correct cells. For example the first div with the number should be one column wide, and the second and third should be 2 columns wide.  The third should be 8 columns wide.  It is the only thing on that row!</p>
 			<p>Your code might look like this:</p>
@@ -123,7 +123,7 @@
   margin-left: 25%;
 }
                 </code></pre>
-                <p>After creating the necesary offsets, apply them to the correct pips. If you have done this correctly your card should look like the image below.</p>
+                <p>After creating the necessary offsets, apply them to the correct pips. If you have done this correctly your card should look like the image below.</p>
                 <div class="fig-block">
 			        <figure>
 			            <img src="../images/7-clubs-almost-there.png" alt="image of a 7 of clubs playing card">

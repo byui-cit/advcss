@@ -115,15 +115,15 @@
 			            <img src="../images/7-clubs-partially-built.png" alt="image of a 7 of clubs playing card">
 			         </figure>
 			    </div>
-			    <p>It's just not looking right. It's missing the spacing.  There should be gaps between the pips that we just don't have yet.  It the vocabulary of grid libraries those are called offsets.  Lets make some.</p>
+			    <p>It's just not looking right. It's missing the spacing.  There should be gaps between the pips that we just don't have yet.  In the vocabulary of grid libraries those are called offsets. Offsets allow you to 'skip' columns in your layout. Lets make some.</p>
     </div>
-			<p><span class="highlight">Step 05:</span>&nbsp; Create classes to make offsets. The easiest way to do this would be to take advantage of the fact that our pips will wrap if we exceed the space available on the row.  We only have to worry about the gap on the left of each object.  To move something a little to the right...we can simply use the <code>margin-left</code> property. My 2 column offset for example looks like this:</p>
+			<p><span class="highlight">Step 05:</span>&nbsp; Create classes to make offsets. The easiest way to do this would be to take advantage of the fact that our pips will wrap if we exceed the space available on the row. Everytime we use 8 columns worth of space our elements will wrap.  We only have to worry about the gap on the left of each object.  To move something a little to the right...we can simply use the <code>margin-left</code> property. My 2 column offset for example looks like this:</p>
 				<pre><code class="css">
 .offset-2 {
   margin-left: 25%;
 }
                 </code></pre>
-                <p>After creating the necessary offsets, apply them to the correct pips. If you have done this correctly your card should look like the image below.</p>
+                <p>After creating the necessary offsets (you will need more than one), apply them to the correct pips. If you have done this correctly your card should look like the image below.</p>
                 <div class="fig-block">
 			        <figure>
 			            <img src="../images/7-clubs-almost-there.png" alt="image of a 7 of clubs playing card">

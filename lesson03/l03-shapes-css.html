@@ -28,7 +28,7 @@
     </div>
             <h2>Activity Directions</h2>
             <p>Now that you have a bit of background (you watched and read above...right?) Let's practice. I would first like to walkthrough making a heart.</p>
-            <p><span class="highlight">Step 1</span>: &nbsp; Open <a href="http://codpen.io" target="_blank">codepen.io</a> and login to your account if you are not already. Click on the +New Pen button at the top right of the screen.  We will not be using any Javascript for this, so lets close that pane to free up some space. </p>
+            <p><span class="highlight">Step 1</span>: &nbsp; Open <a href="http://codepen.io" target="_blank">codepen.io</a> and login to your account if you are not already. Click on the +New Pen button at the top right of the screen.  We will not be using any Javascript for this, so lets close that pane to free up some space. </p>
             <p><span class="highlight">Step 2</span>: &nbsp; Lets add a bit of html to get us started. Type the following into the html pane: </p>
     <pre><code class="html">
         &lt;div class="heart"&gt;&lt;/div&gt;
@@ -83,7 +83,7 @@
             <p class="callout">When you made that change you might have been surprised to find your shape disappeared! Turns out that content inserted with ::before or ::after is treated as inline.  Inline elements remember ignore height and width.  Add <kbd>display:block;</kbd> to your css and you shapes will come back.</p>
             <p><span class="highlight">Step 8</span>: &nbsp; After adding the <kbd>display:block;</kbd> you should now see 2 shapes.  They are both exactly the same right now...we will need to rotate one of them the opposite direction.  We can do that with the folllowing css: </p>
             <pre><code class="css">
-            #heart:after {
+            .heart:after {
                 transform: rotate(45deg);
                 transform-origin :100% 100%;
             }

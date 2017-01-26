@@ -45,12 +45,13 @@
     </div>
        <p>There are three partial files that are imported into the styles.scss.  Two at the top and one at the bottom.  You can find the actual files inside of scss/partials/. If you compile styles.scss into css you will see that the contents of those files do indeed get inserted in at the point where the @import command is.</p>
     <p>Notice that the @import statements do not include the file extention as well.  If one is not specified it will look for .scss <em>or</em> .sass</p>
-       <p class="callout">The other thing you might notice after compiling that scss into css is that the final styles.css file has almost 1000 lines!  You might be thinking: "Isn't 1000 lines of css a bit overkill for a style guide template?" and the answer is "probably"...but not only is this a template, it is also a good example of one way to organize a project ...something that many beginning developers struggle with.</p>
+       <p class="callout">The other thing you might notice after compiling that scss into css is that the final styles.css file has almost 1000 lines!  You might be thinking: "Isn't 1000 lines of css a bit overkill for a style guide template?" and the answer is: "Yes...yes it is."...but not only is this a template, it is also a good example of one way to organize a project ...something that many beginning developers struggle with.</p>
        
     <p><span class="highlight">Step 2</span>: &nbsp; Complete the styleguide by changing images, adding in the colors for your color scheme, the fonts you will use, and as many of the other styles that you have determined at this point. Feel free to remove any sections that you do not need (you won't have any forms or icons for example). </p>
-    <p>Some of the styles you will be changing will be in the style-guide.scss file. As you define your styles lets take advantage of Sass partials to further organize things.  Add a partial for each section that you complete in the style guide.  Move any styles from style-guide.scss into the partial and add an @import.  Any new styles that need to be defined should also be done in partials.</p>
+    <p>Some of the styles you will be changing will be in the style-guide.scss file. As you define your styles lets take advantage of Sass partials to further organize things.  Add a partial for each section that you complete in the style guide.  Move any styles from style-guide.scss into the partial and add an @import.  Any new styles that need to be defined should also be done in partials. You may even want to create a partial for all the variables.</p>
+    <p>If done correctly this step will provide you with many of the styles you will need for your finished site in a form that will be easy to include in that site later.</p>
     <div class="callout">
-        <p>Lets take a closer look at what I mean above.  Typography is a common section in style guides...this one is no exception.  You will notice that there is a section in the <code>style-guide.scss</code> labeled with comments as Typography...looks kindof like this:</p>
+        <p>Lets take a closer look at what I mean above.  Typography is a common section in style guides...this one is no exception.  You will notice that there is a section in the <code>style-guide.scss</code> labeled with comments as Typography...looks kind of like this:</p>
         <pre><code class="scss">
 /* -------------------------------- 
 
@@ -80,9 +81,10 @@ h1 {
 ...
         </code> </pre>
         <p>Lets take that whole section and place it into a partial.  A good name might be something like <code>_typography.scss</code>. Then remove the code (I would leave the commented heading) from the <code>style-guide.scss</code> file and replace it with an <code>@import</code> statement.</p>
+        <p>You could just as easily put that <code>@import</code> in another project to use these same typographical styles anywhere you needed.  This is where SASS partials really begin to shine.</p>
         <p>Do this for each section you complete for the styleguide.</p>
     </div>
-<p><span class="highlight">Step 3</span>: &nbsp; One member of the group should Compress/Archive the completed style guide directory and upload it to ILearn to turn it in.</p>
+<p><span class="highlight">Step 3</span>: &nbsp; One member of the group should Compress/Archive the completed style guide directory and upload it to ILearn to turn it in. Make sure to list all the names of the members of your group in the comments when you submit your style guide.</p>
     
     <h2>Grading</h2>
     <ul>

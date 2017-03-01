@@ -37,7 +37,8 @@
 			    <li>Most Grid systems (including Flexbox Grid) use a 12 column grid.  This is not ideal for a playing card...but with a little creativity you can make it work.</li>
 			    <li>Just like with the flexbox assignment you will need to decide how many rows you will use. I have successfully completed this with everything in one row <strong>and</strong> each row on the card in a separate &lt;div class="row"&gt; as well.  Each has different challenges.</li>
                 <li>You will probably want to read the <a href="http://flexboxgrid.com" target="_blank">documentation</a>...no really...<strong>read the docs</strong> and look over the examples ;) They are the text and tutorial for this activity and learning to navigate documentation for something like this might just be the most valuable thing you take from this activity.</li>
-			    <li>Just like last week don't stress about making your html card look <em>exactly</em> like whatever 7 of clubs you are looking at.  As long as it looks good and is balanced and has all the elements you will get credit. (Don't worry about the half rows many cards use for example)</li>
+			    <li>Don't worry about the half rows many cards use.  Each row of pips should have the same amount of space.</li>
+			    <li>Remember that you can turn a border on for your &lt;div&gt;s.  This can help to see what is going on when working on alignment.</li>
 			    <li>Finally don't be afraid to look at the actual css for the library.  You can see how they did everything! Sometimes this can help you to understand why it is doing (or not doing) something.</li>
 			    
 			</ul>
@@ -46,6 +47,43 @@
 			
 			
 			<p><span class="highlight">Step 02:</span>&nbsp; Apply the correct classes from the Flexbox Grid library to make your card layout match the correct layout for a 7 of Clubs. You should not need to write much css yourself, but you may need to make some minor adjustments after you have the bulk of the layout done to get it right.</p>
+			<div class="callout">
+			    <h2>Getting Started</h2>
+			    <p>If you have never used a framework before it can be a bit daunting at first. Where do you start?</p>
+			    <p>All grid libraries work by creating rows and columns.  Begin by determining what classes the library expects you to add to your html to identify these.  For example Flexbox grid starts out with an example that looks something like this (I've added a bit to their example):</p>
+			    <pre><code class="html">
+&lt;div class="row"&gt;
+    &lt;div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"&gt;
+        &lt;div class="box"&gt;Box1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xs-12
+                col-sm-4
+                col-md-3
+                col-lg-4"&gt;
+        &lt;div class="box"&gt;Box2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xs-12
+                col-sm-6
+                col-md-3
+                col-lg-4"&gt;
+        &lt;div class="box"&gt;Box3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+			    </code></pre>
+			<p>We can learn a lot about this library by looking closely here. It starts with a div with class="row". I think we can safely assume that we let the library know where we need a "row" by adding this class. For this framework a row is made up of 12 columns.  We should try to keep our rows to this limit...but if we exceed it the row will just wrap at 12.  Sometimes we can take advantage of this behavior.  </p>
+			<p>Next is a child div with 4 classes on it. This is how we tell the framework how many columns this element should take up in the row. This type of pattern is pretty common in responsive frameworks. We have told the element: "Be 12 columns (use the whole row) on a really small screen, be 8 columns wide on a small screen, be 6 columns wide on a medium screen, or be 4 columns wide on a large screen." (To figure out what actual sizes these are you'll need to dive into the code.) </p>
+			<p>If you only want to designate one set of sizes use the xs one (Mobile first!). If you used the medium for example your layout would work for medium and larger screens, but if you got smaller than that your layout would break.</p>
+			<p>So for our example our 3 boxes would behave like this at each screen size:</p>
+			<ol><li>xs: each box on it's own row taking up 100% of the row</li>
+			<li>sm: first 2 boxes sharing the row. box1 taking up 2/3 (8 cols) and Box2 the other 1/3 (4 cols). Box3 would be on the next row...width 1/2 (6 cols)</li>
+			<li>md: all 3 boxes on the same row...Box1 gets half the space, Box2 and 3 split the other half evenly.</li>
+			<li>lg: all 3 boxes on the same row each getting 1/3 (4cols) of the space.</li></ol>
+			<p>For this exercise you really only need to specify the xs columns.</p>
+			<p>The term with these libraries when you want to skip one or more columns is "offset".</p>
+			</div>
 			
 			<p><span class="highlight">Step 03:</span>&nbsp; Submit the URL to your codepen to Ilearn.</p>
 			

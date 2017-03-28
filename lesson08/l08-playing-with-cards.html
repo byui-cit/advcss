@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Added Spring 2017...replaces the Activity from Wk9 of the same name -->   
+
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Playing with Cards</h1>
+                        
+			<hr />
+			<div class="callout">
+			<p>We've learned a bit now about transitions and animations. Adding transforms in, which we will study next week, lets us do some really fun things.  We could do a <a href="http://codepen.io/matkat/pen/ezNExz" target="_blank">card trick</a>, or <a href="http://codepen.io/kevinjannis/pen/bpezow" target="_blank">propagate a meme</a>.  Create an <a href="http://codepen.io/davidkpiano/pen/kkpGWj" target="_blank">adorable pet</a> or make a <a href="http://codepen.io/mattjuggins/pen/rrLwQq" target="_blank">creative ui element</a>. The sky really is the limit.</p>
+			<p>As we learn new things we tend to draw parallels to other things that we are already familiar with. If you have read the chapter in <a href="http://atomicdesign.bradfrost.com/chapter-1/" target="_blank">Atomic Design</a> that was in the list for this week it talks about how that happened in web design.  The concept of page is definitely everywhere.  Other concepts have been introduced due to the way that most of us learned to use the web...and the way it was presented to us.  "Click Here" for example used to be everywhere, and it made sense because that's how most people were interacting with the web...with a mouse and by clicking.</p>
+			<div>That is changing however as we add more and more ways to interface with the web, in fact many people do way more tapping than clicking these days, I wonder how long it will be before we see a 'Tap Here' link.  These new devices are forcing a change in thinking about how to design for the web that you will all be heavily involved in.  Every year new ways to interact are introduced, and so we need new metaphors. Motion can be a powerful tool to help us implement these new metaphors.</div>
+    
+    
+    </div>
+			<h2>Activity</h2>
+    
+    <p>One of the hard parts about using motion on the web is knowing <em>when</em> to use them! Animations can easily distract the user and make the experience worse for them instead of better if we are not careful.  One way to avoid distracting animations is to make sure they always have a clear purpose.</p>
+    <p>Make sure before continuing that you have read <a href="http://atomicdesign.bradfrost.com/chapter-1/" target="_blank">Atomic Design Ch1</a>, completed the course: <a href="https://www.sitepoint.com/premium/courses/animating-with-css-2941" target="_blank">Sitepoint: Animating With CSS</a>, and then go and spend a few minutes watching this <a href="https://material.io/guidelines/motion/material-motion.html" target="_blank">short video on motion</a> from Material Design.  This activity has combine the the ideas in these resources by thinking about some new metaphors and how we might construct them for use in a web interface. </p>
+			<p><span class="highlight">Step 01:</span>&nbsp; Find a piece of paper, an index card would work especially well.  Holding it think about all of the different things you can do with it.  Make a list. Spend several minutes on this. (A short list will have around 10 actions...a good list would be closer to 20)  Review your list and think about how those actions might translate into a web interface and what you might use them for.</p>
+			<p><span class="highlight">Step 02:</span>&nbsp; Choose two actions from your list that you thought of good use cases for and describe what type of ui element/user interaction you would create with it. Describe the motion(s) (animations, and transforms) that you would need to apply to the card to create it. </p>
+			<div class="callout">
+                <p>Let's look at an example.</p>
+                <p>One of the actions you can do with a card is to flip it over.  If you have ever played any card game you have most likely performed this action many times. Websites often provide summary information at first...with the ability to get more info upon request.</p>
+			    <p>Lets take a common forum.  Each post will have the user's name and avatar by it...but what if you want to know more about a particular person?  If that basic info were the front of a card, if you clicked/tapped/touched on it you could have it rotate 180deg on the Y axis to expose a back...which could have more detailed info. This should be a fairly familiar concept for most people.  We have used collectable trading cards like this for years.</p>
+			    <p>The card should probably also expand while flipping to allow more details to be shown.  You might even have it slide to the middle of the screen while growing and flipping.</p>
+			    <p>The motion in this case would provide a nice trail to follow for the user...the flip would help link the 2 views (front and back) together, and the sliding motion links the nice large details view back to the small summary that was clicked on. This would avoid confusion about "Where did this come from?  What am I seeing?"</p>
+			</div>
+			<p><span class="highlight">Step 03:</span>&nbsp; Submit your list and descriptions in Ilearn. </p>
+						
+			<h2>Grading</h2>
+    <ul>
+        <li>List of actions possible for a card given. 5pts</li>
+        <li>Two actions chosen to be used as actual UI elements. Use cases given with explainations why you think those actions would be appropriate for the user interactions you describe. 5pts</li>
+        <li>Motions for the two actions described. 5pts</li>
+        
+        
+    </ul>
+    
+	
+		</div><!-- end #article -->
+	</div>
+
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

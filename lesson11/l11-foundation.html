@@ -22,16 +22,22 @@
                 <p>Most projects have the same core set of issues that have to be addressed. One huge advantage of css frameworks (or any framework for that matter) is that they have solutions pre-built and more importantly very well tested to those core problems.  Thus they can save developers a lot of time. </p>
                 
     </div>
+    <h2>Pre-requisites</h2>
+    <p>There are several utilities you will need to make sure are working on your computer for the install to go smoothly.  If you followed the <a href="../lesson01/l01-software.html" target="_blank">software setup instructions</a> you should be most of the way there. Here is a list of things to verify.  Open a command line window and try the following:</p>
+    <ul>
+        <li>Make sure that NPM (Node Package Manager) is working by entering: <pre><code class="bash">npm -v</code></pre>  You should see a version number. If you get any errors or "command not found" try running through the <a href="../lesson01/l01-software.html" target="_blank">software setup instructions</a> again.</li>
+        <li>Check to see if you have Bower installed (a javascript package manager) by entering <pre><code class="bash">bower -v</code></pre> Again you should see the version number.  If you get a 'command not found' you should install it by entering: <pre><code class="bash">npm install -g bower</code></pre></li>
+        <li>Lastly check for git on your computer by typing: <pre><code class="bash">git --version</code></pre>   If you get an error, git is not installed (Windows does not have git installed by default).  You should either <a href="https://git-scm.com/download/win" target="_blank">install git</a> or when the install instructions ask you to run the <pre><code class="bash">git clone https://github.com/zurb/foundation-sites-template projectname</code></pre> command instead goto  <a href="https://github.com/zurb/foundation-sites" target="_blank">github - foundation-sites</a> and download it directly.</li>
+    </ul>
+    <p>After installing git or bower if you still get a file not found error when typing the commands, close and re-open your command/terminal window to refresh the PATH.</p>
+    <p>  If you run into any issues get some help from a fellow student or the instructor. </p>
 			<h2>Activity</h2>
 			<p>Foundation gives several options for use.  The simplest would be to simply download the full, compiled CSS file, and link it into your html normally.  This is a great option to get up and going quickly, but is not really great for production.  Most sites will not use all of what Foundation offers and so downloading the full CSS is overkill.</p>
     <p>The next option would be to take advantage of Foundation's <a href="http://foundation.zurb.com/sites/download/" target="_blank">custom download</a>.  Using the custom download you can pick and choose which options you want included, and even specify some defaults like colors and fonts.</p>
     <p>Foundation can also be quickly integrated into a codepen.  If you click on the CSS setting (gear icon next to CSS) then scroll down to the "Add External CSS section" you will see a drop down labeled "Quick-add".  Foundation is one of the options there. This can let you quickly try something out. </p>
     <p>The best option however is to take advantage of Foundation's Sass version. If you follow the links on the Foundation site for the <a href="http://foundation.zurb.com/sites/docs/installation.html" target="_blank">Sass installation</a> you will eventually end up at a page that gives you several <em>more</em> options just for Sass! </p>
-    <p>Of the options listed I would recommend either the command line tool (since we have NPM installed) or you could follow the Manual setup: basic template instructions. Both will give you the same result at the end.</p>
-    <p>On Windows you will probably need to download and install <a href="https://git-scm.com/download/win" target="_blank">git</a> before you can follow the instructions. Or you could download foundation directly from <a href="https://github.com/zurb/foundation-sites" target="_blank">github - foundation-sites</a> instead of running the <code>git clone</code> command. Then finish following the other intructions.</p>
-    <p>If you get an error when running the <code>bower install</code> command you will need to install it as well. It can be installed with the following </p>
-    <pre><code class="bash">npm install -g bower</code></pre>
-    <p>After installing git or bower if you still get a file not found error when typing the commands, close and re-open your command/terminal window to refresh the PATH.</p>
+    <p>Of the options listed I would recommend the Manual setup: basic template instructions. </p>
+    <p><span class="highlight">Step 01:</span>&nbsp; Goto the <a href="http://foundation.zurb.com/sites/docs/installation.html" target="_blank">Sass installation</a> page on the Zurb website and follow the "Manual setup: basic template" instructions.  Make sure to read them all carefully and don't skip any steps!</p>
     <div class="callout">
     <p>Once you have it installed you may notice that there are quite a few things in the directory.  You may also notice that there is not much in the SCSS directory. Lets talk about the structure that Zurb has given you along with the Foundation Scss files.</p>
     <p>Zurb gave you much more than just the scss files you were expecting. The boilerplate that you received is setup similar to what you might find with any medium to large scale modern web project. Modern development projects end up with a lot of moving parts.  There are dependencies...other utilities or libraries that are being used to speed up things. Some of those have special requirements as well.  Sass would be one example...it needs to be compiled before it can be used.</p>
@@ -43,11 +49,11 @@
    
     
     
-			<p><span class="highlight">Step 01:</span>&nbsp; To test your installation do the following: Open the <code>app.scss</code> file and take a look.  It has a few <code>@import</code>s at the top, then a bunch of <code>@include</code>s. By default almost all of Foundation is included. Lets pretend that we had a project where we only wanted to use the Typography styles from Foundation. Start by commenting out all the <code>@include</code>s.  After you save if you check <code>css/app.css</code> you should have a mostly empty file.</p>
+			<p><span class="highlight">Step 02:</span>&nbsp; To test your installation do the following: Open the <code>app.scss</code> file and take a look.  It has a few <code>@import</code>s at the top, then a bunch of <code>@include</code>s. By default almost all of Foundation is included. Lets pretend that we had a project where we only wanted to use the Typography styles from Foundation. Start by commenting out all the <code>@include</code>s.  After you save if you check <code>css/app.css</code> you should have a mostly empty file.</p>
     <p class="callout">Remember that the boilerplate from Zurb comes with a Sass compiler. Make sure you have it running. (open a command line prompt, change directories to your Foundation basic template directory and type <code>npm start</code>).  The Brackets plugin and regular <code>sass --watch</code> commands will not work in this case.</p>
 			<p>Uncomment just the lines you think you need to get the Typographic styles.</p>
-			<p><span class="highlight">Step 02:</span>&nbsp; We can take advantage of the <code>_settings.scss</code> partial to customize our font styles.  Lets change the Headline defaults. For our headline font lets use <code>"Palatino Linotype", "Book Antiqua", Palatino, serif</code>.  And lets make all headlines <code>Coral</code> in color. </p>
-			<p><span class="highlight">Step 03:</span>&nbsp; Submit your customized and compiled <code>app.css</code> file to show that your installation is working and that you understand how to customize it.</p>
+			<p><span class="highlight">Step 03:</span>&nbsp; We can take advantage of the <code>_settings.scss</code> partial to customize our font styles.  Lets change the Headline defaults. For our headline font lets use <code>"Palatino Linotype", "Book Antiqua", Palatino, serif</code>.  And lets make all headlines <code>Coral</code> in color. </p>
+			<p><span class="highlight">Step 04:</span>&nbsp; Submit your customized and compiled <code>app.css</code> file to show that your installation is working and that you understand how to customize it.</p>
 						
 			<h2>Grading</h2>
     <ul>

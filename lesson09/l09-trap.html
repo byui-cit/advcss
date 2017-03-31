@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <meta charset="utf-8">
-	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<!--	
+
+    <!--	
 <link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/solarized-dark.css">
 <link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
-<link rel="stylesheet" href="../css/solarized-dark.css">
-<link rel="stylesheet" href="../css/course.css">
+    <link rel="stylesheet" href="../css/solarized-dark.css">
+    <link rel="stylesheet" href="../css/course.css">
 
 </head>
+
 <body>
-<div id="main" >
-<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
-<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
-<div id="article">
-			<h1>It's a Trap!</h1>
-                        
-			<hr />
-			<div class="callout">
-			<p>Imagine you are waiting for a job interview.  A nice person picks you up from the lobby and instead of taking you to a room full of people for an interview leads you to a small room with a  table, chair, and a whiteboard.  They hand you an ipad with the following animation playing on it: </p>
-			<div class="fig-block">
-                <figure>
-                    <img src="../images/trap-animation.gif" alt="Animation exercises...borrowed from this codepen: http://codepen.io/nicokoenig/pen/dNgOwj">
-                    <figcaption>Animation exercises</figcaption>
-                </figure>
+    <div id="main">
+        <!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+        <div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+        <div id="article">
+            <h1>It's a Trap!</h1>
+
+            <hr />
+            <div class="callout">
+                <p>Imagine you are waiting for a job interview. A nice person picks you up from the lobby and instead of taking you to a room full of people for an interview leads you to a small room with a table, chair, and a whiteboard. They hand you an ipad with the following animation playing on it: </p>
+                <div class="fig-block">
+                    <figure>
+                        <img src="../images/trap-animation.gif" alt="Animation exercises...borrowed from this codepen: http://codepen.io/nicokoenig/pen/dNgOwj">
+                        <figcaption>Animation exercises</figcaption>
+                    </figure>
+                </div>
+                <p>...and then ask you to recreate the animations using html and css. Then they exit the room leaving you all alone :(</p>
+
+
             </div>
-            <p>...and then ask you to recreate the animations using html and css.  Then they exit the room leaving you all alone :(</p>
-    
-    
-    </div>
-			<h2>Activity</h2>
-			<p>For this activity we will work through solving these problems should you ever find yourself in the scenario above.</p>
-			<div class="callout">
-			    <p>After recovering from the surprise, you begin to analyze the problems and making lists of steps.  Your initial list might look something like this:</p>
-			    <ol>
-			        <li>Create 4 boxes and center them on the screen both vertically and horizontally.</li>
-			        <li>?????</li>
-			    </ol>
-			    <p>It's a start right?</p>
-			</div>
-			<p><span class="highlight">Step 01:</span>&nbsp; Create a new codepen and create 4 colored squares on the screen centered vertically and spaced evenly horizontally. So that the rest of the instructions below work...lets use the following as a base style for our squares: (notice the vmin? If you haven't seen this unit before go review your <a href="https://www.w3schools.com/cssref/css_units.asp" target="_blank">CSS units</a>) </p>
-			<pre><code class="scss">
+            <h2>Activity</h2>
+            <p>For this activity we will work through solving these problems should you ever find yourself in the scenario above.</p>
+            <div class="callout">
+                <p>After recovering from the surprise, you begin to analyze the problems and making lists of steps. Your initial list might look something like this:</p>
+                <ol>
+                    <li>Create 4 boxes and center them on the screen both vertically and horizontally.</li>
+                    <li>?????</li>
+                </ol>
+                <p>It's a start right?</p>
+            </div>
+            <p><span class="highlight">Step 01:</span>&nbsp; Create a new codepen and create 4 colored squares on the screen centered vertically and spaced evenly horizontally. So that the rest of the instructions below work...lets use the following as a base style for our squares: (notice the vmin? If you haven't seen this unit before go review your <a href="https://www.w3schools.com/cssref/css_units.asp" target="_blank">CSS units</a>) </p>
+            <pre><code class="scss">
 .container {
     height: 25vmin;
     width: 25vmin;
     background-color: teal;
 }
 			</code> </pre>
-			<div class="callout">
-			    <p>They handed you an ipad...so you decide to use it...you create a new pen and start with the following html:</p>
-			    <pre><code class="html">
+            <div class="callout">
+                <p>They handed you an ipad...so you decide to use it...you create a new pen and start with the following html:</p>
+                <pre><code class="html">
 &lt;div class="container container-one"&gt;&lt;/div&gt;
 &lt;div class="container container-two"&gt;&lt;/div&gt;
 &lt;div class="container container-three"&gt;&lt;/div&gt;
 &lt;div class="container container-four"&gt;&lt;/div&gt;
 			    </code> </pre>
-			    <p>then you add some initial styles:</p>
-			    <pre><code class="scss">
+                <p>then you add some initial styles:</p>
+                <pre><code class="scss">
 body {
     display: flex;
     justify-content: space-around;
@@ -71,37 +73,40 @@ body {
     background-color: teal;
 }
 			</code> </pre>
-			<p>You look at the preview and are dismayed to find that while the squares are spread equally across the screen like you wanted...they are at the top of the screen instead of centered! Drat!</p>
-			<p>A bit of thinking and you remember that the default for <code>height</code> is <code>auto</code>....or make it as big as the content is. Even though you are in a pen there is still an <code>html</code> and <code>body</code> tag around your boxes...they are sized to the height of the boxes...we need to change that. You add the following css and Voila! Vertically centered squares.</p>
-			<pre><code class="css">
+                <p>You look at the preview and are dismayed to find that while the squares are spread equally across the screen like you wanted...they are at the top of the screen instead of centered! Drat!</p>
+                <p>A bit of thinking and you remember that the default for <code>height</code> is <code>auto</code>....or "make it as big as the content is". Even though you are in a pen there is still an <code>html</code> and <code>body</code> tag around your boxes...they are sized to the height of the boxes...we need to change that. You add the following css and Voila! Vertically centered squares.</p>
+                <pre><code class="css">
 html,
 body {
     height: 100%;
 }
 			</code> </pre>
-			
-			
-			<p>Time to expand our list.  The first box with the orbiting circle doesn't look too bad...lets start with that.</p>
-			<ol>
-			        <li>Create 4 boxes and center them on the screen both vertically and horizontally.</li>
-			        <li>Add a circle in the top left corner of the first box.</li>
-			        <li>Make the circle move around the perimeter of the containing square clockwise.
-			            <ol><li>Start at the top left corner.</li>
-			            <li>move to the top right corner</li>
-			            <li>move to the bottom right corner </li>
-			            <li>move to the bottom left corner</li>
-			            <li>move back to the top left corner</li>
-			            <li>repeat</li></ol></li>
-			    </ol>
-			    <p>That doesn't seem too bad.</p>
-			
-			
-    </div>	
-			<p><span class="highlight">Step 02:</span>&nbsp; Add a red circle in the top left corner of the first box. Build the keyframes and add the animation that will make the motion of the circle match the example.</p>
-			
+
+
+                <p>Time to expand our list. The first box with the orbiting circle doesn't look too bad...lets start with that.</p>
+                <ol>
+                    <li>Create 4 boxes and center them on the screen both vertically and horizontally.</li>
+                    <li>Add a circle in the top left corner of the first box.</li>
+                    <li>Make the circle move around the perimeter of the containing square clockwise.
+                        <ol>
+                            <li>Start at the top left corner.</li>
+                            <li>move to the top right corner</li>
+                            <li>move to the bottom right corner </li>
+                            <li>move to the bottom left corner</li>
+                            <li>move back to the top left corner</li>
+                            <li>repeat</li>
+                        </ol>
+                    </li>
+                </ol>
+                <p>That doesn't seem too bad.</p>
+
+
+            </div>
+            <p><span class="highlight">Step 02:</span>&nbsp; Add a red circle in the top left corner of the first box. Build the keyframes and add the animation that will make the motion of the circle match the example.</p>
+
             <div class="callout">
-			    <p>You make the following changes to your html:</p>
-			    <pre><code class="html">
+                <p>You make the following changes to your html:</p>
+                <pre><code class="html">
 &lt;div class="container container-one"&gt;
     &lt;div class="orbiting-circle"&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -109,8 +114,8 @@ body {
 &lt;div class="container container-three"&gt;&lt;/div&gt;
 &lt;div class="container container-four"&gt;&lt;/div&gt;
 			    </code> </pre>
-			    <p>...and add the following css:</p>
-			    			    <pre><code class="scss">
+                <p>...and add the following css:</p>
+                <pre><code class="scss">
 .container-one {
     padding: 1vmin;
 }
@@ -122,14 +127,14 @@ body {
     border-radius: 50%;
 }
 			</code> </pre>
-			<p>You might need to add the following as well if the padding makes your box bigger.</p>
-			<pre><code class="css">
+                <p>You might need to add the following as well if the padding makes your box bigger.</p>
+                <pre><code class="css">
 * {
     box-sizing: border-box;
 }
 			</code></pre>
-			<p>After that we need to put some keyframes together for the animation.</p>
-			<pre><code class="css">
+                <p>After that we need to put some keyframes together for the animation.</p>
+                <pre><code class="css">
 @keyframes orbit {
     0% { transform: translate(0,0); }
     25% { transform: translate(300%,0%); }
@@ -138,9 +143,10 @@ body {
     100% { transform: translate(0%,0%); }
 }
 			</code></pre>
-			<p>Pretty straightforward.  you can take advantage of the fact that translate is 2-dimensional. (The 300% was arrived at through trial and error...that's what worked for me...you may need to adjust that).  After adding the animation to the circle by adding <code>animation: orbit 3s linear infinite;</code> to our <code>.container-one</code> class we notice that the circle is moving around the square...but it's not quite right.  Reviewing the example again you notice the difference...the example pauses at each corner...ours does not.  How do we make it pause?</p>
-			<p>When we define keyframes we are defining what things should look like at certain points...snapshotting if you will.  To add additional behavior...we need more snapshots. In this case we actually aren't going to change anything...we want to maintain a state. Something like this might work: </p>
-			<pre><code class="css">
+                <p>Pretty straightforward. you can take advantage of the fact that translate is 2-dimensional. the first argument is the X translation, second is the Y translation. (The 300% was arrived at through trial and error...that's what worked for me...you may need to adjust that).</p>
+                <p> After adding the animation to the circle by adding <code>animation: orbit 3s linear infinite;</code> to our <code>.container-one</code> class we notice that the circle is moving around the square...but it's not quite right. Reviewing the example again you notice the difference...the example pauses at each corner...ours does not. How do we make it pause?</p>
+                <p>When we define keyframes we are defining what things should look like at certain points...snapshotting if you will. To add additional behavior...we need more snapshots. In this case we actually aren't going to change anything...we want to maintain a state. Something like this should work: </p>
+                <pre><code class="css">
 @keyframes orbit {
     0% { transform: translate(0,0); }
     5% { transform: translate(0,0); } /* don't change for 5% of the time...pause */
@@ -153,34 +159,40 @@ body {
     100% { transform: translate(0%,0%); }
 }
 			</code></pre>
-			<p>Perfect!</p>
-    </div>
-			<div class="callout">
-			<p>Time to expand our list again.  The second box with the rotating morphing circle/square looks fairly straightforward...lets continue with that.</p>
-			<ol>
-			        <li>Create 4 boxes and center them on the screen both vertically and horizontally.</li>
-			        <li>Add a circle in the top left corner of the first box.</li>
-			        <li>Make the circle move around the perimeter of the containing square clockwise.
-			            <ol><li>Start at the top left corner.</li>
-			            <li>move to the top right corner</li>
-			            <li>move to the bottom right corner </li>
-			            <li>move to the bottom left corner</li>
-			            <li>move back to the top left corner</li>
-			            <li>repeat</li></ol></li>
-			        <li>Add a circle in the center of the second box.</li>
-			        <li>Make the circle change to a white square, then rotate, then change back.
-			            <ol><li>Start with border radius 50% and red color</li>
-			            <li>change border radius to 0, color to white</li>
-			            <li>rotate 90deg</li>
-			            <li>change border radius back to 50% and color back to red</li>
-			            <li>repeat</li></ol></li>
-			    </ol>
-			    
-			</div>
-			<p><span class="highlight">Step 03:</span>&nbsp; Add a red circle in the center of the second box. Build the keyframes and add the animation that will make the motion of the circle match the example.</p>
-			<div class="callout">
-			    <p>You make the following changes to your html:</p>
-			    <pre><code class="html">
+                <p>Perfect!</p>
+            </div>
+            <div class="callout">
+                <p>Time to expand our list again. The second box with the rotating morphing circle/square looks fairly straightforward...lets continue with that.</p>
+                <ol>
+                    <li>Create 4 boxes and center them on the screen both vertically and horizontally.</li>
+                    <li>Add a circle in the top left corner of the first box.</li>
+                    <li>Make the circle move around the perimeter of the containing square clockwise.
+                        <ol>
+                            <li>Start at the top left corner.</li>
+                            <li>move to the top right corner</li>
+                            <li>move to the bottom right corner </li>
+                            <li>move to the bottom left corner</li>
+                            <li>move back to the top left corner</li>
+                            <li>repeat</li>
+                        </ol>
+                    </li>
+                    <li>Add a circle in the center of the second box.</li>
+                    <li>Make the circle change to a white square, then rotate, then change back.
+                        <ol>
+                            <li>Start with border radius 50% and red color</li>
+                            <li>change border radius to 0, color to white</li>
+                            <li>rotate 90deg</li>
+                            <li>change border radius back to 50% and color back to red</li>
+                            <li>repeat</li>
+                        </ol>
+                    </li>
+                </ol>
+
+            </div>
+            <p><span class="highlight">Step 03:</span>&nbsp; Add a red circle in the center of the second box. Build the keyframes and add the animation that will make the motion of the circle match the example.</p>
+            <div class="callout">
+                <p>You make the following changes to your html:</p>
+                <pre><code class="html">
 &lt;div class="container container-one"&gt;
     &lt;div class="orbiting-circle"&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -190,8 +202,8 @@ body {
 &lt;div class="container container-three"&gt;&lt;/div&gt;
 &lt;div class="container container-four"&gt;&lt;/div&gt;
 			    </code> </pre>
-			    <p>...and add the following css:</p>
-			    			    <pre><code class="scss">
+                <p>...and add the following css:</p>
+                <pre><code class="scss">
 .container--two {
 	display: flex;
 	justify-content: center;
@@ -199,20 +211,21 @@ body {
 }
 
 .morphing-circle {
-	height: 25%;
-  width: 25%;
-  background-color: red;	
-	
+    height: 25%;
+    width: 25%;
+    background-color: red;	
 }
 			</code> </pre>
-			<p>You know that this would be easy to do with a transition.  It would look something like this:</p>
-			<pre><code class="css">
+                <p>You realize that this would be easy to do with a transition. It would look something like this:</p>
+                <pre><code class="css">
 .morphing-circle {
-	height: 25%;
-  width: 25%;
-  background-color:darkred;	
-	border-radius: 50%;
-    transition: border-radius .5s ease, background-color .5s ease, transform .5s ease .5s;
+    height: 25%;
+    width: 25%;
+    background-color:darkred;	
+    border-radius: 50%;
+    transition: border-radius .5s ease, 
+                background-color .5s ease, 
+                transform .5s ease .5s;
 }
 .container-two:hover .morphing-circle {
     border-radius: 0;
@@ -220,46 +233,46 @@ body {
     transform: rotate(90deg);
 }
 			</code> </pre>
-			<p>But that would require the hover to trigger it...and wouldn't go on forever...it's going to have to be an animation with keyframes. Let's build the keyframes first.</p>
-			<pre><code class="css">
+                <p>...But that would require the hover to trigger it...and wouldn't go on forever...it's going to have to be an animation with keyframes again. Let's build the keyframes first.</p>
+                <pre><code class="css">
 @keyframes morphing-circle-square {
-            50% {
-                border-radius: 0%;
-                background-color: white;      
-            }
-            75% {
-                transform: rotate(90deg);    
-            }
-            100% {
-                border-radius: 50%;
-                background-color: darkred;
-            }
-        }
+    50% {
+        border-radius: 0%;
+        background-color: white;      
+    }
+    75% {
+        transform: rotate(90deg);    
+    }
+    100% {
+        border-radius: 50%;
+        background-color: darkred;
+    }
+}
 </code></pre>
-        <p>You try that first.  Looking at your list it seems to make sense...about halfway through the animation it should change to a white square...then it should rotate...the turn back to a red circle.  But what you see once you add <code>animation: morphing-circle-square 3s linear infinite;</code> to your <code>.morphing-circle</code> class is this:</p>
-        <div class="fig-block">
-                <figure>
-                    <img src="../images/circle-morph-wrong.gif" alt="Animation exercises...circle morph...not quite right">
-                    <figcaption>First shot at the Circle morph</figcaption>
-                </figure>
-            </div>
-            <p>Ack! Why is it doing that?  If you look at the keyframes above again...read it like this:</p>
-            <ul>
-                <li>Between 0% and 50% change from round to square and red to white.</li>
-                <li>between 0% and 75% rotate 90deg</li>
-                <li>between 50% and 100% change from square to circle and white to red.</li>
-                <li>between 100% and 50% change back to square/white...and rotatation resets back to 0deg</li>
-            </ul>
-            <p>If you think about it...that's not what we need to happen...If you look at the original animation...it really does this:</p>
-            <ul>
-                <li>when the animation starts make sure you are a circle</li>
-                <li>stay a red circle from 0 - 25% </li>
-                <li>between 25%-50% change from round to square and red to white...but don't start rotating yet</li>
-                <li>between 50% and 75% stay a white square, and rotate 90deg</li>
-                <li>between 75% and 100% stay rotated at 90deg, but change back to a red circle.</li>
-            </ul>
-            <p>The keyframes for that will look something like this:</p>
-            <pre><code class="css">
+                <p>You try that first. Looking at your list it seems to make sense...about halfway through the animation it should change to a white square...then it should rotate...the turn back to a red circle. But what you see once you add <code>animation: morphing-circle-square 3s linear infinite;</code> to your <code>.morphing-circle</code> class is this:</p>
+                <div class="fig-block">
+                    <figure>
+                        <img src="../images/circle-morph-wrong.gif" alt="Animation exercises...circle morph...not quite right">
+                        <figcaption>First shot at the Circle morph</figcaption>
+                    </figure>
+                </div>
+                <p>Ack! Why is it doing that? If you look at the keyframes above again...read it like this:</p>
+                <ul>
+                    <li>Between 0% and 50% change from round to square and red to white.</li>
+                    <li>between 0% and 75% rotate 90deg</li>
+                    <li>between 50% and 100% change from square to circle and white to red.</li>
+                    <li>between 100% and 50% change back to square/white...and rotatation resets back to 0deg</li>
+                </ul>
+                <p>If you think about it...that's not what we need to happen...If you look at the original animation...it really does this:</p>
+                <ul>
+                    <li>when the animation starts make sure you are a circle</li>
+                    <li>stay a red circle from 0 - 25% </li>
+                    <li>between 25%-50% change from round to square and red to white...but don't start rotating yet</li>
+                    <li>between 50% and 75% stay a white square, and rotate 90deg</li>
+                    <li>between 75% and 100% stay rotated at 90deg, but change back to a red circle.</li>
+                </ul>
+                <p>The keyframes for that will look something like this:</p>
+                <pre><code class="css">
 @keyframes morphing-circle-square {
     0% {border-radius: 50%}
     25% { /*(if you don't add both red and circle here it will start changing one or the other before you are ready) */
@@ -283,31 +296,35 @@ body {
     }
 }
             </code></pre>
-            <p>Much better.  Problem 2 solved!</p>
-			</div>
-			
-			<p><span class="highlight">Step 04:</span>&nbsp; Complete this activity by adding the steps to solve either problem 3 or 4 to our list above. Then post your list and Codepen URL with your working code for the first 2 examples to Ilearn. </p>
-                    <div class="callout">
-                        <p>Feel free to actually code 3 or 4 as well. They are both good exercises...but the solutions are not required. Only the steps you would follow to solve them.  If you do I just noticed that my animation is a smidge short for #4...it looks like it's a pattern of 2 beats then one beat.  It should just be a repeating 2 beat pattern.</p>
-                    </div>
-						
-			
-			<h2>Grading</h2>
-    <ul>
-        <li>Codepen URL has working examples for the first 2 animations. 5pts</li>
-        <li>List provided with the steps to solve either example 3 or 4 added. 5pts</li>
-            
-        
-    </ul>
-    
-	
-		</div><!-- end #article -->
-	</div>
-<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>
+                <p>Much better. Problem 2 solved!</p>
+            </div>
+
+            <p><span class="highlight">Step 04:</span>&nbsp; Complete this activity by adding the steps to solve either problem 3 or 4 to our list above. Then post your list and Codepen URL with your working code for the first 2 examples to Ilearn. </p>
+            <div class="callout">
+                <p>Feel free to actually code 3 or 4 as well. They are both good exercises...but the solutions are not required. Only the steps you would follow to solve them. If you choose #4, I just noticed that my animation is a smidge short...it looks like it's a pattern of 2 beats then one beat. It should just be a repeating 2 beat pattern.</p>
+            </div>
+
+
+            <h2>Grading</h2>
+            <ul>
+                <li>Codepen URL has working examples for the first 2 animations. 5pts</li>
+                <li>List provided with the steps to solve either example 3 or 4 added. 5pts</li>
+
+
+            </ul>
+
+
+        </div>
+        <!-- end #article -->
+    </div>
+    <!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>
 <script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/highlight.pack.js"></script>
 -->
-<script src="../js/course.js"></script>
-<script src="../js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+    <script src="../js/course.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 </body>
+
 </html>

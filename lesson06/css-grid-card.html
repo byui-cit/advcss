@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Using CSS Grid</h1>
+                        
+			<hr />
+			<div class="callout">
+		<p>Grids and web design have a bit of a complicated history.  This is largely due to the fact that we keep using the same word to mean different things. For example designers have long used <a href="https://www.sitepoint.com/grid-theory/" target="_blank">grid theory</a> to help in their designs. If you do a seach for "grid libraries" you will find a ton of tools that have been built in CSS (usually using float or flexbox) to help take your design based on grid theory and build it into a grid based layout.</p>
+   <p>Recently the W3C finished the <a  href="https://www.w3.org/TR/css-grid-1/" target="_blank">CSS Grid Layout Module Level 1</a> specification and we are rapidly seeing <a href="http://caniuse.com/#search=grid" target="_blank">browser support</a>. This specification is the second part of the layout solution web developers have been awaiting for many years.  We got the first with Flexbox...but flexbox really only shines with one dimensional layouts...either a row or column of content that may or may not wrap. Grid is the answer for layouts where X <em>and</em> Y position is critical.</p>	
+   
+    <p>Keep in mind that grid design theory, grid libraries, and the CSS Grid specification are different things even though they share similar names.  From here on when I refer to Grid...I mean the specification.</p>
+    <p>Earlier this week we created a playing card front with flexbox, now we will do the same with Grid.</p>
+    </div>
+			<h2>Activity</h2>
+			<p>For this activity we will continue with the flexbox based card created earlier in the week. We are going to enhance it so that if viewed in a browser that supports Grid, it will use Grid for the layout, otherwise it will use Flexbox.</p>
+			<p>One that I will bring to your attention right now is that when using a css framework most of the challenge is in attaching the correct class(es) to the correct elements in the HTML.  You actually shouldn't write very much of your own css for this activity.  If you find yourself writing a lot of the CSS you are working too hard!</p>
+			<div class="callout">
+			<p >The link I provided above has the download button front and center.  There is also an online CDN (content delivery network) version you can use as well.  This makes it convenient if you want to use a service like codepen to do your work. </p>
+            <p>To allow an external css file to work in codepen you will need to goto the css settings (Little gear icon next to the CSS section) then under the "Add External CSS" section paste the following:</p>
+            <pre><code class="html">https://cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css</code></pre>
+            <p>After adding that you will be able to use all the css from the library.</p>
+            </div>
+			<h3>Tips and Guidelines</h3>
+			<ul>
+			    <li>You should be able to reuse some of the classes from the flexbox assignment for this one. For example the classes that form the card outline, and size and color the symbols should stay the same.</li>
+			    <li>Most Grid systems (including Flexbox Grid) use a 12 column grid.  This is not ideal for a playing card...but with a little creativity you can make it work.</li>
+			    <li>Just like with the flexbox assignment you will need to decide how many rows you will use. I have successfully completed this with everything in one row <strong>and</strong> each row on the card in a separate &lt;div class="row"&gt; as well.  Each has different challenges.</li>
+                <li>You will probably want to read the <a href="http://flexboxgrid.com" target="_blank">documentation</a>...no really...<strong>read the docs</strong> and look over the examples ;) They are the text and tutorial for this activity and learning to navigate documentation for something like this might just be the most valuable thing you take from this activity.</li>
+			    <li>Don't worry about the half rows many cards use.  Each row of pips should be the same height.</li>
+			    <li>Remember that you can turn a border on for your &lt;div&gt;s.  This can help to see what is going on when working on alignment.</li>
+			    <li>Finally don't be afraid to look at the actual css for the library.  You can see how they did everything! Sometimes this can help you to understand why it is doing (or not doing) something.</li>
+			    
+			</ul>
+			
+			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass and add in the Flexbox Grid external link (https://cdn.jsdelivr.net/flexboxgrid/6.3.0/flexboxgrid.min.css). You should be able to use the same classes and much of the html structure you created for the Flexbox assignment to create the general shape of the card.</p>
+			
+			
+			<p><span class="highlight">Step 02:</span>&nbsp; Apply the correct classes from the Flexbox Grid library to make your card layout match the correct layout for a 7 of Clubs. You should not need to write much css yourself, but you may need to make some minor adjustments after you have the bulk of the layout done to get it right.</p>
+			<div class="callout">
+			    <h2>Getting Started</h2>
+			    <p>If you have never used a framework before it can be a bit daunting at first. Where do you start?</p>
+			    <p>All grid libraries work by creating rows and columns.  Begin by determining what classes the library expects you to add to your html to identify these.  For example Flexbox grid starts out with an example that looks something like this (I've added a bit to their example):</p>
+			    <pre><code class="html">
+&lt;div class="row"&gt;
+    &lt;div class="col-xs-12
+                col-sm-8
+                col-md-6
+                col-lg-4"&gt;
+        &lt;div class="box"&gt;Box1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xs-12
+                col-sm-4
+                col-md-3
+                col-lg-4"&gt;
+        &lt;div class="box"&gt;Box2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-xs-12
+                col-sm-6
+                col-md-3
+                col-lg-4"&gt;
+        &lt;div class="box"&gt;Box3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+			    </code></pre>
+			<p>We can learn a lot about this library by looking closely here. It starts with a div with class="row". I think we can safely assume that we let the library know where we need a "row" by adding this class. For this framework a row is made up of 12 columns.  We should try to keep our rows to this limit...but if we exceed it the row will just wrap at 12.  Sometimes we can take advantage of this behavior.  </p>
+			<p>Next is a child div with 4 classes on it. This is how we tell the framework how many columns this element should take up in the row. This type of pattern is pretty common in responsive frameworks. We have told the element: "Be 12 columns (use the whole row) on a really small screen, be 8 columns wide on a small screen, be 6 columns wide on a medium screen, or be 4 columns wide on a large screen." (To figure out what actual sizes these are you'll need to dive into the code.) </p>
+			<p>If you only want to designate one set of sizes use the xs one (Mobile first!). If you used the medium for example your layout would work for medium and larger screens, but if you got smaller than that your layout would break.</p>
+			<p>So for our example our 3 boxes would behave like this at each screen size:</p>
+			<ol><li>xs: each box on it's own row taking up 100% of the row</li>
+			<li>sm: first 2 boxes sharing the row. box1 taking up 2/3 (8 cols) and Box2 the other 1/3 (4 cols). Box3 would be on the next row...width 1/2 (6 cols)</li>
+			<li>md: all 3 boxes on the same row...Box1 gets half the space, Box2 and 3 split the other half evenly.</li>
+			<li>lg: all 3 boxes on the same row each getting 1/3 (4cols) of the space.</li></ol>
+			<p>For this exercise you really only need to specify the xs columns.</p>
+			<p>The term with these libraries when you want to skip one or more columns is "offset".</p>
+			</div>
+			
+			<p><span class="highlight">Step 03:</span>&nbsp; Submit the URL to your codepen to Ilearn.</p>
+			
+    <h2>Grading</h2>
+    <ul>
+        <li>Flexbox Grid library used with minimal additional css to create the 7 of Clubs. 15pts</li>
+        
+        
+    </ul>
+			
+			
+			
+		</div><!-- end #article -->
+	</div>
+
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

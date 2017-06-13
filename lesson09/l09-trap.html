@@ -144,7 +144,7 @@ body {
 }
 			</code></pre>
                 <p>Pretty straightforward. you can take advantage of the fact that translate is 2-dimensional. the first argument is the X translation, second is the Y translation. (The 300% was arrived at through trial and error...that's what worked for me...you may need to adjust that).</p>
-                <p> After adding the animation to the circle by adding <code>animation: orbit 3s linear infinite;</code> to our <code>.container-one</code> class we notice that the circle is moving around the square...but it's not quite right. Reviewing the example again you notice the difference...the example pauses at each corner...ours does not. How do we make it pause?</p>
+                <p> After adding the animation to the circle by adding <code>animation: orbit 3s linear infinite;</code> to our <code>.orbiting-circle</code> class we notice that the circle is moving around the square...but it's not quite right. Reviewing the example again you notice the difference...the example pauses at each corner...ours does not. How do we make it pause?</p>
                 <p>When we define keyframes we are defining what things should look like at certain points...snapshotting if you will. To add additional behavior...we need more snapshots. In this case we actually aren't going to change anything...we want to maintain a state. Something like this should work: </p>
                 <pre><code class="css">
 @keyframes orbit {

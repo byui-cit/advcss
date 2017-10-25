@@ -32,9 +32,9 @@
 			<h3>Resources</h3>
 			<p >We will need some additional resources with knowledge about Grid and @supports to accomplish this task. Review the following:</p>
            <ul>
-               <li><a href="https://gridbyexample.com" target="_blank">Grid By Example</a> Rachel Andrew's great tutorial site for Grid.</li>
+               <li><a href="https://gridbyexample.com" target="_blank">Grid By Example</a> Rachel Andrew's great tutorial site for Grid. I would recommend as a start to watch: <a href="https://gridbyexample.com/video/series-define-a-grid/" target="_blank">Defining a grid</a>, <a href="https://gridbyexample.com/video/series-repeat/" target="_blank">Repeat notation</a>, <a href="https://gridbyexample.com/video/series-line-based-placement/" target="_blank">Line based positioning</a>, and <a href="https://gridbyexample.com/video/grid-template-areas/" target="_blank">Grid template areas</a>.  Those are all videos and will take about 20 minutes to view. Then move on to alignment next.</li>
                <li><a href="https://www.sitepoint.com/introduction-css-grid-layout-module/" target="_blank">Introduction to the CSS Grid Layout Module</a> Sitepoint article </li>
-               <li> <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">Complete Guide to Grid</a> CSS Tricks </li>
+               <li> <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">Complete Guide to Grid</a> CSS Tricks...open this and keep it handy while learning Grid.</li>
                <li> <a href="https://www.sitepoint.com/an-introduction-to-css-supports-rule-feature-queries/" target="_blank">Introduction to CSS's @supports</a> Sitepoint Article</li>
            </ul>
             
@@ -42,12 +42,20 @@
 			
 			
 			<p><span class="highlight">Step 01:</span>&nbsp; Open your flexbox card pen in codepen.io.  Add a <code>@supports</code> block checking to see if the browser supports Grid. Add the SCSS you would need to redo your card with Grid.  (This means you will also need to undo some things.)</p>
+			<div class="callout">
+			    <p>You may find it easier to take all of your flexbox based code and lock it up in a @supports not() {} block...have the Grid be the default, and the Flexbox used only if Grid isn't supported than the other way. That way you get to start with more of a clean slate with your Grid.</p>
+			    <p>Your supports block will probably look something like this:</p>
+			    <pre><code class="scss">
+@supports not (display: grid) {
+    All of your flexbox SCSS code here.            
+}  </code></pre>
+        <p>@supports works very similarly to @media. Both take a condition and the css in the block associated with them is run if the condition is true.  Like @media, you need to make sure that you have the default css styles <em>before</em> the @supports block in your file.</p>
+			</div>
+			
+    <p><span class="highlight">Step 02:</span>&nbsp; Create a CSS Grid based layout for your card. Your grid will work best if all of the pips on the card share a common parent. Grid is similar to Flexbox in that when you turn on grid for an element...it only effects the immediate children of that element.</p>
 			
 			
-    <p><span class="highlight">Step 02:</span>&nbsp; You may find it easier to take all of your flexbox based code and lock it up in a @supports(not()) block...have the Grid be the default, and the Flexbox used only if Grid isn't supported than the other way. That way you get to start with more of a clean slate with your Grid. </p>
-			
-			
-			<p><span class="highlight">Step 03:</span>&nbsp; Submit the URL to your codepen to Ilearn.</p>
+			<p><span class="highlight">Step 03:</span>&nbsp; Remove the "not" from the @supports block to test that you did not break your Flexbox layout while making your Grid one. Replace the "not" and submit the URL to your codepen to Ilearn.</p>
 			
     <h2>Grading</h2>
     <ul>

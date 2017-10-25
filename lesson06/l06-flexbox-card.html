@@ -18,7 +18,7 @@
                         
 			<hr />
 			<div class="callout">
-                <p>We have seen many layout methods come and go for CSS.  All of them have had their shortcomings.  Picking a layout method has often felt like picking the lesser of many evils with CSS!  The good news is that things are improving.  Two upcoming additions to CSS are Flexbox and CSS Grids.  CSS grids is unfortunately <a href="http://caniuse.com/#search=grid" target="_blank">still not ready for widespread use</a>, but <a href="http://caniuse.com/#search=flexbox" target="_blank">flexbox is</a> and it solves many long standing problems with other layout methods.</p>
+                <p>We have seen many layout methods come and go for CSS.  All of them have had their shortcomings.  Picking a layout method has often felt like picking the lesser of many evils with CSS!  The good news is that things are improving.  Two recent additions to CSS are Flexbox and CSS Grids.  CSS grids is <a href="http://caniuse.com/#search=grid" target="_blank">just ready for widespread use</a>, provides a nice complement to <a href="http://caniuse.com/#search=flexbox" target="_blank">flexbox</a>. Both together solve many long standing problems with other layout methods.</p>
    <p>Flexbox is ideally suited for layouts that flow either horizontally or vertically (which happens a lot with the current trends) and can simplify responsive design with the ease at which it can switch between those two flows.</p>	
                 <p>Last week we created a custom playing card back, continuing along that theme this week we will be creating the front using flexbox.  We are going to start with the 7 of Clubs. (Actually...you could make a 7 of anything if you wanted.  I once even made a <a href="../images/7-foxes.png" target="_blank">Seven of foxes</a> :) )</p>
     </div>
@@ -39,12 +39,12 @@
                     <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks: Guide to Flexbox</a></li>
 			    </ul>
 			    </li>
-			    
+                <li>A playing card is a good example of a <a href="https://www.sitepoint.com/grid-theory/" target="_blank">grid based layout</a>. In such layouts everything should fit in one or more defined columns.  Sometimes in such layouts columns need to be skipped.  In grid terminology a skip is called an offset. This assignment becomes easier if you create yourself some offsets...I would say offset-1 and offset-2 (skip one or two columns) would be sufficient in this case. How do you accomplish this? Well, if you needed to push anything left a small distance, how would you do it?</li>
 			    <li>Finally do not underestimate the power of <a href="http://flexboxfroggy.com" target="_blank">Flexbox Froggy</a>!</li>
 			    
 			</ul>
 			
-			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io.  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use some of the classes you created for the Card Back assignment to create the general shape of the card. Continue by adding all the elements you will need next.</p>
+			<p><span class="highlight">Step 01:</span>&nbsp; Create a new pen in codepen.io (or if you would rather you can fork <a href="https://codepen.io/matkat/pen/bwqgGz" target="_blank">this starter card pen</a> and use it as a starting point).  Make sure to change the css settings to use SCSS so you can take advantage of Sass. You should be able to use some of the classes you created for the Card Back assignment to create the general shape of the card. Continue by adding all the elements you will need next.</p>
 			<div class="callout">
 			    <p>For example we are making the 7 of clubs which looks something like this: </p>
 			    <div class="fig-block">

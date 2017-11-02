@@ -28,7 +28,7 @@
 			<h2>Activity</h2>
 			<p>This activity will have you create a css grid library. To keep the scope reasonable we are going to build a specialized library that will be used for a specific purpose: to layout and build playing card fronts. I want to state right here that this is not the only way to solve this problem.  You will probably see places where this could be improved...and you are welcome to do so. My goal is to give you an introduction to some important concepts in Sass, css, grids, and responsiveness.</p>
 			<p class="callout">When you are done with this activity I should be able to take your .scss and using only the classes you provide in your library I should be able to write the html to build any card from A-10 <em>without changing any css</em>!</p>
-			<h3>Here are a few guidelines and tips we will follow:</h3>
+			<h3>Here are a few guidelines and tips:</h3>
 			<ul>
 			    <li>A typical playing card has a height that is 1.4 times it's width.</li>
 			    <li>Our library should use flexbox for positioning.</li>
@@ -109,7 +109,9 @@
         ...
 			</code> </pre>
 			<div class="callout">
-			<p>After getting all of those classes applied your card should look something like this:</p>
+                <h3>Note!</h3>
+                <p>The class you apply to each pip describes how many columns that element should span...<strong>not</strong> which column the element is in. Since we only have elements that take up 1, 2, or all of the columns you will only be using those 3 classes (<code>.col-1, .col-2, .col-8</code> ) for this card.</p>
+                <p>  After getting all of those classes applied your card should look something like this:</p>
 			<div class="fig-block">
 			        <figure>
 			            <img src="../images/7-clubs-partially-built.png" alt="image of a 7 of clubs playing card">
@@ -167,7 +169,7 @@
 			   	   
 			</div>
 			
-			<p><span class="highlight">Step 08:</span>&nbsp; Let's save ourselves some typing, and make our grid more flexible by re-factoring our SCSS to use a for loop to generate the column and offest classes.</p>
+			<p><span class="highlight">Step 08:</span>&nbsp; Let's save ourselves some typing, and make our grid more flexible by re-factoring our SCSS to use a for loop to generate the column and offset classes.</p>
 			<div class="callout">
 			    <p>Again I'll give an example of what this would look like using my code.</p>
 			    <pre><code class="scss">
@@ -186,8 +188,9 @@
 }
 			    </code></pre>
 			    <p>We start with the @for keyword, then we indicate the variable we want the loop to use while it is counting.  Then we tell it where to start and stop counting. In this case we will start with 1 and end with 9.  Why 9 you may be asking? The loop uses a less than (&lt;) to check when it is done, and not a less than or equal to (&lt;=) so it will stop before it does the 9th loop.  If we left it at 8 we would be one short.</p>
-			    <p>The next thing you may have noticed is the funny syntax around the class names: <kbd>.col-#{$index}</kbd>.  You probably recognize out $index variable, but why is it wrapped in #{ }?</p>
+			    <p>The next thing you may have noticed is the funny syntax around the class names: <kbd>.col-#{$index}</kbd>.  You probably recognize our $index variable, but why is it wrapped in #{ }?</p>
 			    <p> The short answer is because it won't work if we don't :)  The better answer can be found here: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>.</p>
+			    <p>With those for loops in place we can actually go back and remove all of the <code>.col-1, .col-2, .offset-2, etc</code> classes from our scss.  The for loops will generate those for us.  If you don't believe me go take a looks at your compiled .css!</p>
 			    <p>At this point we have dramatically shortened our SCSS, and made it a bit more maintainable. We're still not finished however, it would be nice if we could use our grids for any number of columns instead of just one set.  We have actually laid most of the groundwork to make this happen.  Lets finish.</p>
 			</div>
 			<p><span class="highlight">Step 09:</span>&nbsp; Add the appropriate variables to allow the grid to be used for any number of columns.</p>
@@ -234,7 +237,8 @@ $loop-end: $num-columns +1;
 }
 			    </code></pre>
 			</div>
-			<p><span class="highlight">Step 10:</span> And there we are.  Our grid might not be complete enough to work in all situations, but we have made a lot of progress on making it more efficient and reusable.  There is one last step we should do.  Take the classes, loops, and mixins needed for your grid and create a Sass partial with them. That way it will be easy to incorporate into another project should the need arise.</p>
+			<p><span class="highlight">Step 10:</span> And there we are.  Our grid might not be complete enough to work in all situations, but we have made a lot of progress on making it more efficient and reusable.</p>
+			<p>There are two last steps we should do. First go back and do some cleanup on your code.  Make sure that each mixin and variable is declared only once and make sure to remove any unnecessary scss. Then take the classes, loops, and mixins needed for your grid and create a Sass partial with them. That way it will be easy to incorporate into another project should the need arise.</p>
 			<p><span class="highlight">Step 11:</span> Upload your converted grid partial file to iLearn.</p>
 			<h2>Grading</h2>
     <ul>

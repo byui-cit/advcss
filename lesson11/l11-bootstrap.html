@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Bootstrap</h1>
+                        
+			<hr />
+			<div class="callout">
+                <p><a href="http://getbootstrap.com" target="_blank">Bootstrap</a> advertises itself as the "world's most popular front-end component library".  I can't speak to the veracity of that statement, but I do know it <em>is</em> pretty cool.</p>
+                <p>A framework is really just a collection of code (in this case html, css, and javascript) and design patterns that solve common design problems.  Bootstrap is no exception.  It started out as a styleguide for Twitter.</p>
+                <p>Most projects have the same core set of issues that have to be addressed. One huge advantage of css frameworks (or any framework for that matter) is that they have solutions pre-built and more importantly very well tested to those core problems.  Thus they can save developers a lot of time. </p>
+                
+    </div>
+    <h2>Pre-requisites</h2>
+    <p>There are several utilities you will need to make sure are working on your computer for the install to go smoothly.  If you followed the <a href="../lesson01/l01-software.html" target="_blank">software setup instructions</a> you should be most of the way there. Here is a list of things to verify.  Open a command line window and try the following:</p>
+    <ul>
+        <li>Make sure that NPM (Node Package Manager) is working by entering: <pre><code class="bash">npm -v</code></pre>  You should see a version number. If you get any errors or "command not found" try running through the <a href="../lesson01/l01-software.html" target="_blank">software setup instructions</a> again.</li>
+        <li>Install Yarn (a javascript package manager) by entering <pre><code class="bash">npm install -g yarn</code></pre>.</li>
+        
+    </ul>
+    
+    <p>  If you run into any issues get some help from a fellow student or the instructor. </p>
+			<h2>Activity</h2>
+			<p>Bootstrap gives several options for use.  The simplest would be to simply download the full, compiled CSS file, and link it into your html normally.  This is a great option to get up and going quickly, but is not really great for production.  Most sites will not use all of what Bootstrap offers and so downloading the full CSS is overkill.</p>
+    <p>The next option would be to take advantage a CDN (content delivery network). This is a server optimized for speed that has one job...serve up libraries. Bootstraps CDN can be included by adding the following lines to your html</p> 
+    <pre><code class="html">
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"&gt;&lt;/script&gt;
+    </code></pre>
+    <p>You would also need to include JQuery for this to work.</p>
+    <p>Bootstrap can also be quickly integrated into a codepen.  If you click on the CSS setting (gear icon next to CSS) then scroll down to the "Add External CSS section" you will see a drop down labeled "Quick-add".  Bootstrap is one of the options there. This can let you quickly try something out. </p>
+    <p>The best option however is to take advantage of Bootstrap's Sass version. The rest of this activity will have us install Bootstrap into a project just like you would most likely do as a professional.</p>
+    
+    <p><span class="highlight">Step 01:</span>&nbsp; Download the <a href="../resources/webpack.zip">Boilerplate code</a> and extract it somewhere you can find it on your hard drive</p>
+    <p>Open your command line on your computer and navigate to the directory containing the downloaded code. then type <code>yarn install</code>. It might take a few minutes</p>
+    <div class="callout">
+    <p>Once you have it installed go take a look at the file structure. The boilerplate that you received is setup similar to what you might find with any small to medium scale modern web project. Modern development projects end up with a lot of moving parts.  There are dependencies...other utilities or libraries that are being used to speed up things. Some of those have special requirements as well.  Sass would be one example...it needs to be compiled before it can be used.</p>
+    <p>Modern web projects rely on a few types of tools to make them easier to manage.</p>
+    <dl>
+        <dt>Package Managers</dt>
+        <dd>This tool controls all of the dependencies for the project...it lets us easliy include tools written by others to both help us in development, and to include additional functionality in our finished product.  It really helps when it's time to update to a newer version of one of these tools.</dd>
+        <dt>Asset Bundlers</dt>
+        <dd>These gather all of the assets that our project needs and consolidates and processes them. A web app for example might have dozens of javascript files containing it's code. The bundler will combine them all together and minimize them...and then move the final file into a folder ready for distribution.</dd>
+        <dt>Task Manager</dt>
+        <dd>There are many processes that need to be run each time a change is made to the project. Sass needs to compiled and possibly autoprefixed and minimized, javascript combined and maybe transpiled, etc.  A task manager can be configured to allow all of these tasks to be automated.</dd>
+    </dl><br>
+    <p>For this project <code>Yarn</code> is our package manager.  In fact when you ran <code>yarn install</code> it went and looked at the <code>package.json</code> file to see what dependencies the project has, then retrieved them and put them into a directory called <code>node_modules</code>. Another popular package manager is <code>npm</code></p>
+    <p>We are using a tool called Webpack for bundling.  There is a configuration file for it as well: <code>webpack.config.js</code>. Another popular bundler would be <code>browserify</code></p>
+    <p>Finally since our project is fairly simple we are actually using Yarn as our task manager as well. If you look again in the <code>package.json</code> file you will see a section called <code>scripts</code>.  these are commands we can run to do different things for our project. Other popular task managers are Grunt and Gulp</p>
+    
+    </div>
+   
+    
+    
+			<p><span class="highlight">Step 02:</span>&nbsp; To test your installation do the following: run <code>yarn start</code> in the command line of your computer. Make sure you are still in the project folder. This will start up a simple web server pointed at our project. It will also watch for changes to either the SCSS files or the .JS files and it will recompile them when needed and refresh the page in the browser. It <strong>is not</strong> watching the .HTML file however. So if you make changes to that you will need to refresh the browser manually.</p>
+			<p>When you are ready to stop the web server type <code>ctrl+c</code> in the command line.</p>
+			<p>You should see a simple unstyled button and a message: <code>Setup Appears to be working 😉</code></p>
+    
+			<p><span class="highlight">Step 03:</span>&nbsp; Next let's install Bootstrap using our package manager. Go back to your command prompt and quit the webserver if it is running (ctrl+c). Then type <code>yarn add bootstrap jquery popper.js</code>.</p>
+			<div class="callout">
+			    <p>You may be asking yourselves: "I thought we just needed Bootstrap? Whay Jquery and popper.js?" In order to use many of the Bootstrap components Bootstrap requires those two javascript libraries in order to function. Luckily they are easy to add with a package manager.</p>
+			</div>
+			<p>The add command retrieved the packages and placed them into the <code>node_modules</code> directory, but our project still doesn't know about them.  Lets do that next. </p>
+			<p><span class="highlight">Step 04:</span>&nbsp; Finish adding Bootstrap into your project by opening the <code>assets/js/index.js</code> file in an editor and adding the following lines at the very top:</p>
+            <pre><code class="javascript">
+import $ from "jquery";
+import popper from 'popper.js';
+import bootstrap from 'bootstrap';
+            </code> </pre>
+        <p>Those lines will make it possible for our project to use those libraries. Notice that we didn't give much information about <em>where</em> the actual files were located...our bundler is smart enough to find them as long as they are mentioned in <code>package.json</code> and installed in <code>node_modules</code>.</p>
+        <p>Then open up the <code>assets/scss/styles.scss</code> file and add the following line just under the <code>@import</code> for the variables partial:</p>
+        <pre><code class="javascript">
+@import "node_modules/bootstrap/scss/bootstrap";
+            </code> </pre>
+            <p>Ok, lets try firing up our development server again. Type <code>yarn start</code>. Your page should have picked up a bit more styling...different font, button styled, and you should see one more message indicating that Jquery is working. If you see that then it's working! If not then review the directions above, or ask for help.</p>
+            <div class="callout">
+                <p>Take a minute and check out the files that were generated: <code>assets/css/styles.css</code> and <code>assets/js/bundle.js</code>.  Notice that they are each around 150KB now!  Over 300KB of stuff just to make Bootstrap work...that is a lot. We included all of Bootstrap however. A better option would be to only include the parts we intend to use.</p>
+                <p>If you look inside of the <code>node_modules/bootstrap/scss</code> directory you will see a long list of partials.  These could be included individually instead of all at once if we wanted.</p>
+            </div>
+			    
+	
+		</div><!-- end #article -->
+	</div>
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -27,7 +27,7 @@
 			<h3>Step 1</h3>
 			<p>Begin this activity by watching <a href="http://jensimmons.com/presentation/designing-grid" target="_blank">this great presentation by Jen Simmons on Designing for Grid</a> (~1h10 long).</p>
 			<p>This <a href="http://jensimmons.com/presentation/modern-layouts-getting-out-our-ruts" target="_blank">presentation</a> (optional) is also very good.  It spends more time with code.</p>
-			<p>Make sure that you have also read <a href="http://atomicdesign.bradfrost.com/chapter-1/" target="_blank">Chapter 1 of Atomic Design</a>, and reviewed a bit about making fully responsive images using the <a href="https://www.html5rocks.com/en/tutorials/responsive/picture-element/" target="_blank">picture element</a> </p>
+			<p>Make sure that you have also read <a href="http://atomicdesign.bradfrost.com/chapter-1/" target="_blank">Chapter 1 of Atomic Design</a>, and done a bit of review about making fully responsive images using the <a href="https://www.html5rocks.com/en/tutorials/responsive/picture-element/" target="_blank">picture element</a> </p>
 			
 			<h3>Step 2</h3>
 			<p>Once you are done spend a little time looking at the example of printed design below and think about how it might translate into a webpage.  </p>
@@ -45,7 +45,7 @@
 			    <li>The images should also be able to change shape if necessary at different screen sizes (art direction)</li>
 			    <li>Keep the HTML as simple as possible to make it portable.</li>
 			    <li>The information block should be easily movable (simply add an additional class): top or bottom, and left or right.</li>
-			    <li>Landscape and portrait images should have the same height. (the aspect ratio of the provided images is 3/4 or .75.  So for the mobile layout where the landscape images are full width you could try something like this: <code>max-height: calc(100vw*#{$aspect-ratio});</code>  Here is a bit of reading on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc" target="_blank">the calc() function</a> if you have never used it before.)</li>
+                <li>Landscape and portrait images should have the same height. (the aspect ratio of the provided images is 3/4 or .75. So for the mobile layout where the landscape images are full width you could try something like this: max-height: calc(100vw*#{$aspect-ratio}); Here is a bit of reading on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc" target="_blank">the calc() function</a> if you have never used it before.)</li>
 			</ul>
 			<div class="callout">
 			    <p>Lets look at a few examples of some of the different end results your component will have to handle.</p>
@@ -90,7 +90,7 @@
                 </ul>  
 			</div>
 			<h3>Step 4</h3>
-			<p>Once you have your component built we are ready use it to build the mobile layout for the page. I'm going to provide the layout for the mobile. See below.</p>
+			<p>Once you have your component built we are ready use it to build the mobile layout for the page. See below.</p>
 			<div class="fig-block">
 			        <figure>
 			            <img src="../images/index-mobile-screenshot.jpg" alt="mobile layout top">
@@ -116,8 +116,7 @@
 			        
 			        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode" target="_blank">MDN Writing Mode</a> </li>
 			        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture" target="_blank">MDN Picture Element</a> </li>
-			        <li><a href="https://www.lipsum.com/feed/html" target="_blank">Lorem Ipsum generator</a> </li>
-			        <li><a href="http://lorempixel.com" target="_blank">Lorempixel: placeholder image service</a> </li>
+			        
 			    </ul>
 			    
 			    
@@ -126,7 +125,7 @@
 			<p>Upload your HTML and SCSS (zip it up) to iLearn.</p>
 			<h2>Grading</h2>
     <ul>
-        <li>Media Compenent created. Styles should be in a partial 5 pts</li>
+        <li>Media Component created. Styles should be in a partial 5 pts</li>
         <li>Responsive layout created that matches the provided examples. 10pts</li>
         
         

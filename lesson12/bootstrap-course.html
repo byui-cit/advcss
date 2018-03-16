@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link rel="stylesheet" href="../css/solarized-dark.css">
+<link rel="stylesheet" href="../css/course.css">
+
+</head>
+<body>
+<div id="main" >
+<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+<div id="article">
+			<h1>Building your first website with bootstrap</h1>
+                        
+			<hr />
+			<div >
+                <p>This week I would like you to complete <a href="https://www.sitepoint.com/premium/courses/building-your-first-website-with-bootstrap-4-2995" target="_blank">Building your first website with Bootstrap</a> course from Sitepoint.  The course is quite well done, but we need to make a few adjustments to because of the way we have setup our Bootstrap app and because the course was made using the beta version of the framework and a few things changed.</p>
+                
+                <p>Watch for these things:</p>
+                <ul>
+                   <li>In the first lesson below the video there is a link to download the assets for the course. You will want to do this to get the images you will need.  Copy them in to a folder called <code>images</code> in your <code>assets</code> directory.</li>
+                    <li>In the second lesson don't follow the installation instructions. You should use the Bootstrap installation we did last week for this project.</li>
+                    <li>Also in lesson 2 the <code>navbar-inverse</code> class got renamed to <code>navbar-dark</code></li>
+                    <li></li>
+                    <li><p>In the last lesson the course introduces FontAwesome. You could install it as the course recommends...or you could use your package manager :)  To install it with yarn do the following: In the command line (and while in the project folder) type:</p>
+                    <pre><code class="bash">yarn add font-awesome</code> </pre>
+                    <p>then in your <code>assets/scss/styles.scss</code> file add the following lines towards the top:</p>
+                    <pre><code class="scss">
+$fa-font-path:"../../node_modules/font-awesome/fonts";
+@import "node_modules/font-awesome/scss/font-awesome";</code> </pre>
+                    </li>
+                </ul>
+    
+    
+    </div>
+		<p>Once you have completed your site do a production build:</p>	
+   <pre><code class="bash">yarn build</code> </pre>
+   <p>Then compress (archive) up your assets folder and submit it in Ilearn.</p>
+   <h2>Grading</h2>
+   <ul>
+       <li>Site from the tutorial completed.  10pts</li>
+   </ul>
+    
+	
+		</div><!-- end #article -->
+	</div>
+<script src="../js/course.js"></script>
+<script src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

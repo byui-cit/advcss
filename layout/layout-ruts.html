@@ -17,7 +17,6 @@
 			<h1>Layout: Get out of your Ruts!</h1>
                         
 			<hr />
-			
 			<div class="callout">
 			
     <p>The last few years have been really exciting for web designers/developers.  With the arrival and support for things like Flexbox, CSS Grid, and others we finally have not just good...but great tools to accomplish our layouts.</p>
@@ -25,26 +24,83 @@
     </div>
 			<h2>Activity</h2>
 			
-			
-			<p><span class="highlight">Step 01:</span>&nbsp; Begin this activity by looking for inspiration.  Watch <a href="http://jensimmons.com/presentation/designing-grid" target="_blank">this great presentation by Jen Simmons on Designing for Grid</a> (~1h10 long).</p>
+			<h3>Step 1</h3>
+			<p>Begin this activity by watching <a href="http://jensimmons.com/presentation/designing-grid" target="_blank">this great presentation by Jen Simmons on Designing for Grid</a> (~1h10 long).</p>
 			<p>This <a href="http://jensimmons.com/presentation/modern-layouts-getting-out-our-ruts" target="_blank">presentation</a> (optional) is also very good.  It spends more time with code.</p>
+			<p>Make sure that you have also read <a href="http://atomicdesign.bradfrost.com/chapter-1/" target="_blank">Chapter 1 of Atomic Design</a>, and reviewed a bit about making fully responsive images using the <a href="https://www.html5rocks.com/en/tutorials/responsive/picture-element/" target="_blank">picture element</a> </p>
 			
+			<h3>Step 2</h3>
+			<p>Once you are done spend a little time looking at the example of printed design below and think about how it might translate into a webpage.  </p>
 			
-			<p><span class="highlight">Step 02:</span>&nbsp; Once you are done spend a little time looking at examples of printed design.  This could be in magazines, posters, books, etc.  Choose one page layout that you would like to convert to HTML/CSS.</p>
+			<figure>
+			            <img src="../images/mag-index.png" alt="image of a poster">
+			</figure>
+			<p>Consider this design through the lens of the components introduced in the Atomic design chapter.  Can you see the pattern with the block of content?  Each is constructed of an image, a title, and description.</p>
+			
+			<h3>Step 3</h3>
+			<p>Lets create a media component that we can use to display those blocks of content. Your component should have the following characteristics:</p>
+			<ul>
+			    <li>All of the CSS code to create the component should reside in a SCSS partial.</li>
+			    <li>The images in the component should be fully responsive. Not only resizing visibly, but the browser should have access to different sized image files and pull the correct file for the viewport size. (picture element, srcset, source)</li>
+			    <li>The images should also be able to change shape if necessary at different screen sizes (art direction)</li>
+			    <li>Keep the HTML as simple as possible to make it portable.</li>
+			    <li>The information block should be easily movable: top or bottom, and left or right.</li>
+			</ul>
 			<div class="callout">
-			    <p>Here is a few ideas to get you started on your search if you need them. Find something that you think will push you a bit...but don't go too complex :)</p>
+			    <p>Lets look at a few examples of some of the different end results your component will have to handle.</p>
+			    <div class="fig-block">
+			        <figure>
+			            <img src="../images/index-lake-top-info.jpg" alt="media component examples">
+			            <figcaption>Info top left</figcaption>
+			         </figure>
+			         <figure>
+			            <img src="../images/index-river-bottom-right.jpg" alt="media component examples">
+			            <figcaption>Info bottom right</figcaption>
+			         </figure>
+			         <figure>
+			            <img src="../images/index-swans-l.jpg" alt="media component examples">
+			            <figcaption>Info bottom left, landscape crop</figcaption>
+			         </figure>
+			         <figure>
+			            <img src="../images/index-swan-p.jpg" alt="media component examples">
+			            <figcaption>Info bottom left, portrait crop</figcaption>
+			         </figure>
+			         
+			    </div>
+                <p>Notice on the last two that is it different crops of the same image.  One could be shown at wide viewport and one at small.</p>			  
+                <p>Here are some images with different sizes you can use:</p>
+                <ul>
+                    <li><a href="../images/layout-images/silver-lake-landscape-400.jpg" target="_blank">https://byui-cit.github.io/advcss/images/layout-images/silver-lake-landscape-400.jpg</a> </li>
+                    <li><a href="../images/layout-images/silver-lake-landscape-720.jpg" target="_blank">https://byui-cit.github.io/advcss/</a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-400.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-540.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-720.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-830.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-1080.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/swans_landscape_540.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/swans_landscape_720.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/swans_landscape_1080.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/swans_portrait_304.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/swans_portrait_405.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/swans_portrait_608.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/winter-trees-portrait-304.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/winter-trees-portrait-405.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/winter-trees-portrait-608.jpg" target="_blank"></a> </li>
+                </ul>  
+			</div>
+			<p>Now create the mobile version of your layout. After you have the mobile one working, move to the desktop version. You can use whatever images you would like for the site.</p>
+			<div class="callout">
+			    <p>Here are a few resources that might help while creating your poster. </p>
 			    <ul>
-			        <li><a href="https://julesforrest.com/css-grid-experiments/" target="_blank">Jules Forrest Grid Experiments</a> </li>
-			        <li><a href="https://design.tutsplus.com/articles/20-magazine-templates-with-creative-print-layout-designs--cms-26455" target="_blank">TutsPlus 20 Magazine Layouts</a> </li>
-			        <li><a href="https://www.pinterest.com/pin/269864202652537078/" target="_blank">Pinterest</a> </li>
-			        <li><a href="https://www.ibooksauthortemplates.com/templates/details/Editorial" target="_blank">Editorial Template</a> </li>
+			        
+			        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode" target="_blank">MDN Writing Mode</a> </li>
+			        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture" target="_blank">MDN Picture Element</a> </li>
+			        <li><a href="https://www.lipsum.com/feed/html" target="_blank">Lorem Ipsum generator</a> </li>
+			        <li><a href="http://lorempixel.com" target="_blank">Lorempixel: placeholder image service</a> </li>
 			    </ul>
 			    
 			    
 			</div>
-			<p><span class="highlight">Step 03:</span>&nbsp; Take your selected layout and think about how you would present it on a mobile device.  Create a wireframe showing this.</p>
-			
-			<p><span class="highlight">Step 04:</span> Now create the mobile version of your layout. After you have the mobile one working, move to the desktop version.</p>
 			<p><span class="highlight">Step 05:</span> Upload your layout, image, and wireframe to iLearn.</p>
 			<h2>Grading</h2>
     <ul>

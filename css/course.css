@@ -154,12 +154,30 @@ a:visited {
     color: #2c5f6f;
     font-weight: bold;
 }
-figure {
+.fig-block {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1em auto;
+}
+
+.fig-block > * {
+    max-width: 100%;
+    flex: 1 0 auto;
+}
+
+.fig-block figure {
     text-align: center;
+    
+}
+.fig-block figure > a {
+    text-decoration: none;
+    border-bottom: none;
 }
 figcaption {
-    font-size: .5em;
+    font-size: .8em;
+    text-align: center;
 }
+
 
 
 dt {

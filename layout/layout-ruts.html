@@ -35,7 +35,7 @@
 			<figure>
 			            <img src="../images/mag-index.png" alt="image of a poster">
 			</figure>
-			<p>Consider this design through the lens of the components introduced in the Atomic design chapter.  Can you see the pattern with the block of content?  Each is constructed of an image, a title, and description.</p>
+			<p>Consider this design through the lens of the component based design introduced in the Atomic design chapter.  Can you see the pattern with the block of content?  Each is constructed of an image, a title, and description.</p>
 			
 			<h3>Step 3</h3>
 			<p>Lets create a media component that we can use to display those blocks of content. Your component should have the following characteristics:</p>
@@ -44,7 +44,8 @@
 			    <li>The images in the component should be fully responsive. Not only resizing visibly, but the browser should have access to different sized image files and pull the correct file for the viewport size. (picture element, srcset, source)</li>
 			    <li>The images should also be able to change shape if necessary at different screen sizes (art direction)</li>
 			    <li>Keep the HTML as simple as possible to make it portable.</li>
-			    <li>The information block should be easily movable: top or bottom, and left or right.</li>
+			    <li>The information block should be easily movable (simply add an additional class): top or bottom, and left or right.</li>
+			    <li>Landscape and portrait images should have the same height.</li>
 			</ul>
 			<div class="callout">
 			    <p>Lets look at a few examples of some of the different end results your component will have to handle.</p>
@@ -70,27 +71,47 @@
                 <p>Notice on the last two that is it different crops of the same image.  One could be shown at wide viewport and one at small.</p>			  
                 <p>Here are some images with different sizes you can use:</p>
                 <ul>
-                    <li><a href="../images/layout-images/silver-lake-landscape-400.jpg" target="_blank">https://byui-cit.github.io/advcss/images/layout-images/silver-lake-landscape-400.jpg</a> </li>
-                    <li><a href="../images/layout-images/silver-lake-landscape-720.jpg" target="_blank">https://byui-cit.github.io/advcss/</a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-400.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-540.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-720.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-830.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-1080.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/swans_landscape_540.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/swans_landscape_720.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/swans_landscape_1080.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/swans_portrait_304.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/swans_portrait_405.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/swans_portrait_608.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/winter-trees-portrait-304.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/winter-trees-portrait-405.jpg" target="_blank"></a> </li>
-                    <li><a href="../images/layout-images/winter-trees-portrait-608.jpg" target="_blank"></a> </li>
+                    <li><a href="../images/layout-images/silver-lake-landscape-400.jpg" target="_blank">silver-lake-landscape-400.jpg</a> </li>
+                    <li><a href="../images/layout-images/silver-lake-landscape-720.jpg" target="_blank">silver-lake-landscape-720.jpg</a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-400.jpg" target="_blank">snake-river-landscape-400.jpg</a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-540.jpg" target="_blank">snake-river-landscape-540.jpg</a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-720.jpg" target="_blank">snake-river-landscape-720.jpg</a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-830.jpg" target="_blank">snake-river-landscape-830.jpg</a> </li>
+                    <li><a href="../images/layout-images/snake-river-landscape-1080.jpg" target="_blank">snake-river-landscape-1080.jpg</a> </li>
+                    <li><a href="../images/layout-images/swans_landscape_540.jpg" target="_blank">swans_landscape_540.jpg</a> </li>
+                    <li><a href="../images/layout-images/swans_landscape_720.jpg" target="_blank">swans_landscape_720.jpg</a> </li>
+                    <li><a href="../images/layout-images/swans_landscape_1080.jpg" target="_blank">swans_landscape_1080.jpg</a> </li>
+                    <li><a href="../images/layout-images/swans_portrait_304.jpg" target="_blank">swans_portrait_304.jpg</a> </li>
+                    <li><a href="../images/layout-images/swans_portrait_405.jpg" target="_blank">swans_portrait_405.jpg</a> </li>
+                    <li><a href="../images/layout-images/swans_portrait_608.jpg" target="_blank">swans_portrait_608.jpg</a> </li>
+                    <li><a href="../images/layout-images/winter-trees-portrait-304.jpg" target="_blank">winter-trees-portrait-304.jpg</a> </li>
+                    <li><a href="../images/layout-images/winter-trees-portrait-405.jpg" target="_blank">winter-trees-portrait-405.jpg</a> </li>
+                    <li><a href="../images/layout-images/winter-trees-portrait-608.jpg" target="_blank">winter-trees-portrait-608.jpg</a> </li>
                 </ul>  
 			</div>
-			<p>Now create the mobile version of your layout. After you have the mobile one working, move to the desktop version. You can use whatever images you would like for the site.</p>
+			<h3>Step 4</h3>
+			<p>Once you have your component built we are ready use it to build the mobile layout for the page. I'm going to provide the layout for the mobile. See below.</p>
+			<div class="fig-block">
+			        <figure>
+			            <img src="../images/index-mobile-screenshot.jpg" alt="mobile layout top">
+			            <figcaption>Mobile mockup - top</figcaption>
+			         </figure>
+			         <figure>
+			            <img src="../images/index-mobile-screenshot-bottom.jpg" alt="mobile layout bottom">
+			            <figcaption>Mobile mockup - bottom</figcaption>
+			         </figure>
+    </div>
+    <h5>Step 5</h5>
+    <p>Once you have the mobile layout done continue on to the desktop. It should look similar to the image below</p>
+    <div class="fig-block">
+			        <figure>
+			            <img src="../images/index-desktop-screenshot.jpg" alt="Desktop layout">
+			            <figcaption>Desktop Mockup</figcaption>
+			         </figure>
+    </div>
+    <p>The mobile layout should match the example images closely.  The desktop does not have to be exact but should keep the general look and feel in mind.</p>
 			<div class="callout">
-			    <p>Here are a few resources that might help while creating your poster. </p>
+			    <p>Here are a few resources that might help while creating your layout. </p>
 			    <ul>
 			        
 			        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode" target="_blank">MDN Writing Mode</a> </li>
@@ -101,11 +122,12 @@
 			    
 			    
 			</div>
-			<p><span class="highlight">Step 05:</span> Upload your layout, image, and wireframe to iLearn.</p>
+			<h3>Step 6</h3>
+			<p>Upload your HTML and SCSS (zip it up) to iLearn.</p>
 			<h2>Grading</h2>
     <ul>
-        <li>Mobile Wireframe produced for a print layout. 5pts</li>
-        <li>Responsive layout created that matches print example. 10pts</li>
+        <li>Media Compenent created. Styles should be in a partial 5 pts</li>
+        <li>Responsive layout created that matches the provided examples. 10pts</li>
         
         
     </ul>

@@ -41,11 +41,11 @@
 			<p>Lets create a media component that we can use to display those blocks of content. Your component should have the following characteristics:</p>
 			<ul>
 			    <li>All of the CSS code to create the component should reside in a SCSS partial.</li>
-			    <li>The images in the component should be fully responsive. Not only resizing visibly, but the browser should have access to different sized image files and pull the correct file for the viewport size. (picture element, srcset, source)</li>
+			    <li>The images in the component should be fully responsive. Not just fluid (resizing visibly), but the browser should have access to different sized image files and pull the correct file for the viewport size. (picture element, srcset, source)</li>
 			    <li>The images should also be able to change shape if necessary at different screen sizes (art direction)</li>
 			    <li>Keep the HTML as simple as possible to make it portable.</li>
 			    <li>The information block should be easily movable (simply add an additional class): top or bottom, and left or right.</li>
-			    <li>Landscape and portrait images should have the same height.</li>
+			    <li>Landscape and portrait images should have the same height. (the aspect ratio of the provided images is 3/4 or .75.  So for the mobile layout where the landscape images are full width you could try something like this: <code>max-height: calc(100vw*#{$aspect-ratio});</code>  Here is a bit of reading on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc" target="_blank">the calc() function</a> if you have never used it before.)</li>
 			</ul>
 			<div class="callout">
 			    <p>Lets look at a few examples of some of the different end results your component will have to handle.</p>

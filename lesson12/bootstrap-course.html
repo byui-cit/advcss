@@ -22,10 +22,10 @@
                 <p>Watch for these things:</p>
                 <ul>
                    <li>In the first lesson below the video there is a link to download the assets for the course. You will want to do this to get the images you will need.  Copy them in to a folder called <code>images</code> in your <code>assets</code> directory.</li>
-                    <li>In the second lesson don't follow the installation instructions. You should use the Bootstrap installation we did last week for this project.</li>
-                    <li>Also in lesson 2 the <code>navbar-inverse</code> class got renamed to <code>navbar-dark</code></li>
-                    <li></li>
-                    <li><p>In the last lesson the course introduces FontAwesome. You could install it as the course recommends...or you could use your package manager :)  To install it with yarn do the following: In the command line (and while in the project folder) type:</p>
+                   <li>In the second lesson don't follow the installation instructions. You should use the Bootstrap installation we did last week for this project.</li>
+                    <li>To get rid of the extra lines that are being added about things working you can remove everything from the <code>index.js</code> file <strong>below</strong> the <code>@import</code> lines.</li>
+                    <li>Also in Step 2 and Step 8 the <code>bg-inverse</code> class got renamed to <code>bg-dark</code></li>
+                    <li><p>In the last lesson the course introduces FontAwesome. You could install it as the course recommends with the CDN...or you could use your package manager :)  To install it with yarn do the following: In the command line (and while in the project folder) type:</p>
                     <pre><code class="bash">yarn add font-awesome</code> </pre>
                     <p>then in your <code>assets/scss/styles.scss</code> file add the following lines towards the top:</p>
                     <pre><code class="scss">
@@ -35,6 +35,90 @@ $fa-font-path:"../../node_modules/font-awesome/fonts";
                 </ul>
     
     
+    </div>
+    <div class="callout">
+        <p>The course does a pretty good job at leading you through using the Bootstrap Grid and other classes to quickly prototype out a site.  Consider for a moment though the section with the interest boxes.  The code looked like this:</p>
+        <pre><code class="html">
+&lt;div class="sectionLight"&gt;
+  &lt;div class="row"&gt;
+      &lt;div class="col-sm-12 col-lg-4"&gt;
+        &lt;img src="images/kickflip.jpg" alt="" class="img-fluid imgCenter"&gt;
+          &lt;div class="row"&gt;
+            &lt;div class="col-sm-12"&gt;&lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;Kickflip&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-12 col-lg-4"&gt;
+        &lt;img src="images/360flip.jpg" alt="" class="img-fluid imgCenter"&gt;
+          &lt;div class="row"&gt;
+            &lt;div class="col-sm-12"&gt;
+              &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;360 Flip&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="col-sm-12 col-lg-4"&gt;
+        &lt;img src="images/bscrook.jpg" alt="" class="img-fluid imgCenter"&gt;
+          &lt;div class="row"&gt;
+            &lt;div class="col-sm-12"&gt;&lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;BS Crook&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>That is 993 characters of html, plus 11 lines of custom CSS...but it's not the only way to use Bootstrap to accomplish that layout. You also have some <a href="https://getbootstrap.com/docs/4.0/utilities/flex/" target="_blank">Flexbox utility classes</a> you can use instead. Let's see what it would look like using those.</p>
+        <pre><code class="html">
+&lt;div class="sectionLight d-flex flex-row flex-wrap justify-content-around"&gt;
+  &lt;div class="p-2 d-flex flex-column align-items-center"&gt;
+    &lt;img src="images/kickflip.jpg" alt="" class="img-fluid"&gt;
+    &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;Kick Flip&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="p-2 d-flex flex-column align-items-center"&gt;
+    &lt;img src="images/360flip.jpg" alt="" class="img-fluid"&gt;
+    &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;360 Flip&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="p-2 d-flex flex-column align-items-center"&gt;
+    &lt;img src="images/bscrook.jpg" alt="" class="img-fluid"&gt;
+    &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;BS Crook&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>This weighs in at 717 characters of html and 7 lines of custom CSS...a 30% reduction.  Not bad...but what if we were to hand code this same section:</p>
+        <pre><code class="html">
+&lt;div class="sectionLight interestBoxes"&gt;
+  &lt;div&gt;
+    &lt;img src="images/kickflip.jpg" alt="" class="img-fluid"&gt;
+    &lt;button type="button" class="btn btn-lg btn-danger"&gt;Kick Flip&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img src="images/360flip.jpg" alt="" class="img-fluid"&gt;
+    &lt;button type="button" class="btn btn-lg btn-danger"&gt;360 Flip&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;img src="images/bscrook.jpg" alt="" class="img-fluid"&gt;
+    &lt;button type="button" class="btn btn-lg btn-danger"&gt;BS Crook&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;       
+        </code></pre>
+        <pre><code class="scss">
+.interestBoxes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  > div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    > button {
+      display: block;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+  }
+}
+        </code></pre>
+        <p>This brought us down to 502 characters of HTML (almost 50% reduction) and about 14 lines of SCSS!</p>
+        <p>Libraries like Bootstrap can be very useful, and speed up the development of pages significantly, but that does come at a cost.  It's important to keep that in mind...</p>
     </div>
 		<p>Once you have completed your site do a production build:</p>	
    <pre><code class="bash">yarn build</code> </pre>

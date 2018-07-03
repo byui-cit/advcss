@@ -88,11 +88,10 @@
             <p>It might take a few minutes</p>
             <div class="callout">
                 <h2>Attention!</h2>
-                <p>If you get an error complaining about your Node being incompatible with a package, or an error talking about
-                    win32 incompatibility then you will need to use this alternate syntax: </p>
+                <p>If you get an error complaining about your Node being incompatible with a package then you will need to use
+                    this alternate syntax: </p>
                 <pre><code class="bash">yarn install --ignore-engines</code></pre>
-                <p>If that doesn't work then do the following:</p>
-                <pre><code class="bash">npm install</code></pre>
+
             </div>
             <div class="callout">
                 <p>Once you have it installed go take a look at the file structure. The boilerplate that you received is setup
@@ -155,8 +154,8 @@
             <pre><code class="bash">yarn add bootstrap jquery popper.js</code></pre>
             <div class="callout">
                 <h2>Attention!</h2>
-                <p>If you got the win32 error earlier you will need to run the following command instead:</p>
-                <pre><code class="bash">npm install --save-dev bootstrap jquery popper.js </code></pre>
+                <p>If you got the Node error earlier you will need to run the following command instead:</p>
+                <pre><code class="bash">yarn add --ignore-engines bootstrap jquery popper.js </code></pre>
             </div>
             <div class="callout">
                 <p>You may be asking yourselves: "I thought we just needed Bootstrap? Why Jquery and popper.js?" In order to

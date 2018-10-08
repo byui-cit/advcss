@@ -1,146 +1,240 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-    <meta charset="utf-8">
-	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="../css/solarized-dark.css">
-<link rel="stylesheet" href="../css/course.css">
+<head>
+	<meta charset="utf-8">
+	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../css/prism-light.css">
+	<link rel="stylesheet" href="../css/course.css">
 
 </head>
-<body>
-<div id="main" >
 
-<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
-<div id="article">
+<body>
+	<div id="main">
+
+		<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
+		<div id="article">
 			<h1>Layout: Get out of your Ruts!</h1>
-                        
+
 			<hr />
 			<div class="callout">
-			
-    <p>The last few years have been really exciting for web designers/developers.  With the arrival and support for things like Flexbox, CSS Grid, and others we finally have not just good...but great tools to accomplish our layouts.</p>
-    <p>Suddenly things that were not possible (or at least things that involved a lot of pain to do) are not only possible but in some cases easy to do.  Let's take this opportunity to get out of ruts and experiment with these new tools.</p>
-    </div>
+
+				<p>The last few years have been really exciting for web designers/developers. With the arrival and support for
+					things like Flexbox, CSS Grid, and others we finally have not just good...but great tools to accomplish our
+					layouts.</p>
+				<p>Suddenly things that were not possible (or at least things that involved a lot of pain to do) are not only
+					possible but in some cases easy to do. Let's take this opportunity to get out of ruts and experiment with these
+					new tools.</p>
+			</div>
 			<h2>Activity</h2>
-			
-			<h3>Step 1</h3>
-			<p>Begin this activity by watching <a href="http://jensimmons.com/presentation/designing-grid" target="_blank">this great presentation by Jen Simmons on Designing for Grid</a> (~1h10 long).</p>
-			<p>This <a href="http://jensimmons.com/presentation/modern-layouts-getting-out-our-ruts" target="_blank">presentation</a> (optional) is also very good.  It spends more time with code.</p>
-			<p>Make sure that you have also read <a href="http://atomicdesign.bradfrost.com/chapter-1/" target="_blank">Chapter 1 of Atomic Design</a>, and done a bit of review about making fully responsive images using the <a href="https://www.html5rocks.com/en/tutorials/responsive/picture-element/" target="_blank">picture element</a> </p>
-			
-			<h3>Step 2</h3>
-			<p>Once you are done spend a little time looking at the example of printed design below and think about how it might translate into a webpage.  </p>
-			
-			<figure>
-			            <img src="../images/mag-index.png" alt="image of a poster">
-			</figure>
-			<p>Consider this design through the lens of the component based design introduced in the Atomic design chapter.  Can you see the pattern with the block of content?  Each is constructed of an image, a title, and description.</p>
-			
-			<h3>Step 3</h3>
-			<p>Lets create a media component that we can use to display those blocks of content. Your component should have the following characteristics:</p>
-			<ul>
-			    <li>All of the CSS code to create the component should reside in a SCSS partial.</li>
-			    <li>The images in the component should be fully responsive. Not just fluid (resizing visibly), but the browser should have access to different sized image files and pull the correct file for the viewport size. (picture element, srcset, source)</li>
-			    <li>The images should also be able to change shape if necessary at different screen sizes (art direction)</li>
-			    <li>Keep the HTML as simple as possible to make it portable.</li>
-			    <li>The information block should be easily movable (simply add an additional class): top or bottom, and left or right.</li>
-                <li>Landscape and portrait images should have the same height. (the aspect ratio of the provided images is 3/4 or .75. So for the mobile layout where the landscape images are full width you could try something like this: max-height: calc(100vw*#{$aspect-ratio}); Here is a bit of reading on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc" target="_blank">the calc() function</a> if you have never used it before.)</li>
-			</ul>
-			<div class="callout">
-			    <p>Lets look at a few examples of some of the different end results your component will have to handle.</p>
-			    <div class="fig-block">
-			        <figure>
-			            <img src="../images/index-lake-top-info.jpg" alt="media component examples">
-			            <figcaption>Info top left</figcaption>
-			         </figure>
-			         <figure>
-			            <img src="../images/index-river-bottom-right.jpg" alt="media component examples">
-			            <figcaption>Info bottom right</figcaption>
-			         </figure>
-			         <figure>
-			            <img src="../images/index-swans-l.jpg" alt="media component examples">
-			            <figcaption>Info bottom left, landscape crop</figcaption>
-			         </figure>
-			         <figure>
-			            <img src="../images/index-swan-p.jpg" alt="media component examples">
-			            <figcaption>Info bottom left, portrait crop</figcaption>
-			         </figure>
-			         
-			    </div>
-                <p>Notice on the last two that is it different crops of the same image.  One could be shown at wide viewport and one at small.</p>			  
-                <p>Here are some images with different sizes you can use:</p>
-                <ul>
-                    <li><a href="../images/layout-images/silver-lake-landscape-400.jpg" target="_blank">silver-lake-landscape-400.jpg</a> </li>
-                    <li><a href="../images/layout-images/silver-lake-landscape-720.jpg" target="_blank">silver-lake-landscape-720.jpg</a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-400.jpg" target="_blank">snake-river-landscape-400.jpg</a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-540.jpg" target="_blank">snake-river-landscape-540.jpg</a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-720.jpg" target="_blank">snake-river-landscape-720.jpg</a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-830.jpg" target="_blank">snake-river-landscape-830.jpg</a> </li>
-                    <li><a href="../images/layout-images/snake-river-landscape-1080.jpg" target="_blank">snake-river-landscape-1080.jpg</a> </li>
-                    <li><a href="../images/layout-images/swans_landscape_540.jpg" target="_blank">swans_landscape_540.jpg</a> </li>
-                    <li><a href="../images/layout-images/swans_landscape_720.jpg" target="_blank">swans_landscape_720.jpg</a> </li>
-                    <li><a href="../images/layout-images/swans_landscape_1080.jpg" target="_blank">swans_landscape_1080.jpg</a> </li>
-                    <li><a href="../images/layout-images/swans_portrait_304.jpg" target="_blank">swans_portrait_304.jpg</a> </li>
-                    <li><a href="../images/layout-images/swans_portrait_405.jpg" target="_blank">swans_portrait_405.jpg</a> </li>
-                    <li><a href="../images/layout-images/swans_portrait_608.jpg" target="_blank">swans_portrait_608.jpg</a> </li>
-                    <li><a href="../images/layout-images/winter-trees-portrait-304.jpg" target="_blank">winter-trees-portrait-304.jpg</a> </li>
-                    <li><a href="../images/layout-images/winter-trees-portrait-405.jpg" target="_blank">winter-trees-portrait-405.jpg</a> </li>
-                    <li><a href="../images/layout-images/winter-trees-portrait-608.jpg" target="_blank">winter-trees-portrait-608.jpg</a> </li>
-                </ul>  
-			</div>
-			<h3>Step 4</h3>
-			<p>Once you have your component built we are ready use it to build the mobile layout for the page. See below.</p>
-			<div class="fig-block">
-			        <figure>
-			            <img src="../images/index-mobile-screenshot.jpg" alt="mobile layout top">
-			            <figcaption>Mobile mockup - top</figcaption>
-			         </figure>
-			         <figure>
-			            <img src="../images/index-mobile-screenshot-bottom.jpg" alt="mobile layout bottom">
-			            <figcaption>Mobile mockup - bottom</figcaption>
-			         </figure>
-    </div>
-    <h5>Step 5</h5>
-    <p>Once you have the mobile layout done continue on to the desktop. It should look similar to the image below</p>
-    <div class="fig-block">
-			        <figure>
-			            <img src="../images/index-desktop-screenshot.jpg" alt="Desktop layout">
-			            <figcaption>Desktop Mockup</figcaption>
-			         </figure>
-    </div>
-    <p>The mobile layout should match the example images closely.  The desktop does not have to be exact but should keep the general look and feel in mind.</p>
-    <p>The font I used is Nunito: <code>@import url('https://fonts.googleapis.com/css?family=Nunito');</code>. You can use that or anything really...I am more interested in the layout than the font. But it will probably be easier to match the examples with the same font.</p>
-			<div class="callout">
-			    <p>Here are a few resources that might help while creating your layout. </p>
-			    <ul>
-			        
-			        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode" target="_blank">MDN Writing Mode</a> </li>
-			        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture" target="_blank">MDN Picture Element</a> </li>
-			        
-			    </ul>
-			    
-			    
-			</div>
-			<h3>Step 6</h3>
-			<p>Upload your HTML and SCSS (zip it up) to iLearn.</p>
+			<ol class="bigSteps">
+				<li>
+					<!-- BEGIN STEP -->
+					<h3>Prepare</h3>
+					<p>Begin this activity by watching <a href="http://jensimmons.com/presentation/designing-grid" target="_blank">this
+							great presentation by Jen Simmons on Designing for Grid</a> (~1h10 long).</p>
+					<p>This <a href="http://jensimmons.com/presentation/modern-layouts-getting-out-our-ruts" target="_blank">presentation</a>
+						(optional) is also very good. It spends more time with code.</p>
+					<p>Make sure that you have also read <a href="http://atomicdesign.bradfrost.com/chapter-1/" target="_blank">Chapter
+							1 of Atomic Design</a>, and done a bit of review about making fully responsive images using the <a href="https://www.html5rocks.com/en/tutorials/responsive/picture-element/"
+						 target="_blank">picture element</a> </p>
+					<!-- END STEP -->
+				</li>
+				<li>
+					<!-- BEGIN STEP -->
+					<h3>Review the design</h3>
+					<p>Once you are done spend a little time looking at the example of printed design below and think about how it
+						might
+						translate into a webpage. </p>
+
+					<figure>
+						<img src="../images/mag-index.png" alt="image of a poster">
+					</figure>
+					<p>Consider this design through the lens of the component based design introduced in the Atomic design chapter.
+						Can
+						you see the pattern with the block of content? Each is constructed of an image, a title, and description.</p>
+					<!-- END STEP -->
+				</li>
+				<li>
+					<!-- BEGIN STEP -->
+					<h3>Component Design</h3>
+					<p>Let's consider a media component that we could use to display those blocks of content. The component should
+						have
+						the following characteristics:</p>
+					<ul>
+						<li>All of the CSS code to create the component should reside in a SCSS partial.</li>
+						<li>The images in the component should be fully responsive. Not just fluid (resizing visibly), but the browser
+							should have access to different sized image files and pull the correct file for the viewport size. (picture
+							element, srcset, source)</li>
+						<li>The images should also be able to change shape if necessary at different screen sizes (art direction)</li>
+						<li>Keep the HTML as simple as possible to make it portable.</li>
+						<li>The information block should be easily movable (simply add an additional class): top or bottom, and left or
+							right.</li>
+						<li>Landscape and portrait images should have the same height. (the aspect ratio of the provided images is 3/4 or
+							.75. So for the mobile layout where the landscape images are full width you could try something like this:
+							max-height: calc(100vw*#{$aspect-ratio}); Here is a bit of reading on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc"
+							 target="_blank">the calc() function</a> if you have never used it before.)</li>
+					</ul>
+					<div class="callout">
+						<p>Lets look at a few examples of some of the different end results your component will have to handle.</p>
+						<div class="fig-block">
+							<figure>
+								<img src="../images/index-lake-top-info.jpg" alt="media component examples">
+								<figcaption>Info top left</figcaption>
+							</figure>
+							<figure>
+								<img src="../images/index-river-bottom-right.jpg" alt="media component examples">
+								<figcaption>Info bottom right</figcaption>
+							</figure>
+							<figure>
+								<img src="../images/index-swans-l.jpg" alt="media component examples">
+								<figcaption>Info bottom left, landscape crop</figcaption>
+							</figure>
+							<figure>
+								<img src="../images/index-swan-p.jpg" alt="media component examples">
+								<figcaption>Info bottom left, portrait crop</figcaption>
+							</figure>
+
+						</div>
+						<p>Notice on the last two that is it different crops of the same image. One could be shown at wide viewport and
+							one
+							at small.</p>
+						<p>Here are some images with different sizes you can use:</p>
+						<ul>
+							<li><a href="../images/layout-images/silver-lake-landscape-400.jpg" target="_blank">silver-lake-landscape-400.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/silver-lake-landscape-720.jpg" target="_blank">silver-lake-landscape-720.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/snake-river-landscape-400.jpg" target="_blank">snake-river-landscape-400.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/snake-river-landscape-540.jpg" target="_blank">snake-river-landscape-540.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/snake-river-landscape-720.jpg" target="_blank">snake-river-landscape-720.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/snake-river-landscape-830.jpg" target="_blank">snake-river-landscape-830.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/snake-river-landscape-1080.jpg" target="_blank">snake-river-landscape-1080.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/swans_landscape_540.jpg" target="_blank">swans_landscape_540.jpg</a> </li>
+							<li><a href="../images/layout-images/swans_landscape_720.jpg" target="_blank">swans_landscape_720.jpg</a> </li>
+							<li><a href="../images/layout-images/swans_landscape_1080.jpg" target="_blank">swans_landscape_1080.jpg</a> </li>
+							<li><a href="../images/layout-images/swans_portrait_304.jpg" target="_blank">swans_portrait_304.jpg</a> </li>
+							<li><a href="../images/layout-images/swans_portrait_405.jpg" target="_blank">swans_portrait_405.jpg</a> </li>
+							<li><a href="../images/layout-images/swans_portrait_608.jpg" target="_blank">swans_portrait_608.jpg</a> </li>
+							<li><a href="../images/layout-images/winter-trees-portrait-304.jpg" target="_blank">winter-trees-portrait-304.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/winter-trees-portrait-405.jpg" target="_blank">winter-trees-portrait-405.jpg</a>
+							</li>
+							<li><a href="../images/layout-images/winter-trees-portrait-608.jpg" target="_blank">winter-trees-portrait-608.jpg</a>
+							</li>
+						</ul>
+					</div>
+					<!-- END STEP -->
+				</li>
+				<li>
+					<!-- BEGIN STEP -->
+					<h3>An example</h3>
+					<p>Download <a href="../resources/magazine.zip">this code</a> and open it in your editor for an example of one
+						implementation of this media
+						component. Look first at the HTML. Read the comments about the different ways the picture element is being used.
+						If you are unable to follow the examples spend some time with them...Make changes, break things, and then fix
+						them. Then
+						open and review the code in the <kbd>_media_component.scss</kbd> file. You will see the following HTML snippet in
+						the comments at the top:</p>
+					<pre><code class="lang-markup">&lt;div class="media-box right|top|center"&gt;
+&lt;a href="#"&gt;
+	&lt;picture&gt;
+		&lt;source media="(min-width: 1080px)" srcset="images/winter-trees-portrait-608.jpg"&gt;
+		&lt;img src="images/winter-trees-portrait-304.jpg" alt="image of winter trees"&gt;
+	&lt;/picture&gt;
+
+	&lt;div&gt;
+		&lt;h2&gt;06 &#8212; 19&lt;/h2&gt;
+		&lt;p&gt;Trees &lt;span&gt;Lightly Frosted with Snow&lt;/span&gt;&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+					</code></pre>
+					<p>It's always a good idea to give yourself a reminder of how to use the CSS in a partial when you build
+						them...especially in a case like this where it expects a certain HTML structure to work. Notice the HTML itself
+						is quite simple. It requires a <code>&lt;div&gt;</code> with class <kbd>media-box</kbd></p>
+					<p>Then it should have two children: a <code>&lt;picture&gt;</code> element and a <code>&lt;div&gt;</code></p>
+					<p>Finally review the <kbd>.media-box</kbd> SCSS code. Spend enough time with it that you understand what <strong>each</strong>
+						line is
+						doing. Again it may help to selectively break and fix things! Remember that you can always reach out to your
+						classmates and instructor with questions as well!</p>
+					<!-- END STEP -->
+				</li>
+				<li>
+					<!-- BEGIN STEP -->
+					<h3>Mobile Layout</h3>
+					<p>Once you have an understanding of how the component is built we are ready use it to build the mobile layout for
+						the page. See below. You will need to apply what you have learned about CSS layout previously to do this.</p>
+					<div class="fig-block">
+						<figure>
+							<img src="../images/index-mobile-screenshot.jpg" alt="mobile layout top">
+							<figcaption>Mobile mockup - top</figcaption>
+						</figure>
+						<figure>
+							<img src="../images/index-mobile-screenshot-bottom.jpg" alt="mobile layout bottom">
+							<figcaption>Mobile mockup - bottom</figcaption>
+						</figure>
+					</div>
+					<!-- END STEP -->
+				</li>
+				<li>
+					<!-- BEGIN STEP -->
+					<h5>Desktop Layout</h5>
+					<p>Once you have the mobile layout done continue on to the desktop. It should look similar to the image below</p>
+					<div class="fig-block">
+						<figure>
+							<img src="../images/index-desktop-screenshot.jpg" alt="Desktop layout">
+							<figcaption>Desktop Mockup</figcaption>
+						</figure>
+					</div>
+					<p>The mobile layout should match the example images closely. The desktop does not have to be exact but should
+						keep
+						the general look and feel in mind.</p>
+					<p>The font I used is Nunito: <code>@import url('https://fonts.googleapis.com/css?family=Nunito');</code>. You can
+						use that or anything really...I am more interested in the layout than the font. But it will probably be easier to
+						match the examples with the same font.</p>
+					<div class="callout">
+						<p>Here are a few resources that might help while creating your layout. </p>
+						<ul>
+
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode" target="_blank">MDN Writing Mode</a>
+							</li>
+							<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture" target="_blank">MDN Picture
+									Element</a> </li>
+
+						</ul>
+
+
+					</div>
+					<!-- END STEP -->
+				</li>
+				<li>
+					<!-- BEGIN STEP -->
+					<h3>Submit</h3>
+					<p>Upload your HTML and SCSS (zip it up) to iLearn.</p>
+					<!-- END STEP -->
+				</li>
+
+			</ol>
 			<h2>Grading</h2>
-    <ul>
-        <li>Media Component created. Styles should be in a partial 5 pts</li>
-        <li>Responsive layout created that matches the provided examples. 10pts</li>
-        
-        
-    </ul>
-		
-			
-			
+			<ul>
+				<li>Media Component created. Styles should be in a partial 5 pts</li>
+				<li>Responsive layout created that matches the provided examples. 10pts</li>
+
+			</ul>
 		</div><!-- end #article -->
 	</div>
-<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>
-<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/highlight.pack.js"></script>
--->
-<script src="../js/course.js"></script>
-<script src="../js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="../js/course.js"></script>
+	<script src="../js/prism.js"></script>
+
 </body>
+
 </html>

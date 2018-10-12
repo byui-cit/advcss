@@ -50,6 +50,68 @@ a:visited {
   border-bottom: 2px solid #7b4c8d;
 }
 
+#content {
+  /* width: 90%; */
+  max-width: 950px;
+  margin: 0 auto;
+  background-color: white;
+
+  /* box-shadow: 0 0 12px #000000; */
+}
+
+.headerBanner {
+  padding: 0.2em 0;
+  background-color: #bbd8e4;
+  font-family: 'Lucida Console', 'Lucida Grande', 'Lucida Sans', Arial,
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -4px;
+}
+
+.headerBanner > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 0.3em 0;
+  padding: 0.3em;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.headerBanner h1 {
+  color: #bbd8e4;
+  font-size: 3.5em;
+  margin: 5px;
+  display: flex;
+}
+@media screen and (max-width: 500px) {
+  .headerBanner h1 {
+    font-size: 10vw;
+  }
+}
+.headerBanner h1 > span {
+  font-size: 0.6em;
+  writing-mode: vertical-lr;
+
+  transform: rotate(180deg);
+  padding-top: 0.2em;
+  margin-right: -0.2em;
+}
+.headerBanner h2 {
+  align-self: flex-end;
+  margin-right: 1.5em;
+  margin-bottom: 5px;
+  font-size: 2em;
+  letter-spacing: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+main {
+  padding: 1em;
+}
 #footer {
   color: #e2e2e2;
   background-color: #356583;

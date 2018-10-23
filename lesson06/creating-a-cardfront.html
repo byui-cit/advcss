@@ -50,7 +50,8 @@
 
 				<li>A playing card is a good example of a <a href="https://www.sitepoint.com/grid-theory/" target="_blank">grid
 						based layout</a>. In such layouts everything should fit in one or more defined columns. Sometimes in such layouts
-					columns need to be skipped. In grid terminology a skip is called an offset. This assignment becomes easier if you
+					columns need to be skipped. In grid terminology a skip is called an offset. The flexbox portion of this assignment
+					becomes easier if you
 					create yourself some offsets...I would say offset-1 and offset-2 (skip one or two columns) would be sufficient in
 					this case. How do you accomplish this? Well, if you needed to push anything left a small distance, how would you
 					do it?</li>
@@ -140,6 +141,21 @@ transform: rotate(180deg);
 						best if all of the pips on the card share a common parent. Grid is similar to Flexbox in that when you turn on
 						grid
 						for an element...it only effects the immediate children of that element.</p>
+					<div class="callout">
+						<p>Condensing the resources above on Grid gives us the following simplified list of steps for using Grid:</p>
+						<ol>
+							<li>Review your desired layout. Visualize (or just print and draw) the grid lines for the layout to determine
+								the number and widths of columns.</li>
+							<li>Identify the elements you need to position (Grid items or children)</li>
+							<li>Make sure they have a common parent...identify this. (Grid container or parent)</li>
+							<li>Turn on grid for that element (display: grid)</li>
+							<li>Define your columns.</li>
+							<li>Place the Grid items in your grid.</li>
+							<li>Adjust grid columns as necessary</li>
+							<li>Define specific Grid rows as necessary.</li>
+							<li>Add Grid Gap as necessary.</li>
+						</ol>
+					</div>
 					<h2>Adding Wider Support</h2>
 					<hr />
 					<p>Hopefully your Grid layout came together easily and you are beginning to understand the power behind this
@@ -166,14 +182,14 @@ transform: rotate(180deg);
 							not supported at the end.</p>
 						<p>Initially (while building and testing) your supports block will probably look something like this:</p>
 						<pre><code class="scss">
-							@supports (display: grid) {
-								All of your flexbox SCSS code here.            
-							}  </code></pre>
+@supports (display: grid) {
+	// All of your flexbox SCSS code here.            
+}  </code></pre>
 						<p>Before you turn it in however change it to:</p>
 						<pre><code class="scss">
-								@supports not (display: grid) {
-									All of your flexbox SCSS code here.            
-								}  </code></pre>
+@supports not (display: grid) {
+	// All of your flexbox SCSS code here.            
+}  </code></pre>
 						<p>@supports works very similarly to @media. Both take a condition and the css in the block associated with them
 							is
 							run if the condition is true. Like @media, you need to make sure that you have the default css styles <em>before</em>

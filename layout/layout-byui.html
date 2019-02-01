@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../css/prism-light.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="header">
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </div>
+      <div id="article">
+        <h1>Layout: (Re)build a real Site</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            The last few years have been really exciting for web
+            designers/developers. With the arrival and support for things like
+            Flexbox, CSS Grid, and others we finally have not just good...but
+            great tools to accomplish our layouts.
+          </p>
+          <p>
+            Suddenly things that were not possible (or at least things that
+            involved a lot of pain to do) are not only possible but in some
+            cases easy to do. Let's take this opportunity to get out of ruts and
+            experiment with these new tools.
+          </p>
+          <p>
+            All of that being said, it is also important to develop good
+            foundational skills building traditional designs. This activity is
+            designed to both encourage to look forward to new possibilities in
+            Web Design, and make sure that we have the core skills necessary to
+            move ourselves and our designs forward.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <ol class="bigSteps">
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Prepare</h3>
+            <p>
+              Begin this activity by watching
+              <a
+                href="http://jensimmons.com/presentation/designing-grid"
+                target="_blank"
+                >this great presentation by Jen Simmons on Designing for Grid</a
+              >
+              (~1h10 long).
+            </p>
+            <p>
+              This
+              <a
+                href="http://jensimmons.com/presentation/modern-layouts-getting-out-our-ruts"
+                target="_blank"
+                >presentation</a
+              >
+              (optional) is also very good. It spends more time with code.
+            </p>
+            <p>
+              Make sure that you have also read
+              <a
+                href="http://atomicdesign.bradfrost.com/chapter-1/"
+                target="_blank"
+                >Chapter 1 of Atomic Design</a
+              >
+            </p>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Review the design</h3>
+            <p>
+              For the rest of this exercise we will be re-building the BYU-Idaho
+              Home page. Begin by familiarizing yourself with the page and how
+              it responds at different screen widths. Because of time
+              constraints we will be excluding certain parts of the page and
+              making a few small changes. See the screenshots below for more
+              details.
+            </p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../images/byui-mobile-header.jpg"
+                  alt="mobile header"
+                />
+                <figcaption>Mobile header</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="../images/byui-desktop-all.jpg"
+                  alt="Desktop full page"
+                />
+                <figcaption>Desktop full page</figcaption>
+              </figure>
+            </div>
+            <ol>
+              <li>
+                First we are going to simplify the header. We are going to keep
+                the mobile header on all layouts. The Black menu bar that shows
+                in the second screenshot will not be built. The only difference
+                between the navbar on the mobile and larger screen layouts will
+                be the addition of the word "Home" on wider screens. You will
+                also not be required to make the buttons in the menu work. We
+                just don't have time this week.
+              </li>
+              <li>
+                Second, we will end our page right after the Taylor building
+                image. The large blue and black footers will not be required.
+              </li>
+              <li>
+                Pay attention to the details of the page. This assignment is
+                very much about details!
+              </li>
+            </ol>
+            <p>
+              Consider this design through the lens of the component based
+              design introduced in the Atomic design chapter. How many
+              components do you see? I counted three different ones.
+            </p>
+            <div class="fig-block">
+              <figure>
+                <img src="../images/byui-interest-box.jpg" alt="interest box" />
+                <figcaption>Interest Box</figcaption>
+              </figure>
+              <figure>
+                <img src="../images/byui-link-lists.jpg" alt="List of Links" />
+                <figcaption>List of Links</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="../images/byui-newroom-sm.jpg"
+                  alt="Newsroom Small screen"
+                />
+                <figcaption>Newsroom Small screen</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="../images/byui-newsroom-lg.jpg"
+                  alt="Newsroom Large Screen"
+                />
+                <figcaption>Newsroom Large Screen</figcaption>
+              </figure>
+            </div>
+            <ol>
+              <li>
+                At the top there is a collection of 3 interest boxes...fairly
+                simple:image with a title below.
+              </li>
+              <li>
+                There are lists of links that are formatted in a few different
+                ways as asides.
+              </li>
+              <li>
+                Finally there is the Newsroom article component. Date, title,
+                description, button, with an image on larger screens.
+              </li>
+            </ol>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Getting Started</h3>
+            <p>
+              Download <a href="../resources/byui-home.zip">this code</a> and
+              open it in your editor to get started. It contains an html file
+              with the HTML for the header, and some SCSS files with some
+              helpful things. Review these files before moving on.
+            </p>
+            <p>
+              Pay particular attention to the code in the
+              <kbd>_icons.scss</kbd> file. All of the icons on the site are
+              pulled from a font file. This is a common practice. This partial
+              contains the CSS to allow you to pull each icon out and us it. You
+              can see an example of this in the provided header code:
+            </p>
+            <pre><code class="lang-markup">&lt;a href="#"&gt;
+    &lt;span aria-hidden="true" class="icon-byui-logo"&gt;
+        &lt;span class="sr-only"&gt;Link to BYU-Idaho home page&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/a&gt;</code></pre>
+            <p>
+              Note the <code>class="icon-byui-logo</code> on the span. This
+              class will go find the right incon in the font and display it.
+            </p>
+            <p>
+              Pay close attention as well to the other properties in this
+              snippet. <code>aria-hidden="true"</code> and
+              <code>class="sr-only"</code>. You will see more of that as you
+              look through the provided code. Both of these work together to
+              improve the accessability of the site to visually impaired
+              visitors.
+            </p>
+            <p>
+              <code>aria-hidden="true"</code> is a note to the screen reader to
+              ignore this element. It makes sense...it is purely decorative and
+              there is nothing read, but it would be nice to know that there was
+              a logo...so the span with the <code>sr-only</code> class contains
+              a message that should not be visible, but only read if a visitor
+              has a screen reader...in fact if you look at the SCSS provided you
+              will see that rule. It goes to great lengths to make sure that any
+              element is <strong>does not</strong> show up for anything but
+              <kbd>s</kbd>creen <kbd>r</kbd>eaders <kbd>only</kbd>. (this
+              particular version of that rule was borrowed from Bootstrap)
+            </p>
+            <p>
+              As you write your HTML pay attention to accessability! If there
+              are any elements that cannot be understood as read...add some
+              <code>sr-only</code> notes to help visitors out. Any elements on
+              your page can likewise be removed from the screen reader's queue
+              with the <code>aria-hidden</code> property, making your pages
+              easier and quicker to navigate with readers.
+            </p>
+            <p>
+              Start your work by styling the header and nav to match the BYUI at
+              a mobile size. Then adjust it for larger desktops as discussed
+              above.
+            </p>
+            <p>
+              As you style put some thought and planning into the naming and
+              structure of your SCSS as well. See if you can apply the
+              principles from a CSS architecture like
+              <a href="http://getbem.com/introduction/" target="_blank">BEM</a>
+              for example.
+            </p>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Component Design</h3>
+            <p>
+              Continue your work on this site by building the three components
+              discussed above. Write the HTML first for one of each of the three
+              components, then style them. Have a goal of keeping your HTML
+              markup as simple as possible, while focusing on re-use.
+            </p>
+
+            <!-- END STEP -->
+          </li>
+
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Mobile Layout</h3>
+            <p>
+              Once you have your components built and styled, write the rest of
+              the HTML for the page to account for all of the content. Re-use
+              the component code as appropriate. You will need to grab the
+              images from the actual site to use.
+            </p>
+            <p>Then begin your styling for the mobile layout.</p>
+            <p>
+              As you are building and styling your page, it is ok to look at the
+              existing page source to get ideas about how it was built. Resist
+              the tempation to copy and paste anything from the actual page
+              however. You will learn much more from this activity if you wrte
+              all of the code yourself!
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h5>Desktop Layout</h5>
+            <p>
+              Once you have the mobile layout done continue on to the desktop.
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Submit</h3>
+            <p>Upload your HTML and SCSS (zip it up) to iLearn.</p>
+            <!-- END STEP -->
+          </li>
+        </ol>
+        <h2>Grading</h2>
+        <ul>
+          <li>
+            BYU-Idaho Home page created with thought given to accessability 5
+            pts
+          </li>
+          <li>
+            Site is styled with SCSS and is responsive. 5pts
+          </li>
+          <li>Attention paid to detail. 5pts</li>
+        </ul>
+      </div>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

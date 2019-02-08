@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../css/solarized-dark.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="header">
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </div>
+      <div id="article">
+        <h1>Creating a card front layout</h1>
+
+        <hr />
+        <h2>CSS Layout</h2>
+        <div class="callout">
+          <p>
+            We have seen many layout methods come and go for CSS. All of them
+            have had their shortcomings. Picking a layout method has often felt
+            like picking the lesser of many evils with CSS! The good news is
+            that things are improving. Two recent additions to CSS are Flexbox
+            and CSS Grid. CSS grid is
+            <a href="http://caniuse.com/#search=grid" target="_blank"
+              >just ready for widespread use</a
+            >, provides a nice complement to
+            <a href="http://caniuse.com/#search=flexbox" target="_blank"
+              >flexbox</a
+            >. Both together solve many long standing problems with other layout
+            methods.
+          </p>
+          <p>
+            Flexbox is ideally suited for layouts that flow either horizontally
+            or vertically (which happens a lot with the current trends) and can
+            simplify responsive design with the ease at which it can switch
+            between those two flows.
+          </p>
+          <p>
+            CSS Grid excels with two dimensional layouts...where both the X and
+            the Y position of an element are critical.
+          </p>
+          <p>
+            Last week we created a custom playing card back, earlier this week
+            you should have completed a
+            <a href="l06-create-a-grid.html" target="_blank"
+              >a custom grid library</a
+            >, now continuing along that theme in this activity we will be
+            creating the front using CSS Grid. We are going to start with the 7
+            of Clubs. (Actually...you could make a 7 of anything if you wanted.
+            I once even made a
+            <a href="../images/7-foxes.png" target="_blank">Seven of foxes</a>
+            :) )
+          </p>
+        </div>
+
+        <h3>Tips and Guidelines</h3>
+
+        <ul>
+          <li>
+            You should be able to reuse some of the classes from the card back
+            assignment last week. For example the classes that form the card
+            outline could stay the same.
+          </li>
+          <li>
+            Many versions of the 7 of clubs (and other cards) will have a kind
+            of half row where the center pip is wedged in between 2 other rows.
+            Don't worry about re-creating that. Go ahead and give each row of
+            pips on the card a full row in your layout.
+          </li>
+
+          <li>
+            Along those lines...don't stress about making your html card look
+            <em>exactly</em> like whatever 7 of clubs you are looking at. As
+            long as it looks good, is balanced, and has all the elements you
+            will get credit.
+          </li>
+          <li>
+            You can use either a css shape or svg for your suits. If you want to
+            use svg I have an example file with the
+            <a href="../resources/svg-card-suits.html" target="_blank"
+              >svg suit shapes</a
+            >
+            in it to start with.
+          </li>
+
+          <li>
+            A playing card is a good example of a
+            <a href="https://www.sitepoint.com/grid-theory/" target="_blank"
+              >grid based layout</a
+            >. In such layouts everything should fit in one or more defined
+            columns. Sometimes in such layouts columns need to be skipped. In
+            grid terminology a skip is called an offset. The flexbox portion of
+            this assignment becomes easier if you create yourself some
+            offsets...I would say offset-1 and offset-2 (skip one or two
+            columns) would be sufficient in this case. How do you accomplish
+            this? Well, if you needed to push anything left a small distance,
+            how would you do it?
+          </li>
+        </ul>
+
+        <h3>Resources</h3>
+        <p>
+          We will need some additional resources with knowledge about Grid and
+          @supports to accomplish this task. Review the following:
+        </p>
+        <ul>
+          <li>
+            <a href="https://gridbyexample.com" target="_blank"
+              >Grid By Example</a
+            >
+            Rachel Andrew's great tutorial site for Grid. I would recommend as a
+            start to watch:
+            <a
+              href="https://gridbyexample.com/video/series-define-a-grid/"
+              target="_blank"
+              >Defining a grid</a
+            >,
+            <a
+              href="https://gridbyexample.com/video/series-repeat/"
+              target="_blank"
+              >Repeat notation</a
+            >,
+            <a
+              href="https://gridbyexample.com/video/series-line-based-placement/"
+              target="_blank"
+              >Line based positioning</a
+            >, and
+            <a
+              href="https://gridbyexample.com/video/grid-template-areas/"
+              target="_blank"
+              >Grid template areas</a
+            >. Those are all videos and will take about 20 minutes to view. Then
+            move on to alignment next.
+          </li>
+          <li>
+            <a href="https://cssgrid.io" target="_blank"
+              >Wes Bos: CSS Grid Course</a
+            >
+            Another great free resource if you want to dive deep (4h). The 3rd
+            and 4th videos (<a
+              href="https://www.youtube.com/watch?v=Z3BZMd4YzVw"
+              target="_blank"
+              >fundamentals (9m)</a
+            >
+            and
+            <a
+              href="https://www.youtube.com/watch?v=yznVkCuohGg"
+              target="_blank"
+            >
+              dev tools (5.5m)</a
+            >) I think you will find especially helpful.
+          </li>
+          <li>
+            <a
+              href="https://www.sitepoint.com/introduction-css-grid-layout-module/"
+              target="_blank"
+              >Introduction to the CSS Grid Layout Module</a
+            >
+            Sitepoint article
+          </li>
+          <li>
+            <a
+              href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+              target="_blank"
+              >Complete Guide to Grid</a
+            >
+            CSS Tricks...open this and keep it handy while learning Grid.
+          </li>
+          <li>
+            <a href="http://cssgridgarden.com" target="_blank">Grid Garden</a>
+            Exercises to help become familiar with the Grid properties
+          </li>
+        </ul>
+
+        <h2>Using CSS Grid</h2>
+
+        <ol class="bigSteps">
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Create (or Fork) a pen</h3>
+            <p>
+              Create a new pen in codepen.io (or if you would rather you can
+              fork
+              <a href="https://codepen.io/matkat/pen/bwqgGz" target="_blank"
+                >this starter card pen</a
+              >
+              and use it as a starting point). Make sure to change the css
+              settings to use SCSS so you can take advantage of Sass. You should
+              be able to use some of the classes you created for the Card Back
+              assignment to create the general shape of the card. Continue by
+              adding all the elements you will need next.
+            </p>
+            <div class="callout">
+              <p>
+                For example we are making the 7 of clubs which looks something
+                like this:
+              </p>
+              <div class="fig-block">
+                <figure>
+                  <img
+                    src="../images/7-clubs.png"
+                    alt="image of a 7 of clubs playing card"
+                  />
+                </figure>
+              </div>
+              <p>
+                I would need a number 7 and small suit, then 7 regular sized
+                suits, then another 7 and small suit. Notice that some of those
+                icons are upside down! Try this class to make that happen:
+              </p>
+              <pre><code class="css">
+.rotate {
+transform: rotate(180deg);
+}			        
+	</code></pre>
+            </div>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Create a Grid based layout for the Card</h3>
+            <p>
+              Create a CSS Grid based layout for your card. Your grid will work
+              best if all of the pips on the card share a common parent. Grid is
+              similar to Flexbox in that when you turn on grid for an
+              element...it only effects the immediate children of that element.
+            </p>
+            <div class="callout">
+              <p>
+                Condensing the resources above on Grid gives us the following
+                simplified list of steps: (This list is NOT a replacement for
+                reviewing the resources above!)
+              </p>
+              <ol>
+                <li>
+                  Review your desired layout. Visualize (or just print and draw)
+                  the grid lines for the layout to determine the number and
+                  widths of columns and rows.
+                </li>
+                <li>
+                  Identify the elements you need to position in your HTML (Grid
+                  items or children)
+                </li>
+                <li>
+                  Make sure they have a common parent...identify this. (Grid
+                  container or parent)
+                </li>
+                <li>Turn on grid for that element (display: grid)</li>
+                <li>Define your columns.</li>
+                <li>Place the Grid items in your grid.</li>
+                <li>Adjust grid columns as necessary</li>
+                <li>Define specific Grid rows as necessary.</li>
+                <li>Add Grid Gap as necessary.</li>
+                <li>Adjust alignment as necessary.</li>
+              </ol>
+            </div>
+           
+
+        <h2>Grading</h2>
+        <ul>
+          <li>
+            Card looks like a 7 of Clubs (or like a 7 of something). 10pts
+          </li>
+          <li>
+            Card layout uses CSS Grid. 10pts
+          </li>
+        </ul>
+      </div>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

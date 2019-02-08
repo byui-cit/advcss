@@ -1,100 +1,242 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-    <meta charset="utf-8">
-	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<!--	
-<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/solarized-dark.css">
-<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
-<link rel="stylesheet" href="../css/solarized-dark.css">
-<link rel="stylesheet" href="../css/course.css">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-</head>
-<body>
-<div id="main" >
-<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
-<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
-<div id="article">
-			<h1>Create your own grid</h1>
-                        
-			<hr />
-			<div class="callout">
-			
-    <p>We've now looked at 2 different ways to build the layout for a playing card.  Once from scratch, and once using a grid system library.  While building the card layout you probably noticed that the library we were using was not ideally suited for the task we had.</p>
-    <p>  Funny enough this is often the case, even when we are not building something as specific as a seven of clubs.  The reason there are so many grid systems out there is that they are <em>never</em> perfect for <em>every</em> task.  It is not uncommon to have to crack open the hood, so to speak, and tinker. This week I would like to build on what you learned in the 2 activities from last week to create our own specialized grid library.</p>
-    </div>
-			<h2>Activity</h2>
-			<p>This activity will have you create a css grid library. To keep the scope reasonable we are going to build a specialized library that will be used for a specific purpose: to layout and build playing card fronts. I want to state right here that this is not the only way to solve this problem.  You will probably see places where this could be improved...and you are welcome to do so. My goal is to give you an introduction to some important concepts in Sass, css, grids, and responsiveness.</p>
-			<p class="callout">When you are done with this activity I should be able to take your .scss and using only the classes you provide in your library I should be able to write the html to build any card from A-10 <em>without changing any css</em>!</p>
-			<h3>Here are a few guidelines and tips:</h3>
-			<ul>
-			    <li>A typical playing card has a height that is 1.4 times it's width.</li>
-			    <li>Our library should use flexbox for positioning.</li>
-			    <li>One of the first (and arguably most important) decisions we will need to make is how many columns we should have in the grid.</li>
-			    <li>We will probably need to create a class to create a row in your grid, and then classes to create 1 column, 2 columns, etc.</li>
-			    <li>Classes to create offsets (skipping columns) would probably also be helpful.</li>
-			    <li>For the suits we will use svg.  I still have an example file with the <a href="../resources/svg-card-suits.html" target="_blank">svg suit shapes</a> in it to start with.</li>
-			    <li>You can learn a lot about grids by poking around in an existing grid framework to see how they solved certain problems.  Make sure the one you look at uses flexbox and not floats or inline-block however.</li>
-			    
-			</ul>
-	
-			<p><span class="highlight">Step 01:</span>&nbsp; Create new .html and .scss files in your editor.  You should be able to use the same classes you created last week for the card backs to create the general shape of the card, or you can use my code from below. By the end of this activity we should easily be able to create any card, but let's start with the 7 like we did last week.  Add all the elements in HTML you will need for a 7 of clubs. (You may just be able to use the html from last week)</p>
-			<div class="callout">
-			    <p>The way you write your html can make a big difference in how your css turns out.  Because I will be making a few assumptions during this walkthrough lets take a look at how I chose to write my html.</p>
-			    <p data-height="365" data-theme-id="25722" data-slug-hash="bwqgGz" data-default-tab="html" data-user="matkat" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/matkat/pen/bwqgGz/">starter card</a> by Shane T (<a href="http://codepen.io/matkat">@matkat</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-			    <p>Notice that I have a div that will form the border of the card, then I have another just inside that. One of the decisions we will have to make is whether to put all our pips inside one flex parent, or create flex parents for each row of pips.  Both work, and each has it's advantages and disadvantages. For this demo I chose to put all the pips into one flex parent.  That inner div (the one with the class of 'row') will become that parent.</p>
-			    <p>Notice also that I have added classes to get all of my sizes correct. <code>.icon</code> takes care of the pips, and <code>.number</code> handles the special cases of the top and bottom corners.</p>
-			    <p>Notice as well that all my sizes are done with percentages and multiples.  This will make our card fairly responsive when we are done.</p>
-			    <p>Feel free to copy/paste the html and SCSS from the pen into files in your editor to use as a starting point for this activity.</p>
-			</div>
-			
-			<p><span class="highlight">Step 02:</span>&nbsp; Create a class called <code>row</code> in your SCSS file, and add the css to make it a flex container. Should look something like this: </p>
-                <pre><code class="css">
+    <link rel="stylesheet" href="../css/solarized-dark.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </div>
+      <div id="article">
+        <h1>Create your own grid</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            We've now looked at 2 different ways to build the layout for a
+            playing card. Once from scratch, and once using a grid system
+            library. While building the card layout you probably noticed that
+            the library we were using was not ideally suited for the task we
+            had.
+          </p>
+          <p>
+            Funny enough this is often the case, even when we are not building
+            something as specific as a seven of clubs. The reason there are so
+            many grid systems out there is that they are <em>never</em> perfect
+            for <em>every</em> task. It is not uncommon to have to crack open
+            the hood, so to speak, and tinker. This week I would like to build
+            on what you learned in the 2 activities from last week to create our
+            own specialized grid library.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <p>
+          This activity will have you create a css grid library. To keep the
+          scope reasonable we are going to build a specialized library that will
+          be used for a specific purpose: to layout and build playing card
+          fronts. I want to state right here that this is not the only way to
+          solve this problem. You will probably see places where this could be
+          improved...and you are welcome to do so. My goal is to give you an
+          introduction to some important concepts in Sass, css, grids, and
+          responsiveness.
+        </p>
+        <p class="callout">
+          When you are done with this activity I should be able to take your
+          .scss and using only the classes you provide in your library I should
+          be able to write the html to build any card from A-10
+          <em>without changing any css</em>!
+        </p>
+        <h3>Here are a few guidelines and tips:</h3>
+        <ul>
+          <li>
+            A typical playing card has a height that is 1.4 times it's width.
+          </li>
+          <li>Our library should use flexbox for positioning.</li>
+          <li>
+            One of the first (and arguably most important) decisions we will
+            need to make is how many columns we should have in the grid.
+          </li>
+          <li>
+            We will probably need to create a class to create a row in your
+            grid, and then classes to create 1 column, 2 columns, etc.
+          </li>
+          <li>
+            Classes to create offsets (skipping columns) would probably also be
+            helpful.
+          </li>
+          <li>
+            For the suits we will use svg. I still have an example file with the
+            <a href="../resources/svg-card-suits.html" target="_blank"
+              >svg suit shapes</a
+            >
+            in it to start with.
+          </li>
+          <li>
+            You can learn a lot about grids by poking around in an existing grid
+            framework to see how they solved certain problems. Make sure the one
+            you look at uses flexbox and not floats or inline-block however.
+          </li>
+        </ul>
+
+        <p>
+          <span class="highlight">Step 01:</span>&nbsp; Create new .html and
+          .scss files in your editor. You should be able to use the same classes
+          you created last week for the card backs to create the general shape
+          of the card, or you can use my code from below. By the end of this
+          activity we should easily be able to create any card, but let's start
+          with the 7 like we did last week. Add all the elements in HTML you
+          will need for a 7 of clubs. (You may just be able to use the html from
+          last week)
+        </p>
+        <div class="callout">
+          <p>
+            The way you write your html can make a big difference in how your
+            css turns out. Because I will be making a few assumptions during
+            this walkthrough lets take a look at how I chose to write my html.
+          </p>
+          <p
+            data-height="365"
+            data-theme-id="25722"
+            data-slug-hash="bwqgGz"
+            data-default-tab="html"
+            data-user="matkat"
+            data-embed-version="2"
+            class="codepen"
+          >
+            See the Pen
+            <a href="http://codepen.io/matkat/pen/bwqgGz/">starter card</a> by
+            Shane T (<a href="http://codepen.io/matkat">@matkat</a>) on
+            <a href="http://codepen.io">CodePen</a>.
+          </p>
+          <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+          <p>
+            Notice that I have a div that will form the border of the card, then
+            I have another just inside that. One of the decisions we will have
+            to make is whether to put all our pips inside one flex parent, or
+            create flex parents for each row of pips. Both work, and each has
+            it's advantages and disadvantages. For this demo I chose to put all
+            the pips into one flex parent. That inner div (the one with the
+            class of 'row') will become that parent.
+          </p>
+          <p>
+            Notice also that I have added classes to get all of my sizes
+            correct. <code>.icon</code> takes care of the pips, and
+            <code>.number</code> handles the special cases of the top and bottom
+            corners.
+          </p>
+          <p>
+            Notice as well that all my sizes are done with percentages and
+            multiples. This will make our card fairly responsive when we are
+            done.
+          </p>
+          <p>
+            Feel free to copy/paste the html and SCSS from the pen into files in
+            your editor to use as a starting point for this activity.
+          </p>
+        </div>
+
+        <p>
+          <span class="highlight">Step 02:</span>&nbsp; Create a class called
+          <code>row</code> in your SCSS file, and add the css to make it a flex
+          container. Should look something like this:
+        </p>
+        <pre><code class="css">
 .row {
   display: flex;
   flex-flow: row wrap;
 }
                 </code></pre>
-                <p>You should see an immediate change after adding that.  Your pips are probably all lined up in a row that is wrapping.  You may have noticed that there is also a class of cell on each pip.  We will use this to attach styles that we want to apply to each cell.  Right now let's use it to set each cell to be the same width, and center the contents.  Your rule should look something like this:</p>
-				<pre><code class="css">
+        <p>
+          You should see an immediate change after adding that. Your pips are
+          probably all lined up in a row that is wrapping. You may have noticed
+          that there is also a class of cell on each pip. We will use this to
+          attach styles that we want to apply to each cell. Right now let's use
+          it to set each cell to be the same width, and center the contents.
+          Your rule should look something like this:
+        </p>
+        <pre><code class="css">
 .cell {
   flex: 1;
   text-align: center;
 }
-                </code></pre>	
-					<div class="callout">
-					    <p>Now we have a decision to make.  Each grid system is based around a certain number of columns.  The ones we used last week used 12 columns to form a full row.  Twelve was not ideal for a playing card.  We made it work, but since we are making our own let's make it ideal for the task. The question remains however, how many columns should we use for our card?</p>
-					    <p>If we look at the card below you might be tempted to make each pip take up a column.  There are never more than 2 pips on a row for any card, so 5 should work right?</p>
-					    <div class="fig-block">
-			        <figure>
-			            <img src="../images/7-clubs.png" alt="image of a 7 of clubs playing card">
-			         </figure>
-			    </div>
-                    <p>The problem is that if you look closely the columns on the outside edges are smaller than the others. Look at the image below for proof</p>
-                    <div class="fig-block">
-			        <figure>
-			            <img src="../images/7-clubs-grid.png" alt="image of a 7 of clubs playing card">
-			         </figure>
-			    </div>
-                    <p>Our card will work much more smoothly if we make an 8 column grid.</p>
-					    
-					</div>
-			<p><span class="highlight">Step 03:</span>&nbsp; Start making the classes for our framework by dividing the full width of the card (100%) by 1, 2, 3, etc to find out how big each portion should be.  Then make rules for each.</p>
-			<p>For example for something that only needs to take up one column (like the number of the card) we would do 100%/8 = 12.5%.  Each column should be 12.5% of the full width.  The rule using flexbox to make this might look something like this:</p>		
-							<pre><code class="css">
+                </code></pre>
+        <div class="callout">
+          <p>
+            Now we have a decision to make. Each grid system is based around a
+            certain number of columns. The ones we used last week used 12
+            columns to form a full row. Twelve was not ideal for a playing card.
+            We made it work, but since we are making our own let's make it ideal
+            for the task. The question remains however, how many columns should
+            we use for our card?
+          </p>
+          <p>
+            If we look at the card below you might be tempted to make each pip
+            take up a column. There are never more than 2 pips on a row for any
+            card, so 5 should work right?
+          </p>
+          <div class="fig-block">
+            <figure>
+              <img
+                src="../images/7-clubs.png"
+                alt="image of a 7 of clubs playing card"
+              />
+            </figure>
+          </div>
+          <p>
+            The problem is that if you look closely the columns on the outside
+            edges are smaller than the others. Look at the image below for proof
+          </p>
+          <div class="fig-block">
+            <figure>
+              <img
+                src="../images/7-clubs-grid.png"
+                alt="image of a 7 of clubs playing card"
+              />
+            </figure>
+          </div>
+          <p>
+            Our card will work much more smoothly if we make an 8 column grid.
+          </p>
+        </div>
+        <p>
+          <span class="highlight">Step 03:</span>&nbsp; Start making the classes
+          for our framework by dividing the full width of the card (100%) by 1,
+          2, 3, etc to find out how big each portion should be. Then make rules
+          for each.
+        </p>
+        <p>
+          For example for something that only needs to take up one column (like
+          the number of the card) we would do 100%/8 = 12.5%. Each column should
+          be 12.5% of the full width. The rule using flexbox to make this might
+          look something like this:
+        </p>
+        <pre><code class="css">
 .col-1 {
   flex: 0 0 12.5%;
 }
                 </code></pre>
-                <div class="callout">
-                <p>Remember with the flex property the first 0 means don't let this flex object grow, the second 0 means don't let it shrink.  You won't get the results you want without those values.</p>
-    </div>
-			<p><span class="highlight">Step 04:</span>&nbsp; Once you have those classes built apply them to the correct cells. For example the first div with the number should be one column wide, and the second and third should be 2 columns wide.  The third should be 8 columns wide.  It is the only thing on that row!</p>
-			<p>Your code might look like this:</p>
-			<pre><code class="html">
+        <div class="callout">
+          <p>
+            Remember with the flex property the first 0 means don't let this
+            flex object grow, the second 0 means don't let it shrink. You won't
+            get the results you want without those values.
+          </p>
+        </div>
+        <p>
+          <span class="highlight">Step 04:</span>&nbsp; Once you have those
+          classes built apply them to the correct cells. For example the first
+          div with the number should be one column wide, and the second and
+          third should be 2 columns wide. The third should be 8 columns wide. It
+          is the only thing on that row!
+        </p>
+        <p>Your code might look like this:</p>
+        <pre><code class="html">
 &lt;div class="row"&gt;
         &lt;div class="number cell col-1"&gt;5
             &lt;svg class="icon"&gt;
@@ -108,31 +250,71 @@
         &lt;/div&gt;
         ...
 			</code> </pre>
-			<div class="callout">
-                <h3>Note!</h3>
-                <p>The class you apply to each pip describes how many columns that element should span...<strong>not</strong> which column the element is in. Since we only have elements that take up 1, 2, or all of the columns you will only be using those 3 classes (<code>.col-1, .col-2, .col-8</code> ) for this card.</p>
-                <p>  After getting all of those classes applied your card should look something like this:</p>
-			<div class="fig-block">
-			        <figure>
-			            <img src="../images/7-clubs-partially-built.png" alt="image of a 7 of clubs playing card">
-			         </figure>
-			    </div>
-			    <p>It's just not looking right. It's missing the spacing.  There should be gaps between the pips that we just don't have yet.  In the vocabulary of grid libraries those are called offsets. Offsets allow you to 'skip' columns in your layout. Lets make some.</p>
-    </div>
-			<p><span class="highlight">Step 05:</span>&nbsp; Create classes to make offsets. The easiest way to do this would be to take advantage of the fact that our pips will wrap if we exceed the space available on the row. Everytime we use 8 columns worth of space our elements will wrap.  We only have to worry about the gap on the left of each object.  To move something a little to the right...we can simply use the <code>margin-left</code> property. My 2 column offset for example looks like this:</p>
-				<pre><code class="css">
+        <div class="callout">
+          <h3>Note!</h3>
+          <p>
+            The class you apply to each pip describes how many columns that
+            element should span...<strong>not</strong> which column the element
+            is in. Since we only have elements that take up 1, 2, or all of the
+            columns you will only be using those 3 classes (<code
+              >.col-1, .col-2, .col-8</code
+            >
+            ) for this card.
+          </p>
+          <p>
+            After getting all of those classes applied your card should look
+            something like this:
+          </p>
+          <div class="fig-block">
+            <figure>
+              <img
+                src="../images/7-clubs-partially-built.png"
+                alt="image of a 7 of clubs playing card"
+              />
+            </figure>
+          </div>
+          <p>
+            It's just not looking right. It's missing the spacing. There should
+            be gaps between the pips that we just don't have yet. In the
+            vocabulary of grid libraries those are called offsets. Offsets allow
+            you to 'skip' columns in your layout. Lets make some.
+          </p>
+        </div>
+        <p>
+          <span class="highlight">Step 05:</span>&nbsp; Create classes to make
+          offsets. The easiest way to do this would be to take advantage of the
+          fact that our pips will wrap if we exceed the space available on the
+          row. Everytime we use 8 columns worth of space our elements will wrap.
+          We only have to worry about the gap on the left of each object. To
+          move something a little to the right...we can simply use the
+          <code>margin-left</code> property. My 2 column offset for example
+          looks like this:
+        </p>
+        <pre><code class="css">
 .offset-2 {
   margin-left: 25%;
 }
                 </code></pre>
-                <p>After creating the necessary offsets (you will need more than one), apply them to the correct pips. If you have done this correctly your card should look like the image below.</p>
-                <div class="fig-block">
-			        <figure>
-			            <img src="../images/7-clubs-almost-there.png" alt="image of a 7 of clubs playing card">
-			         </figure>
-			    </div>
-			<p><span class="highlight">Step 06:</span>&nbsp; It's very close now.  All we really need to do is get our row to take up the whole height of the card, and space everything accordingly.  With flexbox this is easy. Add a couple of lines to your <code>row</code> class like the following:</p>
-			<pre><code class="css">
+        <p>
+          After creating the necessary offsets (you will need more than one),
+          apply them to the correct pips. If you have done this correctly your
+          card should look like the image below.
+        </p>
+        <div class="fig-block">
+          <figure>
+            <img
+              src="../images/7-clubs-almost-there.png"
+              alt="image of a 7 of clubs playing card"
+            />
+          </figure>
+        </div>
+        <p>
+          <span class="highlight">Step 06:</span>&nbsp; It's very close now. All
+          we really need to do is get our row to take up the whole height of the
+          card, and space everything accordingly. With flexbox this is easy. Add
+          a couple of lines to your <code>row</code> class like the following:
+        </p>
+        <pre><code class="css">
 .row {
     display: flex;
     flex-flow: row wrap;
@@ -141,14 +323,27 @@
     height: 100%;
 }
                 </code></pre>
-                <p>Voila!  We have a playing card!  And a library we could use to make almost any card we need.</p>
-                <h2>Next steps</h2>
-                <div class="callout">
-                    <p>We now have a library good for one specific purpose.  It would be nice though to have a resource we could use in a wide variety of situations.  Let's make some changes and take advantage of the magic of SCSS to make our grid more general purpose.</p>
-                </div>
-                
-            <p><span class="highlight">Step 07:</span>&nbsp; In your .scss file from the grid assignment create 2 mixins.  One that will be used for columns and one for offsets.  Make sure to take in a parameter for which column you need. In my case the mixins would look like this: </p>
-			<pre><code class="scss">
+        <p>
+          Voila! We have a playing card! And a library we could use to make
+          almost any card we need.
+        </p>
+        <h2>Next steps</h2>
+        <div class="callout">
+          <p>
+            We now have a library good for one specific purpose. It would be
+            nice though to have a resource we could use in a wide variety of
+            situations. Let's make some changes and take advantage of the magic
+            of SCSS to make our grid more general purpose.
+          </p>
+        </div>
+
+        <p>
+          <span class="highlight">Step 07:</span>&nbsp; In your .scss file from
+          the grid assignment create 2 mixins. One that will be used for columns
+          and one for offsets. Make sure to take in a parameter for which column
+          you need. In my case the mixins would look like this:
+        </p>
+        <pre><code class="scss">
 @mixin col($span-num) {
     flex: 0 0 12.5% * $span-num;
 }
@@ -157,22 +352,44 @@
     margin-left: 12.5% * $offset-num;
 }
 			</code></pre>
-			<p>and to use them I would do this:</p>
-			<pre><code class="scss">
+        <p>and to use them I would do this:</p>
+        <pre><code class="scss">
 .col-1 {
     @include col(1);
 }
 			</code></pre>
-			<div class="callout">
-                <p>This is a good start.  Now if we need to adjust the css that makes our cells we can do it in one spot instead of 8.  I think we can do more.  As I look at the scss above I'm noticing that more than the contents of my column classes are the same...the classes themselves follow a pattern: col-[column span number].  This looks like an excellent place to take advantage of another feature of Sass: loops.</p>
-                <p>Loops in Sass work very similarly to other programming languages and in Sass you have either for loops, for-each loops, or while loops.  For more information check out <a href="https://www.sitepoint.com/premium/books/jump-start-sass/online/ch05.html" target="_blank">Jump Start Sass Ch5</a>.  In this case I think the for loop is the right choice.</p>
-			   	   
-			</div>
-			
-			<p><span class="highlight">Step 08:</span>&nbsp; Let's save ourselves some typing, and make our grid more flexible by re-factoring our SCSS to use a for loop to generate the column and offset classes.</p>
-			<div class="callout">
-			    <p>Again I'll give an example of what this would look like using my code.</p>
-			    <pre><code class="scss">
+        <div class="callout">
+          <p>
+            This is a good start. Now if we need to adjust the css that makes
+            our cells we can do it in one spot instead of 8. I think we can do
+            more. As I look at the scss above I'm noticing that more than the
+            contents of my column classes are the same...the classes themselves
+            follow a pattern: col-[column span number]. This looks like an
+            excellent place to take advantage of another feature of Sass: loops.
+          </p>
+          <p>
+            Loops in Sass work very similarly to other programming languages and
+            in Sass you have either for loops, for-each loops, or while loops.
+            For more information check out
+            <a
+              href="https://www.sitepoint.com/premium/books/jump-start-sass/online/ch05.html"
+              target="_blank"
+              >Jump Start Sass Ch5</a
+            >. In this case I think the for loop is the right choice.
+          </p>
+        </div>
+
+        <p>
+          <span class="highlight">Step 08:</span>&nbsp; Let's save ourselves
+          some typing, and make our grid more flexible by re-factoring our SCSS
+          to use a for loop to generate the column and offset classes.
+        </p>
+        <div class="callout">
+          <p>
+            Again I'll give an example of what this would look like using my
+            code.
+          </p>
+          <pre><code class="scss">
 //make column classes 
 @for $index from 1 to 9 {
     .col-#{$index} {
@@ -187,16 +404,53 @@
     }
 }
 			    </code></pre>
-			    <p>We start with the @for keyword, then we indicate the variable we want the loop to use while it is counting.  Then we tell it where to start and stop counting. In this case we will start with 1 and end with 9.  Why 9 you may be asking? The loop uses a less than (&lt;) to check when it is done, and not a less than or equal to (&lt;=) so it will stop before it does the 9th loop.  If we left it at 8 we would be one short.</p>
-			    <p>The next thing you may have noticed is the funny syntax around the class names: <kbd>.col-#{$index}</kbd>.  You probably recognize our $index variable, but why is it wrapped in #{ }?</p>
-			    <p> The short answer is because it won't work if we don't :)  The better answer can be found here: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>.</p>
-			    <p>With those for loops in place we can actually go back and remove all of the <code>.col-1, .col-2, .offset-2, etc</code> classes from our scss.  The for loops will generate those for us.  If you don't believe me go take a looks at your compiled .css!</p>
-			    <p>At this point we have dramatically shortened our SCSS, and made it a bit more maintainable. We're still not finished however, it would be nice if we could use our grids for any number of columns instead of just one set.  We have actually laid most of the groundwork to make this happen.  Lets finish.</p>
-			</div>
-			<p><span class="highlight">Step 09:</span>&nbsp; Add the appropriate variables to allow the grid to be used for any number of columns.</p>
-			<div class="callout">
-			    <p>If we look back at the mixins we made earlier you will see a hard coded number: 12.5%. Lets make it a variable. </p>
-			    <pre><code class="scss">
+          <p>
+            We start with the @for keyword, then we indicate the variable we
+            want the loop to use while it is counting. Then we tell it where to
+            start and stop counting. In this case we will start with 1 and end
+            with 9. Why 9 you may be asking? The loop uses a less than (&lt;) to
+            check when it is done, and not a less than or equal to (&lt;=) so it
+            will stop before it does the 9th loop. If we left it at 8 we would
+            be one short.
+          </p>
+          <p>
+            The next thing you may have noticed is the funny syntax around the
+            class names: <kbd>.col-#{$index}</kbd>. You probably recognize our
+            $index variable, but why is it wrapped in #{ }?
+          </p>
+          <p>
+            The short answer is because it won't work if we don't :) The better
+            answer can be found here:
+            <a
+              href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375"
+              target="_blank"
+              >All you ever need to know about SASS Interpolation</a
+            >.
+          </p>
+          <p>
+            With those for loops in place we can actually go back and remove all
+            of the <code>.col-1, .col-2, .offset-2, etc</code> classes from our
+            scss. The for loops will generate those for us. If you don't believe
+            me go take a looks at your compiled .css!
+          </p>
+          <p>
+            At this point we have dramatically shortened our SCSS, and made it a
+            bit more maintainable. We're still not finished however, it would be
+            nice if we could use our grids for any number of columns instead of
+            just one set. We have actually laid most of the groundwork to make
+            this happen. Lets finish.
+          </p>
+        </div>
+        <p>
+          <span class="highlight">Step 09:</span>&nbsp; Add the appropriate
+          variables to allow the grid to be used for any number of columns.
+        </p>
+        <div class="callout">
+          <p>
+            If we look back at the mixins we made earlier you will see a hard
+            coded number: 12.5%. Lets make it a variable.
+          </p>
+          <pre><code class="scss">
 $one-column: 12.5%;
    @mixin col($span-num) {
     flex: 0 0 $one-column * $span-num;
@@ -206,22 +460,31 @@ $one-column: 12.5%;
     margin-left: $one-column * $offset-num;
 }
 			    </code></pre>
-			    <p>That is a good start, but we can do more. The 12.5% value in my mixins comes from my 8 columns (100% / 8). Lets modify our variable to reflect the formula used to determine it.</p>
-			    <pre><code class="scss">
+          <p>
+            That is a good start, but we can do more. The 12.5% value in my
+            mixins comes from my 8 columns (100% / 8). Lets modify our variable
+            to reflect the formula used to determine it.
+          </p>
+          <pre><code class="scss">
 //variables
 $num-columns : 8;
 $one-column : 100% / $num_columns;
 			    </code></pre>
-			    <p>With that one change we are actually almost done.  We can now indicate how many columns we want, and the appropriate size of one column will be calculated. the last thing to fix is the start and stop points for the loops.  More variables!</p>
-			    		    <pre><code class="scss">
+          <p>
+            With that one change we are actually almost done. We can now
+            indicate how many columns we want, and the appropriate size of one
+            column will be calculated. the last thing to fix is the start and
+            stop points for the loops. More variables!
+          </p>
+          <pre><code class="scss">
 //variables
 $num-columns : 8;
 $one-column : 100% / $num_columns;
 $loop-start: 1;
 $loop-end: $num-columns +1;
 			    </code></pre>
-			    <p>...and then the loops would need to change as well:</p>
-			    			    		    <pre><code class="scss">
+          <p>...and then the loops would need to change as well:</p>
+          <pre><code class="scss">
 //make column classes 
 @for $index from $loop-start to $loop-end {
     .col-#{$index} {
@@ -236,27 +499,41 @@ $loop-end: $num-columns +1;
     }
 }
 			    </code></pre>
-			</div>
-			<p><span class="highlight">Step 10:</span> And there we are.  Our grid might not be complete enough to work in all situations, but we have made a lot of progress on making it more efficient and reusable.</p>
-			<p>There are two last steps we should do. First go back and do some cleanup on your code.  Make sure that each mixin and variable is declared only once and make sure to remove any unnecessary scss. Then take the classes, loops, and mixins needed for your grid and create a Sass partial with them. That way it will be easy to incorporate into another project should the need arise.</p>
-			<p><span class="highlight">Step 11:</span> Upload your converted grid partial file to iLearn.</p>
-			<h2>Grading</h2>
-    <ul>
-        <li>Grid library converted to a partial. 4pts</li>
-        <li>SCSS mixins created for column and offset classes 5pts</li>
-        <li>SCSS loops used to be able to generate the classes for a grid of any specified number of columns. 6pts</li>
-        
-    </ul>
-			
-			
-			
-		</div><!-- end #article -->
-	</div>
-<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>
-<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/highlight.pack.js"></script>
--->
-<script src="../js/course.js"></script>
-<script src="../js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-</body>
+        </div>
+        <p>
+          <span class="highlight">Step 10:</span> And there we are. Our grid
+          might not be complete enough to work in all situations, but we have
+          made a lot of progress on making it more efficient and reusable.
+        </p>
+        <p>
+          There are two last steps we should do. First go back and do some
+          cleanup on your code. Make sure that each mixin and variable is
+          declared only once and make sure to remove any unnecessary scss. Then
+          take the classes, loops, and mixins needed for your grid and create a
+          Sass partial with them. That way it will be easy to incorporate into
+          another project should the need arise.
+        </p>
+        <p>
+          <span class="highlight">Step 11:</span> Upload your converted grid
+          partial file to iLearn.
+        </p>
+        <h2>Grading</h2>
+        <ul>
+          <li>Grid library converted to a partial. 4pts</li>
+          <li>SCSS mixins created for column and offset classes 5pts</li>
+          <li>
+            SCSS loops used to be able to generate the classes for a grid of any
+            specified number of columns. 6pts
+          </li>
+        </ul>
+      </div>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
 </html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../css/solarized-dark.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="header">
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </div>
+      <div id="article">
+        <h1>Creating a card front layout part II</h1>
+
+        <hr />
+        <h2>CSS Layout</h2>
+                
+            <h2>Adding Wider Support</h2>
+            <hr />
+            <p>
+              Hopefully your Grid layout came together easily and you are
+              beginning to understand the power behind this specification. While
+              it has pretty good support, there are still a lot of older
+              browsers that do not support it yet. You should always have a
+              fallback plan with your sites, especially when using newer
+              features.
+            </p>
+            <p>This week we will take our CSS Grid based card from <a href="../lesson06/creating-a-cardfront-grid.html" target="_blank">Part 1 of this activity</a> and using some conditional CSS magic provided by <code>@supports</code> we will re-create our layout using flexbox for those browsers that do not support grid.</p>
+           
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Working with <code>@supports</code></h3>
+            <p>
+              Open your Grid card pen in codepen.io. Add a
+              <code>@supports not {}</code> block checking to see if the browser
+              does not support Grid. Add the SCSS you would need to rebuild your
+              card with Flexbox.
+            </p>
+
+            <div class="callout">
+              <p>
+                While building, if you are in a browser that does support Grid
+                you may have a hard time seeing your Flex layout to make sure it
+                is right. You may find it easier to check if Grid is supported
+                for testing, then switch it to a not supported at the end.
+              </p>
+              <p>
+                Initially (while building and testing) your supports block will
+                probably look something like this:
+              </p>
+              <pre><code class="scss">
+@supports (display: grid) {
+	// All of your flexbox SCSS code here.            
+}  </code></pre>
+              <p>Before you turn it in however change it to:</p>
+              <pre><code class="scss">
+@supports not (display: grid) {
+	// All of your flexbox SCSS code here.            
+}  </code></pre>
+              <p>
+                @supports works very similarly to @media. Both take a condition
+                and the css in the block associated with them is run if the
+                condition is true. Like @media, you need to make sure that you
+                have the default css styles <em>before</em> the @supports block
+                in your file.
+              </p>
+            </div>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Flex based layout</h3>
+            <p>
+              Create a Flexbox based layout for your card. You should try to not
+              add any additional HTML markup to your card. Doing so will most
+              likely break your Grid layout.
+            </p>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Verify and Submit</h3>
+            <p>
+              Remove the "not" from the @supports block to test that you did not
+              break your Grid layout while making your Flexbox one. Submit the
+              URL to your codepen to Ilearn.
+            </p>
+            <!-- END STEP -->
+          </li>
+        </ol>
+
+        <div class="callout">
+          <p>
+            If you need a bit of review on Flexbox, here are a few more
+            resources
+          </p>
+
+          <ul>
+            <li>
+              <a
+                href="https://www.sitepoint.com/premium/screencasts/what-is-flexbox"
+                target="_blank"
+                >What is Flexbox</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.sitepoint.com/premium/screencasts/learning-about-flexbox-layouts-with-flex-containers"
+                target="_blank"
+                >Learning about Flexbox Layouts</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.sitepoint.com/premium/screencasts/flex-items-how-to-use-them-and-why"
+                target="_blank"
+                >Flexbox Items</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                target="_blank"
+                >CSS Tricks: Guide to Flexbox</a
+              >
+            </li>
+            <li>
+              Finally do not underestimate the power of
+              <a href="http://flexboxfroggy.com" target="_blank"
+                >Flexbox Froggy</a
+              >!
+            </li>
+          </ul>
+        </div>
+
+        <h2>Grading</h2>
+        <ul>
+          
+          <li>
+            Card uses Grid in browsers that support it (@supports), and Flexbox
+            in browsers that don't. 10pts
+          </li>
+          <li>
+              Card looks very similar in both Grid and flexbox. 10pts
+            </li>
+        </ul>
+      </div>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

@@ -15,7 +15,7 @@
         <img src="../images/smallBanner.jpg" alt="Course Banner" />
       </div>
       <div id="article">
-        <h1>Layout: (Re)build a real Site</h1>
+        <h1>Layout: (Re)build a real site</h1>
 
         <hr />
         <div class="callout">
@@ -28,8 +28,8 @@
           <p>
             Suddenly things that were not possible (or at least things that
             involved a lot of pain to do) are not only possible but in some
-            cases easy to do. Let's take this opportunity to get out of ruts and
-            experiment with these new tools.
+            cases easy to do. It's time to get out of ruts and experiment with
+            these new tools.
           </p>
           <p>
             All of that being said, it is also important to develop good
@@ -142,7 +142,7 @@
             <ol>
               <li>
                 At the top there is a collection of 3 interest boxes...fairly
-                simple:image with a title below.
+                simple: image with a title below.
               </li>
               <li>
                 There are lists of links that are formatted in a few different
@@ -168,8 +168,8 @@
               Pay particular attention to the code in the
               <kbd>_icons.scss</kbd> file. All of the icons on the site are
               pulled from a font file. This is a common practice. This partial
-              contains the CSS to allow you to pull each icon out and us it. You
-              can see an example of this in the provided header code:
+              contains the CSS to allow you to pull each icon out and use it.
+              You can see an example of this in the provided header code:
             </p>
             <pre><code class="lang-markup">&lt;a href="#"&gt;
     &lt;span aria-hidden="true" class="icon-byui-logo"&gt;
@@ -178,7 +178,8 @@
 &lt;/a&gt;</code></pre>
             <p>
               Note the <code>class="icon-byui-logo</code> on the span. This
-              class will go find the right incon in the font and display it.
+              class will go find the right icon in the font and display it using
+              a <code>::before</code> pseudo element.
             </p>
             <p>
               Pay close attention as well to the other properties in this
@@ -203,10 +204,10 @@
             <p>
               As you write your HTML pay attention to accessability! If there
               are any elements that cannot be understood as read...add some
-              <code>sr-only</code> notes to help visitors out. Any elements on
-              your page can likewise be removed from the screen reader's queue
-              with the <code>aria-hidden</code> property, making your pages
-              easier and quicker to navigate with readers.
+              <code>sr-only</code> notes to help visitors out. These elements
+              can likewise be removed from the screen reader's queue with the
+              <code>aria-hidden</code> property, making your pages easier and
+              quicker to navigate with readers.
             </p>
             <p>
               Start your work by styling the header and nav to match the BYUI at

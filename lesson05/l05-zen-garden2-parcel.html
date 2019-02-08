@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/solarized-dark.css" />
+
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+  <body>
+    <div id="main">
+      <div id="header">
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </div>
+      <div id="article">
+        <h1>CSS Zen Garden Style Guide</h1>
+        <hr />
+        <div class="callout">
+          <p>
+            Two weeks ago you formed groups and picked a theme that you will use
+            for your version of the CSS Zen Garden. You should have reviewed the
+            content and prepared a couple of wireframes as well, making sure to
+            include everything. This week we will continue our work on this
+            project by preparing a styleguide.
+          </p>
+          <p>
+            Remember the purpose of a styleguide is to decribe the color
+            schemes, typography, branding, and styling for html elements for a
+            site. If built correctly the css from the styleguide can be
+            integrated directly into the css for the actual page when the time
+            comes to build it.
+          </p>
+          <p>
+            I am actually going to provide you with a template to use for your
+            styleguide. It is a slightly modified version of the
+            <a
+              href="https://codyhouse.co/gem/css-style-guide-template/"
+              target="_blank"
+              >Codyhouse Styleguide Template</a
+            >.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <p>
+          <span class="highlight">Step 1</span>: &nbsp; Download the
+          <a href="../resources/style-guide-template-parcel.zip">template</a>
+          and unzip it. Take a few minutes to look at the directory structure
+          that it uses.
+        </p>
+        <p>
+          You will notice some simularities with the project we worked with last
+          week. There is a <kbd>package.json</kbd> file, which means we will
+          need to install the dependancies before we can use it. It uses Parcel
+          as well, just like last week to act as our bundler. If you look inside
+          of the <kbd>src</kbd> folder you will see the following:
+        </p>
+        <dl class="callout">
+          <dt>assets</dt>
+          <dd>This is where any images you need for the styleguide will go.</dd>
+          <dt>css</dt>
+          <dd>
+            Directory for the final css files. Contains a reset.css and an
+            initial styles.css that will be replaced.
+          </dd>
+          <dt>js</dt>
+          <dd>
+            We won't spend any time in here, but it contains some javascript
+            that will generate parts of the style guide based on our styles.
+            Check out main.js if you want to see what it does.
+          </dd>
+          <dt>scss</dt>
+          <dd>
+            This is where we will spend most of our time. It contains the .scss
+            files we will use to define the styles for our styleguide.
+          </dd>
+        </dl>
+
+        <p>
+          This template uses SCSS which we learned about a couple of weeks ago.
+          If you open up the styles.scss file and look at the first few lines
+          you will see something that hopefully you will remember from your
+          reading, but that we have not discussed yet: @import
+        </p>
+        <div class="callout">
+          <p>
+            In CSS @import gives us the ability to reference things in one css
+            file from another. This is great, except for the fact that the files
+            remain separate and so now what would have taken one http request to
+            get now takes multiple. Not great.
+          </p>
+          <p>
+            Sass @imports work similar to CSS imports: they allow us to break up
+            our css into more managable parts, but they get compiled back into
+            one file when we are done. We gain the organizational advantages
+            without an increased load time.
+          </p>
+          <p>
+            Breaking apart SCSS files into parts for organization happens so
+            frequently in fact that there is a special type of SCSS file called
+            a 'partial'. These files are never compiled on their own, but only
+            included in other files. We indicate a partial with a leading
+            underscore (_) on the file name.
+          </p>
+        </div>
+        <p>
+          There are three partial files that are imported into the styles.scss.
+          Two at the top and one at the bottom. You can find the actual files
+          inside of scss/partials/. If you compile styles.scss into css you will
+          see that the contents of those files do indeed get inserted in at the
+          point where the @import command is.
+        </p>
+        <p>
+          Notice that the @import statements do not include the file extention
+          as well. If one is not specified it will look for .scss
+          <em>or</em> .sass
+        </p>
+        <p>
+          Open the command line on your system and make sure you have the folder
+          this project resides in open. Then type the following commands:
+        </p>
+        <pre><code class="bash">npm install</code></pre>
+        <pre><code class="bash">npm run start</code></pre>
+        <p>
+          This will create a new directory, just like last week, called
+          <kbd>build</kbd>. It will also launch a webserver you can see your
+          project at as well.
+        </p>
+        <p class="callout">
+          The other thing you might notice after compiling that scss into css is
+          that the final styles.css file has almost 1000 lines! You might be
+          thinking: "Isn't 1000 lines of css a bit overkill for a style guide
+          template?" and the answer is: "Yes...yes it is."...but not only is
+          this a template, it is also a good example of one way to organize a
+          project ...something that many beginning developers struggle with.
+        </p>
+
+        <p>
+          <span class="highlight">Step 2</span>: &nbsp; Complete the styleguide
+          by changing images, adding in the colors for your color scheme, the
+          fonts you will use, and as many of the other styles that you have
+          determined at this point. Feel free to remove any sections that you do
+          not need (you won't have any forms or icons for example).
+        </p>
+        <p>
+          Some of the styles you will be changing will be in the
+          style-guide.scss file. As you define your styles lets take advantage
+          of Sass partials to further organize things. Add a partial for each
+          section that you complete in the style guide. Move any styles from
+          style-guide.scss into the partial and add an @import. Any new styles
+          that need to be defined should also be done in partials. You may even
+          want to create a partial for all the variables.
+        </p>
+        <p>
+          If done correctly this step will provide you with many of the styles
+          you will need for your finished site in a form that will be easy to
+          include in that site later.
+        </p>
+        <div class="callout">
+          <p>
+            Lets take a closer look at what I mean above. Typography is a common
+            section in style guides...this one is no exception. You will notice
+            that there is a section in the <code>style-guide.scss</code> labeled
+            with comments as Typography...looks kind of like this:
+          </p>
+          <pre><code class="scss">
+/* -------------------------------- 
+
+xTypography 
+
+-------------------------------- */
+
+h1, h2 {
+	font-family: $secondary-font;
+	color: $color-2;
+}
+
+h1 {
+	font-size: 2.4rem;
+	font-weight: 300;
+	line-height: 1.2;
+	margin: 0 0 .4em;
+
+	@include MQ(S) {
+		font-size: 3.2rem;
+	}
+
+	@include MQ(M) {
+		font-size: 4rem;
+	}
+}
+...
+        </code> </pre>
+          <p>
+            Lets take that whole section and place it into a partial. A good
+            name might be something like <code>_typography.scss</code>. Then
+            remove the code (I would leave the commented heading) from the
+            <code>style-guide.scss</code> file and replace it with an
+            <code>@import</code> statement.
+          </p>
+          <p>
+            You could just as easily put that <code>@import</code> in another
+            project to use these same typographical styles anywhere you needed.
+            This is where SASS partials really begin to shine.
+          </p>
+          <p>Do this for each section you complete for the styleguide.</p>
+        </div>
+        <p>
+          <span class="highlight">Step 3</span>: &nbsp; One member of the group
+          should Compress/Archive the <kbd>src</kbd> directory of the completed
+          style guide and upload it to ILearn to turn it in. Make sure to list
+          all the names of the members of your group in the comments when you
+          submit your style guide.
+        </p>
+
+        <h2>Grading</h2>
+        <ul>
+          <li>
+            SCSS partials created for each section of the styleguide (except for
+            section 1: Purpose/theme and the last section: wireframes). 10pts
+          </li>
+          <li>SCSS compiles without errors. 4pts</li>
+          <li>
+            A minimum of the following sections completed: purpose, colors,
+            typography, navigation, and wireframes. 10pts
+          </li>
+        </ul>
+      </div>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

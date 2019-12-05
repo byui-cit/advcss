@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../css/prism-light.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header>
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </header>
+      <main>
+        <h1>Layout: Multi part forms</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            Professional web developers and designers end up spending a lot of
+            time with forms. As one of the few ways to get direct feedback from
+            our users they play a critical role in web sites. They can also be
+            quite tricky to get right. Begin this activity by reading through
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Styling_HTML_forms"
+              target="_blank"
+              rel="noreferrer"
+              >Styling HTML Forms</a
+            >
+            and
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Advanced_styling_for_HTML_forms"
+              target="_blank"
+              rel="noreferrer"
+              >Advanced Styling for HTML Forms</a
+            >
+            on MDN.
+          </p>
+          <p>
+            So the bad news is that forms can be problematic to style...the good
+            news is that the problems are not new and there are some good
+            techniques around for getting nice looking forms. One of the issues
+            with forms is that they can be overwhelming to users if they ask for
+            too much information. One method of dealing with this is to break
+            the form up into smaller parts. We are going to build a multipart
+            form with this activity.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <ol class="bigSteps">
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Prepare</h3>
+            <p>
+              Create a new folder on your computer for this project. Add two
+              files to the project called <kbd>index.html</kbd> and
+              <kbd>styles.scss</kbd>. Add the code necessary to start out a
+              valid HTML5 document to the <kbd>index.html</kbd> file. In the
+              head include a link to your .css, and also links to a couple of
+              javascript resources:
+            </p>
+            <pre><code class="lang-markup">&lt;script src="https://cdn.jsdelivr.net/gh/cferdinandi/bouncer@1/dist/bouncer.polyfills.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://byui-cit.github.io/advcss/layout/forms.js" defer &gt;&lt;/script&gt;</code></pre>
+
+            <p>
+              Those files will provide the functionality to get our form to
+              switch from section to section, and will provide some validation.
+            </p>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Review the design</h3>
+            <p>
+              The form we will be building resembles closely the one in
+              <a href="https://codepen.io/atakan/pen/gqbIz" target="_blank"
+                >this multi-step form example</a
+              >
+              from Codepen. Ours will not be animated, but will include some
+              validation. Review it, notice what changes when you hit "next".
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Build the Form</h3>
+            <p>
+              Add a <code>form</code> to your index file with a class of
+              <kbd>mpform</kbd>. Our form will have 3 sections, as well as a
+              list to track which section of the form we are currently on. Add
+              an <code>ol</code> with a class of <kbd>mpform__progressbar</kbd>.
+              Add three <code>li</code> children for the tracking. Then add
+              three <code>fieldset</code>s, each with a class of
+              <kbd>mpform__fieldset</kbd>. Each fieldset will become a step in
+              our multipart form. Your HTML should look similar to this:
+            </p>
+            <pre><code class="lang-markup">&lt;form class="mpform"&gt;
+  &lt;ol class="mpform__progressbar"&gt;
+    &lt;li class="active"&gt;Account Setup&lt;/li&gt;
+    &lt;li&gt;Personal Details&lt;/li&gt;
+    &lt;li&gt;Contact&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;fieldset class="mpform__fs"&gt;&lt;/fieldset&gt;
+  &lt;fieldset class="mpform__fs"&gt;&lt;/fieldset&gt;
+  &lt;fieldset class="mpform__fs"&gt;&lt;/fieldset&gt;
+&lt;/form&gt;
+            </code></pre>
+            <p>
+              Below is a screenshot of the
+              <a
+                href="https://codepen.io/atakan/pen/gqbIz?editors=1100"
+                target="_blank"
+                >example</a
+              >
+              we are basing our form off of. Note that the first number in the
+              progress bar is green. That is what the <kbd>active</kbd> class
+              will do. Notice also that the section of the form has two titles,
+              and three inputs. The example uses placeholder text to indicate
+              what each field is for...we will add labels to ours. Relying on
+              only a placeholder can sometimes cause confusion as the
+              placeholder disappears as soon at you focus the input.
+            </p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../images/layout-form-example.jpg"
+                  alt="Section 1 of our form"
+                />
+                <figcaption>Section 1 of our form</figcaption>
+              </figure>
+            </div>
+            <p>
+              Add the HTML to the first fieldset. Again...for example mine looks
+              like this:
+            </p>
+            <pre><code class="lang-markup">&lt;fieldset class="mpform__fs"&gt;
+  &lt;h2 class="fs__title centerText"&gt;Create your account&lt;/h2&gt;
+  &lt;h3 class="fs__subtitle centerText"&gt;This is step 1&lt;/h3&gt;
+  &lt;p&gt;
+    &lt;label class="fs__label" for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" name="email" placeholder="Enter a valid email" /&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label class="fs__label" for="pass"&gt;Password&lt;/label&gt;
+    &lt;input type="password" name="pass" placeholder="Enter at least 8 characters" /&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;label class="fs__label" for="cpass"&gt;Confirm Password&lt;/label&gt;
+    &lt;input type="password" name="cpass" placeholder="Re-enter Password" /&gt;
+  &lt;/p&gt;
+  &lt;div class="centerText"&gt;&lt;button class="next "&gt;Next&lt;/button&gt;&lt;/div&gt;
+&lt;/fieldset&gt;</code></pre>
+            <p>
+              While we are here we may as well fill out the other two fieldsets.
+              The second should also have three fields: first name, last name,
+              and phone. The last fieldset will have two checkboxes...the first
+              should indicate we want to recieve a newsletter, then second would
+              indicate that we would like to receive special offers...both
+              should be checked by default...because why would someone
+              <strong>not</strong> want those things!
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Progress Bar</h3>
+            <p>
+              Before we start on the progress bar, let's do some base styling of
+              the form. Let's set a <kbd>max-width</kbd> of 400px, then center
+              it. In addition add the following rules to the top of your SCSS:
+            </p>
+            <pre><code class="lang-css">
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+            </code></pre>
+            <p>
+              Our progress bar has for it's base an ordered list, but the
+              default numbers for that list do not have the correct styling for
+              the progress bar. So we will need to hide the default numbers, and
+              replace them with a
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters"
+                target="_blank"
+                >custom counter</a
+              >
+              that we can style using a <code>::before</code> element. The bars
+              tying the numbers together will be made with an
+              <code>::after</code> element.
+            </p>
+            <p>Below is my base styling for the progress bar:</p>
+            <pre><code class="lang-css">
+.mpform__progressbar {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-left: 0;
+  list-style-type: none;
+  counter-reset: step;
+}
+            </code></pre>
+            <p>
+              Hopefully the only thing you don't recognize there is
+              <code>counter-reset: step;</code>. The line above removes the
+              default numbering, then that line initializes our custom counter.
+              This is the first step. The other lines are to arrange our steps
+              in a row and center them in the space.
+            </p>
+            <pre><code class="lang-css">
+.mpform__progressbar > li {
+  flex: 1 0 33%;
+  text-align: center;
+  position: relative;
+  &::before {
+    content: counter(step);
+    counter-increment: step;
+    margin: auto;
+    border-radius: 4px;
+    font-size: 1.2em;
+    display: block;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: $step-inactive-color;
+  }
+}</code></pre>
+            <p>
+              The next step is to style the items and the <code>::before</code>.
+              In the <code>::before</code> CSS you will see the rest of what we
+              need to display custom counters. First we see
+              <code>content: counter(step)</code>. This is responsible for
+              actually displaying our new numbers. Without the next line we
+              would see the same number on each item. The word
+              <code>step</code> could be changed to anything we want really, but
+              whatever we use in <code>counter-reset</code> determines what we
+              use for the rest as well. Read about
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters"
+                target="_blank"
+                >custom counters</a
+              >
+              on MDN to learn more.
+            </p>
+            <div class="callout">
+              <p>
+                I have defined a few SCSS variables with some colors. Add the
+                following to the top of your SCSS file (you can change the
+                actual colors to whatever you want):
+              </p>
+              <pre><code class="lang-css">$step-active-color: green;
+$step-inactive-color: antiquewhite;
+$step-active-font-color: white;</code></pre>
+            </div>
+            <p>Your progress bar should look something like this:</p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../images/layout-form-progress-1.jpg"
+                  alt="progress bar partially dones"
+                />
+                <figcaption>Progress bar in progress</figcaption>
+              </figure>
+            </div>
+            <p>
+              We now need to create the connecting bars, and add the active
+              styles. We will use the <code>::after</code> pseudo-element to do
+              this. Add the following SCSS to your file:
+            </p>
+            <pre><code class="lang-css">
+&::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: -50%;
+  height: 4px;
+  background-color: $step-inactive-color;
+  width: 100%;
+  z-index: -1;
+}
+            </code></pre>
+            <p>
+              Those lines will do several things...first it will make a skinny
+              colored rectangle that is as wide as the LI elements. Second we
+              use <code>position:absolute</code> to place the bar into the
+              correct place. Because we want the bar behind the current active
+              step number to be lit up we move all the bars left. So the bar for
+              number 2 is left of the 2. Notice also that
+              <code>position:relative</code> was set on each list item. So our
+              absolute coordinate system is relative to the list item. Finally
+              we use <code>z-index:-1</code> to make sure the bar is behind
+              everything else.
+            </p>
+            <p>
+              The bars for 2 and 3 are looking good...but we have a bar for 1
+              that we don't need or want. Add the following CSS to remove that
+              bar:
+            </p>
+            <pre><code class="lang-css">
+&:first-child::after {
+  content: none;
+}</code></pre>
+            <p>
+              The & in this case refers to
+              <code>.mpform__progressbar > li</code>. (Those lines should be
+              nested under that selector) So this would read "Find the li that
+              is the first child of it's parent and remove the bar from the
+              after by setting it's content to nothing."
+            </p>
+            <p>
+              Finally we need a rule to change the color of the active step and
+              all steps previous. The following should do it:
+            </p>
+            <pre><code class="lang-css">
+  &.active:before,
+  &.active:after {
+    background: $step-active-color;
+    color: $step-active-font-color;
+  }  </code></pre>
+            <p>
+              We only need to add a class of <kbd>active</kbd> to a li step for
+              it to change color now. The first step should already have that
+              class on it. The Javascript that was provided above will take care
+              of adding and removing that class as necessary for the other
+              steps.
+            </p>
+            <!-- END STEP -->
+          </li>
+
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Styling the Fieldsets</h3>
+            <p>
+              In order to have our form match the model we need to clean up our
+              inputs. They should be the same size, centered, bigger (around
+              40px at a minimum for a good mobile target size), we are also
+              going to add labels and would like them to overlap slightly with
+              the input they describe. The image below shows our goal. If you
+              would like to figure it out on your own, stop reading and go do
+              it! Then compare what you did with my suggestions. It's ok if your
+              solution does not exactly match mine. Otherwise continue for my
+              explanation.
+            </p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../images/layout-form-section-one.jpg"
+                  alt="Section 1 of our form"
+                />
+                <figcaption>Our goal for section one</figcaption>
+              </figure>
+            </div>
+            <p>We can start with the following general fieldset rules:</p>
+            <pre><code class="lang-css">
+.mpform__fs {
+  width: 95%;
+  margin: 2em auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+
+  > h2 {
+    margin-bottom: -0.5em;
+  }
+}
+            </code></pre>
+            <div class="callout">
+              <p>
+                Hopefully there are no surprises in the css above. You have
+                probably noticed that I am not explaining every line. Much of it
+                I assume you have seen before and understand. However, if there
+                is any of the CSS in this activity you don't understand and that
+                I don't explain, STOP and figure out both what the lines do, and
+                why we used them in this instance before moving on!
+              </p>
+            </div>
+            <p>
+              To style the inputs we could build a selector like this:
+              <code>.mpform__fs input</code>, but we will have some inputs of
+              <kbd>type="checkbox"</kbd> later, and we don't want these styles
+              to apply to those elements. So let's use some attribute selectors
+              to identitify exactly which types of inputs we want ot style right
+              now. (This chould be nested under <code>.mpform__fs</code>
+            </p>
+            <pre><code class="lang-css">
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    width: 100%;
+    font-size: 1em;
+    padding: 0.8em;
+    margin-bottom: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+            </code></pre>
+            <p>
+              That will do for a start. It is safe to assume that our text,
+              email, and password inputs will all be styled similarly. Look over
+              each line to make sure you understand what each is doing. Notice
+              that we have used almost the exact 2 lines of CSS twice now:
+            </p>
+            <pre><code class="lang-css">border: 1px solid #ccc;
+border-radius: 5px;</code></pre>
+            <p>
+              We may need more rounded boxes too. Let's create a mixin to do
+              that.
+            </p>
+            <pre><code class="lang-css">
+@mixin borderWithRadius($radius: 0, $color: #ccc) {
+  border: 1px solid $color;
+  border-radius: $radius;
+}
+</code></pre>
+            <p>
+              then replace those lines where they occur in our SCSS. Our rule
+              for <kbd>.mpform__fs</kbd> should look like this now:
+            </p>
+            <pre><code class="lang-css">
+.mpform__fs {
+  width: 95%;
+  margin: 2em auto;
+  @include borderWithRadius(5px);
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+
+  > h2 {
+    margin-bottom: -0.5em;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    width: 100%;
+    font-size: 1em;
+    padding: 0.8em;
+    margin-bottom: 0.5em;
+    @include borderWithRadius(3px);
+  }
+}
+</code></pre>
+<p>The next step will be to style the button, and get things centered. (The HTML provided above had a class of <kbd>.centerText</kbd> on certain elements already, we just need to write the class.)</p>
+<pre><code class="lang-css">
+  > .centerText {
+    text-align: center;
+  }
+  button {
+    background-color: $step-active-color;
+    color: $step-active-font-color;
+    border: 0;
+    font-size: 1em;
+    padding: 0.8em;
+    width: 25%;
+  }
+</code></pre>
+            <!-- END STEP -->
+          </li>
+
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Styling Checkboxes</h3>
+            <p>
+              Once you have the mobile layout done continue on to the desktop.
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Validation</h3>
+            <p>
+              Once you have the mobile layout done continue on to the desktop.
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Submit</h3>
+            <p>Upload your HTML and SCSS (zip it up) to iLearn.</p>
+            <!-- END STEP -->
+          </li>
+        </ol>
+        <h2>Grading</h2>
+        <ul>
+          <li>
+            Form created as indicated in the instructions 10pts
+          </li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../js/prism.js"></script>
+  </body>
+</html>

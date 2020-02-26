@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+      <!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>CSS Module: Looking at others code</h1>
+        <hr />
+        <p>
+          One of the coolest things about learning html and css is that the
+          world quite literally is our textbook...at least the world-wide-web is
+          our textbook :). HTML is an open standard, and in order for the
+          browser to interprete the page it has to download it all into
+          itself...so you have all the source code for every page that you
+          visit!
+        </p>
+        <p>
+          One of the habits that I hope you will develop is to dig into that
+          code when you see something cool that someone else has done on their
+          site. It's a great way to learn new things.
+        </p>
+        <p class="callout">
+          Just for review. The best way to look 'under the hood' is to right
+          click on an element on the page and select 'Inspect'. There are
+          keyboard shortcuts as well. They change slightly based on browser and
+          operating sytem. On a Mac in Safari or Chrome for example you would
+          hit cmd-alt-i to open the inspector. On Windows this would be
+          ctrl-shift-i. If you have not spent much time here...spend some now to
+          familiarize yourself...this is a powerful tool for troubleshooting.
+        </p>
+        <h2>The open web</h2>
+        <p>
+          The fact that anyone can not only see, but copy and re-use anyone
+          elses html and css has caused the web to become a pretty open place.
+          Because many web designers/developers learned much of what they know
+          by looking at others work, they tend to be pretty cool with you doing
+          the same with theirs. There are limits however. Looking at code and
+          learning a technique that you will use in a page of your own is one
+          thing...copy/pasting code directly from someone else and calling it
+          your own is quite another.
+        </p>
+        <p class="callout">
+          This doesn't mean that you can never copy/paste code from someone
+          else. There are many helpful folks on the web that solve particular
+          problems and then share the solutions intending them to be used. The
+          key is to practice what you learned over all those years of taking
+          English classes and learning to write. Give credit where credit is
+          due...cite your sources. You will often see this done with a comment
+          by the snippet of code you have borrowed.
+        </p>
+        <h2>Solving problems</h2>
+        <p>
+          Turns out many web designers/developers are chronic problem solvers.
+          When they are particularly proud of the creativeness or elegance of a
+          solution they like to share it. Many sites have popped up on the web
+          to allow this to happen. We are going to use one of them this semester
+          in this class called
+          <a href="http://codepen.io" target="_blank">codepen.io</a>.
+        </p>
+        <p>
+          In this activity we are going to take advantage of this open sharing
+          nature of the web to learn more about selectors than we now know by
+          learning to review others code.
+        </p>
+        <h2>Activity Instructions</h2>
+        <p>
+          <span class="highlight">Step 1:</span> Go to
+          <a href="http://codepen.io" target="_blank">codepen.io</a> and browse
+          for a while. Look at several pens and become familiar with the layout
+          and how it presents the html, css, and javascript that was used for
+          the pen. Choose 2 pens that include css selectors that either you
+          don't understand, have never used before, or would not have thought to
+          use in the way the author did to review further. (This could involve
+          creative uses of combinators, attribute selectors, pseudo classes or
+          elements, or specificity)
+        </p>
+        <p class="callout">
+          While looking you will notice many of the pens using javascript as
+          well as css to solve the problem the author concerned with. I would
+          avoid those for now. Also if the middle CSS window says SASS, SCSS, or
+          Stylus next to the CSS make sure you hit the 'View Compiled' button
+          (Hit the down arrow button at the top right of the CSS section). That
+          will turn the SASS into plain ol' CSS that you will have an easier
+          time understanding. This also applies to the html pane. If it doesn't
+          look like html hit that 'View Compiled' button as well.
+        </p>
+        <p>
+          <span class="highlight">Step 2:</span> Dig into those selectors and
+          figure out what they are doing and why they chose to do it in that
+          way...we are looking to gain understanding of their code.
+        </p>
+        <p>
+          <span class="highlight">Step 3:</span> Post the URLs to your 2
+          examples to the Selectors discussion along with an explanation of what
+          you learned.
+        </p>
+        <p>
+          <span class="highlight">Step 4:</span> Review at least 2 other posts
+          and post your thoughts on what they learned as well.
+        </p>
+
+        <h2>Completion</h2>
+        <ul>
+          <li>Two examples posted in DB.</li>
+          <li>Good explanations given for both examples.</li>
+          <li>Two other posts responded to.</li>
+        </ul>
+
+        <div class="callout">
+          <h3>Example</h3>
+          <p>
+            Looking at the css for this pen:
+            <a href="http://codepen.io/brownerd/pen/zvyQYL" target="_blank"
+              >Love for Paris</a
+            >
+            I ran across this :
+          </p>
+          <code
+            ><pre>
+[class*=stage] {
+  border: 10px solid #333;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 20px;
+  position: absolute;
+}</pre
+            ></code
+          >
+          <p>
+            I also noticed that there are 2 similarly named classes in 2 divs in
+            the HTML: stage-1 and stage-2. The css uses the attribute selector
+            to grab all the elements with a class attribute whose value is
+            <em>like</em> "stage". So they could grab both elements with one
+            selector to set some default styles. Very efficient.
+          </p>
+        </div>
+      </main>
+      <!-- end #article -->
+    </div>
+    <script src="../../js/course.js"></script>
+  </body>
+</html>

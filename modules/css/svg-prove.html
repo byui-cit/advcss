@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>CSS Module: SVG Card backs</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            Playing cards have been around in one form or another for a long
+            time. They traditionally have very intricate patterns on the backs
+            some of which are truly works of art. If you haven't looked at the
+            back of a deck of cards recently take a minute and do a quick
+            search.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <p>
+          This activity will have you create 2 custom playing card backs. Both
+          should include multiple shapes and should be inline SVG (right in the
+          html). One of the cards should be entirely your own work. For the
+          other you are welcome to incorporate SVG shapes you have found on the
+          web.
+        </p>
+
+        <p>
+          <span class="highlight">Step 01:</span>&nbsp; Create a new pen in
+          codepen.io. Make sure to change the css settings to use SCSS so you
+          can take advantage of the things we learned last week. I would
+          recommend starting with a simple rectangle with slightly rounded
+          corners to define your card. Hint: the height of a card is generally
+          1.4X the width.
+        </p>
+
+        <p>
+          <span class="highlight">Step 02:</span>&nbsp; Create your cards, when
+          completed submit the url to your pen in ILearn.
+        </p>
+        <div class="callout">
+          <p>
+            If you have issues with scaling your svg objects take another look
+            at the article:
+            <a
+              href="https://sarasoueidan.com/blog/svg-coordinate-systems/"
+              target="_blank"
+              >Understanding SVG Coordinate Systems</a
+            >
+            along with the
+            <a
+              href="https://sarasoueidan.com/demos/interactive-svg-coordinate-system/index.html"
+              target="_blank"
+              >playground</a
+            >
+            that goes along with the article.
+          </p>
+          <p>
+            You may run into some strange scaling issues if you use symbols with
+            patterns. When you create a viewBox you essentially redefine the
+            coordinate system the svg uses. If the viewBox is smaller than the
+            viewPort (the size of the SVG element) then scaling will occur. Here
+            is a
+            <a href="http://codepen.io/matkat/pen/qZzMJz" target="_blank"
+              >codepen</a
+            >
+            with some examples of some of the behaviors you might see because of
+            this. Make sure to read the comments.
+          </p>
+          <p>
+            This assignment will also ask you to group some of your svg objects.
+            There are some examples of this in the
+            <a href="l05-shapes-svg.html" target="_blank">SVG Shapes</a>
+            activity you should have completed, but here is another article that
+            goes into more depth to review:
+            <a
+              href="https://sarasoueidan.com/blog/structuring-grouping-referencing-in-svg/"
+              target="_blank"
+              >Structuring, Grouping, and Referencing in SVG</a
+            >
+          </p>
+        </div>
+        <h2>Completion</h2>
+        <ul>
+          <li>Two card backs with interesting patterns created.</li>
+          <li>
+            SCSS has been used where appropriate. (variables for colors or sizes
+            would be a good start)
+          </li>
+          <li>Both backs use at least 3-4 shapes.</li>
+          <li>
+            Some sort of SVG grouping has been used (g, pattern, symbol, etc).
+          </li>
+          <li>CSS has been used to style some portion of the SVG.</li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+  </body>
+</html>

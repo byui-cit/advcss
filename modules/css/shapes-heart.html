@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-light.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main id="article">
+        <h1>Shapes with CSS</h1>
+        <hr />
+        <div class="callout">
+          <p>
+            One of the most important skills you can develop in your life is
+            that of creative problem solver. You often will run into (or be
+            given) difficult tasks that you are pretty sure you don't have the
+            tools to accomplish. (<a
+              href="https://www.lds.org/scriptures/bofm/1-ne/17?lang=eng"
+              target="_blank"
+              >1 Nephi 17:8</a
+            >).
+          </p>
+          <p>
+            Web design and development has many good examples of this. During
+            almost every project it seems the client comes up with some critical
+            feature that you are pretty sure is impossible.
+          </p>
+          <p>
+            However, the internet is full of examples of many very creative
+            solutions to problems that were thought impossible to solve given
+            the current toolset...until someone saw how to use those tools in
+            ways never before imagined.
+          </p>
+          <p>
+            Take the tool of the humble border-radius. It was added to give
+            designers the ability to have
+            <a
+              href="https://css-tricks.com/almanac/properties/b/border-radius/"
+              target="_blank"
+              >rounded corners</a
+            >
+            on boxes...but just
+            <a
+              href="https://www.youtube.com/watch?v=JSaMl2OKjfQ"
+              target="_blank"
+              >take</a
+            >
+            a look at
+            <a
+              href="https://css-tricks.com/examples/ShapesOfCSS/"
+              target="_blank"
+              >what</a
+            >
+            has been done with it since.
+          </p>
+          <p>
+            (I'm serious about that...click on each of those links...read,
+            watch, then come back.)
+          </p>
+        </div>
+        <h2>Activity Directions</h2>
+        <p>
+          Now that you have a bit of background (you watched and read
+          above...right?) Let's practice. I would first like to walkthrough
+          making a heart.
+        </p>
+        <p>
+          <span class="highlight">Step 1</span>: &nbsp; Open
+          <a href="http://codepen.io" target="_blank">codepen.io</a> and login
+          to your account if you are not already. Click on the +New Pen button
+          at the top right of the screen. We will not be using any Javascript
+          for this, so lets close that pane to free up some space.
+        </p>
+        <p>
+          <span class="highlight">Step 2</span>: &nbsp; Lets add a bit of html
+          to get us started. Type the following into the html pane:
+        </p>
+        <pre><code class="html">
+        &lt;div class="heart"&gt;&lt;/div&gt;
+    </code></pre>
+
+        <p>
+          <span class="highlight">Step 3</span>: &nbsp; Lets give our
+          <kbd>div</kbd> some dimensions and color. Add the following to the css
+          pane:
+        </p>
+        <pre><code class="lang-css">
+.heart {
+    width: 50px;
+    height: 80px;
+    background: red;
+}
+            </code></pre>
+        <p>You should now see a red rectangle in the view pane.</p>
+        <p>
+          <span class="highlight">Step 4</span>: &nbsp; Lets try playing with
+          the border radius. Add the <kbd>border-radius:</kbd> property to your
+          css and try several different values.
+        </p>
+        <p>
+          If you start with a low value (5px for example) and work your way up
+          to 50px you should see the border becoming more and more
+          rounded...after 50px however it will stop changing. Because the width
+          is of the rectangle is 50px, it is as rounded as it can be.
+        </p>
+
+        <p class="callout">
+          This is actually how you make a circle. Start with a square, then set
+          the border-radius to be the same or greater than the width of the
+          square. You could also just set it to 100%. Try changing the border
+          radius of our rectangle to 100% though...what happened?
+        </p>
+        <p>
+          <span class="highlight">Step 5</span>: &nbsp; Hearts are not rounded
+          on all sides, so lets modify our shape to only be rounded on the top.
+          (Remember that you can specify the radius of each corner
+          independently...top-left top-right bottom-right bottom-left) Your code
+          should look something like this:
+        </p>
+        <pre><code class="lang-css">
+.heart {
+    width: 50px;
+    height: 80px;
+    background: red;
+    border-radius: 50px 50px 0 0;
+}</code></pre>
+        <p>
+          <span class="highlight">Step 6</span>: &nbsp; Great, we are actually
+          halfway done. Now you are probably thinking to yourself...'This
+          doesn't look much like a heart!'. Lets add one more line of css. Add
+          the following:
+        </p>
+        <pre><code class="lang-css">transform: rotate(45deg);</code></pre>
+        <p>
+          Now if you squint a bit hopefully you can see that we have half a
+          heart.
+        </p>
+        <div class="callout">
+          <p>
+            We need a second heart half now. We could simply add another div to
+            the html, but it would be rather nice to keep that simple. I like
+            the thought of just adding
+            <code>&lt;div class="heart"&gt;&lt;/div&gt;</code> to get a heart.
+          </p>
+          <p>
+            To keep our html markup simple we are going ot take advantage of the
+            <kbd>::before</kbd> and <kdb>::after</kdb> pseudo elements. Remember
+            they let us insert content that can be styled before or after any
+            other content.
+          </p>
+        </div>
+
+        <p>
+          <span class="highlight">Step 7</span>: &nbsp; We need to make a few
+          changes to our css to convert it to using pseudo-elements. change your
+          .heart rule to resemble the following:
+        </p>
+        <pre><code class="lang-css">
+.heart:before,
+.heart:after {
+    content: "";
+    width: 50px;
+    height: 80px;
+    background: red;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin :0 100%;
+}</code></pre>
+        <p class="callout">
+          When you made that change you might have been surprised to find your
+          shape disappeared! Turns out that content inserted with ::before or
+          ::after is treated as inline. Inline elements remember ignore height
+          and width. Add <kbd>display:block;</kbd> to your css and you shapes
+          will come back.
+        </p>
+        <p>
+          <span class="highlight">Step 8</span>: &nbsp; After adding the
+          <kbd>display:block;</kbd> you should now see 2 shapes. They are both
+          exactly the same right now...we will need to rotate one of them the
+          opposite direction. We can do that with the folllowing css:
+        </p>
+        <pre><code class="lang-css">
+.heart:after {
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}</code></pre>
+        <div class="callout">
+          <p>
+            You might have noticed the <kbd>transform-origin</kbd> I slipped in
+            on the last couple of steps. We will talk more about transforms
+            later...but for now, that property changes what point the element
+            rotates around. Default is
+            <kbd>transform-origin :50% 50%;</kbd> which would be the center of
+            the object.
+          </p>
+          <p>
+            So the lines we added would make the ::before element rotate around
+            the bottom right corner, the ::after element would rotate around the
+            bottom left. the reason we want them to rotate in that way will
+            become apparent in the next step.
+          </p>
+        </div>
+
+        <p>
+          <span class="highlight">Step 9</span>: &nbsp; We are getting close,
+          the last step is to get the 2 parts to overlap in just the right way.
+          We will do this with <kbd>position: absolute</kbd> Add that line to
+          the <kbd>.heart::before, .heart::after</kbd> rule.
+        </p>
+        <p>
+          You should now see why we wanted to change the rotation point for each
+          half. All we need to do to finish up now is to slide the halves a bit
+          horizontally. If we add the appropriate left, and top lines your code
+          should end up looking something like this:
+        </p>
+        <pre><code class="lang-css">
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50px;
+    width: 50px;
+    height: 80px;
+    background: red;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin :0 100%;
+
+}
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}</code></pre>
+        <div class="callout">
+          <p>
+            At this point we really just have a bit of cleanup to do. I did some
+            of it in the last step. Notice I removed the
+            <kdb>display:block;</kdb> line we added earlier.
+            <kbd>position:absolute;</kbd> automatically changed the element to
+            block so it became redundant.
+          </p>
+          <p>
+            The other cleanup deals with the positioning we used. We positioned
+            with absolute. This positions the element relative to the top, left
+            corner of the first non-static ancestor. In our case this is the top
+            left corner of the screen. This isn't very practical. It would be
+            better if the heart was positioned wherever the .heart div was. Lets
+            add a bit more css to make that happen.
+          </p>
+        </div>
+        <p>
+          <span class="highlight">Step 10</span>: &nbsp; Add the following rule
+          to your css to allow the heart to be positioned relative to where the
+          .heart div is placed:
+        </p>
+        <pre>
+            <code class="lang-css">
+.heart {
+  position: relative;
+  width: 100px;
+  height: 90px;
+  }</code>
+            </pre>
+        <p>
+          <span class="highlight">Step 11</span>: &nbsp; One last thing. the
+          transform property we used has pretty wide support...but there are a
+          few browsers out there that don't recognize the default syntax still
+          and need a prefixed version. Once we add the appropriate prefixes our
+          final css should look like this:
+        </p>
+        <pre><code class="lang-css">
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+}
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: red;
+    -moz-border-radius: 50px 50px 0 0;
+    border-radius: 50px 50px 0 0;
+    -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+      -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+        -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+}
+.heart:after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+      -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+        -o-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+}</code></pre>
+        <h6>
+          *The code for this example was taken from the link I gave above:
+          <a href="https://css-tricks.com/examples/ShapesOfCSS/" target="_blank"
+            >CSS-Tricks: The Shapes of CSS</a
+          >
+        </h6>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

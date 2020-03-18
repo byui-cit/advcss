@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-light.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>CSS Zen Garden Style Guide</h1>
+        <hr />
+        <div class="callout">
+          <p>
+            By now you should have formed groups and picked a theme that you
+            will use for your version of the CSS Zen Garden. You should have
+            reviewed the content and prepared a couple of wireframes as well,
+            making sure to include everything. This activity will have you
+            continue your work on this project by continuing your planning for
+            your version of the site.
+          </p>
+          <p>
+            The chapter from
+            <a href="https://atomicdesign.bradfrost.com/chapter-1/"
+              >Atomic Design</a
+            >
+            that you were asked to read presented the idea that there is a lot
+            of merit in approaching web pages or sites as collections of
+            components...modular design. It then goes further and proposes
+            applying structure and documentation through the creation of a
+            detailed vocabulary and of a style guide or pattern library as part
+            of the development process.
+          </p>
+          <p>
+            You should approach your design of your Zen Garden site from this
+            direction.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <ol class="bigSteps">
+          <li>
+            <!-- Step Start -->
+            <h3>Read Atomic Design Ch2</h3>
+            <p>
+              Read further in the
+              <a href="https://atomicdesign.bradfrost.com/chapter-2/"
+                >Atomic Design book</a
+              >. Read enough of Ch2 that you feel like you have a good feel for
+              the concepts.
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Identify parts</h3>
+            <p>
+              Go back and review a few different versions of the Zen Garden.
+              Identify and make a list of the different atoms, molecules, and
+              organisms that you see. As you switch versions watch for patterns
+              and use them to help you identify the parts.
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Apply your theme</h3>
+            <p>
+              With the list from the previous step, review your chosen theme and
+              start thinking about how you will adapt your it to style the
+              atoms, molecules, and organisms identified in the previous step.
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Begin a Styleguide/pattern library</h3>
+            <p>
+              You should complete the
+              <a href="../tech_scss.html" target="_blank"
+                >Preprocessors Module</a
+              >
+              before continuing. Begin your styleguide by creating a few scss
+              files. Let's create one for <code>atoms</code>, one for
+              <code>molecules</code>, and one for <code>organisms</code> to
+              start. Then create a file called <kbd>style.scss</kbd>. This will
+              be your main scss file for the project. We need to bring all of
+              these files together so they can be seen by our page. If you have
+              completed the
+              <a href="../tech-scss.html" target="_blank"
+                >Preprocessors module</a
+              >
+              then that would be an excellent way to do it.
+            </p>
+            <div class="callout">
+              <p>
+                <a
+                  href="https://sass-lang.com/blog/the-module-system-is-launched"
+                  target="_blank"
+                  >SCSS modules</a
+                >
+                will work great for this. It would look something like this:
+              </p>
+              <pre><code class="lang-css">
+@use 'atoms';  // assumes file is named _atoms.scss
+@use 'molecules';
+@use 'organisms' as o;  // can shorten the name if we like :)
+              </code></pre>
+            </div>
+
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Choose colors and fonts</h3>
+            <p>
+              Give some thought to your color scheme and fonts. Consider your
+              theme as you do this.
+            </p>
+            <p>
+              Create another SCSS module called <kbd>_variables.scss</kbd>. Add
+              variables to that file with your chosen colors and fonts.
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Create atoms</h3>
+            <p>
+              Create at least 5 atoms for your project. These should be for base
+              styling for your version of the Zen Garden. For example take a
+              look at the
+              <a
+                href="http://csszengarden.com/217/"
+                rel="noreferrer"
+                target="_blank"
+                >Screen Filler version</a
+              >
+              of the Zen Garden. The H1 has a definate style. That would become
+              one of your atoms.
+            </p>
+            <p>
+              Also in the header we have a couple of paragraphs that are all
+              uppercase. That set of styles is used at least three times in the
+              design. I would add a mixin to create that look. Look for a
+              similar opportunity to use mixins in your plans.
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Review this example</h3>
+            <p>
+              Using the Zen version mentioned above here is an example of how
+              your style guide/pattern library could come together using SCSS.
+              Review it and make adjustments to yours as necessary.
+              <a href="./zen-style/pattern.html" target="_blank"
+                >Pattern library example</a
+              >. Here is a
+              <a href="zen-style.zip">link to the source SCSS files</a> for the
+              example.
+            </p>
+            <p>
+              Note that this is just one way to structure this. In a more
+              complete Atomic implementation you might see many atom files.
+              Sometimes as many as one per atom. Feel free to experiment with
+              this. As you are working with a group to complete this assignment
+              you might find that more SCSS modules will make your job easier
+              than just one or two.
+            </p>
+            <!-- Step End -->
+          </li>
+        </ol>
+
+        <h2>Grading</h2>
+        <ul>
+          <li>
+            At least three SCSS modules created.
+          </li>
+          <li>SCSS compiles without errors.</li>
+          <li>Principles of Atomic design have been applied.</li>
+          <li>
+            A minimum of the following sections completed: theme, colors,
+            typography, and at least 5 atoms (elements) defined including at
+            least one mixin.
+          </li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+    <script src="../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

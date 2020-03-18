@@ -88,17 +88,15 @@
               <a href="../tech_scss.html" target="_blank"
                 >Preprocessors Module</a
               >
-              before continuing. Begin your styleguide by creating a few scss
-              files. Let's create one for <code>atoms</code>, one for
-              <code>molecules</code>, and one for <code>organisms</code> to
-              start. Then create a file called <kbd>style.scss</kbd>. This will
-              be your main scss file for the project. We need to bring all of
-              these files together so they can be seen by our page. If you have
-              completed the
-              <a href="../tech-scss.html" target="_blank"
-                >Preprocessors module</a
-              >
-              then that would be an excellent way to do it.
+              before continuing.
+            </p>
+            <p>
+              Begin your styleguide by creating a few scss files. Let's create
+              one for <code>atoms</code>, one for <code>molecules</code>, and
+              one for <code>organisms</code> to start. Then create a file called
+              <kbd>style.scss</kbd>. This will be your main scss file for the
+              project. We need to bring all of these files together so they can
+              be seen by our page.
             </p>
             <div class="callout">
               <p>
@@ -109,7 +107,7 @@
                 >
                 will work great for this. It would look something like this:
               </p>
-              <pre><code class="lang-css">
+              <pre><code class="lang-css">// styles.scss
 @use 'atoms';  // assumes file is named _atoms.scss
 @use 'molecules';
 @use 'organisms' as o;  // can shorten the name if we like :)
@@ -171,10 +169,10 @@
             <p>
               Note that this is just one way to structure this. In a more
               complete Atomic implementation you might see many atom files.
-              Sometimes as many as one per atom. Feel free to experiment with
-              this. As you are working with a group to complete this assignment
-              you might find that more SCSS modules will make your job easier
-              than just one or two.
+              Sometimes as many as one file per atom. Feel free to experiment
+              with this. As you are working with a group to complete this
+              assignment you might find that more SCSS modules will make your
+              job easier than just one or two.
             </p>
             <!-- Step End -->
           </li>

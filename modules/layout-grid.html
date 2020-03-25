@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS | Layout: CSS Grid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Layout Module: CSS Grid</h1>
+        <p>Hours: 3</p>
+        <hr />
+        <p>
+          It is <strong>highly</strong> recommended that you complete the
+          <a href="layout-concepts.html" target="_blank">Layout Concepts</a>
+          module before this one.
+        </p>
+        <h2>Prepare/Ponder</h2>
+        <p>
+          Review the following resources about CSS Grid. Note! There is a lot of
+          material here. You should spend enough time with these resources to
+          feel you are understanding CSS Grid. Understanding Grid is the
+          goal...not getting through the resources.
+        </p>
+
+        <ol>
+          <li>
+            <a href="https://gridbyexample.com" target="_blank" rel="noreferrer"
+              >Grid By Example</a
+            >
+            Rachel Andrew's great tutorial site for Grid. I would recommend as a
+            start to watch:
+            <ul>
+              <li>
+                <a
+                  href="https://gridbyexample.com/video/series-define-a-grid/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Defining a grid</a
+                >
+                (<a
+                  href="https://docs.google.com/document/d/e/2PACX-1vQ-T8GulfWwsh9yAxARJehKuXNMAqrvbmZJIuwHJy_0i_dZDHw6VKWE1qErcLDsbdnlWMSO6wzRX2Xf/pub"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Transcript</a
+                >) 2:57min
+              </li>
+              <li>
+                <a
+                  href="https://gridbyexample.com/video/series-repeat/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Repeat notation</a
+                >
+                (<a
+                  href="https://docs.google.com/document/d/e/2PACX-1vTlB1oSEXmPhrcZ5n70oXLB6HEHVk6wVAvI6SAFEh_m0gv62-6H6RnKny8Qz0L2hViFC4Mp8zcNkDPn/pub"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Transcript</a
+                >) 1:48min
+              </li>
+              <li>
+                <a
+                  href="https://gridbyexample.com/video/series-line-based-placement/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Line based positioning</a
+                >
+                (<a
+                  href="https://docs.google.com/document/d/e/2PACX-1vREAONYHxZd1ZHftB4jSmD-b3SVIsyI-lZPkx9IwH9ut2EB_6L_oNcIPK4_iI0Ulqlpd4SC9GcoqpOR/pub"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Transcript</a
+                >) 4:16min
+              </li>
+              and
+              <li>
+                <a
+                  href="https://gridbyexample.com/video/grid-template-areas/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Grid template areas</a
+                >
+                (<a
+                  href="https://docs.google.com/document/d/e/2PACX-1vRq6FgFZ63BOLhSedkV1tpBm2VlcW_7CBWBzCvISR9ZCDtaQeaOzYpFycpiBEyVsyKz6enUzO7ko_7t/pub"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Transcript</a
+                >) 4:14min
+              </li>
+            </ul>
+            Those are all videos and will take about 20 minutes to view. Then
+            move on to alignment next.
+          </li>
+          <li>
+            <a href="https://cssgrid.io" target="_blank" rel="noreferrer"
+              >Wes Bos: CSS Grid Course</a
+            >
+            Another great free resource if you want to dive deep (4h). The 3rd
+            and 4th videos (<a
+              href="https://www.youtube.com/watch?v=Z3BZMd4YzVw"
+              target="_blank"
+              rel="noreferrer"
+              >fundamentals</a
+            >
+            9min (<a
+              href="https://docs.google.com/document/d/e/2PACX-1vT9ZUqV7yX3YlZRxptxMFW0ksLNCj_62I9nn6CKrXRpTowt4yIr68GUH-GlwoDmmeNVrzYW86exwygn/pub"
+              target="_blank"
+              rel="noreferrer"
+              >Transcript</a
+            >) and
+            <a
+              href="https://www.youtube.com/watch?v=yznVkCuohGg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              dev tools</a
+            >
+            5.5min (<a
+              href="https://docs.google.com/document/d/e/2PACX-1vSyVUSW6XJqkeYMDnYp4qfbQHNOadK_RYef83IycCaJql3RslQWa41Fnbp26oAWgMwLQ37rmBtHeahz/pub"
+              target="_blank"
+              rel="noreferrer"
+              >Transcript</a
+            >)) I think you will find especially helpful.
+          </li>
+          <li>
+            <a
+              href="https://www.sitepoint.com/introduction-css-grid-layout-module/"
+              target="_blank"
+              rel="noreferrer"
+              >Introduction to the CSS Grid Layout Module</a
+            >
+            Sitepoint article
+          </li>
+          <li>
+            <a
+              href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+              target="_blank"
+              rel="noreferrer"
+              >Complete Guide to Grid</a
+            >
+            CSS Tricks...open this and keep it handy while learning Grid.
+          </li>
+          <li>
+            <a href="http://cssgridgarden.com" target="_blank" rel="noreferrer"
+              >Grid Garden</a
+            >
+            Exercises to help become familiar with the Grid properties
+          </li>
+        </ol>
+
+        <h2>Prove</h2>
+        <p>Complete the following:</p>
+        <ol>
+          <li>
+            <a href="layout/grid-prove.html" target="_blank">Using CSS Grid</a>.
+          </li>
+        </ol>
+      </main>
+      <!-- end main -->
+    </div>
+    <script src="../js/course.js"></script>
+  </body>
+</html>

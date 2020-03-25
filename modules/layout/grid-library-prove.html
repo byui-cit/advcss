@@ -2,18 +2,21 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8" />
-    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="../css/solarized-dark.css" />
-    <link rel="stylesheet" href="../css/course.css" />
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
   </head>
   <body>
-    <div id="main">
-      <div id="header">
-        <img src="../images/smallBanner.jpg" alt="Course Banner" />
-      </div>
-      <div id="article">
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
         <h1>Create your own grid library</h1>
 
         <hr />
@@ -50,9 +53,7 @@
           <p>
             Keep in mind that grid design theory, grid libraries, and the CSS
             Grid specification are different things even though they share
-            similar names. We will complete the same task this week first using
-            a Grid library (one we will make ourselves, see below.), and then
-            again using the Grid specification.
+            similar names.
           </p>
           <p>
             If you do a search online for "grid library", you will get a lot of
@@ -102,7 +103,7 @@
           </li>
           <li>
             For the suits we will use svg. I still have an example file with the
-            <a href="../resources/svg-card-suits.html" target="_blank"
+            <a href="../../resources/svg-card-suits.html" target="_blank"
               >svg suit shapes</a
             >
             in it to start with.
@@ -191,7 +192,7 @@
               the css to make it a flex container. Should look something like
               this:
             </p>
-            <pre><code class="css">
+            <pre><code class="lang-css">
 .row {
   display: flex;
   flex-flow: row wrap;
@@ -205,7 +206,7 @@
               Right now let's use it to set each cell to be the same width, and
               center the contents. Your rule should look something like this:
             </p>
-            <pre><code class="css">
+            <pre><code class="lang-css">
 .cell {
   flex: 1;
   text-align: center;
@@ -228,7 +229,7 @@
               <div class="fig-block">
                 <figure>
                   <img
-                    src="../images/7-clubs.png"
+                    src="../../images/7-clubs.png"
                     alt="image of a 7 of clubs playing card"
                   />
                 </figure>
@@ -241,7 +242,7 @@
               <div class="fig-block">
                 <figure>
                   <img
-                    src="../images/7-clubs-grid.png"
+                    src="../../images/7-clubs-grid.png"
                     alt="image of a 7 of clubs playing card"
                   />
                 </figure>
@@ -268,7 +269,7 @@
               width. The rule using flexbox to make this might look something
               like this:
             </p>
-            <pre><code class="css">
+            <pre><code class="lang-css">
 .col-1 {
 flex: 0 0 12.5%;
 }
@@ -292,7 +293,7 @@ flex: 0 0 12.5%;
               should be 8 columns wide. It is the only thing on that row!
             </p>
             <p>Your code might look like this:</p>
-            <pre><code class="html">
+            <pre><code class="lang-markup">
 &lt;div class="row"&gt;
     &lt;div class="number cell col-1"&gt;5
         &lt;svg class="icon"&gt;
@@ -324,7 +325,7 @@ flex: 0 0 12.5%;
               <div class="fig-block">
                 <figure>
                   <img
-                    src="../images/7-clubs-partially-built.png"
+                    src="../../images/7-clubs-partially-built.png"
                     alt="image of a 7 of clubs playing card"
                   />
                 </figure>
@@ -352,7 +353,7 @@ flex: 0 0 12.5%;
               <code>margin-left</code> property. My 2 column offset for example
               looks like this:
             </p>
-            <pre><code class="css">
+            <pre><code class="lang-css">
 .offset-2 {
 margin-left: 25%;
 }
@@ -365,7 +366,7 @@ margin-left: 25%;
             <div class="fig-block">
               <figure>
                 <img
-                  src="../images/7-clubs-almost-there.png"
+                  src="../../images/7-clubs-almost-there.png"
                   alt="image of a 7 of clubs playing card"
                 />
               </figure>
@@ -381,7 +382,7 @@ margin-left: 25%;
               accordingly. With flexbox this is easy. Add a couple of lines to
               your <code>row</code> class like the following:
             </p>
-            <pre><code class="css">
+            <pre><code class="lang-css">
 .row {
 display: flex;
 flex-flow: row wrap;
@@ -414,7 +415,7 @@ height: 100%;
               parameter for which column you need. In my case the mixins would
               look like this:
             </p>
-            <pre><code class="scss">
+            <pre><code class="lang-css">
 @mixin col($span-num) {
 flex: 0 0 12.5% * $span-num;
 }
@@ -424,7 +425,7 @@ margin-left: 12.5% * $offset-num;
 }
   </code></pre>
             <p>and to use them I would do this:</p>
-            <pre><code class="scss">
+            <pre><code class="lang-css">
 .col-1 {
 @include col(1);
 }
@@ -465,7 +466,7 @@ margin-left: 12.5% * $offset-num;
                 Again I'll give an example of what this would look like using my
                 code.
               </p>
-              <pre><code class="scss">
+              <pre><code class="lang-css">
 //make column classes 
 @for $index from 1 to 9 {
 .col-#{$index} {
@@ -531,7 +532,7 @@ margin-left: 12.5% * $offset-num;
                 If we look back at the mixins we made earlier you will see a
                 hard coded number: 12.5%. Lets make it a variable.
               </p>
-              <pre><code class="scss">
+              <pre><code class="lang-css">
     $one-column: 12.5%;
        @mixin col($span-num) {
         flex: 0 0 $one-column * $span-num;
@@ -546,7 +547,7 @@ margin-left: 12.5% * $offset-num;
                 mixins comes from my 8 columns (100% / 8). Lets modify our
                 variable to reflect the formula used to determine it.
               </p>
-              <pre><code class="scss">
+              <pre><code class="lang-css">
     //variables
     $num-columns : 8;
     $one-column : 100% / $num_columns;
@@ -557,7 +558,7 @@ margin-left: 12.5% * $offset-num;
                 one column will be calculated. the last thing to fix is the
                 start and stop points for the loops. More variables!
               </p>
-              <pre><code class="scss">
+              <pre><code class="lang-css">
     //variables
     $num-columns : 8;
     $one-column : 100% / $num_columns;
@@ -565,7 +566,7 @@ margin-left: 12.5% * $offset-num;
     $loop-end: $num-columns +1;
               </code></pre>
               <p>...and then the loops would need to change as well:</p>
-              <pre><code class="scss">
+              <pre><code class="lang-css">
     //make column classes 
     @for $index from $loop-start to $loop-end {
         .col-#{$index} {
@@ -613,21 +614,18 @@ margin-left: 12.5% * $offset-num;
 
         <h2>Grading</h2>
         <ul>
-          <li>Grid library converted to a partial. 4pts</li>
-          <li>SCSS mixins created for column and offset classes 5pts</li>
+          <li>Grid library converted to a partial.</li>
+          <li>SCSS mixins created for column and offset classes</li>
           <li>
             SCSS loops used to be able to generate the classes for a grid of any
-            specified number of columns. 6pts
+            specified number of columns.
           </li>
         </ul>
-      </div>
+      </main>
       <!-- end #article -->
     </div>
 
-    <script src="../js/course.js"></script>
-    <script src="../js/highlight.pack.js"></script>
-    <script>
-      hljs.initHighlightingOnLoad();
-    </script>
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
   </body>
 </html>

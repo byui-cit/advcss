@@ -1,66 +1,127 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-    <meta charset="utf-8">
-	<title>BYU-Idaho - CIT 301b - Advanced CSS - Command Line Basics - Windows</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<!--	<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
-<link rel="stylesheet" href="../css/solarized-dark.css">
-<link rel="stylesheet" href="../css/course.css">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      BYU-Idaho - CIT 301b - Advanced CSS - Command Line Basics - Windows
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/prism-coy.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Using the command line on a PC</h1>
 
-</head>
-<body>
-<div id="main" >
-<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
-<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
-<div id="article">
-			<h1>Using the command line on a PC</h1>
-         
-            
-			<hr />
-			<p>the command line on a Windows PC can be found by running the cmd app. the easiest way to do that is Start->Run->Cmd.  Cmd allows us to run special commands on the computer that cannot be found in the graphical user interface. These commands are usually short words that may be followed by one or more parameters...bits of other information that the command needs to run.  These commands in the always run in the current directory.  One of the most important tasks you can learn with the command line is changing working directories. </p>
-			
-            
-             <p>To change directories on a pc we first need to know where we currently are.  The prompt will always show you this. If you have just opened up the cmd window you will probably see something like this:</p>
-             <pre><code class="bash">C:\Users\username</code></pre> 
-             <p>  If you didn't see something similar to that then type:</p>
-             <pre><code class="bash">cd %userprofile%</code></pre> 
-             <p>That will take you back to your home directory.  If I wanted to see what folders and files were in my current directory I could type:</p>
-             <pre><code class="bash">dir</code></pre> 
-             <p> Try that now.</p>
-             <p>Lets assume that the directory I have my activity files in is at <kbd>\Documents\web-stuff\scss-demo</kbd>.  When you did the list command earlier you probably saw that the Documents folder is inside the directory we are currently in.  In fact the full path to the directory I want is <kbd>C:\Users\username\Documents\web-stuff\scss-demo</kbd></p>
-             <p>To change directories in the command prompt we use the '<kbd>cd</kbd>' (change directory) command. If I want to enter the Documents directory (and I see it when I type '<kbd>dir</kbd>') I simply type:</p>
-             <pre><code class="bash">cd Documents</code></pre>
-             <p>If I want to go back to where I was I can type:</p>
-             <pre><code class="bash">cd ..</code></pre> 
-             <p> ('..' is a shortcut for parent directory)</p>
-             <p>I can also change multiple directories at once. like so:</p>
-             <pre><code class="bash">cd Documents\web-stuff\scss-demo</code></pre>
-<p>One trick that can help you as you are navigating with the Terminal is the 'tab' key.  'tab' autocompletes what you are typing if it can.  So if I started typing</p>
-             <pre><code class="bash">cd Doc</code></pre>
-             <p>then hit 'tab' it would autocomplete to:</p>
-             <pre><code class="bash">cd Documents</code></pre>
-             <p>Then I could keep typing:</p>
-             <pre><code class="bash">cd Documents\web-</code></pre>
-             <p>hit 'tab' again and it should autocomplete to:</p>
-             <pre><code class="bash">cd Documents\web-stuff</code></pre> 
-    <p>If you hit 'tab' and nothing happens then it means the computer either can't find a match or there is more than one match. The command line is also case sensitive...meaning 'doc' is different than 'Doc'.  Remember that 'ls' is your friend.  It will always show you the contents of whatever directory you are in.</p>
-            <p>One last tip.  Microsoft has actually put a bit of work on making the command prompt aware of what is going on in the Explorer.  Another way you can get to a specific folder in the command prompt would be to type</p>
-            <pre><code class="bash">cd </code></pre>
-            <p>then drag the folder you want from the Explorer window onto the command window. In the case of this example if you have done correctly it should show something like this: </p>
-            <pre><code class="bash">cd C:\Users\username\Documents\web-stuff\scss-demo</code></pre>  
-            <p>The advantage of this is that it doesn't matter what directory you started in...it will always take you to the directory specified.</p>
-            <p>Here are a couple of additional resources to look over if you feel you need more help.</p>
-            <ul>
-                <li><a href="http://www.computerhope.com/issues/chusedos.htm">How to use the Windows command line</a> </li>
-                <li><a href="https://www.youtube.com/watch?v=OHeJRYgdyik">Youtube: Command prompt basics</a> </li>
-            </ul>
-		</div><!-- end #article -->
-	</div>
-<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
-<script src="js/course.js"></script>
-<script src="../js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-</body>
+        <hr />
+        <p>
+          the command line on a Windows PC can be found by running the cmd app.
+          the easiest way to do that is Start->Run->Cmd. Cmd allows us to run
+          special commands on the computer that cannot be found in the graphical
+          user interface. These commands are usually short words that may be
+          followed by one or more parameters...bits of other information that
+          the command needs to run. These commands in the always run in the
+          current directory. One of the most important tasks you can learn with
+          the command line is changing working directories.
+        </p>
+
+        <p>
+          To change directories on a pc we first need to know where we currently
+          are. The prompt will always show you this. If you have just opened up
+          the cmd window you will probably see something like this:
+        </p>
+        <pre><code class="lang-bash">C:\Users\username</code></pre>
+        <p>If you didn't see something similar to that then type:</p>
+        <pre><code class="lang-bash">cd %userprofile%</code></pre>
+        <p>
+          That will take you back to your home directory. If I wanted to see
+          what folders and files were in my current directory I could type:
+        </p>
+        <pre><code class="lang-bash">dir</code></pre>
+        <p>Try that now.</p>
+        <p>
+          Lets assume that the directory I have my activity files in is at
+          <kbd>\Documents\web-stuff\scss-demo</kbd>. When you did the list
+          command earlier you probably saw that the Documents folder is inside
+          the directory we are currently in. In fact the full path to the
+          directory I want is
+          <kbd>C:\Users\username\Documents\web-stuff\scss-demo</kbd>
+        </p>
+        <p>
+          To change directories in the command prompt we use the '<kbd>cd</kbd>'
+          (change directory) command. If I want to enter the Documents directory
+          (and I see it when I type '<kbd>dir</kbd>') I simply type:
+        </p>
+        <pre><code class="lang-bash">cd Documents</code></pre>
+        <p>If I want to go back to where I was I can type:</p>
+        <pre><code class="lang-bash">cd ..</code></pre>
+        <p>('..' is a shortcut for parent directory)</p>
+        <p>I can also change multiple directories at once. like so:</p>
+        <pre><code class="lang-bash">cd Documents\web-stuff\scss-demo</code></pre>
+        <p>
+          One trick that can help you as you are navigating with the Terminal is
+          the 'tab' key. 'tab' autocompletes what you are typing if it can. So
+          if I started typing
+        </p>
+        <pre><code class="lang-bash">cd Doc</code></pre>
+        <p>then hit 'tab' it would autocomplete to:</p>
+        <pre><code class="lang-bash">cd Documents</code></pre>
+        <p>Then I could keep typing:</p>
+        <pre><code class="lang-bash">cd Documents\web-</code></pre>
+        <p>hit 'tab' again and it should autocomplete to:</p>
+        <pre><code class="lang-bash">cd Documents\web-stuff</code></pre>
+        <p>
+          If you hit 'tab' and nothing happens then it means the computer either
+          can't find a match or there is more than one match. The command line
+          is also case sensitive...meaning 'doc' is different than 'Doc'.
+          Remember that 'ls' is your friend. It will always show you the
+          contents of whatever directory you are in.
+        </p>
+        <p>
+          One last tip. Microsoft has actually put a bit of work on making the
+          command prompt aware of what is going on in the Explorer. Another way
+          you can get to a specific folder in the command prompt would be to
+          type
+        </p>
+        <pre><code class="lang-bash">cd </code></pre>
+        <p>
+          then drag the folder you want from the Explorer window onto the
+          command window. In the case of this example if you have done correctly
+          it should show something like this:
+        </p>
+        <pre><code class="lang-bash">cd C:\Users\username\Documents\web-stuff\scss-demo</code></pre>
+        <p>
+          The advantage of this is that it doesn't matter what directory you
+          started in...it will always take you to the directory specified.
+        </p>
+        <p>
+          Here are a couple of additional resources to look over if you feel you
+          need more help.
+        </p>
+        <ul>
+          <li>
+            <a href="http://www.computerhope.com/issues/chusedos.htm"
+              >How to use the Windows command line</a
+            >
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=OHeJRYgdyik"
+              >Youtube: Command prompt basics</a
+            >
+          </li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+    <!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
+    <script src="js/course.js"></script>
+    <script src="../js/prism.js"></script>
+  </body>
 </html>

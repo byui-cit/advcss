@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+        <header class="headerBanner">
+          <div>
+            <h1>Advanced CSS</h1>
+            <h2>WDD 331</h2>
+          </div>
+        </header>
+        <main>
+        <h1>CSS Utilities</h1>
+
+        <hr />
+        <p>The web community has created a lot of very useful tools to help you analyze, debug, and optimize your CSS.  Many of them are simple command line utilities that run on Node. This activity will give you practice in using some of these tools.</p>
+        <div class="callout">
+          <p>
+            At the beginning of the semester you were asked to install several
+            utilities, many of which we haven't discussed yet. Lets do
+            that now. You have been learning about debugging and optimization
+            this week through your readings, lets take a few minutes and explore
+            those tools to see how they might help with those goals.
+          </p>
+          <p>
+            This will put us back at the command line typing in commands...you
+            may need to review the
+            <a href="../resources/cmd-line-mac.html" target="_blank"
+              >command line mac</a
+            >
+            or
+            <a href="../resources/cmd-line-pc.html" target="_blank"
+              >command line pc</a
+            >
+            resources. You will need to be comfortable changing directories to
+            succeed with this activity.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <p>
+          Make sure to have
+          <a
+            href="https://www.sitepoint.com/premium/books/css-master-2nd-edition/read/2"
+            target="_blank"
+            >CSS Master: Ch2. Debugging and Optimization</a
+          >
+          open to refer to during this activity. It has usage instructions for
+          the some of the utilities we will be looking at here.
+        </p>
+        <ol class="bigSteps">
+            <li>
+                <!-- start step-->
+                <h3>stylelint</h3>
+                <p>
+                   Open up the command line
+                    on your computer (Run->cmd on the pc and Terminal on the Mac). Change
+                    to a directory where you have a css file you have written and follow
+                    the directions in CSS Mastery to run the <kbd>stylelint</kbd> utility on the file.
+                    How many errors did you have? Try outputting the errors to a file
+                    using this syntax:
+                  </p>
+                  <pre><code class="lang-bash">stylelint stylesheet.css > csslintoutput.txt</code></pre>
+                  <p>
+                    Practice interpreting the error messages by fixing them until the test
+                    comes back clean.
+                  </p>
+                  <div class="callout">
+                    <p>
+                      Linters have become quite popular not just with CSS, but also HTML
+                      and Javascript. One thing to understand however is that they are
+                      <strong>not</strong> validators. They will find some errors, but
+                      they are more concerned with helping you write clean optimized,
+                      readable code. They tend to be very opinionated as a result. They
+                      don't just encourage you to write valid code, but
+                      <em>correct</em> code by avoiding bad practices...according to
+                      whomever setup the rules of the Linter.
+                    </p>
+                    <p>
+                      You may or may not agree with all these opinions however, and so
+                      most Linting packages are configurable...you can use your own
+                      opinions instead of someone else's. Instructions on how to modify
+                      CSSLints defaults can be found at
+                      <a href="https://stylelint.io/user-guide/rules/" target="_blank">stylelint user guide</a>.
+                    </p>
+                  </div>
+                <!-- End Step-->
+            </li>
+            <li>
+                <!-- start step-->
+                <h3>Analyze-css</h3>
+                <p>
+                   The next tool we will
+                    use is Analyze-Css. With the same CSS file as the last step run the
+                    analyze-css utility according to the instructions in CSS Master Ch3.
+                  </p>
+                  <div class="callout">
+                    <p>
+                      Try running each of these utilities without any arguments...just
+                      type the command. You should see some hints on how to use the
+                      command. This is pretty typical for these type of utilities and
+                      learning how to read this type of concise help is a good skill to
+                      develop.
+                    </p>
+                    <p>
+                      if you run it for analyze-css for example you will see something
+                      like this:
+                    </p>
+                    <pre><code class="lang-bash">
+analyze-css --url &lt;url&gt; [options]
+
+Options:
+--url                Set URL of CSS to analyze                                            
+--file               Set local CSS file to analyze                                        
+--ignore-ssl-errors  Ignores SSL errors, such as expired or self-signed certificate errors
+--pretty, -p         Causes JSON with the results to be pretty-printed                    
+--no-offenders, -N   Show only the metrics without the offenders part                     
+--auth-user          Sets the user name used for HTTP authentication                      
+--auth-pass          Sets the password used for HTTP authentication                       
+--version, -V        Show version number and quit                                         
+--help, -h           This help text           
+                          </code></pre>
+                    <p>
+                      There are certain conventions that are almost always followed with
+                      these helps. Here are a few of the more common conventions:
+                    </p>
+                    <ul>
+                      <li>
+                        Things written in ALLCAPS or in <strong>bold</strong> often means
+                        type it <em>exactly</em> as it appears,
+                      </li>
+                      <li>
+                        and lowercase, <em>italics</em>, or surrounded with &lt; &gt; can
+                        mean you are supposed to change it to something specific.
+                      </li>
+                      <li>
+                        Something surrounded in [ ] is going to be an optional part of the
+                        command. It will work with our without that part.
+                      </li>
+                      <li>
+                        A | (pipe) between two parameters means that you can use one or
+                        the other, but not both.
+                      </li>
+                    </ul>
+                    <p>The instructions from the book say to type something like this:</p>
+                    <pre><code class="lang-bash">analyze-css --file filename.css</code></pre>
+                    <p>
+                      The results are not very readable however. How would you modify the
+                      command to give better output?
+                    </p>
+                  </div>
+                  <p>
+                    Most of what Analyze-css gives back is informational. It tells you how
+                    many selectors you are using, how specific they are (less specific is
+                    usually better), if you are using any prefixed css that you don't need
+                    to anymore, and then it will point out offenders and
+                    duplicates...selectors that you really should look at and optimize.
+                  </p>
+                <!-- End Step-->
+            </li>
+            <li>
+                <!-- start step-->
+                <h3>Uncss</h3>
+                <p>
+                   Finally run the uncss
+                    utility on your file. It is a great optimization tool. It looks at
+                    your css and finds any rules that were not used...then removes them!
+                    Try this for example. Take a look at the CSS for the
+                    <a href="../resources/foundation.css" target="_blank"
+                      >Foundation css framework</a
+                    >. Then take a look at this simple
+                    <a href="../resources/foundation-all.html" target="_blank"
+                      >example page</a
+                    >
+                    that has the Foundation css linked in. Now run Uncss on it.
+                  </p>
+                  <pre><code class="lang-bash">
+uncss http://byui-cit.github.io/advcss/resources/foundation-all.html
+                             </code></pre>
+                  You may even want to send the results to a file like this:
+                  <pre><code class="lang-bash">
+uncss http://byui-cit.github.io/advcss/resources/foundation-all.html > optimized.css
+                             </code></pre>
+                  <p>What was the result?</p>
+                  <p>
+                    <span class="highlight">Step 04:</span>&nbsp; Submit your output file
+                    of errors from CSSLint in step 1, and the optimzed css file you got
+                    from step 3 to ILearn.
+                  </p>
+                <!-- End Step-->
+            </li>
+           
+        </ol>
+        
+        
+        
+
+        <h2>Grading</h2>
+        <ul>
+          <li>File of errors from Stylelint uploaded.</li>
+          <li>Optimized file from Uncss uploaded.</li>
+        </ul>
+      </div>
+      <!-- end #article -->
+    </div>
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

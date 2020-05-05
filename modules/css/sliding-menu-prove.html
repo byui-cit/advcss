@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Animated Sliding Menu</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            We've looked at some good examples and information about
+            transitions, animations, and transforms...now lets put it all
+            together with something you might actually see in a real website!
+          </p>
+          <p>
+            The project will be to build an animated sliding menu. As we begin
+            you should know that I know that there are a lot of examples of this
+            out there. Avoid the temptation to use those too much. You might
+            look at one or two to get started...but you will learn the
+            application of these concepts much much better if you do your own
+            work. Make a rule of <strong>no copy/paste</strong> for this
+            activity. Write every line of css yourself.
+          </p>
+          <p>
+            Remember the goal here...it's <strong>not</strong> to just complete
+            the assignment. Rather it's to learn how to effectively use
+            animations and transitions on a website. You won't do that if you
+            just copy and paste someone else's work here.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <p>
+          You may want to review the
+          <a href="animation-ponder.html" target="_blank">sliding curtain</a>
+          activity from the animation module as you begin...many of the concepts
+          applied there apply here as well.
+        </p>
+        <ol class="bigSteps">
+          <li>
+            <!-- Start step -->
+            <h3>Review the goal</h3>
+            <p>
+              Review the following screenshots.
+            </p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../../images/sliding-menu-closed.jpg"
+                  alt="sliding menu closed"
+                />
+                <figcaption>Sliding menu closed</figcaption>
+              </figure>
+            </div>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../../images/sliding-menu-open.jpg"
+                  alt="sliding menu open"
+                />
+                <figcaption>Sliding menu open</figcaption>
+              </figure>
+            </div>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../../images/sliding-menu-example.gif"
+                  alt="sliding menu animated"
+                />
+                <figcaption>Sliding menu animated</figcaption>
+              </figure>
+            </div>
+            <p>Notice a few things:</p>
+            <ul>
+              <li>
+                The menu when closed should be a simple menu icon made up of 3
+                horizontal bars. It should change on hover to let the user know
+                they should click on it.
+              </li>
+              <li>
+                When open notice that the menu should take up 100% of the
+                height. It should not just suddenly <strong>pop</strong> open.
+                Use a transition.
+              </li>
+
+              <li>
+                Notice also on the open menu that the 3 bar menu icon is gone.
+                In it's place is an X. The menu icon should use
+                transitions/animations/transforms to change from the 3 bars to
+                the X.
+              </li>
+              <li>The links and X should have a hover effect as well.</li>
+              <li>
+                In my example the menu covers up the content underneath. That is
+                fine, or you might choose to slide the content over as well so
+                that it is always visible. Another nice effect would be to apply
+                a semi transparent background color to the content to let the
+                user know they really should be focusing on the menu right now.
+                This is optional.
+              </li>
+            </ul>
+            <!-- End Step -->
+          </li>
+          <li>
+            <!-- Start step -->
+            <h3>Create the Menu icon</h3>
+            <p>
+              In a codepen create the menu icon first. To get you started html
+              markup like this usually works well:
+            </p>
+            <pre><code class="lang-markup">
+      &lt;div class="menu-icon"&gt;
+              &lt;span&gt;&lt;/span&gt;
+      &lt;/div&gt;
+                  </code> </pre>
+            <p>
+              *Remember that with that span and the use of the proper
+              pseudo-elements you have 3 elements to play with...how convenient!
+              We need a 3 bar menu! Furthermore each of the bars could be
+              transformed independent of the others.
+            </p>
+            <!-- End Step -->
+          </li>
+          <li>
+            <!-- Start step -->
+            <h3>Transform Menu icon</h3>
+            <p>
+              Once you have a menu icon built work on transforming it to an X.
+            </p>
+            <div class="callout">
+              <h3>Event handling</h3>
+              <p>
+                Last week we learned about a slick hack involving checkboxes to
+                trigger changes with css. Unfortunately that won't work for us
+                this week. There are too many things that need to happen to too
+                many elements. We will have to watch instead for a click on our
+                menu icon with Javascript.
+              </p>
+              <p>
+                Don't let that worry you! It's actually pretty easy. We can use
+                the
+                <code>onclick</code> attribute to attach a Javascript function
+                we want to run when the icon is clicked.
+              </p>
+              <p>
+                The function really just needs to add or remove a class to an
+                element. Here is an example of what that might look like:
+              </p>
+              <pre><code class="lang-js">
+      function toggleNav() {
+             var updateElement = document.getElementById("menu-icon");
+          //toggle adds a class if it's not there or removes it if it is.
+          updateElement.classList.toggle("open");
+      }              
+      </code></pre>
+              <p>
+                That function would grab an element with
+                <code>id="menu-icon"</code> and then it would check to see if it
+                had a class <code>open</code> on it. If it finds it, the class
+                will be removed, if it doesn't find it the class will be added.
+                All of your CSS to transform the 3 bar menu to an X should be in
+                that <code>.open</code> class.
+              </p>
+              <p>
+                You could change more than one element in this same
+                function...for example converting the bars to an X is just
+                <em>one</em> of the things we need to happen when the icon is
+                clicked. We also need to have the menu sidebar slide out. You
+                could do the same thing...add another line to grab the sidebar
+                element, then toggle a class on it.
+              </p>
+              <p>
+                If you used my suggested starting html for the menu icon
+                above...then added what you needed to watch for a click it would
+                look something like this:
+              </p>
+              <pre><code class="lang-markup">
+      &lt;div class="menu-icon" id="menu-icon" onclick="toggleNav()"&gt;
+              &lt;span&gt;&lt;/span&gt;
+      &lt;/div&gt;
+                  </code></pre>
+            </div>
+            <!-- End Step -->
+          </li>
+          <li>
+            <!-- Start step -->
+            <h3>Finish up</h3>
+            <p>
+              Once the icon is working correctly add in the sidebar elements and
+              links...then style them. Once that is done add css and code into
+              the toggle function to make the sidebar slide in and out with a
+              transition or animation applied.
+            </p>
+            <!-- End Step -->
+          </li>
+        </ol>
+
+        <h2>Grading</h2>
+        <ul>
+          <li>Menu icon created and animated with CSS.</li>
+          <li>
+            Sidebar menu slides out with animation when menu icon is clicked.
+          </li>
+          <li>SCSS used where appropriate.</li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

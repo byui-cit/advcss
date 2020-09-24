@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!--	<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
-    <link rel="stylesheet" href="../css/solarized-dark.css">
-    <link rel="stylesheet" href="../css/course.css">
+    <link rel="stylesheet" href="../css/solarized-dark.css" />
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="main">
-        <!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
-        <div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
-        <div id="article">
-            <h1>Getting started with Sass</h1>
+      <!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+      <div id="header">
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </div>
+      <div id="article">
+        <h1>Getting started with Sass</h1>
 
-            <hr />
+        <hr />
 
-            <h2>Verify Setup</h2>
+        <h2>Verify Setup</h2>
 
-            <p class="callout">During the first week of the semester you were asked to install several things (Software setup). You will have a really hard time completing this activity if you did not get that done. The first thing that we need to do is verify that your Sass is working correctly.</p>
-            <p>Open up a command prompt on your computer (Mac: open the Terminal app, PC: Start->Run->CMD) and type the following to make sure that SASS is installed and running correctly: <kbd>sass -v</kbd>. You should see something like: <kbd>Sass 3.4.21 (Selective Steve)</kbd>. Your version might be different than this...that is fine. You should just not get an error. If you see an error go revisit the <a href="../lesson01/l01-software.html" target="_blank">Software setup page</a></p>
-            <h2>SCSS syntax</h2>
-            <h3>Variables</h3>
-            <div class="callout">
-                <p>The first past of Sass we will discuss is actually one of my favorite parts. Even if we gained nothing else from Sass than variables it would still be awesome. A variable is really nothing more than a way to store a <em>value</em> with an <em>identifier</em> (variable name) that we can re-use over and over in our code.</p>
-                <p>Here is a pretty common scenario. You are nearing the end of a large project and have over a thousand lines of CSS to show for it. In a meeting with the client they suddenly declare that the color they were so in love with and that you used <em>everywhere</em> as a result, they don't like so much anymore. Of course it can't be as simple as replacing the color everywhere that it is used with something else...they just want <em>less</em> of it. :) With variables this becomes really simple, without, it could be hours of work.</p>
-            </div>
-            <p>To create or use a variable in SCSS we need to use a special character: the '$'. This lets the Sass compiler know that what follows is going to be a variable name. Here is an example: </p>
-            <pre><code class="scss">
+        <p class="callout">
+          During the first week of the semester you were asked to install
+          several things (Software setup). You will have a really hard time
+          completing this activity if you did not get that done. The first thing
+          that we need to do is verify that your Sass is working correctly.
+        </p>
+        <p>
+          Open up a command prompt on your computer (Mac: open the Terminal app,
+          PC: Start->Run->CMD) and type the following to make sure that SASS is
+          installed and running correctly: <kbd>sass --version</kbd>. You should
+          see something like: <kbd>Sass 3.4.21 (Selective Steve)</kbd>. Your
+          version might be different than this...that is fine. You should just
+          not get an error. If you see an error go revisit the
+          <a href="../lesson01/l01-software.html" target="_blank"
+            >Software setup page</a
+          >
+        </p>
+        <h2>SCSS syntax</h2>
+        <h3>Variables</h3>
+        <div class="callout">
+          <p>
+            The first past of Sass we will discuss is actually one of my
+            favorite parts. Even if we gained nothing else from Sass than
+            variables it would still be awesome. A variable is really nothing
+            more than a way to store a <em>value</em> with an
+            <em>identifier</em> (variable name) that we can re-use over and over
+            in our code.
+          </p>
+          <p>
+            Here is a pretty common scenario. You are nearing the end of a large
+            project and have over a thousand lines of CSS to show for it. In a
+            meeting with the client they suddenly declare that the color they
+            were so in love with and that you used <em>everywhere</em> as a
+            result, they don't like so much anymore. Of course it can't be as
+            simple as replacing the color everywhere that it is used with
+            something else...they just want <em>less</em> of it. :) With
+            variables this becomes really simple, without, it could be hours of
+            work.
+          </p>
+        </div>
+        <p>
+          To create or use a variable in SCSS we need to use a special
+          character: the '$'. This lets the Sass compiler know that what follows
+          is going to be a variable name. Here is an example:
+        </p>
+        <pre><code class="scss">
  // Variable assignment
  $my-variable: 42px;
 
@@ -42,8 +78,13 @@
  }
         </code></pre>
 
-            <p><span class="highlight">Step 1</span>: &nbsp; For this exercise we will use SCSS to style a simple contact form. Begin by creating a file called <kbd>scss-demo.html</kbd> in your editor and copy the following code into it.</p>
-            <pre><code class="html">
+        <p>
+          <span class="highlight">Step 1</span>: &nbsp; For this exercise we
+          will use SCSS to style a simple contact form. Begin by creating a file
+          called <kbd>scss-demo.html</kbd> in your editor and copy the following
+          code into it.
+        </p>
+        <pre><code class="html">
 &lt;!doctype html&gt;
 &lt;html&gt;
 
@@ -82,50 +123,140 @@
 
 &lt;/html&gt;            
         </code> </pre>
-            <p><span class="highlight">Step 2</span>: &nbsp; Create a file called <kbd>styles.scss</kbd> in your editor. Add a comment at the top to indicate that variables will follow. </p>
-            <p class="callout">Remember that for SCSS you can either use the traditional CSS commenting syntax: <kbd>/* comment */</kbd> or the SCSS syntax: <kbd>// comment </kbd>. The SCSS comments however will <strong>not</strong> be included in the final .css that is generated.</p>
-            <p>Lets start by defining some variables to hold the colors that we would like to use to style our form. Create 4 variables that will contain the body background color, form background color, headline color, and input box color. Below is an example of what mine looks like:</p>
-            <pre><code class="scss">
+        <p>
+          <span class="highlight">Step 2</span>: &nbsp; Create a file called
+          <kbd>styles.scss</kbd> in your editor. Add a comment at the top to
+          indicate that variables will follow.
+        </p>
+        <p class="callout">
+          Remember that for SCSS you can either use the traditional CSS
+          commenting syntax: <kbd>/* comment */</kbd> or the SCSS syntax:
+          <kbd>// comment </kbd>. The SCSS comments however will
+          <strong>not</strong> be included in the final .css that is generated.
+        </p>
+        <p>
+          Lets start by defining some variables to hold the colors that we would
+          like to use to style our form. Create 4 variables that will contain
+          the body background color, form background color, headline color, and
+          input box color. Below is an example of what mine looks like:
+        </p>
+        <pre><code class="scss">
 //colors
 $body-background-color: darkred;
 $form-background-color: white;
 $input-color: white;
 $headlines-color : white;
          </code></pre>
-            <p class="callout">Be aware that Sass treats dashes '-' and underscores '_' the same in variable names. So <kbd>$body-background-color</kbd> and <kbd>$body_background_color</kbd> would refer to the same variable.</p>
-            <div class="callout">
-                
-                <p>Variables can be used for values, properties, or even to build selectors.  In some cases however we need to have the variable evaluated and replaced with it's value before it's used (Like if you wanted to use a variable to build a selector for example).  This is called interpolation.  Here is an article explaining more: <a href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375" target="_blank">All you ever need to know about SASS Interpolation</a>. </p>
-            </div>
-            <p><span class="highlight">Step 3</span>: &nbsp; Lets now use the body background color variable to change the background of the page. We use a variable just like we defined it. Everywhere that we would have use "darkred" we can now use <kbd>$body-background-color</kbd>. An example of this might look like:</p>
-            <pre><code class="scss">
+        <p class="callout">
+          Be aware that Sass treats dashes '-' and underscores '_' the same in
+          variable names. So <kbd>$body-background-color</kbd> and
+          <kbd>$body_background_color</kbd> would refer to the same variable.
+        </p>
+        <div class="callout">
+          <p>
+            Variables can be used for values, properties, or even to build
+            selectors. In some cases however we need to have the variable
+            evaluated and replaced with it's value before it's used (Like if you
+            wanted to use a variable to build a selector for example). This is
+            called interpolation. Here is an article explaining more:
+            <a
+              href="http://webdesign.tutsplus.com/tutorials/all-you-ever-need-to-know-about-sass-interpolation--cms-21375"
+              target="_blank"
+              >All you ever need to know about SASS Interpolation</a
+            >.
+          </p>
+        </div>
+        <p>
+          <span class="highlight">Step 3</span>: &nbsp; Lets now use the body
+          background color variable to change the background of the page. We use
+          a variable just like we defined it. Everywhere that we would have use
+          "darkred" we can now use <kbd>$body-background-color</kbd>. An example
+          of this might look like:
+        </p>
+        <pre><code class="scss">
 body {
      background-color: $body-background-color;          
 }
             </code> </pre>
-            <p class="callout">You probably noticed that when we added the rule to change the body background color with our variable nothing happened. We are writing SCSS (in the <kbd>styles.scss</kbd> file) which the browser does not understand. Notice as well that the html we started with above is looking for a <kbd>styles.css</kbd> file. Our SCSS has to be converted back to plain CSS for it to actually work. This is why we had to install the SASS program onto our computers.</p>
-            <p><span class="highlight">Step 4</span>: &nbsp; Go back to your command prompt and change the working directory to the directory that contains your files for this exercise. </p>
-            <div class="callout">
-                <p>If you are unsure how to change directories on you computer check out one of these resources: <a href="../resources/cmd-line-mac.html" target="_blank">Command Line on the Mac</a> or <a href="../resources/cmd-line-pc.html" target="_blank">Command Line on the PC</a> </p>
-            </div>
-            <p>Once there we need to give Sass the command to convert our .scss file to a .css file. Type the following:</p>
-            <pre><code class="bash">
+        <p class="callout">
+          You probably noticed that when we added the rule to change the body
+          background color with our variable nothing happened. We are writing
+          SCSS (in the <kbd>styles.scss</kbd> file) which the browser does not
+          understand. Notice as well that the html we started with above is
+          looking for a <kbd>styles.css</kbd> file. Our SCSS has to be converted
+          back to plain CSS for it to actually work. This is why we had to
+          install the SASS program onto our computers.
+        </p>
+        <p>
+          <span class="highlight">Step 4</span>: &nbsp; Go back to your command
+          prompt and change the working directory to the directory that contains
+          your files for this exercise.
+        </p>
+        <div class="callout">
+          <p>
+            If you are unsure how to change directories on you computer check
+            out one of these resources:
+            <a href="../resources/cmd-line-mac.html" target="_blank"
+              >Command Line on the Mac</a
+            >
+            or
+            <a href="../resources/cmd-line-pc.html" target="_blank"
+              >Command Line on the PC</a
+            >
+          </p>
+        </div>
+        <p>
+          Once there we need to give Sass the command to convert our .scss file
+          to a .css file. Type the following:
+        </p>
+        <pre><code class="bash">
     sass styles.scss styles.css
              </code> </pre>
-             <p class="callout">If you are on Windows and you get an error when you try the sass command you may need to run the Ruby version of CMD.  Do Start->Run->Ruby and choose the Ruby version of cmd and it should work.</p>
-            <p>The first part (sass) is the command. It takes 2 parameters. The first is the file to convert, the second is the name we want for the converted file. If you do not see any errors then open (or refresh) your page in the browser and you should now see your background color taking effect. You will also see a styles.css file that was created with the converted SCSS. Notice that everything in there now is plain CSS. Your variable is gone. It is important that you never edit the styles.css directly. It will get entirely overwritten each time you convert your .scss file.</p>
-            <p>If you did see errors then goto the line indicated and fix them. Then run the sass command again.</p>
-            <div class="callout">
-                <p>There are some great functions to manipulate color in Sass. Try using <kbd>lighten()</kbd>, <kbd>darken()</kbd>, or <kbd>mix()</kbd> for example. In fact there is a webcast on sitepoint that talks about <a href="https://www.sitepoint.com/premium/tutorials/constructing-and-using-color-palettes-in-sass" target="_blank">creating a color scheme with Sass color functions</a>.</p>
-            </div>
+        <p class="callout">
+          If you are on Windows and you get an error when you try the sass
+          command you may need to run the Ruby version of CMD. Do
+          Start->Run->Ruby and choose the Ruby version of cmd and it should
+          work.
+        </p>
+        <p>
+          The first part (sass) is the command. It takes 2 parameters. The first
+          is the file to convert, the second is the name we want for the
+          converted file. If you do not see any errors then open (or refresh)
+          your page in the browser and you should now see your background color
+          taking effect. You will also see a styles.css file that was created
+          with the converted SCSS. Notice that everything in there now is plain
+          CSS. Your variable is gone. It is important that you never edit the
+          styles.css directly. It will get entirely overwritten each time you
+          convert your .scss file.
+        </p>
+        <p>
+          If you did see errors then goto the line indicated and fix them. Then
+          run the sass command again.
+        </p>
+        <div class="callout">
+          <p>
+            There are some great functions to manipulate color in Sass. Try
+            using <kbd>lighten()</kbd>, <kbd>darken()</kbd>, or
+            <kbd>mix()</kbd> for example. In fact there is a webcast on
+            sitepoint that talks about
+            <a
+              href="https://www.sitepoint.com/premium/tutorials/constructing-and-using-color-palettes-in-sass"
+              target="_blank"
+              >creating a color scheme with Sass color functions</a
+            >.
+          </p>
+        </div>
 
-<!--
+        <!--
             <h3>Functions</h3>
             <p>Sometimes we need some logic applied before we determine which value to use with our variables. This is where Sass functions come in. Functions can be used anywhere variables can, they return a single value,</p>
 -->
-            <h3>Nesting</h3>
-            <p>If we wanted to make changes to the <kbd>&lt;input&gt;</kbd>s in our form we might write something like the following in CSS:</p>
-            <pre><code class="css">
+        <h3>Nesting</h3>
+        <p>
+          If we wanted to make changes to the <kbd>&lt;input&gt;</kbd>s in our
+          form we might write something like the following in CSS:
+        </p>
+        <pre><code class="css">
 #contactform {
     background-color: $form-background-color;
 }
@@ -133,8 +264,15 @@ body {
     background-color: $input-color;
 }              
             </code></pre>
-            <p>This works fine, but over time as we add more and more rules to our css, related rules tend to get separated, and this can be hard to maintain.  This is where nesting comes in.  Nesting is a feature of preprocessors that allows us to write rule sets inside of other rule sets.  Lets look at an example. Using nesting the CSS above could be re-written as follows:</p>
-            <pre><code class="scss">
+        <p>
+          This works fine, but over time as we add more and more rules to our
+          css, related rules tend to get separated, and this can be hard to
+          maintain. This is where nesting comes in. Nesting is a feature of
+          preprocessors that allows us to write rule sets inside of other rule
+          sets. Lets look at an example. Using nesting the CSS above could be
+          re-written as follows:
+        </p>
+        <pre><code class="scss">
 #contactform {
     background-color: $form-background-color;
     input, textarea {
@@ -143,9 +281,21 @@ body {
     }
 }                
             </code></pre>
-            <p class="callout">The major advantage of nesting is really in helping to organize your code. With that in mind a caution: <strong>Don't go crazy with nesting!</strong>  Nesting too many levels deep can actually make code harder to follow and read.</p>
-            <p>Nesting can be done with either selectors or contexts like <kbd>@media</kbd> or <kbd>@supports</kbd>.  This in my opinion is where nesting really shines. Lets say for example that we want to have our form fill 100% of the width of the screen at small sizes, but only take up 90% on medium with a max-width of 700px.  Perfect job for a media query.  Lets look and see what that would look like with nesting.</p>
-            <pre><code class="scss">
+        <p class="callout">
+          The major advantage of nesting is really in helping to organize your
+          code. With that in mind a caution:
+          <strong>Don't go crazy with nesting!</strong> Nesting too many levels
+          deep can actually make code harder to follow and read.
+        </p>
+        <p>
+          Nesting can be done with either selectors or contexts like
+          <kbd>@media</kbd> or <kbd>@supports</kbd>. This in my opinion is where
+          nesting really shines. Lets say for example that we want to have our
+          form fill 100% of the width of the screen at small sizes, but only
+          take up 90% on medium with a max-width of 700px. Perfect job for a
+          media query. Lets look and see what that would look like with nesting.
+        </p>
+        <pre><code class="scss">
 #contactform {
     background-color: $form-background-color;
     input, textarea {
@@ -162,24 +312,52 @@ body {
     }
 }
             </code></pre>
-            <p>If the above code is not making sense make sure to compile it to css.  Review the css generated and compare it to the SCSS to help you understand what is going on.</p>
-            <div class="callout">
-                <p>Notice the '&' above.  This is the ampersand selector (or parent selector reference). This always refers to the parent selector as the name implies.  In our case <kbd>& = #contactform</kbd>.</p>
-                
-            </div>
-            <p><span class="highlight">Step 5</span>: &nbsp;Having all of the css for an element in one place can be very helpful. Add the code above to your scss file.  Make sure to define variables for your breakpoints as well.  Also add a large screen breakpoint as well that will make width: 70% and max-width: 900px</p>
-            
-            <h3>Mixins</h3>
-            <p>There tends to be a lot of duplication in css. We tend to solve the same problems over and over from project to project, and even within the same project! Then you add in prefixing and developers end up writing a lot of the same css over and over. Enter Sass Mixins. These allow us to define collections of reusable css snippets. The best way to wrap your mind around this would be with an example. </p>
-            <p>Lets say we wanted to use flexbox on a page.  To create a flex parent or container we might add the following css</p>
-            <pre><code class="css">
+        <p>
+          If the above code is not making sense make sure to compile it to css.
+          Review the css generated and compare it to the SCSS to help you
+          understand what is going on.
+        </p>
+        <div class="callout">
+          <p>
+            Notice the '&' above. This is the ampersand selector (or parent
+            selector reference). This always refers to the parent selector as
+            the name implies. In our case <kbd>& = #contactform</kbd>.
+          </p>
+        </div>
+        <p>
+          <span class="highlight">Step 5</span>: &nbsp;Having all of the css for
+          an element in one place can be very helpful. Add the code above to
+          your scss file. Make sure to define variables for your breakpoints as
+          well. Also add a large screen breakpoint as well that will make width:
+          70% and max-width: 900px
+        </p>
+
+        <h3>Mixins</h3>
+        <p>
+          There tends to be a lot of duplication in css. We tend to solve the
+          same problems over and over from project to project, and even within
+          the same project! Then you add in prefixing and developers end up
+          writing a lot of the same css over and over. Enter Sass Mixins. These
+          allow us to define collections of reusable css snippets. The best way
+          to wrap your mind around this would be with an example.
+        </p>
+        <p>
+          Lets say we wanted to use flexbox on a page. To create a flex parent
+          or container we might add the following css
+        </p>
+        <pre><code class="css">
 .flex-container {
   display: flex;
   flex-flow: row wrap;
 }
          </code> </pre>
-           <p>But...since older versions of most browsers don't recognize display: flex, in order to get the highest percentage of compatibility we should add all the prefixed flex declarations.  that would make our code look more like this:</p>
-           <pre><code class="css">
+        <p>
+          But...since older versions of most browsers don't recognize display:
+          flex, in order to get the highest percentage of compatibility we
+          should add all the prefixed flex declarations. that would make our
+          code look more like this:
+        </p>
+        <pre><code class="css">
 .flex-container {
  display: -webkit-box;
     display: -webkit-flex;
@@ -190,8 +368,11 @@ body {
     flex-flow: row wrap;
 }
          </code> </pre>
-           <p>That adds quite a bit of additional markup each time we need a flex container.  Lets create a mixin to save us some typing.</p>
-           <pre><code class="scss">
+        <p>
+          That adds quite a bit of additional markup each time we need a flex
+          container. Lets create a mixin to save us some typing.
+        </p>
+        <pre><code class="scss">
 @mixin flex-container() {
     display: -webkit-box;
     display: -webkit-flex;
@@ -202,14 +383,17 @@ body {
     flex-flow: row wrap;
 }
          </code> </pre>
-           <p>Now whenever we need to create flex-container we can simply do something like this:</p>
-           <pre><code class="scss">
+        <p>
+          Now whenever we need to create flex-container we can simply do
+          something like this:
+        </p>
+        <pre><code class="scss">
 fieldset > div {
     @include flex-container;        
 }
          </code> </pre>
-           <p>and it will generate the following css:</p>
-           <pre><code class="scss">
+        <p>and it will generate the following css:</p>
+        <pre><code class="scss">
 fieldset > div {
     display: -webkit-box;
     display: -webkit-flex;
@@ -220,8 +404,14 @@ fieldset > div {
     flex-flow: row wrap;
 }
          </code> </pre>
-           <p>This is a nice time saver, but what if we need a column layout instead of row?  This mixin would not work for that as it is.  We need to modify it to take a <em>parameter</em> or two.  Parameters can let us decide things such as whether we want row or column, wrap or nowrap when we use the mixin.  Modified it would look like this:</p>
-           <pre><code class="scss">
+        <p>
+          This is a nice time saver, but what if we need a column layout instead
+          of row? This mixin would not work for that as it is. We need to modify
+          it to take a <em>parameter</em> or two. Parameters can let us decide
+          things such as whether we want row or column, wrap or nowrap when we
+          use the mixin. Modified it would look like this:
+        </p>
+        <pre><code class="scss">
 @mixin flex-container($axis, $wrap: nowrap) {
     display: -webkit-box;
     display: -webkit-flex;
@@ -232,21 +422,29 @@ fieldset > div {
     flex-flow: $axis $wrap;
 }
          </code> </pre>
-           <p>This mixin now accepts 1 or 2 parameters.  Notice that we have provided a value on the second: nowrap.  If we do not send 2 parameters then it will default to nowrap for the second. To use this we would do the following (assuming we want column nowrap as our flex-flow):</p>
-             <pre><code class="scss">
+        <p>
+          This mixin now accepts 1 or 2 parameters. Notice that we have provided
+          a value on the second: nowrap. If we do not send 2 parameters then it
+          will default to nowrap for the second. To use this we would do the
+          following (assuming we want column nowrap as our flex-flow):
+        </p>
+        <pre><code class="scss">
 fieldset > div {
     @include flex-container(column);        
 }
          </code> </pre>
-           <p>The parameter gets entered in ( ) after the mixin name.  If we wanted row wrap as our options instead we would do this:</p>
-            <pre><code class="scss">
+        <p>
+          The parameter gets entered in ( ) after the mixin name. If we wanted
+          row wrap as our options instead we would do this:
+        </p>
+        <pre><code class="scss">
 fieldset > div {
     @include flex-container(row, wrap);        
 }
          </code> </pre>
-          
-            <p>Lets take a look at another example as well.</p>
-            <pre><code class="css">
+
+        <p>Lets take a look at another example as well.</p>
+        <pre><code class="css">
 .center {
   width: 90%;
   max-width: 960px;
@@ -254,9 +452,13 @@ fieldset > div {
   margin-right: auto;
 }
          </code> </pre>
-            <p>This code would center a block element on a page. We might use this, or something very similar many times on a typical page. Lets see how it would look as a mixin.</p>
-            
-            <pre><code class="scss">
+        <p>
+          This code would center a block element on a page. We might use this,
+          or something very similar many times on a typical page. Lets see how
+          it would look as a mixin.
+        </p>
+
+        <pre><code class="scss">
 @mixin center {
   width: 90%;
   max-width: 960px;
@@ -267,25 +469,53 @@ fieldset > div {
     @include center;
 }
          </code> </pre>
-            <p>This is helpful, but can still only be used when we want a box that will fill most of the screen. Lets use parameters to make it more reusable and useful in a wider variety of cases.</p>
-            <p><span class="highlight">Step 6</span>: &nbsp; Modify the center mixin to take 2 parameters that will be used to specify width and max-width. Max-width should be an optional parameter (It should have a default value of 960px). Then replace the code that we added earlier to center the form on medium and large screens with the mixin.</p>
-            
-            
-<div class="callout">
-    <p>So are you tired of typing out </p>
-    <pre><code class="bash">
+        <p>
+          This is helpful, but can still only be used when we want a box that
+          will fill most of the screen. Lets use parameters to make it more
+          reusable and useful in a wider variety of cases.
+        </p>
+        <p>
+          <span class="highlight">Step 6</span>: &nbsp; Modify the center mixin
+          to take 2 parameters that will be used to specify width and max-width.
+          Max-width should be an optional parameter (It should have a default
+          value of 960px). Then replace the code that we added earlier to center
+          the form on medium and large screens with the mixin.
+        </p>
+
+        <div class="callout">
+          <p>So are you tired of typing out</p>
+          <pre><code class="bash">
 sass styles.scss styles.css
   </code> </pre>
-  <p>Everytime you make a change to your scss? One shortcut that you may have discovered is you can hit the up arrow on your keyboard to go back and see commands you have previously run.  This can be very helpful.   Another option would be to learn another SASS command.  We can tell it to watch for changes in a file, and when it sees any to automatically convert the file to css.  The command to do this would look like the following:</p>
-  <pre><code class="bash">
+          <p>
+            Everytime you make a change to your scss? One shortcut that you may
+            have discovered is you can hit the up arrow on your keyboard to go
+            back and see commands you have previously run. This can be very
+            helpful. Another option would be to learn another SASS command. We
+            can tell it to watch for changes in a file, and when it sees any to
+            automatically convert the file to css. The command to do this would
+            look like the following:
+          </p>
+          <pre><code class="bash">
 sass --watch styles.scss:styles.css
              </code> </pre>
-    <p>When you are done working you should tell it to stop watching as well.  You do this by hitting <kbd>ctrl+c</kbd> on your keyboard while in the command/terminal window.</p>
-</div>
-            <h3>Mixins and @media (@content)</h3>
-            <p>Media queries are powerful tools for building responsive websites, but they can really cause problems with the organization and readability of your css. We tend to make large blocks of changes for each query far from the original declaration of the rule. Often it can be helpful to have the default rules and all of the breakpoints next to each other. Mixins can help with this. Take the following code for example:</p>
+          <p>
+            When you are done working you should tell it to stop watching as
+            well. You do this by hitting <kbd>ctrl+c</kbd> on your keyboard
+            while in the command/terminal window.
+          </p>
+        </div>
+        <h3>Mixins and @media (@content)</h3>
+        <p>
+          Media queries are powerful tools for building responsive websites, but
+          they can really cause problems with the organization and readability
+          of your css. We tend to make large blocks of changes for each query
+          far from the original declaration of the rule. Often it can be helpful
+          to have the default rules and all of the breakpoints next to each
+          other. Mixins can help with this. Take the following code for example:
+        </p>
 
-            <pre><code class="scss">
+        <pre><code class="scss">
 //set breakpoint sizes
 $break-small: 20em;
 $break-medium: 31em;
@@ -305,13 +535,34 @@ $break-large: 60em;
 }
 }               
            </code></pre>
-            <p>you should be able to recognize the start of the mixin, but there a couple of new things there as well. First notice the <kbd>@if $break == large</kbd>. This is a conditional statement. Basically it reads like this: if the value in the variable $break is equal to "large" then do the following.</p>
-            <p>The other new concept is the <kbd>@content</kbd> statement. @content is a powerful feature of Sass, it allows us to pass css into our mixins! This in important with this example in particular since a breakpoint mixin would not be very helpful if all the breakpoints did the same thing.</p>
-            <div class="callout">
-                <p>If you are having a hard time visualizing what that SCSS code above will produce remember that once you have compiled your SCSS you can look at the generated CSS.  Comparing the written SCSS with the generated CSS can be a powerful tool to help you wrap your mind around some of these concepts.</p>
-            </div>
-            <p>The best way to understand this is with and example of how the breakpoint mixin would be used.</p>
-            <pre><code class="scss">
+        <p>
+          you should be able to recognize the start of the mixin, but there a
+          couple of new things there as well. First notice the
+          <kbd>@if $break == large</kbd>. This is a conditional statement.
+          Basically it reads like this: if the value in the variable $break is
+          equal to "large" then do the following.
+        </p>
+        <p>
+          The other new concept is the <kbd>@content</kbd> statement. @content
+          is a powerful feature of Sass, it allows us to pass css into our
+          mixins! This in important with this example in particular since a
+          breakpoint mixin would not be very helpful if all the breakpoints did
+          the same thing.
+        </p>
+        <div class="callout">
+          <p>
+            If you are having a hard time visualizing what that SCSS code above
+            will produce remember that once you have compiled your SCSS you can
+            look at the generated CSS. Comparing the written SCSS with the
+            generated CSS can be a powerful tool to help you wrap your mind
+            around some of these concepts.
+          </p>
+        </div>
+        <p>
+          The best way to understand this is with and example of how the
+          breakpoint mixin would be used.
+        </p>
+        <pre><code class="scss">
 body {
 background: white;
 @include breakpoint(large) { background: red; }
@@ -320,8 +571,8 @@ background: white;
 @include breakpoint(“max-width: 480px”) { background: yellow; }
 }               
            </code></pre>
-            <p>the output of this once compiled to css would be the following:</p>
-            <pre><code class="css">
+        <p>the output of this once compiled to css would be the following:</p>
+        <pre><code class="css">
 body {
     background: white;
 }
@@ -346,21 +597,39 @@ body {
     }
 }
            </code></pre>
-           <p class="callout">Notice that the css that was inside the { } after the @include for the mixin got inserted where the @content placeholder was.  Whenever you use @content you will be expected to have those braces with some css.  If you do not have the @content placeholder in your mixin you will not use braces when you use (@include) it.</p>
-            <p><span class="highlight">Step 7</span>: &nbsp; Our last task with this activity is to add a breakpoint mixin to your scss.  Then use it to replace the nested @media commands we added earlier.  Lets also use it to do the following:  One small screens we want the input boxes to take 100% width, and the labels should be above the input.  One medium and large screens the label should be to the left side of the input. Here is a screenshot of the <a href="../images/scss-form-sm.png" target="_blank">small</a> and <a href="../images/scss-form-lg.png" target="_blank">large</a> versions of the form.</p>
-            
-            <p class="callout">After you have worked out your solution, if you want to see what mine turned out like you can download <a href="scss-demo/styles.scss">my scss file</a>.</p>
+        <p class="callout">
+          Notice that the css that was inside the { } after the @include for the
+          mixin got inserted where the @content placeholder was. Whenever you
+          use @content you will be expected to have those braces with some css.
+          If you do not have the @content placeholder in your mixin you will not
+          use braces when you use (@include) it.
+        </p>
+        <p>
+          <span class="highlight">Step 7</span>: &nbsp; Our last task with this
+          activity is to add a breakpoint mixin to your scss. Then use it to
+          replace the nested @media commands we added earlier. Lets also use it
+          to do the following: One small screens we want the input boxes to take
+          100% width, and the labels should be above the input. One medium and
+          large screens the label should be to the left side of the input. Here
+          is a screenshot of the
+          <a href="../images/scss-form-sm.png" target="_blank">small</a> and
+          <a href="../images/scss-form-lg.png" target="_blank">large</a>
+          versions of the form.
+        </p>
 
-       
-        </div>
-        <!-- end #article -->
+        <p class="callout">
+          After you have worked out your solution, if you want to see what mine
+          turned out like you can download
+          <a href="scss-demo/styles.scss">my scss file</a>.
+        </p>
+      </div>
+      <!-- end #article -->
     </div>
     <!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
     <script src="../js/course.js"></script>
     <script src="../js/highlight.pack.js"></script>
     <script>
-        hljs.initHighlightingOnLoad();
+      hljs.initHighlightingOnLoad();
     </script>
-</body>
-
+  </body>
 </html>

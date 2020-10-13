@@ -55,14 +55,37 @@
           the some of the utilities we will be looking at here.
         </p>
         <ol class="bigSteps">
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Prepare</h3>
+            <p>
+              There is a bit more setup we need to do before we can start with
+              Stylelint. Open a command prompt for your computer and run the
+              following:
+            </p>
+            <!-- Remove this for next semester -->
+            <pre><code class="lang-bash">npm install -g stylelint-config-standard</code></pre>
+            <p>
+              Then change to a directory where you have a .css file you would
+              like to check. Create a file there called
+              <kbd>.stylelintrc.json</kbd> Put the following inside that file:
+            </p>
+            <pre><code class="lang-json">{
+  "extends": "stylelint-config-standard"
+}</code></pre>
+
+            <!-- END STEP -->
+          </li>
             <li>
                 <!-- start step-->
                 <h3>stylelint</h3>
                 <p>
-                   Open up the command line
-                    on your computer (Run->cmd on the pc and Terminal on the Mac). Change
-                    to a directory where you have a css file you have written and follow
-                    the directions in CSS Mastery to run the <kbd>stylelint</kbd> utility on the file.
+                  Make sure you are still in the directory where created the
+                  <kdb>.stylelintrc.json</kdb> file (you may not see the file in the
+                  file manager, but if you do a <kbd>ls -la</kbd> on Mac or
+                  <kbd>dir</kbd> on Windows you should see it.) and follow the
+                  directions in CSS Mastery to run the <kbd>stylelint</kbd> utility
+                  on the file.
                     How many errors did you have? Try outputting the errors to a file
                     using this syntax:
                   </p>
@@ -86,8 +109,12 @@
                       You may or may not agree with all these opinions however, and so
                       most Linting packages are configurable...you can use your own
                       opinions instead of someone else's. Instructions on how to modify
-                      CSSLints defaults can be found at
-                      <a href="https://stylelint.io/user-guide/rules/" target="_blank">stylelint user guide</a>.
+                      Stylelints defaults can be found at
+                <a
+                  href="https://github.com/stylelint/stylelint/blob/master/docs/user-guide/get-started.md"
+                  target="_blank"
+                  >Stylelint docs</a
+                >..
                     </p>
                   </div>
                 <!-- End Step-->
@@ -190,7 +217,7 @@ uncss http://byui-cit.github.io/advcss/resources/foundation-all.html > optimized
                   <p>What was the result?</p>
                   <p>
                     <span class="highlight">Step 04:</span>&nbsp; Submit your output file
-                    of errors from CSSLint in step 1, and the optimzed css file you got
+                    of errors from CSSLint in step 1, and the optimized css file you got
                     from step 3 to ILearn.
                   </p>
                 <!-- End Step-->

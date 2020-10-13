@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Layout Core teaching notes</h1>
+
+        <hr />
+        <h2>CSS Layout</h2>
+        <p>
+          I would begin by reviewing the
+          <a
+            href="https://www.smashingmagazine.com/2018/05/guide-css-layout/"
+            target="_blank"
+            >Smashing magazine Layout article</a
+          >. Make sure the students understand Normal flow. Then talk about
+          <code>position</code>. This layout technique is often highly
+          discouraged...mainly because beginning students use it wrong! Make
+          sure they understand how the coordinate systems work...ie position
+          absolute coordinates will be top/left corner of first non-static
+          ancestor.
+        </p>
+        <p>
+          This opens us up to understand how to appropriately use
+          position:absolute. It should almost always be used inside of a
+          position: relative container.
+        </p>
+
+        <h2>Grids</h2>
+        <p>
+          Move on to grids...talk about how there is some confusion because
+          'grid' is overused as a word in CSS. It could be used to refer to
+          'designing to a grid', a 'grid library', or 'CSS grid'. Three related
+          but different things. Review
+          <a href="https://www.sitepoint.com/grid-theory/" target="_blank"
+            >this grid theory article</a
+          >.
+        </p>
+        <h2>Which one should I use!?</h2>
+        <p>
+          It depends :) But most of the time now your layouts should be a
+          combination of CSS Grid and Flexbox. If you run into a layout problem
+          where they don't work, then look at the others...
+        </p>
+        <h2>Intrinsic designs</h2>
+        <p>
+          Finally spend a bit of time discussing the contents of the Jen Simmons
+          presentation:
+          <a
+            href="https://aneventapart.com/news/post/designing-intrinsic-layouts-aea-video"
+            target="_blank"
+            >Designing Intrinsic Layouts</a
+          >
+        </p>
+        <p>
+          In earlier courses students are taught that fixed units are bad. They
+          should not use px to determine spacing for example because it's not
+          responsive. Sometimes however this causes problems, columns that are
+          too large or too small...or both! Sometimes it's OK when we know how
+          big something should be to just make it that big. Then you handle
+          responsiveness through the rest of the page. Jen simmons calls this
+          mix of fixed and responsive elements in a layout Intrisic Design.
+        </p>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

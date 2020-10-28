@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>CSS Animation teaching notes</h1>
+
+        <hr />
+        <h2>Why animation?</h2>
+        <p>
+          I would begin by reviewing the
+          <a
+            href="https://www.smashingmagazine.com/2018/05/guide-css-layout/"
+            target="_blank"
+            >Material Design animation clip</a
+          >.
+        </p>
+
+        <h2>History of Animation</h2>
+        <p>
+          Talk briefly about animation principles: keyframes, in between frames
+          (tweens). An animation is really just taking a change from a beginning
+          keyfrmae to and ending keyframe and have it happen over time instead
+          of instantly.
+          <a href="https://www.sitepoint.com/grid-theory/" target="_blank"
+            >this grid theory article</a
+          >.
+        </p>
+        <h2>CSS Transition</h2>
+        <p>
+          I usually just use these
+          <a href="https://codepen.io/matkat/pen/EKaNZg" target="_blank"
+            >boxes</a
+          >
+          to demo. Start by transitioning the red box doubling in size. Use SCSS
+          where appropriate. <code>transition</code> property goes in the base
+          state.
+        </p>
+        <p>
+          Have the students work out making one of the boxes move left and
+          disappear. Talk about what they tried, bring up that not all
+          properties are animatable.
+        </p>
+        <h2>Animations</h2>
+        <p>
+          If we want to do something more complex like a bouncing ball, we need
+          more than transition. Animations allow for multiple keyframes.
+        </p>
+        <p>
+          Demo bouncing ball. Make sure to bring up that the entire state for
+          each keyframe need to be defined...you need to specify what should
+          stay the same...as well as what should change.
+        </p>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

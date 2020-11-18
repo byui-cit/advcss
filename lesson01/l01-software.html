@@ -4,16 +4,19 @@
     <meta charset="utf-8" />
     <title>BYU-Idaho</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../css/solarized-dark.css" />
+    <link rel="stylesheet" href="../css/prism-coy.css" />
     <link rel="stylesheet" href="../css/course.css" />
   </head>
 
   <body>
-    <div id="main">
-      <div id="header">
-        <img src="../images/smallBanner.jpg" alt="Course Banner" />
-      </div>
-      <div id="article">
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
         <h1>Lesson 1: Software Installation</h1>
         <hr />
         <p>
@@ -51,19 +54,25 @@
             >http://blog.teamtreehouse.com/install-node-js-npm-windows</a
           >)
         </p>
+        <p class="callout">
+          BEFORE following the instructions below make sure that you do not
+          already have Node installed. Open up a terminal (Mac) or CMD
+          prompt/powershell (Windows) window and type <code>node -v</code>. If
+          it gives you a version and NOT an error you already have Node.
+        </p>
         <p>Windows Users:</p>
         <ol>
           <li>
+            Download the Windows installer from&nbsp;the&nbsp;
+            <a
+              href="http://nodejs.org/"
+              onclick="__gaTracker('send', 'event', 'outbound-article', 'http://nodejs.org/', 'Nodes.js&reg; web site');"
+              target="_blank"
+              >Node.js&reg; web site</a
+            >.
             <strong
-              >Download the Windows installer from&nbsp;the&nbsp;
-              <a
-                href="http://nodejs.org/"
-                onclick="__gaTracker('send', 'event', 'outbound-article', 'http://nodejs.org/', 'Nodes.js&reg; web site');"
-                target="_blank"
-                >Nodes.js&reg; web site</a
-              >. <strong>You will want to grab the
-              Recommended version instead of the latest
-              version!</strong
+              >You will want to grab the Recommended version (LTS) instead of
+              the latest version!</strong
             >
           </li>
           <li>
@@ -87,21 +96,20 @@
         </ol>
         <p>Mac Users:&nbsp;</p>
         <p>
-          Before you can install Node, you&rsquo;ll need to install two other
-          applications. Fortunately, once you&rsquo;ve got these on your
-          machine, installing Node takes just a few minutes. (for more detailed
-          instructions visit:&nbsp;
-          <a href="http://blog.teamtreehouse.com/install-node-js-npm-mac"
-            >http://blog.teamtreehouse.com/install-node-js-npm-mac</a
-          >)
-          <a
-            href="http://blog.teamtreehouse.com/install-node-js-npm-mac"
-            target="_blank"
-          ></a>
+          For the mac we are going to install the
+          <a href="https://github.com/nvm-sh/nvm" target="_blank"
+            >Node Version Manager (nvm)</a
+          >
+          tool first, and then we will use that to install Node. There are a
+          couple of advantages to doing it this way...the biggest of which is
+          that it makes it really easy to switch versions of Node when needed
+          (happens more than you might think as a developer) Before we can
+          install that however, we need the Apple developer tools. You can get
+          those in one of two ways:
         </p>
         <ol>
           <li id="xcode">
-            <strong>XCode.</strong>&nbsp;Apple&rsquo;s XCode development
+            Install <strong>XCode.</strong>&nbsp;Apple&rsquo;s XCode development
             software is used to build Mac and iOS apps, but it also includes the
             tools you need to compile software for use on your Mac. XCode is
             free and you can find it in the&nbsp;
@@ -110,44 +118,31 @@
               onclick="__gaTracker('send', 'event', 'outbound-article', 'https://itunes.apple.com/us/app/xcode/id497799835?mt=12', 'Apple App Store');"
               >Apple App Store</a
             >. &nbsp;After you install it, open it at least once to accept the
-            Terms. &nbsp;The next step won't work unless you do. If you don't
-            want to download and install the full XCode (It's quite large), you
-            can install just the developer tools by following
+            Terms. &nbsp;The next step won't work unless you do.
+          </li>
+          <li>
+            If you don't want to download and install the full XCode (It's quite
+            large), you can install just the developer tools by following
             <a
               href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/"
               target="_blank"
               >these instructions</a
             >.
           </li>
-          <li>
-            <strong>Homebrew</strong>.&nbsp;Homebrew is a package manager for
-            the Mac &mdash; it makes installing most open source software (like
-            Node) as simple as writing&nbsp; <code>brew install node</code>. You
-            can learn more about Homebrew at the&nbsp;
-            <a
-              href="http://brew.sh/"
-              onclick="__gaTracker('send', 'event', 'outbound-article', 'http://brew.sh/', 'Homebrew website');"
-              >Homebrew website</a
-            >. To install Homebrew just open Terminal and type:
-            <pre><code class="bash">ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
-            You&rsquo;ll see messages in the Terminal explaining what you need
-            to do to complete the installation process.
-          </li>
         </ol>
-        <p>
-          Installing Node.js and NPM is pretty straightforward using Homebrew.
-          Homebrew handles downloading, unpacking and installing Node and NPM on
-          your system. The whole process (after you have XCode and Homebrew
-          installed) should only take you a few minutes.
-        </p>
+        <p>Installing Node and NPM with nvm is pretty straightforward.</p>
         <ol>
           <li>
-            <strong>Open the Terminal app</strong>&nbsp;and type:&nbsp;
-            <code>brew install node</code>.
+            To install nvm, <strong>open the Terminal app</strong>&nbsp;and
+            type:&nbsp;
+            <pre><code class="lang-bash"
+              >curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh bash</code
+            ></pre>
           </li>
           <li>
-            <strong>Sit back and wait.</strong>&nbsp;Homebrew downloads some
-            files and installs them. And that&rsquo;s it.
+            Once nvm is done installing you can grab the latest copy of the Long
+            Term Support (LTS) version by typing the following:
+            <pre><code class="lang-bash">nvm install --lts</code></pre>
           </li>
           <li>
             To verify that it worked type the following in the Terminal:
@@ -208,14 +203,14 @@
           </li>
         </ul>
         <h2>StyleLint</h2>
-        
+
         <div class="callout">
           <p>
             CSS Linters point out problems with your CSS code. They do basic
             syntax checking as well as applying a set of rules to the code that
-            look for problematic patterns or signs of inefficiency. The
-            rules are all configurable, so you can easily write your own or omit
-            ones you don't want.
+            look for problematic patterns or signs of inefficiency. The rules
+            are all configurable, so you can easily write your own or omit ones
+            you don't want.
           </p>
         </div>
         <ul>
@@ -224,7 +219,7 @@
           </li>
           <li>
             Enter the following:
-            <pre><code class="bash">npm install -g stylelint stylelint-config-standard</code></pre>
+            <pre><code class="lang-bash">npm install -g stylelint stylelint-config-standard</code></pre>
           </li>
         </ul>
         <h2>Analyze-css</h2>
@@ -240,7 +235,7 @@
           </li>
           <li>
             Enter the following:
-            <pre><code class="bash">npm install -g analyze-css</code></pre>
+            <pre><code class="lang-bash">npm install -g analyze-css</code></pre>
           </li>
         </ul>
         <h2>UnCSS</h2>
@@ -258,7 +253,7 @@
           </li>
           <li>
             Enter the following:
-            <pre><code class="bash">npm install -g uncss</code></pre>
+            <pre><code class="lang-bash">npm install -g uncss</code></pre>
           </li>
         </ul>
         <h2>SitePoint</h2>
@@ -320,13 +315,10 @@
             Mac/PC/Linux - Free
           </li>
         </ul>
-      </div>
+      </main>
       <!-- end #article -->
     </div>
     <script src="../js/course.js"></script>
-    <script src="../js/highlight.pack.js"></script>
-    <script>
-      hljs.initHighlightingOnLoad();
-    </script>
+    <script src="../js/prism.js"></script>
   </body>
 </html>

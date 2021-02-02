@@ -141,7 +141,7 @@
             To install nvm, <strong>open the Terminal app</strong>&nbsp;and
             type:&nbsp;
             <pre><code class="lang-bash"
-              >curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh bash</code
+              >curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh bash</code
             ></pre>
           </li>
           <li>
@@ -155,7 +155,15 @@
             are good to go.
           </li>
         </ol>
-
+        <div class="callout">
+          <p>
+            Since macOS 10.15, the default shell is zsh and nvm will look for
+            .zshrc to update, none is installed by default. If you get an error
+            installing above, create this file by typing the following in your
+            terminal:
+          </p>
+          <pre><code class="lang-bash">touch ~/.zshrc</code></pre>
+        </div>
         <h2>SASS</h2>
         <ul>
           <p>

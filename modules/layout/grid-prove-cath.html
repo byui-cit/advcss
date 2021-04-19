@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Duplicating a layout</h1>
+
+        <hr />
+        <h2>CSS Grid Layout</h2>
+        <div class="callout">
+          <p>
+            We have seen many layout methods come and go for CSS. All of them
+            have had their shortcomings. Picking a layout method has often felt
+            like picking the lesser of many evils with CSS! The good news is
+            that things are improving. Two recent additions to CSS are Flexbox
+            and CSS Grid. CSS grid is
+            <a href="http://caniuse.com/#search=grid" target="_blank"
+              >just ready for widespread use</a
+            >, provides a nice complement to
+            <a href="http://caniuse.com/#search=flexbox" target="_blank"
+              >flexbox</a
+            >. Both together solve many long standing problems with other layout
+            methods.
+          </p>
+          <p>
+            Flexbox is ideally suited for layouts that flow either horizontally
+            or vertically (which happens a lot with the current trends) and can
+            simplify responsive design with the ease at which it can switch
+            between those two flows.
+          </p>
+          <p>
+            CSS Grid excels with two dimensional layouts...where both the X and
+            the Y position of an element are critical.
+          </p>
+        </div>
+        <p>
+          In this activity we will be re-creating an existing webpage layout for
+          an artist/designers website:
+          <a
+            href="https://www.pierrickcalvez.com/serie/journey-to-cath"
+            target="_blank"
+            rel="noreferrer"
+            >Pierrick Calvez</a
+          >. Here are a few screenshots:
+          <a href="../../images/pierrick-mobile.png" target="_blank">mobile</a>,
+          <a href="../../images/pierrick-mobile-menu.png" target="_blank"
+            >mobile menu</a
+          >, and
+          <a href="../../images/pierrick-large.png" target="_blank">large</a>.
+        </p>
+        <h3>Things we know</h3>
+        <p>From analyzing the original site we can learn the following:</p>
+        <ul>
+          <li>Logo color: #f33</li>
+          <li>Logo size: 54px, border radius: $logo-size/2.4, rotate: 30deg</li>
+          <li>Background color: #fdfbfb</li>
+          <li>
+            Headline font: the site uses a font called "Domaine Display Narrow"
+            which we don't have access to...a close enough match you can use
+            from Google is "Old Standard TT"
+          </li>
+          <li>
+            Body font: the site uses a font called "Apercu webfont" for the
+            body, again we don't have access so "Helvetica, Arial, sans-serif"
+            should do the trick.
+          </li>
+          <li>Font color: #222</li>
+          <li>Link color: link/visited: #222, hover: #f33</li>
+          <li>
+            Art tiles: portrait is 35vw wide, landscape is 50vw wide, border:
+            2vw (mobile), 1.4vw (large). And I'll give you this as well...<code
+              >box-shadow: -4px 4px 17px 13px rgb(0 0 0 / 8%);</code
+            >
+          </li>
+
+          <li>
+            Mobile:
+            <ul>
+              <li>
+                Main menu should take up the full viewport when open, and be
+                fixed.
+              </li>
+              <li>Link color menu: link/visited: white, hover: N/A</li>
+              <li>Main menu font size: 34px, alt menu size: 18px</li>
+              <li>series menu font size: 18px</li>
+              <li>Footer menu font size: 15px</li>
+              <li>Title font size: 60px</li>
+              <li>Art tiles: border: 2vw,</li>
+            </ul>
+          </li>
+          <li>
+            Large:
+            <ul>
+              <li>All menu font sizes: 18px</li>
+              <li>
+                Main title size: varies based on the size of the viewport...can
+                use something like 10vw
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>Using CSS Grid</h2>
+
+        <ol class="bigSteps">
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Setup</h3>
+            <p>
+              Create a new directory on your computer for this project and open
+              it in your editor. Create the following files:
+              <kbd>index.html</kbd>, <kbd>styles.scss</kbd>,
+              <kbd>_variables.scss</kbd>, <kbd>_utilities.scss</kbd>,
+              <kbd>_blocks.scss</kbd>, and <kbd>_compositions.scss</kbd>. Add
+              the HTML necessary to start your page. Add your CSS file
+              in...let's also take a moment and add a comment towards the top of
+              our file that gives credit to the original design we are using.
+              Something like this:
+            </p>
+            <pre><code class="lang-markup">&lt;!-- This is a learning exercise re-creating the design from this page: https://www.pierrickcalvez.com/serie/journey-to-cath --&gt;</code></pre>
+            <p>
+              Make sure to also import your partials into your main .scss file.
+            </p>
+            <p>
+              Continue then by writing the rest of the HTML we will need. After
+              you have written what you think you need compare to my HTML below
+            </p>
+            <details>
+              <summary>Click for Code...</summary>
+              <pre><code class="lang-markup">
+&lt;body&gt;
+&lt;header&gt;
+    &lt;input type="checkbox" class="b-main-nav__toggle" /&gt;
+    &lt;a href="#" class="b-main-nav__brand"&gt;&lt;div class="b-brand"&gt;&lt;/div&gt;&lt;/a&gt;
+    &lt;nav class="b-main-nav__nav"&gt;
+    &lt;ul&gt;
+        &lt;li class="b-main-nav__home"&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Art&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Commissions&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Studio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Journal&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;nav class="b-main-nav__alt-nav" aria-hidden="true"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Email&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Ello&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Medium&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Instagram&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;h1&gt;Journey to Cath&lt;/h1&gt;
+
+    &lt;nav class="index"&gt;
+    &lt;ul class="u-horizontal-list"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;II&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;IV&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;SP II&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="active" href="#"&gt;All&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;section class="c-gallery-grid"&gt;
+        &lt;figure class="u-portrait"&gt;
+            &lt;img src="https://byui-cit.github.io/advcss/images/swans_portrait_405.jpg" /&gt;
+        &lt;/figure&gt;
+        &lt;figure class="u-portrait"&gt;
+            &lt;img src="https://byui-cit.github.io/advcss/images/winter-trees-portrait-405.jpg" /&gt;
+        &lt;/figure&gt;
+        &lt;figure class="u-landscape"&gt;
+            &lt;img src="https://byui-cit.github.io/advcss/images/snake-river-landscape-720.jpg" /&gt;
+        &lt;/figure&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+    &lt;nav class="footer-nav"&gt;
+    &lt;ul class="u-horizontal-list"&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Email&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Ello&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Medium&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Instagram&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Journal&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/footer&gt;
+&lt;/body&gt;
+                </code></pre>
+              <p>
+                A few notes. First this is one take on this...it is not the only
+                way to organize the HTML for this page. If your HTML structure
+                is different that is ok. But I would make sure to compare the
+                differences!
+              </p>
+              <p>
+                You might have noticed that there is a checkbox next to the
+                element that will become our logo (the red ball). We need some
+                way to trigger our menu opening and closing on mobile. In this
+                case the
+                <a
+                  href="https://css-tricks.com/the-checkbox-hack/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >checkbox hack</a
+                >
+                will work nicely.
+              </p>
+              <p>
+                Notice that one of the menus is duplicated...it shows up in both
+                the footer, and in the main menu on mobile...this was the
+                simplest way to do that without using Javascript to move
+                it...note the <code>aria-hidden="true"</code> to hide the
+                duplicate from screen readers!
+              </p>
+              <p>You are welcome to use my images or any of your own!</p>
+            </details>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Architecture</h3>
+            <p>
+              Before we go further, stop for a moment and think about how you
+              would like to organize your code for this project. I've indicated
+              some of that with the setup...but there is more that we should do.
+              You have been introduced to the ideas behind
+              <a href="https://atomicdesign.bradfrost.com" target="_blank"
+                >Atomic design</a
+              >
+              from the Zen project, and depending on which modules you have done
+              you may have also seen
+              <a href="http://getbem.com/naming/" target="_blank">BEM</a>. This
+              project will introduce another methodology that works well with
+              what we are trying to accomplish:
+              <a href="https://piccalil.li/blog/cube-css" target="_blank"
+                >CUBE CSS</a
+              >. Take a minute and read the linked article as well will be using
+              the concepts introduced to organize our CSS for this project.
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Global Styles</h3>
+            <p>
+              According to CUBE CSS we should start by defining our global
+              styles. We can get a lot of the details about that from the
+              "Things we know" list above. Global styles are styles that should
+              almost always apply...everywhere on our site. Many of them will be
+              defined using element selectors! Begin by extracting the important
+              information out of the list above and into SCSS variables in the
+              variables partial. Fonts, colors, sizes should all go in there.
+            </p>
+            <p>
+              As we look at the different font sizes one shows up more than any
+              other: 18px. It would make sense to use this for our base. Add a
+              rule to your CSS (make sure to add the SCSS variable as well!):
+            </p>
+            <pre><code class="lang-SCSS">html {
+    font-size: $base-font-size; // 1rem
+}</code></pre>
+            <div class="callout">
+              <h2>Let's talk about sizes</h2>
+              <p>
+                Sizes and spacings can often get out of control on a site. If we
+                don't plan our sizings then we will end up with dozens of
+                arbitrary values littered throughout our CSS. If you have
+                studied
+                <a
+                  href="https://every-layout.dev/rudiments/modular-scale/"
+                  target="_blank"
+                  >Typography</a
+                >
+                you will have learned that most good designers come up with a
+                measure and a scale they will use to ensure that all of the
+                sizes in the design complement each other and that none are
+                random. We can use
+                <a
+                  href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"
+                  target="_blank"
+                  >custom properties</a
+                >
+                in CSS to help us do the same.
+              </p>
+              <p>
+                Add the following CSS to your
+                <kbd>_variables.scss</kbd> partial:
+              </p>
+              <pre><code class="lang-css">// establish sizing ratios from https://every-layout.dev/rudiments/modular-scale/
+:root {
+    --ratio: 1.5;
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio)); // 5px
+    --s-2: calc(var(--s-1) / var(--ratio)); // 8px
+    --s-1: calc(var(--s0) / var(--ratio)); // 12px
+    --s0: 1rem; // 18px
+    --s1: calc(var(--s0) * var(--ratio)); // 27px
+    --s2: calc(var(--s1) * var(--ratio)); // 40px
+    --s3: calc(var(--s2) * var(--ratio)); // 60px
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+}</code></pre>
+              <p>
+                What does this mean? If you look we have set two important
+                values above: the ratio, and the base (--s0) value. If we want
+                font one step (1.5 times) bigger than the base then we could add
+                <code>var(--s1)</code> to our CSS. If we want something to be
+                1.5 times smaller than the base we use <code>var(--s-1)</code>.
+                If we use these for most of our font sizes and spacings (padding
+                and margin) we can establish a nice flow to our design.
+              </p>
+              <p>
+                The really nice thing here is that if we decide later that our
+                base should be larger/smaller than 18px we make one change and
+                everything will adjust to the new spacing and still look
+                awesome!
+              </p>
+            </div>
+            <p>
+              Check below to compare what you have in your variables to mine.
+              You will note one addition to my file that you won't
+              have...breakpoint sizes and the <kbd>breakpoint</kbd> mixin. Add
+              those to your file as we will use them later.
+            </p>
+            <details>
+              <summary>Click for Code...</summary>
+              <pre><code class="lang-css">
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Old+Standard+TT&display=swap");
+$base-font-size: 18px;
+$background-color: #fdfbfb;
+$logo-size: 54px;
+$logo-color: #f33;
+$headline-font: "Old Standard TT", serif;
+$body-font: Arial, Helvetica, sans-serif;
+$font-color: #222;
+// borrowed this mixin below from the SCSS activity...it will come in handy!
+//set breakpoint sizes
+$break-small: 26em;
+$break-medium: 31em;
+$break-large: 60em;
+
+@mixin breakpoint($break) {
+  @if $break == large {
+    @media (min-width: $break-large) {
+      @content;
+    }
+  } @else if $break == medium {
+    @media (min-width: $break-medium) {
+      @content;
+    }
+  } @else if $break == small {
+    @media (min-width: $break-small) {
+      @content;
+    }
+  } @else {
+    @media ($break) {
+      @content;
+    }
+  }
+}
+:root {
+    --ratio: 1.5;
+    --s-5: calc(var(--s-4) / var(--ratio));
+    --s-4: calc(var(--s-3) / var(--ratio));
+    --s-3: calc(var(--s-2) / var(--ratio)); // 5px
+    --s-2: calc(var(--s-1) / var(--ratio)); // 8px
+    --s-1: calc(var(--s0) / var(--ratio)); // 12px
+    --s0: 1rem; // 18px
+    --s1: calc(var(--s0) * var(--ratio)); // 27px
+    --s2: calc(var(--s1) * var(--ratio)); // 40px
+    --s3: calc(var(--s2) * var(--ratio)); // 60px
+    --s4: calc(var(--s3) * var(--ratio));
+    --s5: calc(var(--s4) * var(--ratio));
+}
+                </code></pre>
+            </details>
+            <p>
+              At this point we need to add the rest of the rules for our global
+              styles. Again work out your solution paying close attention to the
+              provided screenshots, and then compare to mine. As you are
+              comparing remember that the code I am providing is
+              <em>one</em> solution to this...not <em>the only</em> solution.
+            </p>
+            <details>
+              <summary>Click for Code...</summary>
+              <pre><code class="lang-css">
+// global
+// I prefer the behavior of border-box, so I always include this
+* {
+    box-sizing: border-box;
+}
+// set default font: 1rem
+html {
+    font-size: $base-font-size;
+}
+// set base font family and color.
+body {
+    font-family: $body-font;
+    color: $font-color;
+    background-color: $background-color;
+}
+// responsive image magic
+img {
+    max-width: 100%;
+}
+// set headline font and styling...
+// I thought the font we are using more closely matched the original site with the letters moved closer together.
+h1,
+h2,
+h3 {
+    font-family: $headline-font;
+    font-weight: normal;
+    letter-spacing: -1px;
+}
+// set size for the main headling for both mobile and large...note the use of that breakpoint mixin. 
+// If you have forgotten how it works compile your SCSS and check out the resulting css rules.
+// Note the use of the CSS custom properties and our size scale
+h1 {
+    font-size: var(--s3);
+    text-align: center;
+    @include breakpoint(small) {
+    font-size: 10vw;
+    }
+}
+// Looking around the site we are replicating it looks like all the images have similar styling.
+// I decided to wrap my images in figure elements so I could just style all of them across the site easily the same way.
+figure {
+    margin: 0;
+    background-color: white;
+    box-shadow: -4px 4px 17px 13px rgb(0 0 0 / 8%);
+    border: 2vw solid #fff;
+    @include breakpoint(small) {
+    border: 1.4vw solid #fff;
+    }
+}
+// base link styling
+a:link,
+a:visited {
+    color: $font-color;
+    text-decoration: none;
+}
+a:hover {
+    color: $logo-color;
+}
+// the header on mobile needs some different link styles than normal...setting them up here.
+header {
+    a:link,
+    a:visited {
+    color: white;
+    }
+    @include breakpoint(small) {
+    a:link,
+    a:visited {
+        color: $font-color;
+    }
+    a:hover {
+        color: $logo-color;
+    }
+    }
+}
+// lots of nice space around the contents in the main element.
+main {
+    padding: 0 var(--s2) var(--s3) var(--s2);
+}
+// set font sizes and some margin for the footer.
+footer {
+  font-size: var(--s-1);
+  margin-bottom: var(--s3);
+  @include breakpoint(small) {
+    font-size: var(--s0);
+  }
+}
+                </code></pre>
+            </details>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Utilities</h3>
+            <p>
+              The next thing we should look at is the styling for the menus.
+              There are three and for the wide screen they are styled very
+              similarly...horizontally with some spacing between them. The
+              complication comes with the mobile view...there some of the menus
+              are horizontal and others are vertical. Because of this the
+              styling for those was not a good fit for universal. The question
+              then is should they be utility or block classes?
+            </p>
+            <p>
+              You could probably argue successfully for either...but I am going
+              to recommend utility. A utility according the CUBE CSS should do
+              one thing and do it well. I think this applies. I think we should
+              go one step further as well because of the main menu that changes
+              and make a couple of mixins to use in our utilities and other
+              classes. Something like below should work well:
+            </p>
+            <pre><code class="lang-css">// format a list horizontally with spacing
+@mixin horizontal-list($spacing: var(--s1)) {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    & > * + * {
+    margin-left: $spacing;
+    margin-top: 0;
+    }
+}
+
+// format a list vertically with spacing
+@mixin vertical-list($spacing: var(--s-3)) {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > * + * {
+    margin-top: $spacing;
+    margin-left: 0;
+    }
+}</code></pre>
+            <p>
+              Since we will only end up with three mixins I did not make a
+              specific mixins partial file. If we had more that would be a good
+              idea however. You can place these with our other mixin in
+              <kbd>_variables.scss</kbd>. Notice that we pass in the amount of
+              spacing we want with a default. This will make our mixin more
+              reusable.
+            </p>
+            <div class="callout">
+              <p>
+                If you got to the line that said <code>& > * + * </code> and
+                wondered what in the world that was doing you probably are not
+                alone. Break that selector down to figure how it works.
+              </p>
+              <p>
+                "Find any element (*) that is the direct sibling of any other
+                element ( * + ), that is also a child of whatever element this
+                mixin was applied to and change it." The key is that it will
+                only apply to elements that have a previous sibling. Basically
+                this will apply the rule to all children of an element
+                <em>except</em> for the first child. It works great for spacing
+                like this where we only need spacing applied if there is more
+                than one child. It even has a name: "<a
+                  href="https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Lobotomized owl selector</a
+                >" * + *
+              </p>
+            </div>
+            <p>
+              After reviewing the screenshots I think 3 utility class would be
+              good. One to control the size of a portrait orientation object
+              (about 35vw should do it), one to control the size of a landscape
+              object (50vw) and one to make a horizontal menu that will use our
+              mixin. What about the vertical menu you might be asking? I decided
+              to put that functionality into a block. Why? It felt better that
+              way? Many of the decisions we make while organizing could be
+              argued. The important thing is that we have a reason for what we
+              do...and that we are consistent in our approach.
+            </p>
+            <pre><code class="lang-css">// _utilities.scss
+@use 'variables' as *;
+.u-portrait {
+    width: 35vw;
+    > img {
+    width: 100%;
+    }
+}
+.u-landscape {
+    width: 50vw;
+    > img {
+    width: 100%;
+    }
+}
+
+.u-horizontal-list {
+    @include horizontal-list();
+}</code></pre>
+            <p>
+              I decided to add one more thing to the portrait and landscape
+              classes. For our use we will be sizing images that are children of
+              figures. I'm setting my size on the parent, and then I want to
+              image to always be the same size as the parent.
+            </p>
+            <div class="callout">
+              <p>
+                Did you notice the 'u-' at the beginning of my class names? That
+                was done to help anyone who works on this (including myself)
+                know where to look for those classes in the css if they need to
+                be modified. It designates them as utility classes and lets us
+                know they will be found with the other utility classes. If this
+                were a larger project instead of a
+                <kbd>_utilities.scss</kbd> partial I would probably have created
+                a <kbd>utilities</kbd> directory and made a partial for each
+                utility! The same for the blocks and compositions. But in this
+                case adding them into one file works just fine.
+              </p>
+              <p>
+                The author of the CUBE CSS methodology actually had a different
+                solution to the prefix I have suggested...they introduce
+                patterns into the classlist like this:
+                <code
+                  >class="[ main block ] [ other block classes ] [ utilities
+                  ]"</code
+                >. How does that work! Remember that HTML and CSS were written
+                to be forgiving. When the browser sees something it does not
+                understand it ignores it. So if we added something like this:
+                <code>class="[ brand ] [ gallery-grid ] [ portrait ]"</code> the
+                browser would simplify it to:
+                <code>class="brand gallery-grid portrait"</code>
+              </p>
+              <p>
+                At the end of the day it does not matter which method you
+                use...again the important thing is to pick a method and
+                <strong>be consistent!</strong>
+              </p>
+            </div>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Blocks</h3>
+            <p>
+              There were two elements that jumped out at me as blocks: the logo,
+              and the mobile menu. Those should be styled next. The logo or
+              brand is the easier problem...do that first. Refer back to the
+              list of knowns at the top of the activity for the specifics on
+              that. the mobile menu is a bit trickier. I think a list of things
+              to do would be appropriate here:
+            </p>
+            <ol>
+              <li>
+                Make the checkbox the same size as the logo, and make it
+                invisible.
+              </li>
+              <li>Change the cursor for the checkbox to a pointer</li>
+              <li>
+                Hide <code>.b-main-nav__nav</code> by default for mobile, also
+                make it as big as the screen and change the background color to
+                the logo color. The font size is also larger than normal for
+                mobile and white.
+              </li>
+              <li>
+                Set the list inside of the b-main-nav__nav to be vertical. Set a
+                margin-top of 25vh as well. the reason for this will be
+                explained below.
+              </li>
+              <li>
+                When the screen is large the list should be horizontal, the
+                __nav element should be normal sized and no background color,
+                font-size should also be reset back to normal.
+              </li>
+              <li>
+                The <code>b-main-nav__home</code>, and
+                <code>b-main-nav__alt-nav</code> elements should be hidden on
+                large screens, and shown on small when the checkbox is checked.
+              </li>
+              <li>
+                <code>b-main-nav__alt-nav</code> should be vertical, and the
+                size increased from the base.
+              </li>
+              <li>
+                When the box it checked the following should happen:
+                <ol>
+                  <li>The logo should be turned white</li>
+                  <li>
+                    .b-main-nav__nav, and .b-main-nav__alt-nav should both be
+                    shown.
+                  </li>
+                </ol>
+              </li>
+              <li>Other tweaking as needed...</li>
+            </ol>
+            <p>
+              I'll share my code again for you to review <em>after</em> you have
+              come up with your solution. Below is also a screenshot of what
+              your page should look like at this point. If you click in the
+              empty space right above the logo it should check your box and show
+              you if your styles are working for that. Not everything will show
+              correctly yet, we have some z-index issues, and haven't done our
+              layout yet...but you should see the main menu on a full red screen
+              if you click the checkbox.
+            </p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../../images/pierrick-mobile-block.png"
+                  alt="mobile site at block stage"
+                />
+              </figure>
+            </div>
+            <details>
+              <summary>Click for code...</summary>
+              <pre><code class="lang-css">// _blocks.scss
+@use 'variables' as *;
+.b-brand {
+    border-radius: $logo-size/2.4;
+    width: $logo-size;
+    height: $logo-size;
+    transform: rotate(30deg);
+    background-color: $logo-color;
+}
+.b-main-nav {
+    // styles for checkbox for checkbox hack
+    &__toggle {
+        width: $logo-size;
+        height: $logo-size;
+        opacity: 0;
+        cursor: pointer;
+        // when toggle is checked...
+        // turn logo white
+        &:checked + a .b-brand {
+            background-color: white;
+        }
+        // show main-nav__nav and main-nav__alt-nav
+        &:checked ~ .b-main-nav__nav,
+        &:checked ~ .b-main-nav__alt-nav {
+            display: block;
+        }
+
+        // get rid of the checkbox on large screens
+        @include breakpoint(small) {
+            display: none;
+        }
+    }
+
+    // main nav links styles
+    &__nav {
+        display: none;
+        // making this fixed is the best option for having it cover the screen
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        left: 0;
+        right: 0;
+        background-color: $logo-color;
+        font-size: var(--s2);
+        // the margin is because we made this fixed it will ignore some of the other layout we will do.
+        > ul {
+            margin-top: 25vh;
+            @include vertical-list();
+        }
+
+        @include breakpoint(small) {
+            display: block;
+            position: relative;
+            background-color: inherit;
+            height: auto;
+            font-size: var(--s0);
+
+            > ul {
+                @include horizontal-list();
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+    // special case for the home link that only shows on small
+    &__home {
+        @include breakpoint(small) {
+            display: none;
+        }
+    }
+    // special case for alt menu that only shows on small
+    &__alt-nav {
+        display: none;
+        font-size: var(--s1);
+        > ul {
+            @include vertical-list();
+        }
+    }
+}</code></pre>
+            </details>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Compositions</h3>
+            <p>
+              Check out your site. While things still are not in the correct
+              locations, we have accomplished quite a bit already just by
+              defining the styles that we want consistently across the site. The
+              next step is composition. If you have been thinking to
+              yourself..."I thought this was a CSS Grid activity...". Now is
+              where we finally come back to that. This layout lends itself
+              nicely to CSS Grid.
+            </p>
+            <p>
+              We have two sections of our site that need layout attention: the
+              overlapping images, and the mobile menu. The menu should be done
+              first. It doesn't need much, mostly some z-index work to make sure
+              everything that should be show is shown. There two issues though:
+              our invisible checkbox should be placed on top of the logo, and
+              then the two menus should flow one after the other. If we just had
+              the second issue I think flexbox would be perfect, but since we
+              need to overlap CSS Grid will be a better solution.
+            </p>
+            <p>
+              Create a simple grid of one column and three rows. In this case we
+              should specify the height of the rows instead of letting the
+              browser decide. Looking at the menu screenshot on mobile
+              <kbd>25vh 40vh 35vh</kbd> look like good starting points for those
+              heights.
+            </p>
+            <p>
+              Next position the elements into the correct grid cell. The
+              checkbox and logo should overlap in the first cell. Then adjust
+              the z-index on each element until all show (and you can click on
+              the checkbox...it should be on top)
+            </p>
+            <p>
+              The other thing that we notice if you visit the actual site is
+              that the mobile menu is fixed when it is open...the user cannot
+              scroll away from it. Make this change as well.
+            </p>
+            <p>
+              Finally include a breakpoint to re-format the header for wide
+              screens. The logo and main menu should flow horizontally, and the
+              Home link, checkbox, and alt menu should be hidden (display:none)
+            </p>
+            <p>
+              As before work as far as you can then check out my solution below.
+              One note about this solution, because the header behaves the same
+              on all pages I opted to just tie the styles directly to the
+              <code>header</code> element. What are some potential disadvantages
+              with this approach?
+            </p>
+            <details>
+              <summary>Click for Code...</summary>
+              <pre><code class="lang-css">@use 'variables' as *;
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 25vh 40vh 35vh;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    // this feels like a hack...done to keep the header from covering other elements (links) when the menu is closed.
+    height: 0;
+
+    > *:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 11;
+    }
+    > *:nth-child(2) {
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 10;
+    }
+    > *:nth-child(3) {
+    grid-row: 2;
+    z-index: 9;
+    }
+    > *:nth-child(4) {
+    grid-row: 3;
+    z-index: 9;
+    }
+
+    @include breakpoint(small) {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: var(--s3) var(--s4);
+    height: auto;
+    margin-top: var(--s2);
+    }
+}</code></pre>
+            </details>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Finishing up</h3>
+            <p>
+              The final step should be to create the second CSS Grid to position
+              the images. As you decide how many columns and rows you need, and
+              their sizes, It might be helpful to take the mockup image and draw
+              some lines on it either digitally, or print it out and do it
+              physically. This can help you see the grid. Once you have come up
+              with your solution you are welcome to compare it to mine.
+            </p>
+            <details>
+              <summary>Click for Code...</summary>
+              <pre><code class="lang-css">// _compositions.scss
+.c-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+    grid-template-rows: 3fr 1fr 2fr 1fr 2fr;
+    align-items: center;
+    margin-left: var(--s0);
+
+    @include breakpoint(small) {
+        margin-left: var(--s5);
+    }
+    figure:nth-child(1) {
+        grid-column: 2/5;
+        grid-row: 1/3;
+    }
+    figure:nth-child(2) {
+        grid-column: 3/6;
+        grid-row: 2/5;
+    }
+    figure:nth-child(3) {
+        grid-column: 1/5;
+        grid-row: 4/6;
+    }
+}</code></pre>
+            </details>
+            <!-- END STEP -->
+          </li>
+        </ol>
+
+        <h2>Final solution</h2>
+        <p>
+          Here is a link to the finished solution you can refer to if you had
+          problems with any of the steps above: <a href="">Finished solution</a>
+        </p>
+        <p>
+          <strong>Note!</strong> This is <strong>one</strong> solution to this
+          problem. You may have approached parts of this differently, which is
+          totally fine. Your code does not have to match this solution so long
+          as it provides the desired result, and it shows that you put some
+          thought and effort into the architecture of your CSS.
+        </p>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

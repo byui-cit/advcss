@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Layout Flexbox teaching notes</h1>
+
+        <hr />
+        <h2>CSS Flexbox fundamentals</h2>
+        <p>
+          Flexbox is all about one dimensional flows. We have great control over
+          one direction (or axis) but not so much on the other. If we need exact
+          placement along both directions...then Flexbox is not what we need. A
+          large number of websites fit within this however. You could reference
+          the Jen Simmons notes below for examples.
+        </p>
+        <p>
+          I always start with boxes:
+          <a href="https://codepen.io/matkat/pen/EKaNZg" target="_blank"
+            >Boxes codepen</a
+          >. It's helpful to pull up the
+          <a
+            href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+            target="_blank"
+            >CSS Tricks: Guide to Flexbox</a
+          >
+          for reference. I work down the Parent side first, then down the child.
+          Understanding primary/secondary Axis, and alignment tends to be the
+          trickiest for students to understand.
+        </p>
+        <p>
+          Justify always affects the primary axis, Align always affects the
+          secondary axis.
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Alignment/Box_Alignment_in_Flexbox"
+            target="_blank"
+            >MDN: Box Alignment in Flexbox</a
+          >
+        </p>
+        <p>
+          With Children understanding the <code>flex</code> property tends to be
+          the hardest. I often intentionally stop using the abbreviated
+          <code>flex</code>, and instead break it down into
+          <code>flex-grow</code>, <code>flex-shrink</code>, and
+          <code>flex-basis</code> until students understand what each part does.
+        </p>
+
+        <h2>Practice</h2>
+        <p>
+          The activity has the students do some exercises in MDN. You could also
+          spend some time working through something like this
+          <a href="../examples/card-layout/index.html" target="_blank"
+            >Tile example</a
+          >
+          with the students.
+        </p>
+        <p>
+          They will need some boilerplate to get started...here is the link:
+          <a href="../examples/card-layout/Archive.zip">Code Archive</a>
+        </p>
+
+        <h2>Resources</h2>
+        <ul>
+          <li>
+            <a href="../../resources/06_JenSimmons.pdf"
+              >Getting out of our ruts - Jen Simmons</a
+            >. Notes from a talk by Jen Simmons. Good examples of how most of
+            the layouts we tend to see are variations of the same thing...rows
+            of information that wrap, or columns that wrap. Page 24 particularly
+            hits home.
+          </li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

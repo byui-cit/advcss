@@ -466,9 +466,10 @@ $one-column: 12.5%;
             to reflect the formula used to determine it.
           </p>
           <pre><code class="scss">
+@use "sass:math";
 //variables
 $num-columns : 8;
-$one-column : 100% / $num_columns;
+$one-column : math.div(100%, $num_columns);
 			    </code></pre>
           <p>
             With that one change we are actually almost done. We can now
@@ -476,10 +477,23 @@ $one-column : 100% / $num_columns;
             column will be calculated. the last thing to fix is the start and
             stop points for the loops. More variables!
           </p>
+          <div class="callout">
+            <p>
+              You may be wondering why
+              <code>math.div(100%, $num_columns)</code> instead of just doing
+              <code>100% / $num_columns</code>? It turns out the the divide
+              operator is in high demand as a separator character as well. There
+              was no good replacement for '/' in something like a list
+              separator, so a decision was made to replace it as the divide
+              operator instead. NOTE That we had to include a module to use it:
+              <code>@use "sass:math";</code>
+            </p>
+          </div>
           <pre><code class="scss">
+@use "sass:math";
 //variables
 $num-columns : 8;
-$one-column : 100% / $num_columns;
+$one-column : math.div(100%,$num_columns);
 $loop-start: 1;
 $loop-end: $num-columns +1;
 			    </code></pre>

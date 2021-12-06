@@ -119,49 +119,49 @@
 
           <pre><code class="lang-markup">
 &lt;div class="interestBoxes"&gt;
-    &lt;div class="card"&gt;
-        &lt;img
-        src="building1.ddf65f44.jpg"
-        class="card__img-top"
-        alt="Large building"
-        /&gt;
-        &lt;div class="card__body"&gt;
-        &lt;h5 class="card__title"&gt;Card title&lt;/h5&gt;
-        &lt;p class="card__text"&gt;
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-        &lt;/p&gt;
-        &lt;/div&gt;
+&lt;div class="card"&gt;
+    &lt;img
+    src="building1.ddf65f44.jpg"
+    class="card__img"
+    alt="Large building"
+    /&gt;
+    &lt;div class="card__body"&gt;
+    &lt;h5&gt;Card title&lt;/h5&gt;
+    &lt;p&gt;
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.
+    &lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="card"&gt;
-        &lt;img
-        src="building2.67c5fb0d.jpg"
-        class="card__img-top"
-        alt="Large building"
-        /&gt;
-        &lt;div class="card__body"&gt;
-        &lt;h5 class="card__title"&gt;Card title&lt;/h5&gt;
-        &lt;p class="card__text"&gt;
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-        &lt;/p&gt;
-        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+    &lt;img
+    src="building2.67c5fb0d.jpg"
+    class="card__img"
+    alt="Large building"
+    /&gt;
+    &lt;div class="card__body"&gt;
+    &lt;h5&gt;Card title&lt;/h5&gt;
+    &lt;p&gt;
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.
+    &lt;/p&gt;
     &lt;/div&gt;
-    &lt;div class="card"&gt;
-        &lt;img
-        src="building3.fda5fb6f.jpg"
-        class="card__img-top"
-        alt="Large building"
-        /&gt;
-        &lt;div class="card__body"&gt;
-        &lt;h5 class="card__title"&gt;Card title&lt;/h5&gt;
-        &lt;p class="card__text"&gt;
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-        &lt;/p&gt;
-        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+    &lt;img
+    src="building3.fda5fb6f.jpg"
+    class="card__img"
+    alt="Large building"
+    /&gt;
+    &lt;div class="card__body"&gt;
+    &lt;h5&gt;Card title&lt;/h5&gt;
+    &lt;p&gt;
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.
+    &lt;/p&gt;
     &lt;/div&gt;
-&lt;/div&gt; 
+&lt;/div&gt;
+&lt;/div&gt;
         </code></pre>
           <pre><code class="lang-css">
 .card {
@@ -170,20 +170,20 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    &__img-top {
-    object-fit: cover;
-    aspect-ratio: 1/0.7;
-    max-width: 100%;
+    &__img {
+        object-fit: cover;
+        aspect-ratio: 1/0.7;
+        max-width: 100%;
     }
     &__body {
-    background-color: #2e2e2e;
-    padding: 1.5em;
-    }
-    &__title {
-    font-weight: bold;
-    }
-    &__text {
-    color: #c2c2c2;
+        background-color: #2e2e2e;
+        padding: 1.5em;
+        & > h5 {
+            font-weight: bold;
+        }
+        & > p {
+            color: #c2c2c2;
+        }
     }
 }
     @media screen and (min-width: 575px) {
@@ -197,8 +197,8 @@
 
         </code></pre>
           <p>
-            This simplified our HTML a bit and brought us down to 1100
-            characters of HTML (almost 20% reduction) and only 29 total lines of
+            This simplified our HTML a bit and brought us down to ~1000
+            characters of HTML (almost 25% reduction) and only 29 total lines of
             SCSS!
           </p>
           <p>

@@ -5,16 +5,19 @@
     <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="../css/solarized-dark.css" />
+    <link rel="stylesheet" href="../css/prism-coy.css" />
     <link rel="stylesheet" href="../css/course.css" />
   </head>
 
   <body>
-    <div id="main">
-      <div id="header">
-        <img src="../images/smallBanner.jpg" alt="Course Banner" />
-      </div>
-      <div id="article">
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
         <h1>Bootstrap</h1>
 
         <hr />
@@ -55,15 +58,20 @@
             version by entering:
             <pre><code class="bash">node -v</code></pre>
             You should see a version number. That version should start with
-            12.x.x or 14.x.x. If you get any errors or "command not found" try
+            14.x.x or 16.x.x. If you get any errors or "command not found" try
             running through the
             <a href="../lesson01/l01-software.html" target="_blank"
               >software setup instructions</a
             >
-            again. If your version starts with 14.x.x then it should work. If
-            you have any issues you might need to install version 12.x.x. You
-            can install both in some cases. nvm use 12.x.x will allow you to
-            switch to that version.
+            again.
+          </li>
+          <li>
+            If you have not spent much time in the command line of your
+            operating system you should review
+            <a
+              href="https://byui-cit.github.io/learning-modules/modules/general/cli-basics/"
+              >CLI Basics</a
+            >
           </li>
           <!-- <li>
             Install Yarn (a javascript package manager) by entering
@@ -90,11 +98,11 @@
           job...serve up libraries. Bootstrap's CDN can be included by adding
           the following lines to your html
         </p>
-        <pre><code class="html">
-&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;
-&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"&gt;&lt;/script&gt;
+        <pre><code class="lang-markup">
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"&gt;&lt;/script&gt;
     </code></pre>
-        <p>You would also need to include JQuery for this to work.</p>
+
         <p>
           Bootstrap can also be quickly integrated into a codepen. If you click
           on the CSS setting (gear icon next to CSS) then scroll down to the
@@ -105,29 +113,42 @@
         <p>
           The best option however is to take advantage of Bootstrap's Sass
           version. The rest of this activity will have us install Bootstrap into
-          a project with a professional style workflow.
+          a project with a professional style workflow. We will be roughly
+          following the
+          <a
+            href="https://getbootstrap.com/docs/5.1/getting-started/parcel/"
+            target="_blank"
+            rel="noreferrer"
+            >instructions in the Bootstrap documentation</a
+          >
         </p>
         <h3>Step 1</h3>
         <p>
-          Download the
-          <a href="../resources/parcelCSS.zip">Boilerplate code</a> and extract
-          it to your Desktop on your hard drive
+          Create a folder on your computer called <kbd>parcel</kbd>. Open that
+          folder in your editor (this activity will be easier if you are using
+          VS Code as your editor). If you are not using VS Code I would
+          recommend creating this folder on your Desktop so it will be easier to
+          find.
         </p>
+
         <p>
-          Open your command line prompt on your computer and navigate to the
-          directory containing the downloaded code. Mac and Windows should start
-          you in your user directory when you open a new command prompt. Or you
-          can type:
+          If you are using VS Code as your editor you can open the terminal in
+          your open project (ctrl + ~) and it will automatically set the working
+          directory to the open project folder. If you are using some other
+          editor, Open your command line prompt on your computer and navigate to
+          the directory containing the downloaded code. Mac and Windows should
+          start you in your user directory when you open a new command prompt.
+          Or you can type:
         </p>
         <ul>
           <li>
             Mac:
-            <pre><code class="bash">cd ~</code></pre>
+            <pre><code class="lang-bash">cd ~</code></pre>
             (tilde) or
           </li>
           <li>
             Windows:
-            <pre><code class="bash">cd %userprofile%</code></pre>
+            <pre><code class="lang-bash">cd %userprofile%</code></pre>
           </li>
         </ul>
 
@@ -135,31 +156,17 @@
           from anywhere and it will take you back to your user directory. From
           the User directory you should just need to type
         </p>
-        <pre><code class="bash">cd Desktop</code></pre>
+        <pre><code class="lang-bash">cd Desktop</code></pre>
         then
-        <pre><code class="bash">cd parcelCSS</code></pre>
+        <pre><code class="lang-bash">cd parcel</code></pre>
         <p>to get to the right place. Then type</p>
-        <pre><code class="bash">npm install</code></pre>
-        <p>It might take a few minutes</p>
-        <!-- <div class="callout">
-          <h2>Attention!</h2>
-          <p>
-            If you get an error complaining about your Node being incompatible
-            with a package then you will need to use this alternate syntax:
-          </p>
-          <pre><code class="bash">yarn install --ignore-engines</code></pre>
-        </div> -->
+        <pre><code class="lang-bash">npm init -y</code></pre>
+        <p>
+          This will create a file called <kbd>package.json</kbd>. This file will
+          contain the details about our project.
+        </p>
+
         <div class="callout">
-          <p>
-            Once you have it installed go take a look at the file structure. The
-            boilerplate that you received is setup similar to what you might
-            find with any small to medium scale modern web project. Modern
-            development projects end up with a lot of moving parts. There are
-            dependencies...other utilities or libraries that are being used to
-            speed up things. Some of those have special requirements as well.
-            Sass would be one example...it needs to be compiled before it can be
-            used.
-          </p>
           <p>
             Modern web projects rely on a few types of tools to make them easier
             to manage.
@@ -193,11 +200,8 @@
           <br />
           <p>
             For this project <code>NPM</code> is our package manager. In fact
-            when you ran <code>npm install</code> it went and looked at the
-            <code>package.json</code> file to see what dependencies the project
-            has, then retrieved them and put them into a directory called
-            <code>node_modules</code>. Another popular package manager is
-            <code>yarn</code>
+            when you ran <code>npm init</code> we did the first step in making
+            this happen.
           </p>
           <p>
             We are using a tool called Parcel for bundling. Other popular
@@ -207,53 +211,129 @@
             Finally since our project is fairly simple we are actually using NPM
             as our task manager as well. If you look again in the
             <code>package.json</code> file you will see a section called
-            <code>scripts</code>. these are commands we can run to do different
+            <code>scripts</code>. We will place commands there to do different
             things for our project. Other popular task managers are Grunt and
             Gulp
           </p>
         </div>
 
         <h3>Step 2</h3>
-        <p>To test your installation type the following:</p>
-        <pre><code class="bash">npm run start</code></pre>
+        <p>
+          Install Parcel by typing
+          <code>npm install --save-dev parcel</code> (make sure that you are in
+          the same directory that the <kbd>package.json</kbd> file is in) in the
+          terminal. This will add Parcel as a development dependancy to our
+          project...a tool that we will use as developers to do our work. You
+          should notice that a couple of things changed: first a new folder
+          called <kbd>node_modules</kbd> was created, second a new section
+          called <code>devDependencies</code> was added to our
+          <kbd>package.json.</kbd>
+        </p>
+        <p>
+          Next we need to add some scripts to allow us to use Parcel. Add the
+          following code to the <kbd>scripts</kbd> section of your
+          <kbd>package.json</kbd>
+        </p>
+        <pre><code class="lang-js">
+"scripts": {
+    "start": "parcel ./src/index.html",
+    "prebuild": "npx rimraf build",
+    "build": "parcel build --public-url ./ ./src/index.html  --out-dir build"
+},
+        </code></pre>
+        <h3>Step 3</h3>
+        <p>
+          The Bootstrap instructions recommend the following file structure:
+        </p>
+        <pre>
+project-name/
+├── build/
+├── node_modules/
+│   └── bootstrap/
+│   └── popper.js/
+├── scss/
+│   └── custom.scss
+├── src/
+│   └── index.html
+│   └── index.js
+└── package.json</pre
+        >
+        <p>
+          The <kbd>build</kbd> directory will get created automatically for us
+          later, but we should create the other folders and files now.
+        </p>
+        <ol>
+          <li>
+            Create a <kbd>scss</kbd> directory in the root of the project
+            folder, then add a <kbd>custom.scss</kbd> file inside of that
+            directory.
+          </li>
+          <li>
+            Create a <kbd>src</kbd> directory in the root of the project folder
+            and then create files called <kbd>index.html</kbd> and
+            <kbd>index.js</kbd> in that folder.
+          </li>
+          <li>
+            Open up the <kbd>index.html</kbd> file and add the following code:
+            <pre><code class="lang-markup">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="stylesheet" href="../scss/custom.scss" &gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;h1&gt;Hello Bootstrap&lt;/h1&gt;
+    &lt;p class="alert alert-primary"&gt;Demo site illustrating using a build tool to install Bootstrap&lt;/p&gt;
+    &lt;script src="./index.js" type="module"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+          </li>
+        </ol>
+        <div class="callout">
+          <p>
+            Notice the file we linked to for our styles. We linked directly to
+            the <code>.scss</code> file. That should not work! Browsers do not
+            understand <code>.scss</code>! Our bundler Parcel needs the path to
+            the SCSS so it can find it, and it will automatically convert the
+            SCSS to CSS and update the <code>link</code> in the
+            <kbd>index.html</kbd> for us when it is done.
+          </p>
+        </div>
+        <p>Test our installation by running the following</p>
+        <pre><code class="lang-bash">npm run start</code></pre>
         <p>
           in the command line of your computer. Make sure you are still in the
-          project folder. This will start up a simple web server pointed at our
-          project. It will also watch for changes to either the .SCSS files or
-          the .JS files and it will recompile them when needed and refresh the
-          page in the browser. It <strong>is not</strong> watching the .HTML
-          file however. So if you make changes to that you will need to refresh
-          the browser manually.
+          project folder. (the same folder that contains the
+          <kbd>package.json</kbd> file) This will start up a simple web server
+          pointed at our project. It will also watch for changes to either the
+          .SCSS files or the .JS files and it will recompile them when needed
+          and refresh the page in the browser. It
+          <strong>is not</strong> watching the .HTML file however. So if you
+          make changes to that you will need to refresh the browser manually.
         </p>
         <p>
           To see your site notice that Parcel output
           <kbd>Server running at <code>http://localhost:1234</code></kbd> when
-          it started up. Enter that url in your browser to see it.
+          it started up. Your port number (ie :1234) will probably be different.
+          Enter that url in your browser to see it.
         </p>
         <p>
           When you are ready to stop the web server type <code>ctrl+c</code> in
           the command line.
         </p>
-        <p>
-          You should see a simple unstyled button and a message:
-          <code>Setup Appears to be working 😉</code>
-        </p>
-        <h3>Step 3</h3>
+
+        <h3>Step 4</h3>
         <p>
           Next let's install Bootstrap using our package manager. Go back to
           your command prompt and quit the webserver if it is running (ctrl+c).
           Then type
         </p>
-        <pre><code class="bash">npm install bootstrap@4.6.0 jquery popper.js</code></pre>
+        <pre><code class="lang-bash">npm install bootstrap</code></pre>
+
         <!-- <div class="callout">
-          <h2>Attention!</h2>
-          <p>
-            If you got the Node error earlier you will need to run the following
-            command instead:
-          </p>
-          <pre><code class="bash">yarn add --ignore-engines bootstrap jquery popper.js </code></pre>
-        </div> -->
-        <div class="callout">
           <p>
             You may be asking yourselves: "I thought we just needed Bootstrap?
             Why Jquery and popper.js?" In order to use many of the Bootstrap
@@ -261,51 +341,62 @@
             order to function. Luckily they are easy to add with a package
             manager.
           </p>
-        </div>
+        </div> -->
         <p>
           The add command retrieved the packages and placed them into the
           <code>node_modules</code> directory, but our project still doesn't
           know about them. Lets do that next.
         </p>
-        <h3>Step 4</h3>
+        <h3>Step 5</h3>
         <p>
           Finish adding Bootstrap into your project by opening the
-          <code>src/js/index.js</code> file in an editor and adding the
-          following lines at the very top:
+          <code>src/index.js</code> file in an editor and adding the following
+          line at the very top:
         </p>
-        <pre><code class="javascript">
-import $ from "jquery";
-import popper from 'popper.js';
-import bootstrap from 'bootstrap';
+        <pre><code class="lang-javascript">
+// Import all plugins
+import * as bootstrap from 'bootstrap';
             </code> </pre>
         <p>
-          Those lines will make it possible for our project to use those
+          Those lines will make it possible for our project to use the
           libraries. Notice that we didn't give much information about
           <em>where</em> the actual files were located...our bundler is smart
           enough to find them as long as they are mentioned in
           <code>package.json</code> and installed in <code>node_modules</code>.
         </p>
         <p>
-          Then open up the <code>src/scss/styles.scss</code> file and add the
+          Then open up the <code>/scss/custom.scss</code> file and add the
           following line just under the <code>@import</code> for the variables
           partial:
         </p>
-        <pre><code class="javascript">
-@import "node_modules/bootstrap/scss/bootstrap";
+        <pre><code class="lang-scss">
+@import "../node_modules/bootstrap/scss/bootstrap";
             </code> </pre>
+        <p class="callout">
+          We imported ALL of Bootstrap with that line. That is not always the
+          best thing to do, we should really only import the parts of Bootstrap
+          we are using. Check out the
+          <a
+            href="https://getbootstrap.com/docs/5.1/customize/sass/#importing"
+            target="_blank"
+            >Bootstrap docs on importing</a
+          >
+          to see how you can be more selective about what you include.
+        </p>
         <p>
           Ok, lets try firing up our development server again. Type
           <code>npm run start</code>. Your page should have picked up a bit more
-          styling...different font, button styled, and you should see one more
-          message indicating that Jquery is working. If you see that then it's
-          working! If not then review the directions above, or ask for help.
+          styling...different font, and the alert should be styled. If you see
+          that then it's working! If not then review the directions above, or
+          ask for help.
         </p>
         <div class="callout">
           <p>
-            Take a minute and check out the files that were generated:
-            <code>build/styles.?????.css</code> and
-            <code>build/js.??????.js</code>. Notice that they are each around
-            150KB now! Over 300KB of stuff just to make Bootstrap work...that is
+            Take a minute to notice that a new folder was created by Parcel
+            called <kbd>dist</kbd> and check out the files that were generated:
+            <code>dist/index.?????.css</code> and
+            <code>dist/index.??????.js</code>. Notice that they are each over
+            200KB now! Over 400KB of stuff just to make Bootstrap work...that is
             a lot. The FamilySearch homepage has a total budget of ~60KB for all
             of it's html, css, and Javascript for example!
           </p>
@@ -313,20 +404,11 @@ import bootstrap from 'bootstrap';
             We did include all of Bootstrap however. A better option would be to
             only include the parts we intend to use.
           </p>
-          <p>
-            If you look inside of the
-            <code>node_modules/bootstrap/scss</code> directory you will see a
-            long list of partials. These could be included individually instead
-            of all at once if we wanted.
-          </p>
         </div>
-      </div>
+      </main>
       <!-- end #article -->
     </div>
     <script src="../js/course.js"></script>
-    <script src="../js/highlight.pack.js"></script>
-    <script>
-      hljs.initHighlightingOnLoad();
-    </script>
+    <script src="../js/prism.js"></script>
   </body>
 </html>

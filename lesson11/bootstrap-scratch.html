@@ -125,41 +125,49 @@
         <h3>Step 1</h3>
         <p>
           Create a folder on your computer called <kbd>parcel</kbd>. Open that
-          folder in your editor (this activity will be easier if you are using
-          VS Code as your editor). If you are not using VS Code I would
-          recommend creating this folder on your Desktop so it will be easier to
-          find.
+          <strong>folder</strong> in your editor (this activity will be easier
+          if you are using VS Code as your editor). If you are not using VS Code
+          I would recommend creating this folder on your Desktop so it will be
+          easier to find.
         </p>
 
         <p>
           If you are using VS Code as your editor you can open the terminal in
           your open project (ctrl + ~) and it will automatically set the working
-          directory to the open project folder. If you are using some other
-          editor, Open your command line prompt on your computer and navigate to
-          the directory containing the downloaded code. Mac and Windows should
-          start you in your user directory when you open a new command prompt.
-          Or you can type:
+          directory to the open project folder.
         </p>
-        <ul>
-          <li>
-            Mac:
-            <pre><code class="lang-bash">cd ~</code></pre>
-            (tilde) or
-          </li>
-          <li>
-            Windows:
-            <pre><code class="lang-bash">cd %userprofile%</code></pre>
-          </li>
-        </ul>
-
         <p>
-          from anywhere and it will take you back to your user directory. From
-          the User directory you should just need to type
+          If you are using some other editor, Open your command line prompt on
+          your computer and navigate to the directory containing your created
+          directory.
         </p>
-        <pre><code class="lang-bash">cd Desktop</code></pre>
-        then
-        <pre><code class="lang-bash">cd parcel</code></pre>
-        <p>to get to the right place. Then type</p>
+        <div class="callout">
+          <p>
+            Mac and Windows should start you in your user directory when you
+            open a new command prompt. Or you can type:
+          </p>
+          <ul>
+            <li>
+              Mac:
+              <pre><code class="lang-bash">cd ~</code></pre>
+              (tilde) or
+            </li>
+            <li>
+              Windows:
+              <pre><code class="lang-bash">cd %userprofile%</code></pre>
+            </li>
+          </ul>
+
+          <p>
+            from anywhere and it will take you back to your user directory. From
+            the User directory you should just need to type
+          </p>
+          <pre><code class="lang-bash">cd Desktop</code></pre>
+          then
+          <pre><code class="lang-bash">cd parcel</code></pre>
+          <p>to get to the right place.</p>
+        </div>
+        <p>Once you are in the right directory type:</p>
         <pre><code class="lang-bash">npm init -y</code></pre>
         <p>
           This will create a file called <kbd>package.json</kbd>. This file will
@@ -222,7 +230,7 @@
           Install Parcel by typing
           <code>npm install --save-dev parcel</code> (make sure that you are in
           the same directory that the <kbd>package.json</kbd> file is in) in the
-          terminal. This will add Parcel as a development dependancy to our
+          command line. This will add Parcel as a development dependancy to our
           project...a tool that we will use as developers to do our work. You
           should notice that a couple of things changed: first a new folder
           called <kbd>node_modules</kbd> was created, second a new section
@@ -358,8 +366,9 @@ project-name/
 import * as bootstrap from 'bootstrap';
             </code> </pre>
         <p>
-          Those lines will make it possible for our project to use the
-          libraries. Notice that we didn't give much information about
+          Those lines will make it possible for our project to use the dynamic
+          javascript based parts of Bootstrap. Notice that we didn't give much
+          information about
           <em>where</em> the actual files were located...our bundler is smart
           enough to find them as long as they are mentioned in
           <code>package.json</code> and installed in <code>node_modules</code>.

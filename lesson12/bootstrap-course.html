@@ -22,83 +22,52 @@
         <hr />
         <div>
           <p>
-            This week I would like you to complete
+            Please watch and follow along with the
             <a
-              href="https://www.sitepoint.com/premium/courses/building-your-first-website-with-bootstrap-4-2995"
+              href="https://www.youtube.com/watch?v=1nxSE0R27Gg"
               target="_blank"
-              >Building your first website with Bootstrap</a
+              >Getting Started with Bootstrap 5 for Beginners</a
             >
-            course from Sitepoint. The course is quite well done, but we need to
-            make a few adjustments to because of the way we have setup our
-            Bootstrap app and because the course was made using the beta version
-            of the framework and a few things changed.
+            tutorial on Youtube. The video uses some tools that require NodeJS.
+            You should have
+            <a href="../lesson01/l01-software.html">installed</a> that at the
+            beginning of the course.
           </p>
 
           <p>Watch for these things:</p>
           <ul>
             <li>
-              Ignore most of the installation instructions in the course. We
-              will use the
-              <a href="../lesson11/bootstrap.html" target="_blank"
-                >Bootstrap installation</a
-              >
-              you did back in week 4 that used Parcel. Review that to make sure
-              you remember how to use it.
-            </li>
-            <li>
-              In the first lesson below the video there is a link to download
-              the assets for the course. You will want to do this to get the
-              images you will need. Copy the images in the
-              <code>assets</code> folder to a folder called
-              <code>images</code> in your <code>src</code> directory.
-              <strong
-                >You only need the images! You should use the
-                <kbd>index.html</kbd> that is also inside of that
-                <code>parcel/src</code> directory to make your changes in as you
-                complete the course. You should remove everything in the
-                <kbd>body</kbd> element so that you can fill it with the
-                instructions for the Sitepoint course.</strong
+              This video was made using version 1 of Parcel, you will most
+              likely be using version 2. If you get an error that says
+              <kbd>Browser scripts cannot have imports or exports.</kbd> when
+              you try to run Parcel, then you will need to make a change in your
+              script element in the html. In the video he says to use
+              <code>&lt;script src="./index.js"&gt;&lt;/script&gt;</code>,
+              instead you will need
+              <code
+                >&lt;script src="./index.js"
+                type="module"&gt;&lt;/script&gt;</code
               >
             </li>
             <li>
-              Again, in the second lesson <strong>don't</strong> follow the
-              installation instructions. You should use the Bootstrap
-              installation we did in week 4 for this project.
+              If you still have the Bootstrap installation we did earlier in the
+              semester, you can actually just use that for this tutorial...it is
+              basically the same.
             </li>
             <li>
-              To get rid of the extra lines that are being added about things
-              working you can remove everything from the
-              <code>index.js</code> file <strong>below</strong> the
-              <code>@import</code> lines.
+              <strong>Do not</strong> follow the final instructions on hosting.
+              You can end the video at 56:34.
             </li>
             <li>
-              Also in Step 2 and Step 8 the <code>bg-inverse</code> class got
-              renamed to <code>bg-dark</code>
-            </li>
-            <li>
-              In the lesson on Modals he asks you to use a class named
-              <code>.360-modal-md</code>. This is technically invalid css. You
-              are not supposed to start class names with numbers. If you have
-              issues with that part change the name to something like
-              <code>.x360-modal-md</code>
-            </li>
-
-            <li>
-              <p>
-                In the last lesson the course introduces FontAwesome. You could
-                install it as the course recommends with the CDN...or you could
-                use your package manager :) To install it with npm do the
-                following: In the command line (and while in the project folder)
-                type:
-              </p>
-              <pre><code class="lang-bash">npm install font-awesome</code> </pre>
-              <p>
-                then in your <code>assets/scss/styles.scss</code> file add the
-                following lines towards the top:
-              </p>
-              <pre><code class="lang-css">
-$fa-font-path:"../../node_modules/font-awesome/fonts";
-@import "node_modules/font-awesome/scss/font-awesome";</code> </pre>
+              Download the
+              <a
+                href="https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbE9BVmtORURubnpoNXVNWkZuUVJOS1VtTjRyQXxBQ3Jtc0tuX3VkUkplNUpXZUNYeC1pN3VMeXlwV3RJQ3ltRWVSYXUyVmtzX01kdVpZWDFKTlUtS25UNXhtTGRKT0ZKaDZteFRxVDRndV9WUlB2cTZwR0pMQ3h1TklJTGkxOXJlNFFGQWV0dlJPY29NbzJJWUlORQ&q=https%3A%2F%2Fcoursetro.s3.amazonaws.com%2Fbuild.zip"
+                >files for the tutorial</a
+              >. You will need to do this to get the images used. Unzip the
+              download, then copy the images to the <code>assets</code> folder
+              you will be asked to make as you follow along with the
+              instructions. Ignore the other files unless you get stuck and
+              something is not working.
             </li>
           </ul>
         </div>
@@ -110,101 +79,146 @@ $fa-font-path:"../../node_modules/font-awesome/fonts";
             The code looked like this:
           </p>
           <pre><code class="lang-markup">
-&lt;div class="sectionLight"&gt;
-  &lt;div class="row"&gt;
-      &lt;div class="col-sm-12 col-lg-4"&gt;
-        &lt;img src="images/kickflip.jpg" alt="" class="img-fluid imgCenter"&gt;
-          &lt;div class="row"&gt;
-            &lt;div class="col-sm-12"&gt;&lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;Kickflip&lt;/button&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="col-sm-12 col-lg-4"&gt;
-        &lt;img src="images/360flip.jpg" alt="" class="img-fluid imgCenter"&gt;
-          &lt;div class="row"&gt;
-            &lt;div class="col-sm-12"&gt;
-              &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;360 Flip&lt;/button&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div class="col-sm-12 col-lg-4"&gt;
-        &lt;img src="images/bscrook.jpg" alt="" class="img-fluid imgCenter"&gt;
-          &lt;div class="row"&gt;
-            &lt;div class="col-sm-12"&gt;&lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;BS Crook&lt;/button&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-      &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+&lt;div class="mt-5 row"&gt;
+    &lt;div class="col-sm"&gt;
+        &lt;div class="card"&gt;
+        &lt;img
+            src="building1.ddf65f44.jpg"
+            class="card-img-top"
+            alt="Large building"
+        /&gt;
+        &lt;div class="card-body p-4 rounded-bottom"&gt;
+            &lt;h5 class="card-title fw-bold"&gt;Card title&lt;/h5&gt;
+            &lt;p class="card-text"&gt;
+            Some quick example text to build on the card title and make up
+            the bulk of the card's content.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm"&gt;
+        &lt;div class="card"&gt;
+        &lt;img
+            src="building2.67c5fb0d.jpg"
+            class="card-img-top"
+            alt="Large building"
+        /&gt;
+        &lt;div class="card-body p-4 rounded-bottom"&gt;
+            &lt;h5 class="card-title fw-bold"&gt;Card title&lt;/h5&gt;
+            &lt;p class="card-text"&gt;
+            Some quick example text to build on the card title and make up
+            the bulk of the card's content.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-sm"&gt;
+        &lt;div class="card"&gt;
+        &lt;img
+            src="building3.fda5fb6f.jpg"
+            class="card-img-top"
+            alt="Large building"
+        /&gt;
+        &lt;div class="card-body p-4 rounded-bottom"&gt;
+            &lt;h5 class="card-title fw-bold"&gt;Card title&lt;/h5&gt;
+            &lt;p class="card-text"&gt;
+            Some quick example text to build on the card title and make up
+            the bulk of the card's content.
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
         </code></pre>
           <p>
-            That is 993 characters of html, plus 11 lines of custom CSS...but
-            it's not the only way to use Bootstrap to accomplish that layout.
-            You also have some
-            <a
-              href="https://getbootstrap.com/docs/4.0/utilities/flex/"
-              target="_blank"
-              >Flexbox utility classes</a
-            >
-            you can use instead. Let's see what it would look like using those.
+            That is 1350 characters of html, plus Bootstrap (up to 150Kb of css
+            plus Javascript) plus a few lines of custom CSS...but what if we
+            coded it up by hand?
           </p>
+
           <pre><code class="lang-markup">
-&lt;div class="sectionLight d-flex flex-row flex-wrap justify-content-around"&gt;
-  &lt;div class="p-2 d-flex flex-column align-items-center"&gt;
-    &lt;img src="images/kickflip.jpg" alt="" class="img-fluid"&gt;
-    &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;Kick Flip&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="p-2 d-flex flex-column align-items-center"&gt;
-    &lt;img src="images/360flip.jpg" alt="" class="img-fluid"&gt;
-    &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;360 Flip&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="p-2 d-flex flex-column align-items-center"&gt;
-    &lt;img src="images/bscrook.jpg" alt="" class="img-fluid"&gt;
-    &lt;button type="button" class="btn btn-lg btn-danger btnCenter"&gt;BS Crook&lt;/button&gt;
-  &lt;/div&gt;
+&lt;div class="interestBoxes"&gt;
+&lt;div class="card"&gt;
+    &lt;img
+    src="building1.ddf65f44.jpg"
+    class="card__img"
+    alt="Large building"
+    /&gt;
+    &lt;div class="card__body"&gt;
+    &lt;h5&gt;Card title&lt;/h5&gt;
+    &lt;p&gt;
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.
+    &lt;/p&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
-        </code></pre>
-          <p>
-            This weighs in at 717 characters of html and 7 lines of custom
-            CSS...a 30% reduction. Not bad...but what if we were to hand code
-            this same section:
-          </p>
-          <pre><code class="lang-markup">
-&lt;div class="sectionLight interestBoxes"&gt;
-  &lt;div&gt;
-    &lt;img src="images/kickflip.jpg" alt="" class="img-fluid"&gt;
-    &lt;button type="button" class="btn btn-lg btn-danger"&gt;Kick Flip&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;img src="images/360flip.jpg" alt="" class="img-fluid"&gt;
-    &lt;button type="button" class="btn btn-lg btn-danger"&gt;360 Flip&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div&gt;
-    &lt;img src="images/bscrook.jpg" alt="" class="img-fluid"&gt;
-    &lt;button type="button" class="btn btn-lg btn-danger"&gt;BS Crook&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;       
+&lt;div class="card"&gt;
+    &lt;img
+    src="building2.67c5fb0d.jpg"
+    class="card__img"
+    alt="Large building"
+    /&gt;
+    &lt;div class="card__body"&gt;
+    &lt;h5&gt;Card title&lt;/h5&gt;
+    &lt;p&gt;
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="card"&gt;
+    &lt;img
+    src="building3.fda5fb6f.jpg"
+    class="card__img"
+    alt="Large building"
+    /&gt;
+    &lt;div class="card__body"&gt;
+    &lt;h5&gt;Card title&lt;/h5&gt;
+    &lt;p&gt;
+        Some quick example text to build on the card title and make up the
+        bulk of the card's content.
+    &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
         </code></pre>
           <pre><code class="lang-css">
-.interestBoxes {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  > div {
+.card {
+    border-radius: calc(0.25 rem - 1 px); /* this is what bootstrap used */
+    overflow: hidden;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    > button {
-      display: block;
-      width: 100%;
-      margin-bottom: 1em;
+    &__img {
+        object-fit: cover;
+        aspect-ratio: 1/0.7;
+        max-width: 100%;
     }
-  }
+    &__body {
+        background-color: #2e2e2e;
+        padding: 1.5em;
+        & > h5 {
+            font-weight: bold;
+        }
+        & > p {
+            color: #c2c2c2;
+        }
+    }
 }
+    @media screen and (min-width: 575px) {
+    .interestBoxes {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5em;
+        justify-content: space-around;
+    }
+    }
+
         </code></pre>
           <p>
-            This brought us down to 502 characters of HTML (almost 50%
-            reduction) and about 14 lines of SCSS!
+            This simplified our HTML a bit and brought us down to ~1000
+            characters of HTML (almost 25% reduction) and only 29 total lines of
+            SCSS!
           </p>
           <p>
             Libraries like Bootstrap can be very useful, and speed up the

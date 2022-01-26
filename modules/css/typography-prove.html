@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>CSS Module: Applying typographic principles.</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            Imagine you have been asked to help move a printed textbook online.
+            You are provided with a text file that contains the
+            <a href="../examples/lpic-page126.txt">text from an example page</a
+            >, and an image of that page in the textbook. (see below)
+          </p>
+          <div class="fig-block">
+            <figure>
+              <img
+                src="../../images/lpic-pg126.jpeg"
+                alt="sample textbook page"
+              />
+            </figure>
+          </div>
+        </div>
+        <h2>Activity</h2>
+        <p>
+          This activity will have convert the provided text file to semantic
+          HTML, and then produce the CSS (or SCSS) to format it in an attractive
+          and readable way while still honoring the layout and look and feel
+          from the printed page.
+        </p>
+
+        <ol class="bigSteps">
+          <li>
+            <!-- Start step -->
+            <h3>HTML</h3>
+            <p>
+              Convert the
+              <a href="../examples/lpic-page126.txt">provided text </a> from the
+              book into well structured semantic HTML. Pay attention to the
+              image to see which text will need to be emphasized in some way.
+              Make sure your HTML allows for this.
+            </p>
+            <p>
+              Keep in mind re-usability as well as you structure your markup. We
+              hope to write as few CSS rules as possible, and re-use as many as
+              we can to accomplish the styling.
+            </p>
+          </li>
+          <li>
+            <!-- Start step -->
+            <h3>CSS</h3>
+            <p>
+              Style the text. Refer to the image often, and make sure to keep in
+              mind the principles introduced in the prepare and ponder portions
+              of this module. (ie measure, flow, scale, whitespace, etc)
+            </p>
+            <p>
+              If you look closely at the image, you will see several different
+              font stylings going on. We have san-serif, serif, mono-spaced,
+              bold, and italics. Normally you would require multiple font faces
+              to accomplish this. If we want to use custom fonts this could add
+              up to 5-6 different font files to load!
+            </p>
+            <p>
+              For this activity we are going to try and represent all of the
+              different font stylings using one font. This will be much easier
+              if you use a variable font such as the
+              <a href="https://www.recursive.design/">Recursive font</a>
+              used earlier in the Ponder activity for this activity.
+            </p>
+            <p class="callout">
+              Variable fonts are cool, and seeing lots of attention
+              currently...but they are not always the right answer. This
+              activity could certainly be accomplished without a variable font.
+              You are asked to use one primarily to get more practice at using
+              them.
+            </p>
+          </li>
+
+          <li>
+            <!-- Start step -->
+            <h3>Alert</h3>
+            <p>
+              For the Alert graphics you can start by just surrounding the word
+              'Alert' with a round border. We can do more however. Spend some
+              time to experiment with other things. You could either see how
+              close you can get with CSS to the image in the book, or come up
+              with your own version that accomplishes the same thing...to draw
+              attention to something important! In this case a tip to help the
+              reader do better on the exam that the book is preparing them for.
+            </p>
+          </li>
+        </ol>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+  </body>
+</html>

@@ -83,13 +83,13 @@
           <li>
             <!-- Step Start -->
             <h3>Begin a Styleguide/pattern library</h3>
-            <p>
+            <!-- <p>
               You should complete the
               <a href="../tech_scss.html" target="_blank"
                 >Preprocessors Module</a
               >
               before continuing.
-            </p>
+            </p> -->
             <p>
               Begin your styleguide by creating a few scss files. Let's create
               one for <code>atoms</code>, one for <code>molecules</code>, and
@@ -174,15 +174,69 @@
               assignment you might find that more SCSS modules will make your
               job easier than just one or two.
             </p>
+            <div class="callout">
+              <h3>Re-use</h3>
+              <p>
+                If you download the code for the example above and open it up in
+                your editor you will see several sass partials, then two sets of
+                .html and .scss files.
+              </p>
+              <ul>
+                <li>
+                  <kbd>pattern.html</kbd> and <kbd>style-pattern.scss</kbd> are
+                  the files that build and style the style-guide page. You might
+                  change pattern.html to add or remove elements that you want to
+                  show styles for. You may also need to make a few changes to
+                  style-pattern.scss.
+                </li>
+                <li>
+                  <kbd>index.html</kbd> is the HTML for the actual Zen Garden
+                  site. <kbd>style.scss</kbd> is linked to that file.
+                </li>
+                <li>
+                  <kbd>_variables.scss</kbd>, <kbd>_atoms.scss</kbd> are where
+                  you would make most of the changes to convert this code to
+                  your styles. Feel free to change as much as you need those
+                  files. In some cases after you review them it might be easiest
+                  to just remove all the contents and start fresh.
+                </li>
+                <li>
+                  Note the use of mixins to make it easy to apply certain styles
+                  in different situations...
+                </li>
+              </ul>
+              <p>
+                To see how we could re-use the work we do on a styleguide try
+                this:
+              </p>
+              <ol>
+                <li>
+                  Compile <kbd>styles.scss</kbd>, then open
+                  <kbd>index.html</kbd> in your browser.
+                </li>
+                <li>Note that there are few styles applied.</li>
+                <li>
+                  Uncomment the line <kbd>@use "atoms";</kbd>, re-compile the
+                  scss, then check out what changed in the browser. Do you see
+                  what a difference getting the global styles (Atoms) applied
+                  can make?
+                </li>
+                <li>
+                  Uncomment the line <kbd>@use "molecules";</kbd>, re-compile
+                  the scss, then check out what changed in the browser. Look at
+                  the contents of the <kbd>_molecules.scss</kbd> file. See how
+                  it is able to leverage the mixins and other styles in the
+                  <kbd>_atoms.scss</kbd>? What do you think?
+                </li>
+              </ol>
+            </div>
             <!-- Step End -->
           </li>
         </ol>
 
         <h2>Grading</h2>
         <ul>
-          <li>
-            At least three SCSS modules created.
-          </li>
+          <li>At least three SCSS modules created.</li>
           <li>SCSS compiles without errors.</li>
           <li>Principles of Atomic design have been applied.</li>
           <li>

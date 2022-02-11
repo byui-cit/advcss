@@ -1,70 +1,205 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-    <meta charset="utf-8">
-	<title>BYU-Idaho - CIT 301b - Advanced CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-<!--	<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
-<link rel="stylesheet" href="../css/course.css">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - CIT 301b - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-</head>
-<body>
-<div id="main" >
-<!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
-<div id="header"><img src="../images/smallBanner.jpg" alt="Course Banner" /></div>
-<div id="article">
-			<h1>CSS Zen Garden Introduction</h1>
-    <div class="callout">
-    <p>The <a href="http://csszengarden.com" target="_blank">Css Zen Garden</a> is a project started over 10 years ago to show the power and potential of CSS in web design.  It's premise was simple: if you take a single html file, how many different ways could it be styled <em>without modifying the html</em>.</p>
-<p>Over the course of the semester we will be creating our own versions of the Zen Garden as a group project.</p>
-   <p>You may want to read through and apply these tips on <a href="../resources/working-with-groups.html" target="_blank">working with groups</a> as you start working on this project.</p>
-    </div>
-<h2>Activity</h2>
-<p><span class="highlight">Step 1</span>: &nbsp;
-    One of the things that you will notice about the good Zen Garden submissions is that they have a theme.  Some idea that they build around.  This is your first task as a group is to determine what theme your version will have.  Pick something that you will get excited about working with.</p>
-    <p><span class="highlight">Step 2</span>: &nbsp; After choosing your theme you should also spend some time this week familiarizing yourselves with the content of the Zen Garden.  Download the <a href="http://csszengarden.com/examples/index" target="_blank">html</a> and <a href="http://csszengarden.com/examples/style.css" target="_blank">starter css</a> and review it un-styled.  Then look through 10-15 examples of what others have done.</p>
+    <!--	<link rel="stylesheet" href="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.css">-->
+    <link rel="stylesheet" href="../css/course.css" />
+  </head>
+  <body>
+    <div id="main">
+      <!--<div id="header"><img src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/smallBanner.jpg" alt="Course Banner" /></div>-->
+      <div id="header">
+        <img src="../images/smallBanner.jpg" alt="Course Banner" />
+      </div>
+      <div id="article">
+        <h1>CSS Zen Garden Introduction</h1>
+        <div class="callout">
+          <p>
+            The
+            <a href="http://csszengarden.com" target="_blank">Css Zen Garden</a>
+            is a project started over 10 years ago to show the power and
+            potential of CSS in web design. It's premise was simple: if you take
+            a single html file, how many different ways could it be styled
+            <em>without modifying the html</em>.
+          </p>
+          <p>
+            Over the course of the semester we will be creating our own versions
+            of the Zen Garden as a group project.
+          </p>
+          <p>
+            You may want to read through and apply these tips on
+            <a href="../resources/working-with-groups.html" target="_blank"
+              >working with groups</a
+            >
+            as you start working on this project.
+          </p>
+        </div>
+        <h2>Activity</h2>
+        <p>
+          <span class="highlight">Step 1</span>: &nbsp; One of the things that
+          you will notice about the good Zen Garden submissions is that they
+          have a theme. Some idea that they build around. This is your first
+          task as a group is to determine what theme your version will have.
+          Pick something that you will get excited about working with.
+        </p>
+        <p>
+          <span class="highlight">Step 2</span>: &nbsp; After choosing your
+          theme you should also spend some time this week familiarizing
+          yourselves with the content of the Zen Garden. Download the
+          <a href="../resources/zen/index.html" target="_blank">html</a> and
+          review it un-styled. Then look through 10-15 examples of what others
+          have done.
+        </p>
 
-    <p><span class="highlight">Step 3</span>: &nbsp; With your theme in mind, and the content, your third task this week is to produce wireframes for your design.  Keep in mind a few restrictions that I am placing on you however:</p>
-<ol>
-    <li>You need to follow the Zen Garden guidelines. They are all outlined in the content on the page (You read that right?)  You must have rights to any media you use.  I would actually recommend that you try and produce all your graphics with either CSS or SVG. (This means don’t spend a lot of time creating art.  Keep it simple). Remember also that you are not allowed to modify the html…so any imagery you add has to be in the css.</li>
-    <li>This should represent your <em>best</em> work and should try to incorporate many of the topics studied the semester. A minimal effort here will not get top scores.</li>
-    <li>The Zen Garden guidelines do not require responsiveness,  I do. Your final product must be responsive.</li>
-    <li>All the CSS must be your own work.  Libraries are great at times…but this is not one of them.</li>
-</ol>
-<div class="callout">
-    <p>If you are worried about #1, here are a few examples of some versions that keep the art simple and yet are very effective.</p>
-    <ul>
-        
-        <li><a href="http://csszengarden.com/217/" target="_blank">Screen filler</a></li>
-    <li><a href="http://csszengarden.com/221/" target="_blank">Mid Century Modern</a></li>
-    <li><a href="http://csszengarden.com/211/" target="_blank">Orchid Beauty</a></li>
-        <li><a href="http://csszengarden.com/209/page1/" target="_blank">CSS Co., Ltd.</a></li>
-    <li><a href="http://csszengarden.com/206/" target="_blank">A Walk in the Garden</a></li>
-    <li><a href="http://csszengarden.com/205/" target="_blank">Spring 360</a></li>
-    <li><a href="http://csszengarden.com/203/" target="_blank">Tiny Blue</a></li>
-    <li><a href="http://csszengarden.com/196/" target="_blank">Elegance in Simplicity</a></li>
-    <li><a href="http://csszengarden.com/173/" target="_blank">Red Stars</a></li>
-    </ul>
+        <p>
+          <span class="highlight">Step 3</span>: &nbsp; With your theme in mind,
+          and the content, your third task this week is to produce wireframes
+          for your design. Keep in mind a few restrictions that I am placing on
+          you however:
+        </p>
+        <ol>
+          <li>
+            You need to follow the Zen Garden guidelines. They are all outlined
+            in the content on the page (You read that right?) You must have
+            rights to any media you use. I would actually recommend that you try
+            and produce all your graphics with either CSS or SVG. (This means
+            don’t spend a lot of time creating art. Keep it simple). Remember
+            also that you are not allowed to modify the html…so any imagery you
+            add has to be in the css.
+          </li>
+          <li>
+            This should represent your <em>best</em> work and should try to
+            incorporate many of the topics studied the semester. A minimal
+            effort here will not get top scores.
+          </li>
+          <li>
+            The Zen Garden guidelines do not require responsiveness, I do. Your
+            final product must be responsive.
+          </li>
+          <li>
+            All the CSS must be your own work. Libraries are great at times…but
+            this is not one of them.
+          </li>
+        </ol>
+        <div class="callout">
+          <p>
+            If you are worried about #1, here are a few examples of some
+            versions that keep the art simple and yet are very effective.
+          </p>
+          <ul>
+            <li>
+              <a href="http://csszengarden.com/217/" target="_blank"
+                >Screen filler</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/221/" target="_blank"
+                >Mid Century Modern</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/211/" target="_blank"
+                >Orchid Beauty</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/209/page1/" target="_blank"
+                >CSS Co., Ltd.</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/206/" target="_blank"
+                >A Walk in the Garden</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/205/" target="_blank"
+                >Spring 360</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/203/" target="_blank"
+                >Tiny Blue</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/196/" target="_blank"
+                >Elegance in Simplicity</a
+              >
+            </li>
+            <li>
+              <a href="http://csszengarden.com/173/" target="_blank"
+                >Red Stars</a
+              >
+            </li>
+          </ul>
+        </div>
+        <p>
+          <span class="highlight">Step 4</span>: &nbsp; After choosing your
+          theme and reviewing the guidelines and a few examples your next task
+          is to produce wireframes. You should have a minimum of 2: a large
+          screen version and a small screen version. I recommend layout out your
+          wireframes using the principle of grids. See this:
+          <a href="http://www.sitepoint.com/grid-theory/" target="_blank"
+            >Grid Theory</a
+          >
+          for more details on what that is.
+        </p>
+        <p class="callout">
+          There are dozens of tools you can use to produce wireframe. I don't
+          have a strong opinion about what you use to produce yours. Image
+          editors if you have access can do a good job, online tools like
+          <a href="http://wireframe.cc" target="_blank">wireframe.cc</a> and
+          others are free and specifically for this. I've even seen wireframes
+          produced in presentation software (ie Powerpoint, Keynote). My only
+          requirement is that you can get it to me as a .png, .jpg, or .pdf.
+        </p>
+        <p>
+          Since we have all of the actual content it would be a shame to not
+          take advantage of it. It will allow you to save the right amount of
+          space for each section and to make sure that each section is accounted
+          for.
+          <strong
+            >Include the actual text and headlines for the site in your
+            wireframes</strong
+          >.
+        </p>
+        <p>
+          <span class="highlight">Step 4</span>: &nbsp; Once done one person in
+          the group should submit a document (.txt, .doc, or .html) that
+          contains the following:
+        </p>
+        <ol>
+          <li>The names of all members of the group,</li>
+          <li>
+            a description of the theme you have chosen and ideas about how you
+            will incorporate it into your design,
+          </li>
+          <li>
+            and images of at least 2 wireframes. (If you have used something
+            like wireframe.cc that you can share a link with...you can just add
+            the link instead of a file to your wireframes)
+          </li>
+        </ol>
+        <h2>Grading</h2>
+        <ul>
+          <li>
+            Theme outlined and thought seems to have been given about the
+            implementation of the theme. 10pts
+          </li>
+          <li>At least 2 wireframes included. 4pts</li>
+          <li>
+            Wireframes take into account all of the content from the Zen Garden
+            html file. 10pts
+          </li>
+        </ul>
+      </div>
+      <!-- end #article -->
     </div>
-    <p><span class="highlight">Step 4</span>: &nbsp; After choosing your theme and reviewing the guidelines and a few examples your next task is to produce wireframes.  You should have a minimum of 2: a large screen version and a small screen version. I recommend layout out your wireframes using the principle of grids.  See this: <a href="http://www.sitepoint.com/grid-theory/" target="_blank">Grid Theory</a> for more details on what that is. </p>
-    <p class="callout">There are dozens of tools you can use to produce wireframe.  I don't have a strong opinion about what you use to produce yours. Image editors if you have access can do a good job, online tools like <a href="http://wireframe.cc" target="_blank">wireframe.cc</a> and others are free and specifically for this.  I've even seen wireframes produced in presentation software (ie Powerpoint, Keynote). My only requirement is that you can get it to me as a .png, .jpg, or .pdf.</p>
-    <p>Since we have all of the actual content it would be a shame to not take advantage of it.  It will allow you to save the right amount of space for each section and to make sure that each section is accounted for.  <strong>Include the actual text and headlines for the site in your wireframes</strong>.</p>
-    <p><span class="highlight">Step 4</span>: &nbsp; Once done one person in the group should submit a document (.txt, .doc, or .html) that contains the following:</p>
-    <ol>
-        <li>The names of all members of the group,</li>
-        <li>a description of the theme you have chosen and ideas about how you will incorporate it into your design,</li>
-        <li>and images of at least 2 wireframes. (If you have used something like wireframe.cc that you can share a link with...you can just add the link instead of a file to your wireframes)</li>
-    </ol>
-    <h2>Grading</h2>
-    <ul>
-        <li>Theme outlined and thought seems to have been given about the implementation of the theme.  10pts</li>
-        <li>At least 2 wireframes included. 4pts</li>
-        <li>Wireframes take into account all of the content from the Zen Garden html file.  10pts</li>
-    </ul>
-		</div><!-- end #article -->
-	</div>
-<!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
-<script src="../js/course.js"></script>
-</body>
+    <!--<script src="/content/enforced/28798-Online.Reference.CIT301B/Web%20Files/course.js"></script>-->
+    <script src="../js/course.js"></script>
+  </body>
 </html>

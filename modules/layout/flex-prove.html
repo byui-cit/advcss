@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Creating a tiled media gallary</h1>
+
+        <hr />
+        <p>
+          Pinterest really popularized the tiled media layout. One of the
+          challenges with Pinterest is that they don't have control over what
+          size the card will be. Or rather they gave up some control. They do
+          constrain the width, but the height can vary. This activity will have
+          you use Flexbox to create a tiled layout in both a row and a column.
+        </p>
+
+        <h2>Instructions</h2>
+
+        <ol class="bigSteps">
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Grab the starter code.</h3>
+            <p>
+              Download this
+              <a href="../examples/card-layout/Archive.zip" target="_blank"
+                >starter code</a
+              >
+              and open it in your editor. It contains a bit of Javascript to
+              randomly generate a bunch of different sized media elements. Note
+              that there are two sets...the first
+              <code>class="row-grid"</code> will all have the same height. The
+              second <code>class="col-grid"</code> should all have the same
+              width.
+            </p>
+            <p>
+              Everytime you refresh the page you will get a different set of
+              cards.
+            </p>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Style the row grid</h3>
+            <p>Use flexbox to style the row-grid to match the example below.</p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../../images/flex-prove-row.jpeg"
+                  alt="image of a row based tiled layout"
+                />
+              </figure>
+            </div>
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Style the col grid</h3>
+            <p>Use flexbox to style the col-grid to match the example below.</p>
+            <div class="fig-block">
+              <figure>
+                <img
+                  src="../../images/flex-prove-column.jpeg"
+                  alt="image of a column based tiled layout"
+                />
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Grading</h2>
+        <ul>
+          <li>Row and column layouts are styled similar to the screenshots.</li>
+          <li>Layouts are done with Flexbox.</li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

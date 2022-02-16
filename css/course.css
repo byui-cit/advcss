@@ -11,9 +11,14 @@
 html {
   background: -webkit-radial-gradient(ellipse, #3d8095 0%, #15485f 100%) fixed;
   background: radial-gradient(ellipse, #3d8095 0%, #15485f 100%) fixed;
+  font-size: 18px;
 }
 img {
   max-width: 100%;
+}
+p,
+li {
+  line-height: 1.5;
 }
 h1 {
   color: #333333;

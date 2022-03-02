@@ -18,7 +18,7 @@
         </div>
       </header>
       <main>
-        <h1>Layout: (Re)build a real site</h1>
+        <h1>Layout: (Re)build a real site 1: part A</h1>
 
         <hr />
         <div class="callout">
@@ -210,10 +210,48 @@
             <!-- BEGIN STEP -->
             <h3>Component Design</h3>
             <p>
-              Continue your work on this site by building the three components
-              discussed above. Write the HTML first for one of each of the three
-              components, then style them. Have a goal of keeping your HTML
-              markup as simple as possible, while focusing on re-use.
+              Continue your work on this site by writing the HTML for the three
+              components discussed above. Have a goal of keeping your HTML
+              markup as simple as possible, while focusing on re-use by adding
+              classes to each one. Something like
+              <a href="http://getbem.com/introduction/">BEM</a> would work great
+              here to help you to intelligently name your classes.
+            </p>
+            <p>
+              Ideally you should be able to take the HTML you wrote for one of
+              the components, copy/paste it and replace the content (text and/or
+              image src) while leaving the HTML and CSS the same. Sometimes you
+              will have slight changes to one instace of a module, in that case
+              you might have a modifier class or two.
+            </p>
+            <p>
+              For example there are two versions of the list of links...one with
+              a a grey header , and one with blue header. The rest of the
+              styling is the same...so you might do something like this with
+              your SCSS:
+            </p>
+            <pre><code class="lang-css">
+.list-links {
+    &__header {
+      // base styling for the component...with grey header.
+      &--blue {
+        // code to change the header to be blue
+      }
+    }
+}
+</code></pre>
+            <p>(This would compile to this:)</p>
+            <pre><code class="lang-css">
+  .list-links__header {
+       // base styling for the component...with grey header.
+  }
+  .list-links__header--blue {
+          // code to change the header to be blue
+  }
+  </code></pre>
+            <p>
+              Add the additional class to the appropriate instance of your
+              component.
             </p>
 
             <!-- END STEP -->
@@ -221,66 +259,36 @@
 
           <li>
             <!-- BEGIN STEP -->
-            <h3>Mobile Layout</h3>
+            <h3>Finish the HTML</h3>
             <p>
-              Once you have your components built and styled, write the rest of
-              the HTML for the page to account for all of the content. Re-use
+              Once you have the HTML for your components built, write the rest
+              of the HTML for the page to account for all of the content. Re-use
               the component code as appropriate. You should use the images and
               text currently on the site.
             </p>
-            <p>Then begin your styling for the mobile layout.</p>
-            <p class="callout">
-              As you are building and styling your page, it is ok to look at the
-              existing page source to get ideas about how it was built. Resist
-              the tempation to copy and paste anything from the actual page
-              however. You will learn much more from this activity if you write
-              all of the code yourself!
-            </p>
 
             <!-- END STEP -->
           </li>
           <li>
             <!-- BEGIN STEP -->
-            <h5>Desktop Layout</h5>
+            <h5>Check your site with the WAVE tool</h5>
             <p>
-              Once you have the mobile layout done continue on to the desktop.
+              Once you have the HTML written, run your page through the
+              <a href="https://wave.webaim.org">WAVE tool</a> to see if it finds
+              any serious issues with the accessibility of your HTML. Fix your
+              errors.
             </p>
-            <div class="callout">
-              <p>
-                If the desktop layout is giving you troubles here is a
-                <a href="../../images/byui-home-grid.jpg" target="_blank"
-                  >screenshot of the grid for my version of this assignment</a
-                >. AFTER you have tried to do it on your own feel free to look
-                at how I setup my grid to accomodate the University Message box
-                that is in different positions on mobile and desktop.
-              </p>
-            </div>
 
-            <!-- END STEP -->
-          </li>
-          <li>
-            <!-- BEGIN STEP -->
-            <h3>Submit</h3>
-            <p>Upload your HTML and SCSS (zip it up) to iLearn.</p>
             <!-- END STEP -->
           </li>
         </ol>
-        <h2>Grading</h2>
+        <h2>Rubric</h2>
         <ul>
           <li>
-            BYU-Idaho Home page re-created. (Everything but with the simplified
-            navigation bar and no footer.)
+            HTML for the BYU-Idaho Home page re-created. (Everything but with
+            the simplified navigation bar and no footer.)
           </li>
-          <li>Site is styled with SCSS and is responsive.</li>
-          <li>
-            Attention paid to detail (Pixel perfect replication is not required
-            here. It should be close but we don't have the time to make it
-            exact.
-            <!-- <a href="../../images/byui-home-desktop-example.jpg" target="_blank"
-              >Here is an example</a
-            >
-            to compare yours to).  -->
-          </li>
+          <li>Attention paid to Accessibility</li>
         </ul>
       </main>
       <!-- end #article -->

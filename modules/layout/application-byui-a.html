@@ -43,6 +43,15 @@
           </p>
         </div>
         <h2>Activity</h2>
+        <p>
+          This is a two part activity that will span two weeks. This week will
+          focus on writing good HTML for a webpage. Thought should be given to
+          accessibility, semantics, and reusability. You should include classes
+          on your html elements, but we will not be writing any of the CSS for
+          the page this week. It will be done in
+          <a href="application-byui-b.html">Part B</a> of this activity. You
+          should really plan on doing part B immediately following this part.
+        </p>
         <ol class="bigSteps">
           <li>
             <!-- BEGIN STEP -->
@@ -185,7 +194,7 @@
               particular version of that rule was borrowed from Bootstrap)
             </p>
             <p>
-              As you write your HTML pay attention to accessability! If there
+              As you write your HTML pay attention to accessibility! If there
               are any elements that cannot be understood as read...add some
               <code>sr-only</code> notes to help visitors out. These elements
               can likewise be removed from the screen reader's queue with the
@@ -224,35 +233,60 @@
               will have slight changes to one instance of a module, in that case
               you might have a modifier class or two.
             </p>
-            <p>
-              For example there are two versions of the list of links...one with
-              a a grey header , and one with blue header. The rest of the
-              styling is the same...so you might do something like this with
-              your SCSS:
-            </p>
-            <pre><code class="lang-css">
+            <div class="callout">
+              <h3>Modifier classes according to BEM</h3>
+              <p>
+                It was encouraged earlier that you use a name convention like
+                BEM for this assignment. If you have not been introduced to it
+                before, please stop and go read the linked introduction above.
+                BEM stands for Block, Element, Modifier. In our case we can
+                consider each of the components discussed above as blocks. The
+                blocks or components are made up of parts: elements. Slight
+                differences in components would be accomplished with Modifiers.
+              </p>
+              <p>
+                For example there are two versions of the list of links...one
+                with a a grey header , and one with blue header. The rest of the
+                styling is the same. A good class name for the list of links
+                component might be <code>.list-links</code>. Each list has a
+                header as part of it. That element would be represented by
+                something like this: <code>.list-links__header</code>. We might
+                decide that the grey version of the header is the default, so if
+                we wanted it to be blue sometimes we might add a class like
+                this: <code>.list-links__header--blue</code>
+              </p>
+              <p>
+                Next week when you start writing the SCSS to style the site that
+                could be represented like this:
+              </p>
+              <pre><code class="lang-css">
 .list-links {
+  // base styles for the component
     &__header {
-      // base styling for the component...with grey header.
+      // base styling for the header element...with grey header.
       &--blue {
         // code to change the header to be blue
       }
     }
 }
 </code></pre>
-            <p>(This would compile to this:)</p>
-            <pre><code class="lang-css">
+              <p>(This would compile to this:)</p>
+              <pre><code class="lang-css">
+  .list-links {
+    // base styles for the component
+  }              
   .list-links__header {
-       // base styling for the component...with grey header.
+       // base styling for the header element...with grey header.
   }
   .list-links__header--blue {
           // code to change the header to be blue
   }
   </code></pre>
-            <p>
-              Add the additional class to the appropriate instance of your
-              component.
-            </p>
+              <p>
+                Add the additional class to the appropriate instance of your
+                component.
+              </p>
+            </div>
 
             <!-- END STEP -->
           </li>
@@ -265,6 +299,14 @@
               of the HTML for the page to account for all of the content. Re-use
               the component code as appropriate. You should use the images and
               text currently on the site.
+            </p>
+            <p>
+              You should add classes as you feel necessary (again use some sort
+              of naming system like BEM), but you do not need to write any of
+              the SCSS this week (unless you want to work ahead). You will most
+              likely end up modifying the classes (adding and removing) you add
+              this week when you do start styling...that is expected and
+              perfectly fine.
             </p>
             <div class="callout">
               <p>

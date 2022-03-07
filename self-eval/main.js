@@ -1,3 +1,4 @@
+let time = "midterm";
 const outcomes = [
   {
     shortCode: "learn",
@@ -39,10 +40,21 @@ function getScores(outcome) {
   });
 }
 function getOutcomes() {
-  const learn = document.querySelectorAll("[name |=learn]");
-  const css = document.querySelectorAll("[name |=css]");
-  const scss = document.querySelectorAll("[name |=scss]");
-  const group = document.querySelectorAll("[name |=group]");
+  let learn = {},
+    css = {},
+    scss = {},
+    group = {};
+  if (time == "midterm") {
+    learn = document.querySelectorAll("[name *=learn-]");
+    css = document.querySelectorAll("[name *=css-]");
+    scss = document.querySelectorAll("[name *=pre-]");
+    group = document.querySelectorAll("[name *=group-]");
+  } else {
+    learn = document.querySelectorAll("[name =learn]");
+    css = document.querySelectorAll("[name =css]");
+    scss = document.querySelectorAll("[name =pre]");
+    group = document.querySelectorAll("[name =group]");
+  }
 
   const data = {};
   data.learn = getScores(learn);
@@ -92,7 +104,7 @@ function outputScores(data, time) {
   } else {
     html += `<tr>
     <td>Overall</td>
-    <td>${data.overall}</td>
+    <td>${data.overall}: ${data.grade}</td>
   </tr>
 </table>`;
   }
@@ -100,7 +112,28 @@ function outputScores(data, time) {
   outputElement.innerHTML = html;
   console.log(data);
 }
-
+function convertToGrade(avg) {
+  if (avg >= 3.6) {
+    return "A";
+  }
+  if (avg >= 3.4) {
+    return "A-";
+  }
+  if (avg >= 3.1) {
+    return "B+";
+  }
+  if (avg >= 2.7) {
+    return "B";
+  }
+  if (avg >= 2.5) {
+    return "B-";
+  }
+  if (avg >= 1.5) {
+    return "C";
+  } else {
+    return "F";
+  }
+}
 function processForm(e) {
   e.preventDefault();
 
@@ -113,7 +146,22 @@ function processForm(e) {
       parseFloat(data.scss.avg) +
       parseFloat(data.group.avg)) /
     4;
+  data.grade = convertToGrade(data.overall);
   outputScores(data, time);
 }
+function setVersion() {
+  const outcomes = document.querySelectorAll(".outcome");
+  const objectives = document.querySelectorAll(".objective");
+  time = this.value;
+  if (this.value == "midterm") {
+    outcomes.forEach((item) => item.classList.add("hide"));
+    objectives.forEach((item) => item.classList.remove("hide"));
+  } else {
+    outcomes.forEach((item) => item.classList.remove("hide"));
+    objectives.forEach((item) => item.classList.add("hide"));
+  }
+}
 
+document.querySelector("#midterm").addEventListener("change", setVersion);
+document.querySelector("#final").addEventListener("change", setVersion);
 document.querySelector("#outcomes").addEventListener("submit", processForm);

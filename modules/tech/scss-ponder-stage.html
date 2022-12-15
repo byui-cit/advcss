@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Review an example of a site built with Sass</h1>
+
+        <hr />
+
+        <h2>Style Stage</h2>
+        <p>
+          Open up the following link to a
+          <a href="https://github.com/5t3ph/stylestage-sass">Github repo</a>.
+          This is a starter for the
+          <a href="https://stylestage.dev">Style Stage</a> site. We will be
+          building our own version of this site as a team project this
+          semester...more about this next week ;)
+        </p>
+        <h2>SCSS syntax cont.</h2>
+        <ol class="bigSteps">
+          <li>
+            <h3>Sass partials</h3>
+            <p>
+              Open the link above to the Style Stage starter repo. Browse into
+              the <kbd>sass</kbd> directory and review the list of files. Note
+              all of the files that begin with <code>_</code>. These are special
+              Sass files called partials or modules. The leading underscore is
+              important. These files are never intended to be used on their own.
+              Instead they would always be used by being included in a larger
+              SCSS file. The underscore is a message to the Sass compiler to
+              ignore those files until they are used.
+            </p>
+            <p>
+              It would never make sense for example to have an
+              <kbd>about.css</kbd> file. So we don't want the compiler to ever
+              generate one. The leading underscore accomplishes that.
+            </p>
+            <p>
+              Open the <kbd>style.scss</kbd> file. Notice that is is the only
+              file that does not have an underscore in it's name. This is the
+              file that we want to be compiled and that we would eventually
+              expect to see a <code>.css</code> version of.
+            </p>
+            <p>Note the contents of that file:</p>
+            <pre><code class="lang-css">@import "fonts";
+// You can modify the theme directly, or override some of the variables
+// Overrides just need placed prior to the theme import
+// For example:
+// $color-primary: #3a0;
+@import "theme";
+@import "reset";
+@import "logomark";
+@import "typography";
+@import "layout";
+@import "header";
+@import "nav";
+@import "about";
+@import "guidelines";
+@import "contribute";
+@import "files";
+@import "styles";
+@import "profile";
+@import "footer";
+@import "links";</code></pre>
+            <p>
+              Here we see an example of how to use a partial. This shows the
+              <code>@import</code> syntax, note however that the
+              <a href="https://sass-lang.com/documentation/at-rules/import"
+                >Sass site is phasing out @import</a
+              >
+              and instead recommends that you use the
+              <a href="https://sass-lang.com/documentation/at-rules/use"
+                >@use</a
+              >
+              command instead.
+            </p>
+            <p>
+              The important thing to note is that if we add another partial
+              file, we should also add another @import or @use line to this
+              file!
+            </p>
+            <p class="callout">
+              If you open up the <kbd>public/style.css</kbd> file in that repo
+              you can see what this file will compile to. That can often help to
+              understand what is going on!
+            </p>
+          </li>
+          <li>
+            <h3>Variables cont.</h3>
+            <p>
+              If you open up the <kbd>_theme.scss</kbd> file next you will see
+              some excellent examples of using not only Sass variables, but also
+              using them together with CSS custom properties.
+            </p>
+            <p>
+              At the top of the file you will see the defining of several
+              variables
+            </p>
+            <pre><code class="lang-css">
+$color-primary: #3a00ff !default;
+$color-primary-alt: #6f6ffd !default;
+$color-secondary: #d42257 !default;
+$color-background: #d2fbf7 !default;
+        </code></pre>
+            <p class="callout">
+              You may have noticed the <code>!default</code> keyword. To find
+              out what it does check out the
+              <a
+                href="https://sass-lang.com/documentation/variables#default-values"
+                >documentation</a
+              >
+            </p>
+            <p>After that we see something new.</p>
+            <pre><code class="lang-css">$brand-colors: (
+    primary: $color-primary,
+    primary-alt: $color-primary-alt,
+    secondary: $color-secondary,
+) !default;</code></pre>
+            <p>
+              If you are familiar with lists, Maps, or arrays from other
+              programming languages...this is how you do the same in Sass. If
+              you scroll down to around line 55 of that file you can see an
+              example of using that list.
+            </p>
+            <pre><code class="lang-css">
+:root {
+    @each $key, $color in $colors {
+        --color-#{$key}: #{$color};
+    }
+    
+    --color-anchor: #{$link-color};
+    --font-family: "Baloo 2", sans-serif;
+    --font-weight-strong: #{$font-weight-strong};
+    
+    @each $key, $size in $font-sizes {
+        --font-size-#{$key}: #{$size};
+    }
+    
+    --border-radius: #{$border-radius};
+}
+</code></pre>
+            <p>
+              Here we can see an example of a Sass loop to generate some custom
+              properties. If we were to compile that it would look like this:
+            </p>
+            <p class="callout">
+              Did you notice the <code>#{}</code> around many of the sass
+              variables? This is an example of
+              <a href="https://sass-lang.com/documentation/interpolation"
+                >interpolation</a
+              >
+              in Sass.
+            </p>
+            <pre><code class="lang-css">
+:root {
+    --color-primary: #3a00ff;
+    --color-primary-alt: #6f6ffd;
+    --color-secondary: #d42257;
+    --color-background: #d2fbf7;
+    --color-text: #412d86;
+    --color-light: #fff;
+    --color-anchor: #3a00ff;
+    --font-family: "Baloo 2", sans-serif;
+    --font-weight-strong: 500;
+    --font-size-h1: 6rem;
+    --font-size-h2: 3rem;
+    --font-size-h3: 2rem;
+    --font-size-h4: 1.35rem;
+    --font-size-text: 1.15rem;
+    --border-radius: 8px;
+    }
+</code></pre>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Mixin example</h3>
+            <p>
+              Next open the <kbd>_logomark.scss</kbd> file. It's a mixin! Take a
+              moment and look over it. What does it do?
+            </p>
+            <p>
+              Next open the <kbd>_header.scss</kbd>, and
+              <kbd>_footer.scss</kbd> files. Notice a couple of things. First
+              there are some custom properties being defined in each of those
+              files: <code>--logomark-height</code>, and
+              <code>--logomark-padding</code>. Notice also that the values are
+              different in both the header and footer! Notice as well that our
+              mixin makes use of those custom properties.
+            </p>
+
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>The reset</h3>
+            <p>
+              Finally open up the <kbd>_reset.scss</kbd> file. A reset is a CSS
+              file that is designed to remove some or all of the default browser
+              styling. In this case it is a light reset. Review the changes, pay
+              special attention to the last thing in there:
+            </p>
+
+            <pre><code class="lang-css">
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}</code> </pre>
+
+            <!-- Step End -->
+          </li>
+
+          <li>
+            <!-- Step Start -->
+            <p>
+              We will be looking more closely at the Style Stage project next
+              week. Feel free to poke through the rest of the files this week to
+              familiarize yourself with them.
+            </p>
+            <!-- Step End -->
+          </li>
+        </ol>
+
+        <!-- <p class="callout">
+          After you have worked out your solution, if you want to see what mine
+          turned out like you can download
+          <a href="scss-demo/styles.scss">my scss file</a>.
+        </p> -->
+      </main>
+      <!-- end #article -->
+    </div>
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

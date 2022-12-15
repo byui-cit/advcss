@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>CSS Style Stage Architecture</h1>
+        <hr />
+        <div class="callout">
+          <p>
+            By now you should have formed groups and picked a theme (ex: an
+            idea, a movie, or repeating concepts) that you will use for your
+            version of the CSS Style Stage. You should have reviewed the content
+            and prepared a couple of wireframes as well, making sure to include
+            everything. This activity will have you continue your work on this
+            project by continuing your planning for your version of the site.
+          </p>
+          <p>
+            The readings on
+            <a href="https://piccalil.li/blog/cube-css/">CUBE CSS</a>
+            that you were asked to read presented an idea about structuring your
+            CSS. As projects become larger and more complex, structuring the CSS
+            becomes more and more important. The project that we used as a
+            started already had some structuring, and while we can tease some of
+            the CUBE CSS principles out, there are others that are missing.
+          </p>
+        </div>
+        <h2>Objective:</h2>
+        <p>
+          Re-structure the SCSS files in the Style Stage starter to better apply
+          the principles from CUBE CSS. You should also take the opportunity to
+          remove all of the CSS that we will not need so that we can start with
+          more of a clean state. This activity is intended to be completed as a
+          team!
+        </p>
+        <h2>Activity</h2>
+        <ol class="bigSteps">
+          <li>
+            <!-- Step Start -->
+            <h3>Create a team copy of the starter repo</h3>
+            <p>
+              One person on the team should log in to Github, then visit this
+              <a href="https://github.com/5t3ph/stylestage-sass">Github repo</a
+              >. There should be a green button that says "Use this Template".
+              If you do not see this, check to make sure you are signed in!
+            </p>
+            <p>
+              Clicking that button will create a copy of the repository in your
+              account. Next the rest of the group must be given access. Goto
+              Settings->Collaborators, then send an invite to the github account
+              of each team member.
+            </p>
+            <p>
+              The team memebers should check their email for the invite and
+              accept it. Then each team member should clone the repo to their
+              computer. The easiest way to do this would be to open VS Code,
+              then goto File->New Window, then on the page that opens select the
+              "Clone a Git Repository". If you have your Github account already
+              connected to VS Code you should be able to search for the repo,
+              otherwise you can goto github.com and get the URL for the repo to
+              clone instead.
+            </p>
+            <p>
+              When you are done, all team members should have the same
+              repository cloned to their computers. You could at this point run
+              Sass like we learned earlier:
+              <code>sass style.scss:style.css</code>, but we do have another
+              option as well.
+            </p>
+            <div class="callout">
+              <h3>Using a task manager and build tools</h3>
+
+              <p>
+                The project we copied actually had some utilities included with
+                it that we can use to automatically do things like view the page
+                in a local webserver, and compile our SCSS each time we save. In
+                order to use these tools we have one more step we need to take.
+                Each team member will need to run a command in the command line.
+                (In VS Code you can open a terminal window by pressing 'ctrl/CMD
+                + ~'). The command you want to run is <kbd>npm install</kbd>. If
+                you get an error you should go back and check the
+                <a href="../../lesson01/l01-software.html">software setup</a>
+                again and make sure you got NodeJs installed and working.
+              </p>
+              <p>
+                To work on the project you will need to run another command.
+                <kbd>npm run start</kbd>. This will start a web server, and a
+                SCSS compiler! When you are done working to shut down the server
+                click into the terminal window and press 'ctrl+c'
+              </p>
+              <p>You may be asking yourself a couple of questions:</p>
+              <ol>
+                <li>
+                  How did the <kbd>npm install</kbd> command know what to
+                  install?
+                </li>
+                <li>...and why <kbd>npm run start</kbd>?</li>
+              </ol>
+              <p>
+                The answers to both of those questions can be found in a file in
+                our project: <kbd>package.json</kbd>. Open that now and look
+                through it. There are two sections of interest: scripts, and
+                dependencies
+              </p>
+              <pre><code class="lang-json">"dependencies": {
+  "browser-sync": "^2.26.3",
+  "npm-run-all": "^4.1.5",
+  "sass": "^1.26.10"
+}</code></pre>
+              <pre><code class="lang-json">"scripts": {
+  "scss": "sass --no-source-map sass:public",
+  "watch": "sass --no-source-map --watch sass:public",
+  "serve": "browser-sync start --server public --files public --port 1337",
+  "start": "npm-run-all scss --parallel watch serve"
+},</code></pre>
+              <p>
+                The dependencies section was used when we ran
+                <kbd>npm install</kbd>. That section tells npm what packages it
+                needs to download. The scripts section makes different commands
+                available...for example we could run <kbd>npm run watch</kbd> or
+                <kbd>npm run scss</kbd> or the one that we did run:
+                <kbd>npm run start</kbd>. That command actually runs the
+                <kbd>serve</kbd> script and the <kbd>watch</kbd> script
+                together!
+              </p>
+            </div>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Review the CUBE CSS concepts</h3>
+            <p>
+              Review the <a href="https://cube.fyi">CUBE CSS principles</a>
+              again. You were asked to watch one of the videos in the Examples
+              section, ther others are good as well. Feel free to watch another
+              if you feel you need more help understanding the principles or how
+              to apply them.
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Apply CUBE</h3>
+            <p>
+              Discuss with your team the best way you might apply the principles
+              of CUBE CSS to this project.
+            </p>
+            <div class="callout">
+              <p>
+                As you begin your discussion, it would be helpful to look
+                closely at the existing files in the Sass folder. Most of the
+                files correspond to blocks, or sections of the page. If we
+                follow the CUBE CSS recommendations we could start by
+                categorizing all of the existing files as one of four things:
+              </p>
+              <ol>
+                <li>Global CSS</li>
+                <li>Composition related styles</li>
+                <li>Block related styles</li>
+                <li>Utility styles</li>
+              </ol>
+            </div>
+            <p>
+              One person on the team should create four folders inside of the
+              <kbd>sass</kbd> directory. One for each of the things listed
+              above. Begin placing the .scss files into one of our new folders.
+              (You will find that most of the existing files will go into the
+              'blocks' folder)
+            </p>
+            <p>
+              What about utilities? Most of the time a utility class should do
+              one thing, and one thing only, and would be used by adding the
+              class to whatever element(s) we want that change applied to. We
+              have a slight problem however...we can't modify the HTML to add
+              utility classes! How can we work around this?
+              <code>@mixin</code>!
+            </p>
+            <p>
+              The same person that has been moving files should also fix the
+              <kbd>styles.scss</kbd> file. We just changed all the paths to the
+              partials! for example you may need to take the line that reads
+              <code>@import "theme";</code> and change it to
+              <code>@import "global/theme";</code> (this assumes you created a
+              folder called global and moved the _theme.scss file into that
+              folder)
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Choose colors and fonts</h3>
+            <p>
+              As a team think for a moment about colors that might work well
+              with your theme. Open up the <kbd>_theme.scss</kbd> file and
+              update it with some new colors. Make sure the SCSS compiles
+              correctly, then check the page to see if your colors show up. You
+              might also do the same with some fonts.
+            </p>
+            <p>
+              Once you have made sure that the changes are coming through your
+              team should go through and remove the CSS from most of the sass
+              partials. The CSS that is in there is to make the default
+              page...we want a clean slate. You can keep the contents of the
+              <kbd>_theme</kbd> and <kbd>_reset</kbd> files if you wish...but
+              most of the others should probably be cleared out. I would
+              recommend to keep the files, but just clear out the contents.
+            </p>
+            <p class="callout">
+              How many SCSS partials should you have in your project? There is
+              no right number actually, but when working in a team on a project
+              having the code split between lots of files can actually make it
+              easier for you to work without stepping on each others toes. I
+              recommend using LOTS of partials!
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Commit and share your changes</h3>
+            <p>
+              Once you have everything working again, the driver should commit
+              all the changes, then push them to Github. After that the rest of
+              the team should do a pull to get the changes. As you work you
+              should get in the habit to always 'pull' before you do anything
+              else!
+            </p>
+            <!-- Step End -->
+          </li>
+        </ol>
+
+        <h2>Objectives</h2>
+        <ul>
+          <li>Starter template copied and each team member given access.</li>
+          <li>SCSS compiles without errors.</li>
+          <li>Principles of CUBE CSS have been applied.</li>
+          <li>Most partials cleared out.</li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+    <script src="../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

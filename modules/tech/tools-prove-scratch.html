@@ -246,9 +246,15 @@
 "scripts": {
     "start": "parcel ./src/index.html",
     "prebuild": "npx rimraf build",
-    "build": "parcel build --public-url ./ ./src/index.html  --out-dir build"
+    "build": "parcel build --public-url ./ ./src/index.html  --dist-dir build"
 },
         </code></pre>
+        <p class="callout">
+          While you are in the <kbd>package.json</kbd> file we have just a bit
+          of cleanup to do. There is a line that looks like this:
+          <code>main: 'index.js',</code> We need to remove that line or when we
+          try to run our build command it might fail.
+        </p>
         <h3>Step 3</h3>
         <p>
           The Bootstrap instructions recommend the following file structure:

@@ -82,7 +82,8 @@ function outputScores(data, time) {
   //   <li>Preprocessors: <span></span></li>
   //   <li>Teamwork: <span></span></li></ol>
   //   <p>Overall: <span></span></p>`;
-  let html = `<table>
+  let html = `<p>Don't forget to copy/paste the following into ILEARN!</p>
+  <table>
   <tr>
     <td>1. Learn how to Learn ${outputObj(data.learn)}</td>
     <td>${data.learn.avg}</td>

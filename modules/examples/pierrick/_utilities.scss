@@ -1,0 +1,17 @@
+@use 'variables' as *;
+.u-portrait {
+  width: 35vw;
+  > img {
+    width: 100%;
+  }
+}
+.u-landscape {
+  width: 50vw;
+  > img {
+    width: 100%;
+  }
+}
+
+.u-horizontal-list {
+  @include horizontal-list();
+}

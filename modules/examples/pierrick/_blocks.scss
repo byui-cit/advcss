@@ -1,0 +1,78 @@
+@use 'variables' as *;
+.b-brand {
+  border-radius: $logo-size/2.4;
+  width: $logo-size;
+  height: $logo-size;
+  transform: rotate(30deg);
+  background-color: $logo-color;
+}
+.b-main-nav {
+  // styles for checkbox for checkbox hack
+  &__toggle {
+    width: $logo-size;
+    height: $logo-size;
+    opacity: 0;
+    cursor: pointer;
+    // when toggle is checked...
+    // turn logo white
+    &:checked + a .b-brand {
+      background-color: white;
+    }
+    // show main-nav__nav and main-nav__alt-nav
+    &:checked ~ .b-main-nav__nav,
+    &:checked ~ .b-main-nav__alt-nav {
+      display: block;
+    }
+
+    // get rid of the checkbox on large screens
+    @include breakpoint(small) {
+      display: none;
+    }
+  }
+
+  // main nav links styles
+  &__nav {
+    display: none;
+    // making this fixed is the best option for having it cover the screen
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    background-color: $logo-color;
+    font-size: var(--s2);
+    // the margin is because we made this fixed it will ignore some of the other layout we will do.
+    > ul {
+      margin-top: 25vh;
+      @include vertical-list();
+    }
+
+    @include breakpoint(small) {
+      display: block;
+      position: relative;
+      background-color: inherit;
+      height: auto;
+      font-size: var(--s0);
+
+      > ul {
+        @include horizontal-list();
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+  // special case for the home link that only shows on small
+  &__home {
+    @include breakpoint(small) {
+      display: none;
+    }
+  }
+  // special case for alt menu that only shows on small
+  &__alt-nav {
+    display: none;
+    font-size: var(--s1);
+    > ul {
+      @include vertical-list();
+    }
+  }
+}

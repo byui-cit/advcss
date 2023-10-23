@@ -1,0 +1,53 @@
+
+styles.css
+  31:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+  35:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+  39:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+  57:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+  62:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+  67:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+  71:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+  75:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+  80:5  ✖  Unexpected duplicate "flex-flow"                                                                                        declaration-block-no-duplicate-properties
+  91:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+ 100:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 107:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 118:1  ✖  Expected selector ".u-horizontal-list > * + *" to come before selector "header > *:nth-child(1)"                        no-descending-specificity                
+ 118:1  ✖  Expected selector ".u-horizontal-list > * + *" to come before selector "header > *:nth-child(2)"                        no-descending-specificity                
+ 118:1  ✖  Expected selector ".u-horizontal-list > * + *" to come before selector "header > *:nth-child(3)"                        no-descending-specificity                
+ 118:1  ✖  Expected selector ".u-horizontal-list > * + *" to come before selector "header > *:nth-child(4)"                        no-descending-specificity                
+ 118:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 137:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 140:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 144:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+ 149:1  ✖  Expected selector ".b-main-nav__nav" to come before selector ".b-main-nav__toggle:checked ~ .b-main-nav__nav"           no-descending-specificity                
+ 149:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 159:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 168:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 172:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+ 180:3  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 189:3  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 194:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+ 199:1  ✖  Expected selector ".b-main-nav__alt-nav" to come before selector ".b-main-nav__toggle:checked ~ .b-main-nav__alt-nav"   no-descending-specificity                
+ 199:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 203:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 211:1  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 216:1  ✖  Expected selector "*" to come before selector "header > *:nth-child(1)"                                                 no-descending-specificity                
+ 216:1  ✖  Expected selector "*" to come before selector "header > *:nth-child(2)"                                                 no-descending-specificity                
+ 216:1  ✖  Expected selector "*" to come before selector "header > *:nth-child(3)"                                                 no-descending-specificity                
+ 216:1  ✖  Expected selector "*" to come before selector "header > *:nth-child(4)"                                                 no-descending-specificity                
+ 216:1  ✖  Expected selector "*" to come before selector ".u-horizontal-list > * + *"                                              no-descending-specificity                
+ 216:1  ✖  Expected selector "*" to come before selector ".b-main-nav__nav > ul > * + *"                                           no-descending-specificity                
+ 216:1  ✖  Expected selector "*" to come before selector ".b-main-nav__alt-nav > ul > * + *"                                       no-descending-specificity                
+ 230:1  ✖  Expected selector "img" to come before selector ".u-portrait > img"                                                     no-descending-specificity                
+ 230:1  ✖  Expected selector "img" to come before selector ".u-landscape > img"                                                    no-descending-specificity                
+ 246:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+ 252:1  ✖  Expected selector "figure" to come before selector ".c-gallery-grid figure:nth-child(1)"                                no-descending-specificity                
+ 252:1  ✖  Expected selector "figure" to come before selector ".c-gallery-grid figure:nth-child(2)"                                no-descending-specificity                
+ 252:1  ✖  Expected selector "figure" to come before selector ".c-gallery-grid figure:nth-child(3)"                                no-descending-specificity                
+ 258:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+ 278:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before                
+ 283:3  ✖  Expected empty line before rule                                                                                         rule-empty-line-before                   
+ 288:1  ✖  Unexpected duplicate selector "main", first used at line 88                                                             no-duplicate-selectors                   
+ 296:1  ✖  Expected empty line before at-rule                                                                                      at-rule-empty-line-before
+

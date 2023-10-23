@@ -1,0 +1,96 @@
+@use 'variables' as *;
+// composition
+
+@use 'compositions' as *;
+
+// utility
+@use 'utilities' as *;
+
+// block
+@use 'blocks' as *;
+
+// global
+// I prefer the behavior of border-box, so I always include this
+* {
+  box-sizing: border-box;
+}
+// set default font: 1rem
+html {
+  font-size: 18px;
+}
+// set base font family and color.
+body {
+  font-family: $body-font;
+  color: $font-color;
+  background-color: $background-color;
+}
+// responsive image magic
+img {
+  max-width: 100%;
+}
+// set headline font and styling...I thought the font we are using more closely matched the original site with the letters moved closer together.
+h1,
+h2,
+h3 {
+  font-family: $headline-font;
+  font-weight: normal;
+  letter-spacing: -1px;
+}
+// set size for the main headline for both mobile and large...note the use of that breakpoint mixin.
+// If you have forgotten how it works compile your SCSS and check out the resulting css rules.
+// Note the use of the CSS custom properties and our size scale
+h1 {
+  font-size: var(--s3);
+  text-align: center;
+  @include breakpoint(small) {
+    font-size: 10vw;
+  }
+}
+// Looking around the site we are replicating it looks like all the images have similar styling. I decided to wrap my images in figure elements so I could just style all of them across the site easily the same way.
+// on a larger site it would be hard to ensure that all figure elements should be styled this way and so you might opt to move this into utility or block classes
+figure {
+  margin: 0;
+  background-color: white;
+  box-shadow: -4px 4px 17px 13px rgb(0 0 0 / 8%);
+  border: 2vw solid #fff;
+  @include breakpoint(small) {
+    border: 1.4vw solid #fff;
+  }
+}
+// base link styling
+a:link,
+a:visited {
+  color: $font-color;
+  text-decoration: none;
+}
+a:hover {
+  color: $logo-color;
+}
+// the header on mobile needs some different link styles than normal...setting them up here.
+header {
+  a:link,
+  a:visited {
+    color: white;
+  }
+  @include breakpoint(small) {
+    a:link,
+    a:visited {
+      color: $font-color;
+    }
+    a:hover {
+      color: $logo-color;
+    }
+  }
+}
+// lots of nice space around the contents in the main element.
+main {
+  padding: 0 var(--s2) var(--s3) var(--s2);
+}
+// set font sizes and some margin for the footer.
+footer {
+  font-size: var(--s-1);
+  margin-bottom: var(--s3);
+  @include breakpoint(small) {
+    font-size: var(--s0);
+  }
+}

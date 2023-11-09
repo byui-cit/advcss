@@ -267,10 +267,11 @@ project-name/
     &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    &lt;link rel="stylesheet" href="../css/style.css" &gt;
+    &lt;link rel="stylesheet" href="css/style.css" &gt;
     &lt;/head&gt;
     &lt;body&gt;
-    &lt;h1 class="text-3xl font-bold underline"&gt;Hello world!&lt;/h1&gt;
+    &lt;h1 class="text-3xl text-red-500 underline"&gt;Hello world!&lt;/h1&gt;
+  
     &lt;/body&gt;
 &lt;/html&gt;
             </code></pre>
@@ -306,7 +307,7 @@ project-name/
         </p>
         <pre><code class="lang-bash">npm install -D tailwindcss postcss autoprefixer</code></pre>
         <p>After that has finished run one more command:</p>
-        <pre><code class="lang-bash">npx tailwindcss init</code></pre>
+        <pre><code class="lang-bash">npx tailwindcss init -p</code></pre>
         <p>This will create the two missing config files for us.</p>
 
         <div class="callout">
@@ -342,12 +343,20 @@ project-name/
           to "start in the current directory (./), then look for any files (*)
           that have a .js or .html extention (.{html,js})".
         </p>
-
+        <p>
+          One last step. Open up the <code>style.css</code> file and add the
+          following lines:
+        </p>
+        <pre><code class="lang-css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+        </code></pre>
         <p>
           Ok, lets try firing up our development server again. Type
           <code>npm run start</code>. Your page should have picked up a bit more
-          styling...different font. If you see that then it's working! If not
-          then review the directions above, or ask for help.
+          styling...red, a different font. If you see that then it's working! If
+          not then review the directions above, or ask for help.
         </p>
         <div class="callout">
           <p>

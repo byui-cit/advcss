@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Front end Development Workflow with Tailwind.</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            <a href="https://tailwindcss.com" target="_blank">TailwindCss</a>
+            advertises itself as "A utility-first CSS framework...". It has
+            rapidly grown in popularity among web developers and is worth taking
+            a look at.
+          </p>
+          <p>
+            A framework is really just a collection of code (in this case html,
+            css, and javascript) and design patterns that solve common design
+            problems. Utility classes have always existed in CSS. they are
+            simpole classes that do one thing and one thing only. A team will
+            create them on a project by project basis as needed. Tailwind takes
+            utilities to the extreme. Essentially <em>everything</em> is a small
+            focused utility class in TailwindCss.
+          </p>
+          <p>
+            Tailwind has been a bit polarizing. It does definately bloat up your
+            HTML with lots and lots of classes. It's proponents however say that
+            it is worth it for the speed at which they can style pages and
+            components once they learn it.
+          </p>
+        </div>
+        <h2>Pre-requisites</h2>
+        <p>
+          There are several utilities you will need to make sure are working on
+          your computer for the install to go smoothly. If you followed the
+          <a href="../lesson01/l01-software.html" target="_blank"
+            >software setup instructions</a
+          >
+          you should be most of the way there. Here is a list of things to
+          verify. Open a command line window and try the following:
+        </p>
+        <ul>
+          <li>
+            Make sure that Node is installed and that you have the correct
+            version by entering:
+            <pre><code class="bash">node -v</code></pre>
+            You should see a version number. That version should start with
+            14.x.x or 16.x.x. If you get any errors or "command not found" try
+            running through the
+            <a href="../lesson01/l01-software.html" target="_blank"
+              >software setup instructions</a
+            >
+            again.
+          </li>
+          <li>
+            If you have not spent much time in the command line of your
+            operating system you should review
+            <a
+              href="https://byui-cit.github.io/learning-modules/modules/general/cli-basics/"
+              >CLI Basics</a
+            >
+          </li>
+        </ul>
+
+        <p>
+          If you run into any issues get some help from a fellow student or the
+          instructor.
+        </p>
+        <h2>Activity</h2>
+        <p>
+          Tailwind is actually built or compiled similar to SCSS. Because of
+          this you need to install the tailwind application in order to use it.
+          This activity will show one way of setting up a new project that uses
+          Tailwind.
+        </p>
+
+        <h3>Step 1</h3>
+        <p>
+          Create a folder on your computer called <kbd>tailwind-demo</kbd>. Open
+          that <strong>folder</strong> in your editor (this activity will be
+          easier if you are using VS Code as your editor). If you are not using
+          VS Code I would recommend creating this folder on your Desktop so it
+          will be easier to find.
+        </p>
+
+        <p>
+          If you are using VS Code as your editor you can open the terminal in
+          your open project (ctrl + ~) and it will automatically set the working
+          directory to the open project folder.
+        </p>
+        <p>
+          If you are using some other editor, Open your command line prompt on
+          your computer and navigate to the directory containing your created
+          directory.
+        </p>
+        <div class="callout">
+          <p>
+            Mac and Windows should start you in your user directory when you
+            open a new command prompt. Or you can type:
+          </p>
+          <ul>
+            <li>
+              Mac:
+              <pre><code class="lang-bash">cd ~</code></pre>
+              (tilde) or
+            </li>
+            <li>
+              Windows:
+              <pre><code class="lang-bash">cd %userprofile%</code></pre>
+            </li>
+          </ul>
+
+          <p>
+            from anywhere and it will take you back to your user directory. From
+            the User directory you should just need to type
+          </p>
+          <pre><code class="lang-bash">cd Desktop</code></pre>
+          then
+          <pre><code class="lang-bash">cd tailwind-demo</code></pre>
+          <p>to get to the right place.</p>
+        </div>
+        <p>Once you are in the right directory type:</p>
+        <pre><code class="lang-bash">npm init -y</code></pre>
+        <p>
+          This will create a file called <kbd>package.json</kbd>. This file will
+          contain the details about our project.
+        </p>
+
+        <div class="callout">
+          <p>
+            Modern web projects rely on a few types of tools to make them easier
+            to manage.
+          </p>
+          <dl>
+            <dt>Package Managers</dt>
+            <dd>
+              This tool controls all of the dependencies for the project...it
+              lets us easliy include tools written by others to both help us in
+              development, and to include additional functionality in our
+              finished product. It really helps when it's time to update to a
+              newer version of one of these tools.
+            </dd>
+            <dt>Asset Bundlers</dt>
+            <dd>
+              These gather all of the assets that our project needs and
+              consolidates and processes them. A web app for example might have
+              dozens of javascript files containing it's code. The bundler will
+              combine them all together and minimize them...and then move the
+              final file into a folder ready for distribution.
+            </dd>
+            <dt>Task Manager</dt>
+            <dd>
+              There are many processes that need to be run each time a change is
+              made to the project. Sass needs to compiled and possibly
+              autoprefixed and minimized, javascript combined and maybe
+              transpiled, etc. A task manager can be configured to allow all of
+              these tasks to be automated.
+            </dd>
+          </dl>
+          <br />
+          <p>
+            For this project <code>NPM</code> is our package manager. In fact
+            when you ran <code>npm init</code> we did the first step in making
+            this happen. Another popular package manage is
+            <a href="https://pnpm.io">PNPM</a>
+          </p>
+          <p>
+            We are using a tool called Vite for bundling. Other popular bundlers
+            would be <code>webpack</code> or <code>Parcel</code>
+          </p>
+          <p>
+            Finally since our project is fairly simple we are actually using NPM
+            as our task manager as well. If you look again in the
+            <code>package.json</code> file you will see a section called
+            <code>scripts</code>. We will place commands there to do different
+            things for our project. Other popular task managers are Grunt and
+            Gulp
+          </p>
+        </div>
+
+        <h3>Step 2</h3>
+        <p>
+          Install Vite by typing
+          <code>npm install -D vite</code> (make sure that you are in the same
+          directory that the <kbd>package.json</kbd> file is in) in the command
+          line. This will add Vite as a development dependancy to our
+          project...a tool that we will use as developers to do our work. You
+          should notice that a couple of things changed: first a new folder
+          called <kbd>node_modules</kbd> was created, second a new section
+          called <code>devDependencies</code> was added to our
+          <kbd>package.json.</kbd>
+        </p>
+        <p>
+          Next we need to add some scripts to allow us to use Vite. Add the
+          following code to the <kbd>scripts</kbd> section of your
+          <kbd>package.json</kbd>
+        </p>
+        <pre><code class="lang-js">
+"scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+},
+        </code></pre>
+        <!-- <p class="callout">
+          While you are in the <kbd>package.json</kbd> file we have just a bit
+          of cleanup to do. There is a line that looks like this:
+          <code>main: 'index.js',</code> We need to remove that line or when we
+          try to run our build command it might fail.
+        </p> -->
+        <h3>Step 3</h3>
+        <p>
+          https://tailwindcss.com/docs/installation/using-postcss Vite is a very
+          flexible tool that will accomodate a wide range of file structure in
+          our projects. We will keep ours simple however. Once we have
+          everything setup with Vite and Tailwind our file structure should look
+          something like below.
+        </p>
+        <pre>
+project-name/
+├── dist/
+├── node_modules/
+├── css/
+│   └── style.css
+├── public
+├── index.html
+├── postcss.config.js
+├── tailwind.config.js  
+└── package.json</pre
+        >
+        <p>
+          The <kbd>dist</kbd> directory will get created automatically for us
+          later, as well as the <kbd>postcss.config.js</kbd> and
+          <kbd>tailwind.config.css</kbd>, but we should create the other folders
+          and files now.
+        </p>
+        <ol>
+          <li>
+            Create a <kbd>css</kbd> directory in the root of the project folder,
+            then add a <kbd>style.css</kbd> file inside of that directory.
+          </li>
+          <li>
+            Create a <kbd>public</kbd> directory in the root of the project
+            folder that will contain images and other static assets
+          </li>
+
+          <li>
+            Create an <kbd>index.html</kbd> file and add the following code:
+            <pre><code class="lang-markup">
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="stylesheet" href="../css/style.css" &gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;h1 class="text-3xl font-bold underline"&gt;Hello world!&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+          </li>
+        </ol>
+
+        <p>Test our installation by running the following</p>
+        <pre><code class="lang-bash">npm run start</code></pre>
+        <p>
+          in the command line of your computer. Make sure you are still in the
+          project folder. (the same folder that contains the
+          <kbd>package.json</kbd> file) This will start up a simple web server
+          pointed at our project. It will also watch for changes to either the
+          .CSS files or the .JS files and it will recompile them when needed and
+          refresh the page in the browser.
+        </p>
+        <p>
+          To see your site notice that Vite output
+          <kbd> ➜ Local: http://localhost:5175/</kbd> when it started up. Your
+          port number (ie :5175) will probably be different. Enter that url in
+          your browser to see it.
+        </p>
+        <p>
+          When you are ready to stop the web server type <code>ctrl+c</code> in
+          the command line.
+        </p>
+
+        <h3>Step 4</h3>
+        <p>
+          Next let's install Tailwind using our package manager. Go back to your
+          command prompt and quit the webserver if it is running (ctrl+c). Then
+          type
+        </p>
+        <pre><code class="lang-bash">npm install -D tailwindcss postcss autoprefixer</code></pre>
+        <p>After that has finished run one more command:</p>
+        <pre><code class="lang-bash">npx tailwindcss init</code></pre>
+        <p>This will create the two missing config files for us.</p>
+
+        <div class="callout">
+          <p>
+            You may be asking yourselves: "I thought we just needed Tailwind?
+            Why postcss and autoprefixer?" Postcss is a very handy plugin
+            manager that will allow us to do all sorts of things to our CSS. We
+            will use it to compile our Tailwind code to CSS and then to
+            automatically apply any prefixes that we might need as well.
+          </p>
+          <p>
+            We could also apply plugins that would allow us to use nesting
+            without SCSS, or use SCSS style import statements.
+          </p>
+        </div>
+        <p>
+          The add command retrieved the packages and placed them into the
+          <code>node_modules</code> directory, but our project still doesn't
+          know about them. Lets do that next.
+        </p>
+        <h3>Step 5</h3>
+        <p>
+          Finish installing Tailwind into your project by opening the
+          <code>tailwind.config.js</code> file in an editor and changing the
+          line with the <code>content</code>
+        </p>
+        <pre><code class="lang-javascript">
+            content: ["./*.{html,js}"],
+            </code> </pre>
+        <p>
+          Those lines will make it possible for Tailwind to know which files to
+          look at when it is building the final CSS file. We basically tell it
+          to "start in the current directory (./), then look for any files (*)
+          that have a .js or .html extention (.{html,js})".
+        </p>
+
+        <p>
+          Ok, lets try firing up our development server again. Type
+          <code>npm run start</code>. Your page should have picked up a bit more
+          styling...different font. If you see that then it's working! If not
+          then review the directions above, or ask for help.
+        </p>
+        <div class="callout">
+          <p>
+            You may have noticed that we are still missing one folder that was
+            mentioned above: <code>dist</code>. To get that folder we can run
+            another command. First focus the terminal window (click in it), then
+            press ctrl-c to make sure that Vite is not still running. Then type
+            <code>npm run build</code>. That command tells Vite to build a
+            production ready version of our code and it will place it in a
+            directory called <code>dist</code>. If we were going to make this
+            site live on a server that is the code we would move.
+          </p>
+          <p>
+            Open that directory and check out the files that were generated:
+            <code>dist/assets/index.?????.css</code>. Why does it have a bunch
+            of random characters in the name? Well good webservers in order to
+            be efficient will cache things like CSS and Javascript files. So
+            sometimes when you make updates you will see the old version of the
+            file for a bit until the cache finally updates.
+          </p>
+          <p>
+            Adding the random characters on the build file is sometimes called
+            cache busting. It is a new file and so will show up the first time
+            you request it!
+          </p>
+        </div>
+      </main>
+      <!-- end #article -->
+    </div>
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

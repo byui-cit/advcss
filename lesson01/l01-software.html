@@ -115,9 +115,7 @@
             XCode development software is used to build Mac and iOS apps, but it
             also includes the tools you need to compile software for use on your
             Mac. XCode is free and you can find it in the&nbsp;
-            <a
-              href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12"
-              onclick="__gaTracker('send', 'event', 'outbound-article', 'https://itunes.apple.com/us/app/xcode/id497799835?mt=12', 'Apple App Store');"
+            <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12"
               >Apple App Store</a
             >
             but it is quite large! &nbsp;After you install it, open it at least
@@ -127,12 +125,9 @@
           <li>
             <strong>*Recommended for most!</strong> If you don't want to
             download and install the full XCode (It's quite large), you can
-            install just the developer tools by following
-            <a
-              href="http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/"
-              target="_blank"
-              >these instructions</a
-            >.
+            install just the developer tools by typeing the following into your
+            terminal:
+            <pre><code class="lang-bash">xcode-select --install</code></pre>
           </li>
         </ol>
         <p>Installing Node and NPM with nvm is pretty straightforward.</p>
@@ -141,7 +136,7 @@
             To install nvm, <strong>open the Terminal app</strong>&nbsp;and
             type:&nbsp;
             <pre><code class="lang-bash"
-              >curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash</code
+              >curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash</code
             ></pre>
           </li>
           <li>
@@ -159,19 +154,19 @@
           <p>
             Since macOS 10.15, the default shell is zsh and nvm will look for
             .zshrc to update, none is installed by default. If you get an error
-            installing above, create this file by typing the following in your
+            installing above, create this file by typeing the following in your
             terminal:
           </p>
           <pre><code class="lang-bash">touch ~/.zshrc</code></pre>
         </div>
         <h2>SASS</h2>
+        <p>
+          We will be learning to use the SASS CSS Preprocessor this semester.
+          SASS must be compiled before sending it to the browser. We will be
+          using a Node.js Sass compiler. Becasue of this make sure to complete
+          the Node installation instructions above before continuing.
+        </p>
         <ul>
-          <p>
-            We will be learning to use the SASS CSS Preprocessor this semester.
-            SASS must be compiled before sending it to the browser. We will be
-            using a Node.js Sass compiler. Becasue of this make sure to complete
-            the Node installation instructions above before continuing.
-          </p>
           <li>
             <strong>Open your Terminal or Command Prompt.</strong>&nbsp;On the
             Mac the Terminal.app comes installed by default. It's located in

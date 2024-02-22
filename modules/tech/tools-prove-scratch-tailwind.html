@@ -383,6 +383,151 @@ project-name/
             you request it!
           </p>
         </div>
+        <h3>Step 6</h3>
+        <p>
+          So how do you actually use Tailwind CSS now that we have it setup? As
+          you are learning it be prepared to be in the documentation a lot. (<a
+            href="https://tailwindcss.com/docs/installation"
+            >Tailwindcss</a
+          >). Use the search by the way...it's very useful.
+        </p>
+        <p>
+          If we wanted to start making a header for a site, with a logo and list
+          of links we might write the HTML and CSS something like this:
+        </p>
+        <pre><code class="lang-markup">
+&lt;header&gt;
+  &lt;h1&gt;My Site&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Link 1&lt;/a&gt;
+    &lt;a href="#"&gt;Link 2&lt;/a&gt;
+    &lt;a href="#"&gt;Link 3&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+        </code></pre>
+        <pre><code class="lang-css">
+header {
+  max-width: 1024px;
+  background-color: lightyellow;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+  padding: 1em;
+}
+header > h1 {
+  font-size: 3em;
+  margin: 0;
+}
+nav > a {
+  margin-right: 1em;
+  font-size: 1.2em;
+}
+nav > a:hover {
+  color: #888;
+}         
+        </code></pre>
+        <p>
+          In Tailwind the CSS has pretty much already been written and instead
+          we would apply classes to the HTML to accomplish our styling. For
+          example to set a max-width, center, and background color on the header
+          we would do the following:
+        </p>
+        <pre><code class="lang-markup">
+&lt;header class="max-w-5xl mx-auto bg-yellow-200"&gt;
+  &lt;h1&gt;My Site&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Link 1&lt;/a&gt;
+    &lt;a href="#"&gt;Link 2&lt;/a&gt;
+    &lt;a href="#"&gt;Link 3&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+                  </code></pre>
+
+        <p>To continue with the Flexbox we add more classes:</p>
+        <pre><code class="lang-markup">
+&lt;header class="max-w-5xl mx-auto bg-yellow-200 flex justify-between items-center p-4"&gt;
+  &lt;h1&gt;My Site&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Link 1&lt;/a&gt;
+    &lt;a href="#"&gt;Link 2&lt;/a&gt;
+    &lt;a href="#"&gt;Link 3&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+                            </code></pre>
+        <p>
+          We would continue adding classes until it was all styled...and would
+          write NO CSS. How do you know what classes to add you may be asking?
+          At first you will be spending a lot of time in the documentation
+          looking things up. But as you become familiar with the conventions
+          Tailwind uses you will be able to guess more and more effectively. One
+          thing that will help immensely with this is to install the Tailwind
+          CSS Intellisense extention.
+        </p>
+
+        <p>
+          Let's work through a larger example. To get started we are going to
+          recreate a section of the
+          <a href="https://www.nationalparks.org">National Parks Foundation</a>
+          website. To save us some time the HTML we will be using will be
+          provided.
+        </p>
+        <p>
+          Open the following link
+          <a href="../examples/nat-parks/index-start.html">starting html</a> in
+          a new tab and copy/paste the <code>body</code> into the index file we
+          have been working with in this activity.
+        </p>
+        <p>
+          Follow the comments in the HTML and use Tailwind classes to style it.
+          When we are done ours will not look exactly like the example. That
+          site is using a customized Tailwind, but we should be able to get it
+          close. See below for a few tips:
+        </p>
+        <ul>
+          <li>
+            Using the default serif and sans-serif fonts in the Tailwind theme
+            will get us close enough.
+          </li>
+          <li>
+            At one point we will need to set some padding to a vw height.
+            Tailwind does not come with that option so we will have to extend
+            it. Open up the <code>tailwind.config.js</code> file and find the
+            section that looks like this:
+            <pre><code class="lang-js">theme: {
+  extend: {
+    
+  }</code></pre>
+            Make it look like this:
+            <pre><code class="lang-js">theme: {
+  extend: {
+    spacing: {
+      "resp-8": "8vw",
+      "resp-24": "24vw"
+    }
+  }</code></pre>
+            You can use these custom spacings like this:
+            <code>pb-resp-8</code> (padding bottom: resp-8)
+          </li>
+          <li>
+            Install the VSCode Tailwind CSS Intellisense extension. It is very
+            helpful.
+          </li>
+        </ul>
+        <div class="fig-block">
+          <figure>
+            <img
+              src="../../images/tailwind-nps-demo-sm.jpeg"
+              alt="Tailwind demo small screen"
+            />
+          </figure>
+          <figure>
+            <img
+              src="../../images/tailwind-nps-demo-lg.jpeg"
+              alt="Tailwind demo large screen"
+            />
+          </figure>
+        </div>
       </main>
       <!-- end #article -->
     </div>

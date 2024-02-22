@@ -197,6 +197,46 @@
               folder called global and moved the _theme.scss file into that
               folder)
             </p>
+            <p>
+              After all of these changes check to make sure things still work by
+              running <code>npm run start</code>.
+            </p>
+            <!-- Step End -->
+          </li>
+          <li>
+            <!-- Step Start -->
+            <h3>Clean up</h3>
+            <p>
+              The files you downloaded contain the defualt styling for Style
+              Stage. We really don't want that and so we should get rid of most
+              of it.
+            </p>
+            <p class="callout">
+              How many SCSS partials should you have in your project? There is
+              no right number actually, but when working in a team on a project
+              having the code split between lots of files can actually make it
+              easier for you to work without stepping on each others toes. I
+              recommend using LOTS of partials!
+            </p>
+            <p>
+              Review your theme and wireframes. Consider what blocks,
+              compositions, and utilities make sense for your layout. Go through
+              and remove the SCSS partials that you don't think you will use,
+              and create any new ones that make sense for your plans. When you
+              are done you will probably have deleted most of the partial files,
+              or at least cleaned out the SCSS from them. You can keep the
+              contents of the
+              <kbd>_theme</kbd> and <kbd>_reset</kbd> files if you wish...but
+              most of the others should probably be cleared out.
+            </p>
+            <p class="callout">
+              This is a first pass at organizing your SCSS. You will not get it
+              right the first time...you will make changes to what you do here
+              and that is OK. Don't stress too much about "Getting it right". As
+              long as you have some sort of justification for what you have
+              done, it's good.
+            </p>
+
             <!-- Step End -->
           </li>
           <li>
@@ -209,22 +249,7 @@
               correctly, then check the page to see if your colors show up. You
               might also do the same with some fonts.
             </p>
-            <p>
-              Once you have made sure that the changes are coming through your
-              team should go through and remove the CSS from most of the sass
-              partials. The CSS that is in there is to make the default
-              page...we want a clean slate. You can keep the contents of the
-              <kbd>_theme</kbd> and <kbd>_reset</kbd> files if you wish...but
-              most of the others should probably be cleared out. I would
-              recommend to keep the files, but just clear out the contents.
-            </p>
-            <p class="callout">
-              How many SCSS partials should you have in your project? There is
-              no right number actually, but when working in a team on a project
-              having the code split between lots of files can actually make it
-              easier for you to work without stepping on each others toes. I
-              recommend using LOTS of partials!
-            </p>
+
             <!-- Step End -->
           </li>
           <li>

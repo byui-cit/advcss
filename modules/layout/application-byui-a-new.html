@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>BYU-Idaho - WDD 331 - Advanced CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="../../css/prism-coy.css" />
+    <link rel="stylesheet" href="../../css/course.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <header class="headerBanner">
+        <div>
+          <h1>Advanced CSS</h1>
+          <h2>WDD 331</h2>
+        </div>
+      </header>
+      <main>
+        <h1>Layout: (Re)build a real site 1: part A</h1>
+
+        <hr />
+        <div class="callout">
+          <p>
+            The last few years have been really exciting for web
+            designers/developers. With the arrival and support for things like
+            Flexbox, CSS Grid, and others we finally have not just good...but
+            great tools to accomplish our layouts.
+          </p>
+          <p>
+            Suddenly things that were not possible (or at least things that
+            involved a lot of pain to do) are not only possible but in some
+            cases easy to do. It's time to get out of ruts and experiment with
+            these new tools.
+          </p>
+          <p>
+            All of that being said, it is also important to develop good
+            foundational skills building traditional designs. This activity is
+            designed to both encourage us to look forward to new possibilities
+            in Web Design, and make sure that we have the core skills necessary
+            to move ourselves and our designs forward.
+          </p>
+        </div>
+        <h2>Objective</h2>
+        <p>
+          Using HTML and CSS with accessibility in mind (no CSS this week),
+          re-create One of the following webpages:
+        </p>
+        <ol>
+          <li>
+            <a href="https://www.familysearch.org/">FamilySearch Homepage</a>
+          </li>
+          <li>
+            <a href="https://www.churchofjesuschrist.org/"
+              >Church of Jesus Christ Homepage</a
+            >
+          </li>
+          <li><a href="https://www.byui.edu/">BYUI Homepage</a></li>
+        </ol>
+        <h2>Activity</h2>
+        <p>
+          This is a two part activity that will span two weeks. This week will
+          focus on writing good HTML for a webpage. Thought should be given to
+          accessibility, semantics, and reusability. You should include classes
+          on your html elements, but we will not be writing any of the CSS for
+          the page this week. It will be done in
+          <a href="application-byui-b.html">Part B</a> of this activity. You
+          should really plan on doing part B immediately following this part.
+        </p>
+        <ol class="bigSteps">
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Review the design</h3>
+            <p>
+              For the rest of this exercise we will be re-building the home page
+              of the site you chose above. Begin by familiarizing yourself with
+              the page and how it responds at different screen widths. Because
+              of time constraints we will be excluding certain parts of the page
+              and making a few small changes.
+            </p>
+            <!-- <div class="fig-block">
+              <figure>
+                <img
+                  src="../../images/byui-mobile-header.jpg"
+                  alt="mobile header"
+                />
+                <figcaption>Mobile header</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src="../../images/byui-desktop-all.jpg"
+                  alt="Desktop full page"
+                />
+                <figcaption>Desktop full page</figcaption>
+              </figure>
+            </div> -->
+            <ol>
+              <li>
+                First we are going to simplify the header. Since you should
+                start with the mobile layout for the page, build the header as
+                it looks for mobile. We are going to keep the mobile header on
+                all layouts. You will also not be required to make the buttons
+                in the menu work. Even with two weeks, we just don't have time.
+              </li>
+              <li>
+                Second, you should use the text and images that are currently on
+                the page. Copy the images to your computer and link to them
+                locally instead of linking to the versions on the servers of the
+                site you are re-creating.
+              </li>
+              <li>
+                Pay attention to the details of the page. This assignment is
+                very much about details!
+              </li>
+              <li>
+                Consider this design through the lens of the component. How many
+                components do you see?
+              </li>
+            </ol>
+            <div class="callout">
+              <h4>What is a component?</h4>
+              <p>
+                Modern web pages are generally built from blocks...like lego
+                bricks stacked together. Those blocks of styled content are
+                often called components. Components are often re-used. Sometimes
+                with different content but the same styles, sometimes with
+                nothing changing.
+              </p>
+              <p>
+                Below you can find some examples of what these building blocks
+                might look like.
+              </p>
+              <div class="fig-block">
+                <figure>
+                  <img
+                    src="../../images/byui-interest-box.jpg"
+                    alt="interest box"
+                  />
+                  <figcaption>Interest Box</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="../../images/byui-link-lists.jpg"
+                    alt="List of Links"
+                  />
+                  <figcaption>List of Links</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="../../images/byui-newroom-sm.jpg"
+                    alt="Newsroom Small screen"
+                  />
+                  <figcaption>Newsroom Small screen</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="../../images/byui-newsroom-lg.jpg"
+                    alt="Newsroom Large Screen"
+                  />
+                  <figcaption>Newsroom Large Screen</figcaption>
+                </figure>
+              </div>
+              <p>
+                Notice how with the one labeled "Interest Box" that pattern
+                could be re-used many times with different content. The same
+                with the "Newsroom" blocks. Whereas the "List of Links" might be
+                repeated just as it is across several pages.
+              </p>
+            </div>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Gather resources</h3>
+            <p>
+              You will need to spend some time in the beginning gathering
+              information about the page. For example what font(s) are they
+              using? Where do the icons the use come from? what images will I
+              need? Colors? etc. Begin gathering those resources and add them to
+              a folder on your computer that you will build the page in. Create
+              your <code>index.html</code>, and <code>styles.scss</code> files.
+            </p>
+            <div class="callout">
+              <p>
+                All three sites use SVG images extensively. Notice on the
+                FamilySearch site for example the icon that they use to choose a
+                different language:
+                <svg
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="svgCss_sw75ouf"
+                  aria-hidden="true"
+                  style="color: currentcolor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2ZM4 12a7.6 7.6 0 0 1 .21-1.78L9 15v1a2 2 0 0 0 2 2v1.93A8 8 0 0 1 4 12Zm12 4a2 2 0 0 1 1.9 1.4A8 8 0 0 0 15 4.59V5a2 2 0 0 1-2 2h-2v2a1 1 0 0 1-1 1H8v2h6a1 1 0 0 1 1 1v3Z"
+                  ></path>
+                </svg>
+              </p>
+              <p>
+                It is an SVG. you can copy/paste that code out of the HTML for
+                that page to use in your page.
+              </p>
+            </div>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Begin the HTML</h3>
+
+            <p>
+              Next begin writing the HTML for the main page. As you do pay close
+              attention to groupings you may need to do in your markup. Add
+              classes as you see necessary. Think about accessibility in your
+              HTML as well. For example take this bit of code from BYUI.edu
+            </p>
+            <pre><code class="lang-markup">
+&lt;a aria-label="home page" href="/" data-cms-ai="0"&gt;
+  &lt;img class="PageLogo-image" src="path-to-img.jpg" alt="/" width="150" height="150"&gt;
+&lt;/a&gt;
+</code></pre>
+            <p>
+              That logo image also acts as the link back to the home page. If
+              someone were navigating the site with a screen reader they would
+              not know where that link went if it were not for the
+              <code>aria-label="home page"</code> It is a good practice to use
+              this attribute with any link that uses an image or icon for the
+              clickable content.
+            </p>
+
+            <p>
+              One other thing to note with accessibility. If you open the
+              homepage for the site you have chosen...then click in the URL bar,
+              then hit "tab". Tab is how people navigate pages with their
+              keyboard. If you tab to target a link for example you can then hit
+              "enter" and it will navigate to that link. How many times would
+              you have to hit "tab" to get down to the content on your page? It
+              could be dozens sometimes just to get past the navigation.
+            </p>
+            <p>
+              On your site you should have noticed something however. A new
+              element should have popped up that said: "Skip to Main Content".
+              This provides a quick shortcut for those navigating with their
+              keyboard. You should include this in your version.
+            </p>
+            <p>
+              Start your work by styling the header and nav to match the site
+              you have chosen at a mobile size. Then adjust it for larger
+              desktops as discussed above.
+            </p>
+            <p>
+              As you style put some thought and planning into the naming and
+              structure of your SCSS as well. See if you can apply the
+              principles from a CSS architecture like
+              <a
+                href="http://getbem.com/introduction/"
+                target="_blank"
+                rel="noreferrer noopener"
+                >BEM</a
+              >
+              for example.
+            </p>
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Component Design</h3>
+            <p>
+              Continue your work on this site by writing the HTML for the
+              components you should have identified above. Have a goal of
+              keeping your HTML markup as simple as possible, while focusing on
+              re-use by adding classes to each one. Something like
+              <a href="http://getbem.com/introduction/">BEM</a> would work great
+              here to help you to intelligently name your classes.
+            </p>
+            <p>
+              Ideally you should be able to take the HTML you wrote for one of
+              the components, copy/paste it and replace the content (text and/or
+              image src) while leaving the HTML and CSS the same. Sometimes you
+              will have slight changes to one instance of a module, in that case
+              you might have a modifier class or two.
+            </p>
+            <div class="callout">
+              <h3>Modifier classes according to BEM</h3>
+              <p>
+                It was encouraged earlier that you use a name convention like
+                BEM for this assignment. If you have not been introduced to it
+                before, please stop and go read the linked introduction above.
+                BEM stands for Block, Element, Modifier. In our case we can
+                consider each of the components discussed above as blocks. The
+                blocks or components are made up of parts: elements. Slight
+                differences in components would be accomplished with Modifiers.
+              </p>
+              <p>
+                For example there are two versions of the list of links...one
+                with a a grey header , and one with blue header. The rest of the
+                styling is the same. A good class name for the list of links
+                component might be <code>.list-links</code>. Each list has a
+                header as part of it. That element would be represented by
+                something like this: <code>.list-links__header</code>. We might
+                decide that the grey version of the header is the default, so if
+                we wanted it to be blue sometimes we might add a class like
+                this: <code>.list-links__header--blue</code>
+              </p>
+              <p>
+                Next week when you start writing the SCSS to style the site that
+                could be represented like this:
+              </p>
+              <pre><code class="lang-css">
+.list-links {
+  // base styles for the component
+    &__header {
+      // base styling for the header element...with grey header.
+      &--blue {
+        // code to change the header to be blue
+      }
+    }
+}
+</code></pre>
+              <p>(This would compile to this:)</p>
+              <pre><code class="lang-css">
+  .list-links {
+    // base styles for the component
+  }              
+  .list-links__header {
+       // base styling for the header element...with grey header.
+  }
+  .list-links__header--blue {
+          // code to change the header to be blue
+  }
+  </code></pre>
+              <p>
+                Add the additional class to the appropriate instance of your
+                component.
+              </p>
+            </div>
+
+            <!-- END STEP -->
+          </li>
+
+          <li>
+            <!-- BEGIN STEP -->
+            <h3>Finish the HTML</h3>
+            <p>
+              Once you have the HTML for your components built, write the rest
+              of the HTML for the page to account for all of the content. Re-use
+              the component code as appropriate. You should use the images and
+              text currently on the site.
+            </p>
+            <p>
+              You should add classes as you feel necessary (again use some sort
+              of naming system like BEM), but you do not need to write any of
+              the SCSS this week (unless you want to work ahead). You will most
+              likely end up modifying the classes (adding and removing) you add
+              this week when you do start styling...that is expected and
+              perfectly fine.
+            </p>
+            <div class="callout">
+              <p>
+                While it is fine to look at the HTML for the actual site for
+                inspiration while completing this step, resist the temptation to
+                just copy/paste large parts of it. The HTML on the actual is
+                quite a bit more complex than we really need it to be and using
+                much of it will most likely end up taking you more time than if
+                you just wrote the HTML from scratch by yourself.
+              </p>
+              <p>
+                You should think ahead a little as well while writing your HTML.
+                Consider how you think you might accomplish the layout of the
+                site as well (Flexbox or Grid). Make sure that your flex/grid
+                items are all grouped together under the right flex/grid
+                containers.
+              </p>
+            </div>
+
+            <!-- END STEP -->
+          </li>
+          <li>
+            <!-- BEGIN STEP -->
+            <h5>Check your site with the WAVE tool</h5>
+            <p>
+              Once you have the HTML written, run your page through either the
+              <a href="https://wave.webaim.org">WAVE tool</a> or the Chrome
+              Lighthouse tool to see if it finds any serious issues with the
+              accessibility of your HTML. If you use WAVE it will be easier if
+              you install the Chrome extention, then you should fix any errors.
+              If you used Lighthouse you should shoot for a score of above 90.
+            </p>
+
+            <!-- END STEP -->
+          </li>
+        </ol>
+        <h2>Rubric</h2>
+        <ul>
+          <li>
+            HTML for the selected Home page re-created. (Everything but with the
+            simplified navigation bar.)
+          </li>
+          <li>
+            Attention paid to Accessibility: No errors from WAVE or score of 90
+            or higher from Lighthouse.
+          </li>
+        </ul>
+      </main>
+      <!-- end #article -->
+    </div>
+
+    <script src="../../js/course.js"></script>
+    <script src="../../js/prism.js"></script>
+  </body>
+</html>

@@ -249,6 +249,64 @@
               this attribute with any link that uses an image or icon for the
               clickable content.
             </p>
+            <p>
+              Sometimes the <code>aria-label</code> will be accompanied with an
+              <code>aria-hidden="true"</code>. If you inspect this element taken
+              from the FamilySearch page:
+              <button
+                aria-label="Select a Language"
+                data-size="md"
+                aria-describedby="qkht5hs4q5q"
+                type="button"
+                class="colorCss_c1jt1hvj iconButtonCss_i1memprp iconButtonLargeCss_i4rwuwz baseCss_b1nc6and baseButtonCss_b1xt1j7b"
+                aria-disabled="false"
+              >
+                <span
+                  class="shapeCss_sp8hz6k"
+                  icon-size="sm"
+                  style="background: transparent"
+                  ><svg
+                    role="presentation"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    class="svgCss_sw75ouf"
+                    aria-hidden="true"
+                    style="color: currentcolor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2ZM4 12a7.6 7.6 0 0 1 .21-1.78L9 15v1a2 2 0 0 0 2 2v1.93A8 8 0 0 1 4 12Zm12 4a2 2 0 0 1 1.9 1.4A8 8 0 0 0 15 4.59V5a2 2 0 0 1-2 2h-2v2a1 1 0 0 1-1 1H8v2h6a1 1 0 0 1 1 1v3Z"
+                    ></path></svg></span
+                ><span
+                  id="qkht5hs4q5q"
+                  style="
+                    border: 0px;
+                    clip: rect(0px, 0px, 0px, 0px);
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    padding: 0px;
+                    position: absolute;
+                    width: 1px;
+                    white-space: nowrap;
+                    overflow-wrap: normal;
+                    bottom: 1px;
+                  "
+                ></span></button
+              >, you can see an example. Notice that the icon is inside of a
+              button. Why a button and not a link you may be asking? Because
+              when you click on it you are not navigating somewhere else, but
+              performing the action of toggling open a menu. So in this case the
+              screen reader would read the aria-label on the button, then skip
+              the svg.
+            </p>
+            <p>
+              Don't put the <code>aria-hidden</code> on the button (or container
+              of what you are hiding)! If you do then you will hide the whole
+              thing from the screen reader.
+            </p>
 
             <p>
               One other thing to note with accessibility. If you open the

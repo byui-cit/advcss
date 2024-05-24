@@ -104,6 +104,11 @@
                 in the menu work. Even with two weeks, we just don't have time.
               </li>
               <li>
+                If you choose the Church website or the BYUI website you can
+                leave the footer off. There is quite a bit of content on those
+                pages even without the footer.
+              </li>
+              <li>
                 Second, you should use the text and images that are currently on
                 the page. Copy the images to your computer and link to them
                 locally instead of linking to the versions on the servers of the
@@ -246,8 +251,8 @@
               someone were navigating the site with a screen reader they would
               not know where that link went if it were not for the
               <code>aria-label="home page"</code> It is a good practice to use
-              this attribute with any link that uses an image or icon for the
-              clickable content.
+              this attribute with any link that uses only an image or icon for
+              the clickable content.
             </p>
             <p>
               Sometimes the <code>aria-label</code> will be accompanied with an
@@ -295,12 +300,39 @@
                     bottom: 1px;
                   "
                 ></span></button
-              >, you can see an example. Notice that the icon is inside of a
-              button. Why a button and not a link you may be asking? Because
-              when you click on it you are not navigating somewhere else, but
-              performing the action of toggling open a menu. So in this case the
-              screen reader would read the aria-label on the button, then skip
-              the svg.
+              >, you can see an example.
+            </p>
+            <pre><code class="lang-markup">
+&lt;button
+  aria-label="Select a Language"
+  type="button"
+&gt;
+  &lt;span
+    class="shapeCss_sp8hz6k"
+    icon-size="sm"
+    style="background: transparent"&gt;
+    &lt;svg
+      role="presentation"
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="currentColor"
+      class="svgCss_sw75ouf"
+      aria-hidden="true"
+      style="color: currentcolor"&gt;
+      &lt;path
+        fill-rule="evenodd"
+        d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2ZM4 12a7.6 7.6 0 0 1 .21-1.78L9 15v1a2 2 0 0 0 2 2v1.93A8 8 0 0 1 4 12Zm12 4a2 2 0 0 1 1.9 1.4A8 8 0 0 0 15 4.59V5a2 2 0 0 1-2 2h-2v2a1 1 0 0 1-1 1H8v2h6a1 1 0 0 1 1 1v3Z"&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/span&gt;
+&lt;/button&gt;
+              </code></pre>
+            <p>
+              Notice that the icon is inside of a button. Why a button and not a
+              link you may be asking? Because when you click on it you are not
+              navigating somewhere else, but performing the action of toggling
+              open a menu. So in this case the screen reader would read the
+              aria-label on the button, then skip the svg.
             </p>
             <p>
               Don't put the <code>aria-hidden</code> on the button (or container
@@ -311,11 +343,12 @@
             <p>
               One other thing to note with accessibility. If you open the
               homepage for the site you have chosen...then click in the URL bar,
-              then hit "tab". Tab is how people navigate pages with their
-              keyboard. If you tab to target a link for example you can then hit
-              "enter" and it will navigate to that link. How many times would
-              you have to hit "tab" to get down to the content on your page? It
-              could be dozens sometimes just to get past the navigation.
+              then hit "tab". (Tab is the primary way people navigate pages with
+              their keyboard.) If you tab to target a link for example you can
+              then hit "enter" and it will navigate to that link. How many times
+              would you have to hit "tab" to get down to the content on your
+              page? It could be dozens sometimes just to get past the
+              navigation.
             </p>
             <p>
               On your site you should have noticed something however. A new

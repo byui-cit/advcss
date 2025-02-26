@@ -150,7 +150,7 @@
             <dt>Package Managers</dt>
             <dd>
               This tool controls all of the dependencies for the project...it
-              lets us easily include tools written by others to both help us in
+              lets us easliy include tools written by others to both help us in
               development, and to include additional functionality in our
               finished product. It really helps when it's time to update to a
               newer version of one of these tools.
@@ -217,17 +217,19 @@
     "preview": "vite preview"
 },
         </code></pre>
-        <p>
-          While we are here, there is one more change we need to make. Add
-          <code>"type": "module, </code> into the <code>package.json</code> file
-          as well.
-        </p>
+        <!-- <p class="callout">
+          While you are in the <kbd>package.json</kbd> file we have just a bit
+          of cleanup to do. There is a line that looks like this:
+          <code>main: 'index.js',</code> We need to remove that line or when we
+          try to run our build command it might fail.
+        </p> -->
         <h3>Step 3</h3>
         <p>
-          Vite is a very flexible tool that will accomodate a wide range of file
-          structure in our projects. We will keep ours simple however. Once we
-          have everything setup with Vite and Tailwind our file structure should
-          look something like below.
+          https://tailwindcss.com/docs/installation/using-postcss Vite is a very
+          flexible tool that will accomodate a wide range of file structure in
+          our projects. We will keep ours simple however. Once we have
+          everything setup with Vite and Tailwind our file structure should look
+          something like below.
         </p>
         <pre>
 project-name/
@@ -237,11 +239,15 @@ project-name/
 │   └── style.css
 ├── public
 ├── index.html
+├── postcss.config.js
+├── tailwind.config.js  
 └── package.json</pre
         >
         <p>
           The <kbd>dist</kbd> directory will get created automatically for us
-          later, but we should create the other folders and files now.
+          later, as well as the <kbd>postcss.config.js</kbd> and
+          <kbd>tailwind.config.css</kbd>, but we should create the other folders
+          and files now.
         </p>
         <ol>
           <li>
@@ -259,7 +265,6 @@ project-name/
 &lt;!doctype html&gt;
 &lt;html lang="en"&gt;
     &lt;head&gt;
-    &lt;title&gt;Tailwind Demo&lt;/title&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
     &lt;link rel="stylesheet" href="css/style.css" &gt;
@@ -298,31 +303,27 @@ project-name/
         <p>
           Next let's install Tailwind using our package manager. Go back to your
           command prompt and quit the webserver if it is running (ctrl+c). Then
-          do the following:
+          type
         </p>
-        <ol>
-          <li>
-            Type in the terminal:
-            <pre><code class="lang-bash">npm install -D tailwindcss @tailwindcss/vite</code></pre>
-          </li>
-          <li>
-            Create a file called <code>vite.config.js</code> and add the
-            following:
-            <pre><code class="lang-js">import { defineConfig } from 'vite'
-            import tailwindcss from '@tailwindcss/vite'
-            export default defineConfig({
-              plugins: [
-                tailwindcss(),
-              ],
-            })</code></pre>
-          </li>
-          <li>
-            Add <code>@import "tailwindcss";</code> to your
-            <code>style.css</code> file
-          </li>
-        </ol>
+        <pre><code class="lang-bash">npm install -D tailwindcss postcss autoprefixer</code></pre>
+        <p>After that has finished run one more command:</p>
+        <pre><code class="lang-bash">npx tailwindcss init -p</code></pre>
+        <p>This will create the two missing config files for us.</p>
 
-        <!-- <p>
+        <div class="callout">
+          <p>
+            You may be asking yourselves: "I thought we just needed Tailwind?
+            Why postcss and autoprefixer?" Postcss is a very handy plugin
+            manager that will allow us to do all sorts of things to our CSS. We
+            will use it to compile our Tailwind code to CSS and then to
+            automatically apply any prefixes that we might need as well.
+          </p>
+          <p>
+            We could also apply plugins that would allow us to use nesting
+            without SCSS, or use SCSS style import statements.
+          </p>
+        </div>
+        <p>
           The add command retrieved the packages and placed them into the
           <code>node_modules</code> directory, but our project still doesn't
           know about them. Lets do that next.
@@ -350,7 +351,7 @@ project-name/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-        </code></pre> -->
+        </code></pre>
         <p>
           Ok, lets try firing up our development server again. Type
           <code>npm run start</code>. Your page should have picked up a bit more
@@ -461,7 +462,7 @@ nav > a:hover {
           looking things up. But as you become familiar with the conventions
           Tailwind uses you will be able to guess more and more effectively. One
           thing that will help immensely with this is to install the Tailwind
-          CSS Intellisense extention in VSCode.
+          CSS Intellisense extention.
         </p>
 
         <p>
